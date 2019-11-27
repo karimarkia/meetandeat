@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    // background-color: rgb(247, 247, 247);
+    // background-image: linear-gradient(to right, rgba(37, 37, 37, 0.973), rgb(36, 113, 177));
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// img {
+//     width: 100%;
+// }
+
+button{
+    cursor: pointer;
+}
