@@ -35,7 +35,7 @@
                <span>Appetizers</span> <input type="text" />
            </div>
            <div>
-               <span>Mains</span> <input type="text" />
+               <span>Mains Dishes</span> <input type="text" />
            </div>
            <div>
                <span>Desserts</span> <input type="text" />
