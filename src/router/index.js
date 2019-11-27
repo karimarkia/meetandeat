@@ -7,35 +7,34 @@ import MealEdit from '@/views/MealEdit.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-  },
-  {
-    path: '/meal',
-    name: 'mealApp',
-    component:MealApp
-  },
-  {
-    path: '/details',
-    name: 'mealdetails',
-    component:MealDetails
-  },
-  {
-    path: '/edit/:id?',
-    name: 'meal-edit',
-    component: MealEdit
-  },
+const routes = [{
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
+        path: '/about',
+        name: 'about',
+    },
+    {
+        path: '/meal',
+        name: 'mealApp',
+        component: MealApp
+    },
+    {
+        path: '/details/:id?',
+        name: 'mealdetails',
+        component: MealDetails
+    },
+    {
+        path: '/edit/:id?',
+        name: 'meal-edit',
+        component: MealEdit
+    },
 ]
 
 const router = new VueRouter({
-  routes
+    routes
 })
 
 export default router

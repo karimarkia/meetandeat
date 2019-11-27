@@ -14,6 +14,10 @@ export default ({
         setMeals(state, { meals }) {
             state.meals = meals;
         },
+        setCurrMeal(state, mealId) {
+            let meal = state.meals.find(meal => meal.id === mealId);
+            state.currMeal = meal;
+        },
     },
     getters: {
         mealsToShow(state) {
@@ -35,7 +39,10 @@ export default ({
             //     filterBy.inStock && toy.inStock
             // )
             return state.meals;
-        }
+        },
+        currMeal(state) {
+            return state.currMeal;
+        },
     },
     actions: {
         loadMeals({ commit }) {
@@ -43,6 +50,10 @@ export default ({
                 .then(meals =>
                     commit({ type: 'setMeals', meals })
                 )
+        },
+        setCurrMeal(context, { mealId }) {
+            MealService.query().then(() =>
+                context.commit('setCurrMeal', mealId))
         },
     },
 
