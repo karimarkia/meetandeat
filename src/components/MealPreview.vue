@@ -1,9 +1,9 @@
 <template>
   <section class="meal-card" v-if="meal">
+     <router-link to="/details">
     <img class="img-card" :src="(meal.imgUrl[0])">
     <h4>{{meal.title}}</h4>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <router-link to="/details"><button>Add to Cart</button></router-link>
+</router-link>
 </section>
 </template>
 
