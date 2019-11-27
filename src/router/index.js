@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import MealApp from '@/views/MealApp.vue'
 import MealDetails from '@/views/MealDetails.vue'
+import MealEdit from '@/views/MealEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -25,7 +26,12 @@ const routes = [
     path: '/details',
     name: 'mealdetails',
     component:MealDetails
-  }
+  },
+  {
+    path: '/edit/:id?',
+    name: 'meal-edit',
+    component: MealEdit
+  },
 ]
 
 const router = new VueRouter({

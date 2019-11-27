@@ -23,4 +23,5 @@ export default {
   .page-body{
     min-height: 85vh; 
   }
+  
 </style>
