@@ -1,5 +1,6 @@
-import axios from 'axios'
-axios.defaults.withCredentials=true
+// import axios from 'axios'
+// axios.defaults.withCredentials=true
+const axios = require('axios')
 
 export default {
     query,
@@ -11,7 +12,7 @@ export default {
 
 const BASE_URL = (process.env.NODE_ENV !== 'development') ?
     '/api/meal' :
-    '//localhost:3000/api/meal';
+    '//localhost:3000/meals';
 
 
 function query() {
