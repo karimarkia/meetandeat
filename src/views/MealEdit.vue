@@ -1,10 +1,10 @@
  <template> 
     <section >
-        <div class="edit-container">
+        <div class="edit-container" v-if="currMeal">
             <h2>Detailes</h2>
             <div class="inputs-container">
-                <span>Title</span> <input type="text" />
-                <span>Country</span> <input type="text" />
+                <span>Title</span> <input type="text" v-model="currMeal.title"/>
+                <span>Country</span> <input type="text" v-model="currMeal.cuntry"/>
                 <span>City</span> <input type="text" />
                 <span>Price</span> <input type="number" />
             </div>
@@ -39,45 +39,22 @@
  
 <script>
 export default {
+      data: () => ({
+   currMeal: null
+  }),
+    computed: {
+    toyToEdit() {
+      return JSON.parse(JSON.stringify(this.currMeal));
+      
+    }
+  },
+created() {
+    let routeParamsId = this.$route.params.id;
+    this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
+      this.currMeal = meal;
 
-    // data(){
-    //     return {
-    //         meal:{}           
-    //     }ghjmnfd
-    // },
-    // methods:{
-    //     save(){
-    //         if(this.meal._id){
-    //             let meal = this.meal
-    //             this.$store.dispatch({type:'saveToy',meal})
-    //             .then(()=>this.$router.push(`/meal`))
-    //         }
-    //         else {
-    //             let toy = JSON.parse(JSON.stringify(this.meal))
-    //             this.$store.dispatch({type:'addToy', meal})
-    //             .then(()=>this.$router.push(`/meal`))
-    //         }
-            
-    //     },
-    // }, 
-    // computed:{
-    //     currMeal(){
-    //         return this.$store.getters.getCurrmeal
-    //     }
-    // },
-    //  created(){
-    //     let mealId = this.$route.params._id;
-    //     if(mealId){ 
-    //         // this.$store.dispatch({type:'getToys'})
-    //          this.$store.dispatch({type: "setCurrToy", mealId})
-    //             .then(() => {
-    //                  this.meal = JSON.parse(JSON.stringify(this.currMeal)); 
-    //             })
-
-    //     }
-
-    // } 
-    
+    });
+  }
 }
 </script>
 
