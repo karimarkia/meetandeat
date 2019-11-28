@@ -12,7 +12,7 @@ export default {
     MealList
   },
   created(){
-   console.log(this.$store.getters.mealsToShow);
+  //  console.log(this.$store.getters.mealsToShow);
   },
   computed: {
     meals() {

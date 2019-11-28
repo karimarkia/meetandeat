@@ -86,6 +86,7 @@ export default ({
                     return meal
                 })
         },
+      
         editMeal(context, {currMeal}) {
             MealService.edit(currMeal)
                 .then((updatedMeal) => {
