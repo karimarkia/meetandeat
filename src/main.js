@@ -6,6 +6,9 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+// import en from "element-ui/lib/locale/lang/en";
+// Vue.use(ElementUI, { locale: en });
+
 import '@/style/global.scss'
 
 Vue.use(ElementUI);

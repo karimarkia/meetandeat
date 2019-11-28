@@ -14,6 +14,14 @@
             <div class="inputs-container">
                 <span>Date</span> <input type="date" />
                 <span>Time</span> <input type="time" />
+                <span>Date</span> <el-date-picker type="date" placeholder="Pick a day"></el-date-picker>
+
+                <span>Time</span> <el-time-select :picker-options="{start: '08:00',
+                                                  step: '00:15',
+                                                  end: '18:30'
+                                                  }" 
+                                                  placeholder="Select time">
+                                  </el-time-select>
             </div>
 
             <h2>Hosting</h2>
@@ -28,9 +36,12 @@
             </div>
             <h2>Dishes</h2>
             <div class="inputs-container">
-                <span>Appetizers</span> <input type="text"/>
-                <span>Mains Dishes</span> <input type="text"/>
-                <span>Desserts</span> <input type="text"/>
+                <span>first Appetizer</span> <input type="text"/>
+                <span>second Appetizer</span> <input type="text"/>
+                <span>first Main Dishe</span> <input type="text"/>
+                <span>second Main Dishe</span> <input type="text"/>
+                <span>first Dessert</span> <input type="text"/>
+                <span>second Dessert</span> <input type="text"/>
                 <span>Drinks</span> <input type="text" /> 
             </div>
             <button  @click="save()">save</button>
