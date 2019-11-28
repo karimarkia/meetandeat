@@ -1,48 +1,36 @@
  <template> 
-    <section class="meal-edit">
-        <h1>edit page</h1>
-        <div class="inputs-container">
-            <div>
+    <section >
+        <div class="edit-container">
+            <h2>Detailes</h2>
+            <div class="inputs-container">
                 <span>Title</span> <input type="text" />
+                <span>Country</span> <input type="text" />
+                <span>City</span> <input type="text" />
+                <span>Price</span> <input type="number" />
             </div>
-           <div>
-               <span>Country</span> <input type="text" />
-           </div>
-           <div>
-               <span>City</span> <input type="text" />
-           </div>
-           <div>
-               <span>Price</span> <input type="number" />
-           </div>
-           <div>
-               <span>Date</span> <input type="date" />
-           </div>
-           <div>
-               <span>Time</span> <input type="time" />
-           </div>
-           <div>
+            <h2>Time</h2>
+            <div class="inputs-container">
+                <span>Date</span> <input type="date" />
+                <span>Time</span> <input type="time" />
+            </div>
+
+            <h2>Hosting</h2>
+            <div class="inputs-container">
                 <span>Tags</span> <select>
                     <option value="Asian">Asian</option>
                     <option value="Italian">Italian</option>
                     <option value="BBQ">BBQ</option>
                     <option value="Vegitarian">Vegitarian</option>
-                    </select>
-           </div>
-           <div>
-               <span>Limit Guests</span> <input type="number" />
-           </div>
-           <div>
-               <span>Appetizers</span> <input type="text" />
-           </div>
-           <div>
-               <span>Mains Dishes</span> <input type="text" />
-           </div>
-           <div>
-               <span>Desserts</span> <input type="text" />
-           </div>
-           <div>
-               <span>Drinks</span> <input type="text" /> 
-           </div>
+                </select>          
+                <span>Limit Guests</span> <input type="number" />
+            </div>
+            <h2>Dishes</h2>
+            <div class="inputs-container">
+                <span>Appetizers</span> <input type="text" />
+                <span>Mains Dishes</span> <input type="text" />
+                <span>Desserts</span> <input type="text" />
+                <span>Drinks</span> <input type="text" /> 
+            </div>
                   
         </div>
         
@@ -95,25 +83,25 @@ export default {
 
 
 <style scoped>
-.meal-edit{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-  }
+.edit-container{
+    margin: 50px 0;
+}
 .inputs-container {
     width: 60%;
-    margin: 10px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    
+}
+h2{
+    text-align: center
 }
 
-  input{
-      padding: 10px;
+  input, select{
+     
       border: 0;
       border-bottom: 1px solid;
-      width: 55%;
   }
 
 </style>
