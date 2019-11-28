@@ -9,7 +9,7 @@
           <router-link to="/about">About</router-link>
         </li>
         <li>
-          <router-link to="/">bla</router-link>
+          <router-link to="/add">Become a host</router-link>
         </li>
         <li>
           <router-link to="/">bla</router-link>

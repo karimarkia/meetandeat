@@ -46,16 +46,18 @@ export default {
   created() {
     this.$store.dispatch("loadMeals");
     const mealId = this.$route.params.id;
+
+    
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
   },
   computed: {
     meal() {
+          console.log( this.$store.getters.currMeal);
       return this.$store.getters.currMeal;
     },
     location(){
       console.log(this.$store.getters.currMeal.location);
-      
        return this.$store.getters.currMeal.location;
     }
   },

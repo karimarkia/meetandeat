@@ -1,49 +1,42 @@
- <template> 
-    <section class="meal-edit">
-        <h1>edit page</h1>
-        <div class="inputs-container">
-            <div>
-                <span>Title</span> <input type="text" />
+<template>
+    <section >
+        <div class="edit-container" v-if="currMeal">
+          <h1>{{(currMeal.id)? 'Meal Edit' : 'Meal Add'}}</h1>
+            <form type="submit">
+            <h2>Detailes</h2>
+            <div class="inputs-container">
+                <span>Title</span> <input type="text" v-model="currMeal.title" />
+                <span>Country</span> <input type="text" v-model="currMeal.cuntry"/>
+                <span>City</span> <input type="text" v-model="currMeal.city"/>
+                <span>Price</span> <input type="number" v-model="currMeal.price"/>
             </div>
-           <div>
-               <span>Country</span> <input type="text" />
-           </div>
-           <div>
-               <span>City</span> <input type="text" />
-           </div>
-           <div>
-               <span>Price</span> <input type="number" />
-           </div>
-           <div>
-               <span>Date</span> <input type="date" />
-           </div>
-           <div>
-               <span>Time</span> <input type="time" />
-           </div>
-           <div>
-                <span>Tags</span> <select>
+            <h2>Time</h2>
+            <div class="inputs-container">
+                <span>Date</span> <input type="date" />
+                <span>Time</span> <input type="time" />
+            </div>
+
+            <h2>Hosting</h2>
+            <div class="inputs-container">
+                <span>Tags</span> <select v-model="currMeal.type">
                     <option value="Asian">Asian</option>
                     <option value="Italian">Italian</option>
                     <option value="BBQ">BBQ</option>
                     <option value="Vegitarian">Vegitarian</option>
-                    </select>
-           </div>
-           <div>
-               <span>Limit Guests</span> <input type="number" />
-           </div>
-           <div>
-               <span>Appetizers</span> <input type="text" />
-           </div>
-           <div>
-               <span>Mains Dishes</span> <input type="text" />
-           </div>
-           <div>
-               <span>Desserts</span> <input type="text" />
-           </div>
-           <div>
-               <span>Drinks</span> <input type="text" /> 
-           </div>
-                  
+                </select>          
+                <span>Limit Guests</span> <input type="number" />
+            </div>
+            <h2>Dishes</h2>
+            <div class="inputs-container">
+                <span>Appetizers</span> <input type="text" />
+                <span>Mains Dishes</span> <input type="text" />
+                <span>Desserts</span> <input type="text" />
+                <span>Drinks</span> <input type="text" /> 
+            </div>
+            <button  @click="save()">save</button>
+             <!-- <button v-if="currMeal.id" @click="save">save</button>
+    <button v-else="" @click="add">add</button> -->
+            </form>      
         </div>
         
     </section>
@@ -51,69 +44,61 @@
  
 <script>
 export default {
+  data: () => ({
+    currMeal: {}
+  }),
+    computed: {
+    mealToEdit() {
+      return JSON.parse(JSON.stringify(this.currMeal));
+      
+    }
+  },
+created() {
+    let routeParamsId = this.$route.params.id;
+      if(!routeParamsId) return;
+    this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
+      this.currMeal = meal;
+    });
+  },
+  methods:{
+        save(){
+            console.log('rrr ',this.currMeal.id) 
+            if(this.currMeal.id){
+                let currMeal = this.currMeal
+                console.log('ffff', currMeal)
+                this.$store.dispatch({type:'editMeal',currMeal})
+                .then(()=>this.$router.push(`/meal`))
+            }
+            else {
+                let currMeal = JSON.parse(JSON.stringify(this.currMeal))
+                this.$store.dispatch({type:'addMeal', currMeal})
+                .then(()=>this.$router.push(`/meal`))
+            }
+        },
+  }
 
-    // data(){
-    //     return {
-    //         meal:{}           
-    //     }ghjmnfd
-    // },
-    // methods:{
-    //     save(){
-    //         if(this.meal._id){
-    //             let meal = this.meal
-    //             this.$store.dispatch({type:'saveToy',meal})
-    //             .then(()=>this.$router.push(`/meal`))
-    //         }
-    //         else {
-    //             let toy = JSON.parse(JSON.stringify(this.meal))
-    //             this.$store.dispatch({type:'addToy', meal})
-    //             .then(()=>this.$router.push(`/meal`))
-    //         }
-            
-    //     },
-    // }, 
-    // computed:{
-    //     currMeal(){
-    //         return this.$store.getters.getCurrmeal
-    //     }
-    // },
-    //  created(){
-    //     let mealId = this.$route.params._id;
-    //     if(mealId){ 
-    //         // this.$store.dispatch({type:'getToys'})
-    //          this.$store.dispatch({type: "setCurrToy", mealId})
-    //             .then(() => {
-    //                  this.meal = JSON.parse(JSON.stringify(this.currMeal)); 
-    //             })
-
-    //     }
-
-    // } 
-    
 }
 </script>
 
 
 <style scoped>
-.meal-edit{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-  }
+.edit-container {
+  margin: 50px 0;
+}
 .inputs-container {
-    width: 60%;
-    margin: 10px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
+  width: 60%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 25px;
+}
+h2 {
+  text-align: center;
 }
 
-  input{
-      padding: 10px;
-      border: 0;
-      border-bottom: 1px solid;
-      width: 55%;
-  }
-
+input,
+select {
+  border: 0;
+  border-bottom: 1px solid;
+}
 </style>
