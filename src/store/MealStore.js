@@ -30,8 +30,9 @@ export default ({
         },
         addMeal(state, { meal }) {
             // state.toys.id=1
-            const addedTodo = MealService.add(meal)
-            state.meals.push(addedTodo)
+            // const addedMeal = await MealService.add(meal)
+            // debugger
+            state.meals.push(meal)
 
         },
         editMeal(state, { updatedMeal }) {
@@ -108,16 +109,19 @@ export default ({
                     return meal
                 })
         },
+
         editMeal(context, { currMeal }) {
             MealService.edit(currMeal)
                 .then((updatedMeal) => {
                     context.commit({ type: 'editMeal', updatedMeal })
                 })
         },
-        addMeal(context, { newMeal }) {
-            return MealService.add(newMeal)
+        addMeal(context, { currMeal }) {
+            // console.log(currMeal);
+            return MealService.add(currMeal)
                 .then((addedItem) => {
                     context.commit({ type: 'addMeal', meal: addedItem })
+                        // console.log(addedItem);
                     return addedItem
                 })
         },

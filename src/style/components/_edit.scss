@@ -1,0 +1,19 @@
+.edit-container {
+    margin: 50px 0;
+  }
+  .inputs-container {
+    width: 60%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+  }
+  h2 {
+    text-align: center;
+  }
+  
+  input,
+  select {
+    border: 0;
+    border-bottom: 1px solid;
+  }

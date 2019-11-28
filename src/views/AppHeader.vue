@@ -12,7 +12,10 @@
           <router-link to="/add">Become a host</router-link>
         </li>
         <li>
-          <router-link to="/">bla</router-link>
+          <router-link to="/">logIn</router-link>
+        </li>
+        <li>
+          <router-link to="/">signup</router-link>
         </li>
       </ul>
     </nav>

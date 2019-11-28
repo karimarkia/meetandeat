@@ -14,11 +14,10 @@ export default {
     MealList,
     MealFilter
   },
-  created(){
-   console.log(this.$store.getters.mealsToShow);
-  },
   computed: {
     meals() {
+      console.log(this.$store.getters.mealsToShow);
+      
       return this.$store.getters.mealsToShow;
     }
   },
