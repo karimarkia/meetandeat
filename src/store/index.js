@@ -23,12 +23,8 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    MealStore
   }
 })
-    state: {},
-    mutations: {},
-    actions: {},
-    modules: {
-        MealStore
-    }
-})
+   
+
