@@ -25,6 +25,9 @@ export default {
      editURL() {
       return `/edit/${this.meal.id}`;
     }
-  }
+  },
+  // created(){
+  //   debugger
+  // }
 };
 </script>
