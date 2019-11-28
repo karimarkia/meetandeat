@@ -1,11 +1,10 @@
 <template>
-  <section v-if="meal" class="details ">
-      <ul class="imgs-gallery">
-          <li class="imgMeal" v-for="img in meal.imgUrl" :key="img">
-               <img class="imgDetails" :src="(img)">
-          </li>
-          </ul>
-        <h1>Meal Details</h1>
+  <section v-if="meal" class="detailsPage flex">
+      <div class="imgs-gallery ">
+       <img :data-i="idx" class="imgDetails" v-for="(img , idx) in meal.imgUrl" :key="idx" :src="(img)"/>
+      </div>
+
+        <h1>Meal Detail</h1>
     </section>
 </template>
 
@@ -37,26 +36,47 @@ export default {
 </script>
 <style scoped>
 .imgs-gallery{
-flex-direction: row;
-max-width: 90vw;
-  height: 20%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
+  max-width: 90%;
+  display: grid;
+  height: 50vh;
+    gap: 10px;      
+        grid-template-rows: 50% 50% ;
+       grid-template-columns:  25% 25% 25% 25%;
+        grid-template-areas: "a a b c"
+                             "a a d e";
+                     
+    
+    margin: 10px;   
+    margin-top: 20px;      
+}
 
-                
+img.imgDetails{
+    width: 100%;
+    height: 100%;
 }
-.imgMeal{
-    width: 25%;
+.detailsPage{
+    align-items: center;
+    flex-direction: column;
 }
-.imgDetails{
-    max-height: 100%;
+
+[data-i="0"] {
+   grid-area: a;
 }
-ul:first-child{
+[data-i="1"] {
+   grid-area: b;
+}
+[data-i="2"] {
+   grid-area: c;
+}
+[data-i="3"] {
+   grid-area: d;
+}
+[data-i="4"] {
+   grid-area: e;
+}
+
+/* .imgs-gallery:first-child img{
 width: 50%;
-}
-/* .cards-container {
-  
 } */
+
 </style>
