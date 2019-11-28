@@ -3,7 +3,7 @@
         <div class="edit-container" v-if="currMeal">
           <h1>{{(currMeal.id)? 'Meal Edit' : 'Meal Add'}}</h1>
             <form type="submit">
-            <h2>Detailes</h2>
+            <h3>Detailes</h3>
             <div class="inputs-container">
                 <span>Title</span> <el-input type="text" v-model="currMeal.title" ></el-input>
                 <span>Country</span> <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.country"></el-input>
@@ -22,7 +22,7 @@
                                   </el-time-select>
             </div>
 
-            <h2>Hosting</h2>
+            <h3>Hosting</h3>
             <div class="inputs-container">
                 <span>Tags</span>   <el-select v-model="currMeal.tags" v-if="currMeal.tags"  multiple placeholder="Select">
                                       <el-option  v-for="tag in options" :key="tag.value" :label="tag.label" :value="tag.value">   
@@ -31,7 +31,7 @@
                                     </el-select>
                 <span>Limit Guests</span> <el-input v-model="currMeal.maxUsers" type="number" ></el-input>
             </div>
-            <h2>Dishes</h2>
+            <h3>Dishes</h3>
             <div class="inputs-container" v-if="currMeal.dishes">
                 <span>first Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[0].name" type="text"></el-input>
                 <span>second Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[1].name" type="text"></el-input>
