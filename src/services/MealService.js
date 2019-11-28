@@ -38,5 +38,5 @@ function getById(id) {
 }
 
 function edit(mealToEdit) {
-    return axios.put(`${BASE_URL}/${mealToEdit.meal.id}`, mealToEdit.toy)
+    return axios.put(`${BASE_URL}/${mealToEdit.meal.id}`, mealToEdit.meal)
 }

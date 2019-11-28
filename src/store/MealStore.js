@@ -87,7 +87,7 @@ export default ({
                 })
         },
         editMeal(context, meal) {
-            console.log('qqqq', meal)
+            
             MealService.edit(meal)
                 .then((updatedMeal) => {
                     context.commit({ type: 'editMeal', updatedMeal })

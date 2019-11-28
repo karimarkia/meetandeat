@@ -53,11 +53,9 @@ export default {
   },
   computed: {
     meal() {
-          console.log( this.$store.getters.currMeal);
       return this.$store.getters.currMeal;
     },
     location(){
-      console.log(this.$store.getters.currMeal.location);
        return this.$store.getters.currMeal.location;
     }
   },

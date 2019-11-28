@@ -62,10 +62,8 @@ created() {
   },
   methods:{
         save(){
-            console.log('rrr ',this.currMeal.id) 
             if(this.currMeal.id){
                 let currMeal = this.currMeal
-                console.log('ffff', currMeal)
                 this.$store.dispatch({type:'editMeal',currMeal})
                 .then(()=>this.$router.push(`/meal`))
             }
