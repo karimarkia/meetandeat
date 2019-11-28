@@ -6,8 +6,8 @@
             <h2>Detailes</h2>
             <div class="inputs-container">
                 <span>Title</span> <input type="text" v-model="currMeal.title" />
-                <span>Country</span> <input type="text" v-model="currMeal.cuntry"/>
-                <span>City</span> <input type="text" v-model="currMeal.city"/>
+                <span>Country</span> <input type="text" v-if="currMeal.location" v-model="currMeal.location.country"/>
+                <span>City</span> <input type="text" v-if="currMeal.location" v-model="currMeal.location.city"/>
                 <span>Price</span> <input type="number" v-model="currMeal.price"/>
             </div>
             <h2>Time</h2>
@@ -18,19 +18,19 @@
 
             <h2>Hosting</h2>
             <div class="inputs-container">
-                <span>Tags</span> <select v-model="currMeal.type">
+                <span>Tags</span> <select v-model="currMeal.tags">
                     <option value="Asian">Asian</option>
                     <option value="Italian">Italian</option>
                     <option value="BBQ">BBQ</option>
                     <option value="Vegitarian">Vegitarian</option>
                 </select>          
-                <span>Limit Guests</span> <input type="number" />
+                <span>Limit Guests</span> <input v-model="currMeal.maxUsers" type="number" />
             </div>
             <h2>Dishes</h2>
             <div class="inputs-container">
-                <span>Appetizers</span> <input type="text" />
-                <span>Mains Dishes</span> <input type="text" />
-                <span>Desserts</span> <input type="text" />
+                <span>Appetizers</span> <input type="text"/>
+                <span>Mains Dishes</span> <input type="text"/>
+                <span>Desserts</span> <input type="text"/>
                 <span>Drinks</span> <input type="text" /> 
             </div>
             <button  @click="save()">save</button>
@@ -59,7 +59,7 @@ created() {
     this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
       this.currMeal = meal;
     });
-  },
+  }, 
   methods:{
         save(){
             if(this.currMeal.id){
@@ -75,7 +75,7 @@ created() {
         },
   }
 
-}
+} 
 </script>
 
 

@@ -30,9 +30,9 @@ export default ({
             state.meals.push(addedTodo)
 
         },
-        editMeal(state, { item }) {
-            const idx = state.meals.findIndex(currItem => currItem.id === item.id);
-            state.meals.splice(idx, 1, item);
+        editMeal(state,  {updatedMeal} ) {
+            const idx = state.meals.findIndex(currMeal => currMeal.id === updatedMeal.id);
+            state.meals.splice(idx, 1, updatedMeal.data);
         },
     },
 
@@ -86,13 +86,13 @@ export default ({
                     return meal
                 })
         },
-        editMeal(context, meal) {
-            
-            MealService.edit(meal)
+      
+        editMeal(context, {currMeal}) {
+            MealService.edit(currMeal)
                 .then((updatedMeal) => {
                     context.commit({ type: 'editMeal', updatedMeal })
                 })
-        },
+        }, 
         addMeal(context, { newMeal }) {
             return MealService.add(newMeal)
                 .then((addedItem) => {

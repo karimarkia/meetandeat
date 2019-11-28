@@ -16,13 +16,49 @@
         :src="(img)"
       />
     </div>
-    <section class=" flex">
-    <div class="description">
-      <p>{{meal.description}}</p>
-    </div>
-          <div class="priceDetails">
+    <section class="flex">
+      <div class="description">
+        <p>{{meal.description}}</p>
+      </div>
+      <div class="priceDetails">
         <h1>{{meal.price}}$</h1>
-        </div>  
+      </div>
+    </section>
+    <section class="mealMenu">
+      <h2>Menu</h2>
+      <h3>Appetizers</h3>
+      <div class="dish">
+        <h4>
+          <span>{{meal.dishes.appetizers[0].name}}</span>...
+          <span>{{meal.dishes.appetizers[0].count}}</span>
+        </h4>
+        <h4>
+          <span>{{meal.dishes.appetizers[1].count}}</span>...
+          <span>{{meal.dishes.appetizers[1].name}}</span>
+        </h4>
+      </div>
+      <h3>Mains</h3>
+      <div class="dish">
+        <h4>
+          <span>{{meal.dishes.mains[0].name}}</span>...
+          <span>{{meal.dishes.mains[0].count}}</span>
+        </h4>
+        <h4>
+          <span>{{meal.dishes.mains[1].count}}</span>...
+          <span>{{meal.dishes.mains[1].name}}</span>
+        </h4>
+      </div>
+      <h3>Appetizers</h3>
+      <div class="dish">
+        <h4>
+          <span>{{meal.dishes.dessert[0].name}}</span>...
+          <span>{{meal.dishes.dessert[0].count}}</span>
+        </h4>
+        <h4>
+          <span>{{meal.dishes.dessert[1].count}}</span>...
+          <span>{{meal.dishes.dessert[1].name}}</span>
+        </h4>
+      </div>
     </section>
     <section class="reviewArea">
       <h2>reviews place</h2>
@@ -47,21 +83,23 @@ export default {
     this.$store.dispatch("loadMeals");
     const mealId = this.$route.params.id;
 
-    
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
   },
   computed: {
     meal() {
+      console.log(this.$store.getters.currMeal);
       return this.$store.getters.currMeal;
     },
-    location(){
-       return this.$store.getters.currMeal.location;
+    location() {
+      console.log(this.$store.getters.currMeal.location);
+      return this.$store.getters.currMeal.location;
     }
   },
   methods: {}
 };
 </script>
+
 <style scoped>
 .imgs-gallery {
   max-width: 100%;
@@ -119,10 +157,19 @@ width: 50%;
   width: 100%;
   border: 1px solid black;
 }
-.priceDetails{
+.priceDetails {
   width: 35%;
 }
-.description{
-width: 65%;
+.description {
+  width: 65%;
+}
+
+.dish {
+  display: flex;
+  justify-content: space-around;
+}
+
+h3, h2{
+  text-align: center;
 }
 </style>
