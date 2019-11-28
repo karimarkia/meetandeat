@@ -4,10 +4,27 @@ import MealStore from './MealStore.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state: {},
-    mutations: {},
-    actions: {},
-    modules: {
-        MealStore
-    }
+  state: {
+    meals: [],
+    currMeal: null,
+  },
+  getters:{
+    meals(state) {
+
+      return state.meals
+    },
+  },
+  mutations: {
+    setToys(state, {toys}) {
+      state.toys = toys;
+      console.log('this :',state.toys);
+  },
+  },
+  actions: {
+  },
+  modules: {
+    MealStore
+  }
 })
+   
+
