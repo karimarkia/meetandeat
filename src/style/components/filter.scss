@@ -1,0 +1,38 @@
+    .filter-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .sortPrice {
+        border-radius: 30px;
+        border-color: rgb(176, 176, 176);
+        cursor: pointer;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        color: rgb(34, 34, 34);
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+        position: relative;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 16px;
+        padding-left: 16px;
+        font-size: 12px;
+        line-height: 16px;
+        border-width: 1px;
+        border-style: solid;
+        border-image: initial;
+        outline: none;
+        margin: 0px;
+    }
+    
+    .sortPrice:hover {
+        border-color: rgb(34, 34, 34);
+    }
+    
+    .searchInput {
+        padding: 8px 8px 8px 34px;
+        border-radius: 4px;
+        border: 1px solid #dfe2e7;
+        text-overflow: ellipsis;
+        min-width: 320px;
+    }
