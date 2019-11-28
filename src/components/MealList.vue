@@ -1,13 +1,14 @@
 <template>
-  <section>
-    <MealPreview v-for="i in 5" :key="i" ></MealPreview>
-
+  <section class="cards-container">
+    <MealPreview v-for="(meal, idx) in meals" :key="idx" :meal="meal"></MealPreview>
   </section>
 </template>
 
 <script>
 import MealPreview from '@/components/MealPreview.vue'
 export default {
+    name: "meals",
+   props:['meals'],
   components:{
     MealPreview
   }

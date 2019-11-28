@@ -1,6 +1,6 @@
 // import axios from 'axios'
 // axios.defaults.withCredentials=true
-const axios = require("axios");
+const axios = require('axios')
 
 export default {
     query,

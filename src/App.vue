@@ -1,7 +1,6 @@
 <template>
   <section>
     <AppHeader></AppHeader>
-    
     <router-view class="page-body"/>
     <Footer></Footer>
   </section>
@@ -14,6 +13,10 @@ export default {
   components:{
     AppHeader,
     Footer
+  },
+    created() {
+    this.$store.dispatch("loadMeals");
+    console.log('laod');
   }
 }
 </script>
@@ -23,4 +26,5 @@ export default {
   .page-body{
     min-height: 85vh; 
   }
+  
 </style>
