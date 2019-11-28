@@ -1,34 +1,35 @@
 {
   "meals": [
     {
-      "id": "5c09yu",
-      "title": "BBQ Festawdwadaa",
+      "id": "5c0ddfhfdsh78sh768f7shdffsssd759",
+      "title": "Fresh pasta making class and dinner by the Tiber river",
       "location": {
-        "country": "USA",
-        "city": "New York",
-        "lat": 40.73061,
-        "lng": -73.935242
+        "country": "Italy",
+        "city": "Rome",
+        "lat": 41.902782,
+        "lng": 12.496366
       },
-      "price": 250,
-      "duration": 3,
+      "price": 70,
       "atDate": "1574929751733",
-      "tags": "BBQ",
+      "duration": 3,
+      "tags": ["Italian"],
       "ownerId": "id",
-      "rate": 3.7,
+      "rate": 4.7,
       "maxUsers": 7,
       "guests": [
         "userId1",
+        "userId2",
         "userId3",
-        "userId3"
+        "userId4"
       ],
       "imgUrl": [
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg",
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862274/new%20york/da4da59ae0ec049b64e86bb028401487_ycltr8.jpg",
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862282/new%20york/nagashi-asian-food_obgeur.jpg",
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862295/new%20york/Reservations2_jq1hmf.jpg",
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862209/new%20york/cut_dlieto.jpg"
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1574848897/rome/bphnzifbeemufdzi1c2v.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1574848938/rome/tcvat5lwv8fdq690ajpz.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1574848913/rome/xfc5jecilflixajwcxkg.png",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1574848906/rome/svi0lyyy509c1ud8b4so.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1574848909/rome/fcywtalsuxa8ugmnqljo.jpg"
       ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus ligula et hendrerit viverra. Pellentesque eget justo enim. In id pretium erat. Vivamus mollis ante sed turpis tincidunt, ac efficitur enim tincidunt. In hac habitasse platea dictumst. Quisque ultrices tellus eu enim vehicula fermentum.",
+      "description": "Have fun preparing fresh egg pasta using the best flour and the best techniques that host Pigi has mastered over the years, before enjoying your creations for dinner.",
       "dishes": {
         "appetizers": [
           {
@@ -68,7 +69,11 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": "5c09y33u",
+=======
+      "id": "5c09yu",
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "title": "BBQ Fest",
       "location": {
         "country": "USA",
@@ -76,10 +81,17 @@
         "lat": 40.73061,
         "lng": -73.935242
       },
+<<<<<<< HEAD
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
       "tags": "BBQ",
+=======
+      "price": 250,
+      "duration": 3,
+      "atDate": "1574929751733",
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -99,6 +111,7 @@
       "dishes": {
         "appetizers": [
           {
+<<<<<<< HEAD
             "name": "hot wings",
             "count": 2
           },
@@ -166,6 +179,8 @@
       "dishes": {
         "appetizers": [
           {
+=======
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
             "name": "Pizza tasting",
             "count": 2
           },
@@ -202,8 +217,13 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": "5c021y33u",
       "title": "Mama Italay",
+=======
+      "id": "5c09y33u",
+      "title": "BBQ Fest",
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "location": {
         "country": "USA",
         "city": "New York",
@@ -211,6 +231,7 @@
         "lng": -73.935242
       },
       "price": 200,
+<<<<<<< HEAD
       "atDate": "1574929751733",
       "duration": 3,
       "tags": "Italiyan",
@@ -350,6 +371,13 @@
       "tags": "Asian",
       "ownerId": "id",
       "rate": 4.1,
+=======
+      "duration": 3,
+      "atDate": "1574929751733",
+      "tags": ["BBQ"],
+      "ownerId": "id",
+      "rate": 3.7,
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "maxUsers": 7,
       "guests": [
         "userId1",
@@ -403,6 +431,7 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": "5c0ddfhfdsh78sh768f7shf56agd759",
       "title": "Modern Italian dinner near the Vatican",
       "location": {
@@ -465,6 +494,8 @@
       }
     },
     {
+=======
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "id": "5c0ddfhfdsh78sh768f7shdffsssd759",
       "title": "Fresh pasta making class and dinner by the Tiber river",
       "location": {
@@ -476,7 +507,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -544,7 +579,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -595,7 +634,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -662,7 +705,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -729,7 +776,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -791,7 +842,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -859,7 +914,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -926,7 +985,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -993,7 +1056,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -1050,6 +1117,7 @@
     },
     {
       "id": "5c021y33u",
+<<<<<<< HEAD
       "title": "Mama Italay",
       "location": {
         "country": "USA",
@@ -1184,6 +1252,8 @@
     },
     {
       "id": "5c021y33u",
+=======
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "title": "chin chan",
       "location": {
         "country": "USA",
@@ -1194,7 +1264,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -1261,7 +1335,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -1323,7 +1401,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -1391,7 +1473,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -1442,7 +1528,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -1509,7 +1599,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -1576,7 +1670,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -1638,7 +1736,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -1706,7 +1808,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -1773,7 +1879,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -1840,7 +1950,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -1907,7 +2021,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -1974,7 +2092,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -2041,7 +2163,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -2108,7 +2234,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -2170,7 +2300,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -2238,7 +2372,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -2289,7 +2427,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -2356,7 +2498,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -2423,7 +2569,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -2485,7 +2635,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -2553,7 +2707,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -2620,7 +2778,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -2687,7 +2849,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -2754,7 +2920,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -2821,7 +2991,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -2888,7 +3062,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -2955,7 +3133,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -3017,7 +3199,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -3085,7 +3271,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -3136,7 +3326,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -3203,7 +3397,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -3270,7 +3468,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -3332,7 +3534,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -3400,7 +3606,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -3467,7 +3677,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -3534,7 +3748,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -3601,7 +3819,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -3668,7 +3890,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -3735,7 +3961,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -3802,7 +4032,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -3864,7 +4098,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -3932,7 +4170,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -3983,7 +4225,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -4050,7 +4296,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -4117,7 +4367,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -4179,7 +4433,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -4247,7 +4505,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -4314,7 +4576,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -4381,7 +4647,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -4448,7 +4718,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -4515,7 +4789,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -4582,7 +4860,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -4649,7 +4931,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -4711,7 +4997,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -4779,7 +5069,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -4830,7 +5124,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -4897,7 +5195,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -4964,7 +5266,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -5026,7 +5332,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -5094,7 +5404,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -5161,7 +5475,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -5228,7 +5546,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -5295,7 +5617,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -5362,7 +5688,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -5429,7 +5759,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -5496,7 +5830,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -5558,7 +5896,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -5626,7 +5968,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -5677,7 +6023,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -5744,7 +6094,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -5811,7 +6165,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -5873,7 +6231,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -5941,7 +6303,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -6008,7 +6374,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -6075,7 +6445,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -6142,7 +6516,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -6209,7 +6587,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -6276,7 +6658,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -6343,7 +6729,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -6405,7 +6795,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -6473,7 +6867,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -6524,7 +6922,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -6591,7 +6993,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -6658,7 +7064,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -6720,7 +7130,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -6788,7 +7202,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -6855,7 +7273,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -6922,7 +7344,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -6989,7 +7415,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -7056,7 +7486,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -7123,7 +7557,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -7190,7 +7628,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -7252,7 +7694,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -7320,7 +7766,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -7371,7 +7821,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -7438,7 +7892,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -7505,7 +7963,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -7567,7 +8029,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -7635,7 +8101,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -7702,7 +8172,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -7769,7 +8243,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -7836,7 +8314,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.3,
       "maxUsers": 7,
@@ -7903,7 +8385,11 @@
       "price": 250,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -7970,7 +8456,11 @@
       "price": 230,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Asian",
+=======
+      "tags": ["Asian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.1,
       "maxUsers": 7,
@@ -8037,7 +8527,11 @@
       "price": 50,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -8099,7 +8593,11 @@
       "price": 70,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italian",
+=======
+      "tags": ["Italian"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.7,
       "maxUsers": 7,
@@ -8167,7 +8665,11 @@
       "price": 250,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -8218,7 +8720,11 @@
       "price": 200,
       "duration": 3,
       "atDate": "1574929751733",
+<<<<<<< HEAD
       "tags": "BBQ",
+=======
+      "tags": ["BBQ"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 3.7,
       "maxUsers": 7,
@@ -8285,7 +8791,11 @@
       "price": 200,
       "atDate": "1574929751733",
       "duration": 3,
+<<<<<<< HEAD
       "tags": "Italiyan",
+=======
+      "tags": ["Italiyan"],
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
       "ownerId": "id",
       "rate": 4.8,
       "maxUsers": 7,
@@ -8339,6 +8849,7 @@
           "Beer"
         ]
       }
+<<<<<<< HEAD
     },
     {
       "title": "zx",
@@ -8354,6 +8865,8 @@
       "title": "zxcxzc",
       "imgUrl": "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg",
       "id": "dUdVhm7"
+=======
+>>>>>>> 06f5a7911f6b768b075ea1e20b97f3b26fc94931
     }
   ]
 }
