@@ -24,6 +24,12 @@ export default ({
             state.meals.splice(idx, 1)
       
             },
+            addMeal(state, {meal}) {
+                // state.toys.id=1
+                const addedTodo = MealService.add(meal)
+                state.meals.push(addedTodo)
+        
+              },
     },
     getters: {
         mealsToShow(state) {
@@ -76,6 +82,13 @@ export default ({
                     return meal
                 })
           },
+          addMeal(context, {newMeal}) {
+            return MealService.add(newMeal)
+            .then((addedItem)=>{
+                context.commit({type: 'addMeal', meal: addedItem} )
+                return addedItem
+            })
+        },
     },
 
 })

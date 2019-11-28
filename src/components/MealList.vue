@@ -1,6 +1,9 @@
 <template>
   <section class="cards-container">
-    <MealPreview v-for="(meal, idx) in meals" :key="idx" :meal="meal"></MealPreview>
+    <MealPreview v-for="(meal, idx) in meals" :key="idx" :meal="meal">
+     
+    </MealPreview>
+    
   </section>
 </template>
 

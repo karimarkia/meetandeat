@@ -31,6 +31,11 @@ const routes = [{
         name: 'meal-edit',
         component: MealEdit
     },
+    {
+        path: '/add',
+        name: 'meal-edit',
+        component: MealEdit
+    },
 ]
 
 const router = new VueRouter({

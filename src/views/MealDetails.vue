@@ -2,6 +2,7 @@
   <section v-if="meal" class="detailsPage flex">
       <div class="imgs-gallery ">
        <img :data-i="idx" class="imgDetails" v-for="(img , idx) in meal.imgUrl" :key="idx" :src="(img)"/>
+       
       </div>
 
         <h1>Meal Detail</h1>
