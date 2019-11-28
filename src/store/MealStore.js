@@ -86,13 +86,12 @@ export default ({
                     return meal
                 })
         },
-        editMeal(context, meal) {
-            console.log('qqqq', meal)
-            MealService.edit(meal)
+        editMeal(context, {currMeal}) {
+            MealService.edit(currMeal)
                 .then((updatedMeal) => {
                     context.commit({ type: 'editMeal', updatedMeal })
                 })
-        },
+        }, 
         addMeal(context, { newMeal }) {
             return MealService.add(newMeal)
                 .then((addedItem) => {
