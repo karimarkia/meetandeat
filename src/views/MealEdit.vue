@@ -1,12 +1,13 @@
  <template> 
     <section >
-        <div class="edit-container" v-if="meal">
+        <div class="edit-container" v-if="currMeal">
+            <form type="submit">
             <h2>Detailes</h2>
             <div class="inputs-container">
-                <span>Title</span> <input type="text" v-model="meal.title" />
-                <span>Country</span> <input type="text" />
-                <span>City</span> <input type="text" />
-                <span>Price</span> <input type="number" />
+                <span>Title</span> <input type="text" v-model="currMeal.title" />
+                <span>Country</span> <input type="text" v-model="currMeal.cuntry"/>
+                <span>City</span> <input type="text" v-model="currMeal.city"/>
+                <span>Price</span> <input type="number" v-model="currMeal.price"/>
             </div>
             <h2>Time</h2>
             <div class="inputs-container">
@@ -16,7 +17,7 @@
 
             <h2>Hosting</h2>
             <div class="inputs-container">
-                <span>Tags</span> <select>
+                <span>Tags</span> <select v-model="currMeal.type">
                     <option value="Asian">Asian</option>
                     <option value="Italian">Italian</option>
                     <option value="BBQ">BBQ</option>
@@ -31,7 +32,8 @@
                 <span>Desserts</span> <input type="text" />
                 <span>Drinks</span> <input type="text" /> 
             </div>
-                  
+            <button  @click="save()">save</button>
+            </form>      
         </div>
         
     </section>
@@ -39,45 +41,38 @@
  
 <script>
 export default {
+      data: () => ({
+   currMeal: null
+  }),
+    computed: {
+    mealToEdit() {
+      return JSON.parse(JSON.stringify(this.currMeal));
+      
+    }
+  },
+created() {
+    let routeParamsId = this.$route.params.id;
+    this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
+      this.currMeal = meal;
+    });
+  },
+  methods:{
+        save(){
+            console.log('rrr ',this.currMeal.id) 
+            if(this.currMeal.id){
+                let currMeal = this.currMeal
+                console.log('ffff', currMeal)
+                this.$store.dispatch({type:'editMeal',currMeal})
+                .then(()=>this.$router.push(`/meal`))
+            }
+            else {
+                let currMeal = JSON.parse(JSON.stringify(this.currMeal))
+                this.$store.dispatch({type:'addMeal', currMeal})
+                .then(()=>this.$router.push(`/meal`))
+            }
+        },
+  }
 
-    data(){
-        return {
-            meal:{}           
-        }
-    },
-    // methods:{
-    //     save(){
-    //         if(this.meal.id){
-    //             let meal = this.meal
-    //             this.$store.dispatch({type:'saveMeal',meal})
-    //             .then(()=>this.$router.push(`/meal`))
-    //         }
-    //         else {
-    //             let toy = JSON.parse(JSON.stringify(this.meal))
-    //             this.$store.dispatch({type:'addMeal', meal})
-    //             .then(()=>this.$router.push(`/meal`))
-    //         }
-            
-    //     },
-    // }, 
-    computed:{
-        currMeal(){
-            return this.$store.getters.currMeal;
-        }
-    },
-     created(){
-        let mealId = this.$route.params.id;
-        if(mealId){ 
-            // this.$store.dispatch({type:'getToys'})
-             this.$store.dispatch({type: "setCurrMeal", mealId})
-                .then(() => {
-                    console.log('fffff ',this.currMeal)
-                    this.meal = JSON.parse(JSON.stringify(this.currMeal)); 
-                    console.log('xxxx ',this.meal)
-                })
-        }
-    } 
-    
 }
 </script>
 

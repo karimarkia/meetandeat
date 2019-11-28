@@ -18,6 +18,15 @@ export default ({
             let meal = state.meals.find(meal => meal.id === mealId);
             state.currMeal = meal;
         },
+        removeMeal(state, {mealId}) {
+            // todoService.remove(todoId);
+            const idx = state.meals.findIndex(meal => meal.id === mealId)
+            state.meals.splice(idx, 1)
+        },
+        editMeal(state, { item }) {
+            const idx = state.meals.findIndex(currItem => currItem.id === item.id);
+            state.meals.splice(idx, 1, item);
+        },
     },
     getters: {
         mealsToShow(state) {
@@ -55,6 +64,27 @@ export default ({
             MealService.query().then(() =>
                 context.commit('setCurrMeal', mealId))
         },
+        removeMeal(context, payload) {
+            return MealService.remove(payload.mealId)
+                .then(()=>{
+                    context.commit({type: 'removeMeal', mealId: payload.mealId} )
+                })
+          },
+        getById(context, mealId) {
+            return MealService.getById(mealId.routeParamsId)
+                .then(meal => {
+                    context.commit({ type: 'setCurrMeal', meal })     
+                    return meal
+                })
+        },
+        editMeal(context, meal) {
+            console.log('qqqq', meal)
+            MealService.edit(meal)
+                .then((updatedMeal) => {
+                    context.commit({ type: 'editMeal', updatedMeal })
+                })
+          },
+
     },
 
-})
+}) 
