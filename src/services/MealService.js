@@ -22,8 +22,10 @@ function query() {
 }
 
 function add(meal) {
+    console.log(meal);
+    // meal.id = 'bananawd'
     return axios.post(BASE_URL, meal)
-        .then(res => res.data)
+         .then(res => res.data)
 }
 
 function remove(mealId) {

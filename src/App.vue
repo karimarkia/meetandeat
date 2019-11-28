@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style >
-  /* @import url('./style/components/_AppHeader.scss'); */
   .page-body{
     min-height: 85vh; 
   }
