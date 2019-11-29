@@ -3,7 +3,6 @@
         <div class="edit-container" v-if="currMeal">
           <h1>{{(currMeal.id)? 'Meal Edit' : 'Meal Add'}}</h1>
             <form type="submit">
-            <h2>Detailes</h2>
             <div class="inputs-container">
                 <span>Title</span> <el-input type="text" v-model="currMeal.title" ></el-input>
                 <span>Country</span> <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.country"></el-input>
@@ -97,12 +96,12 @@ export default {
     },
     add() {
       let currMeal = this.currMeal;
-      // currMeal.id='baba'
+      
       this.currMeal.imgUrl="https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
       // this.newToy.createdAt = Date.now();
       this.$store.dispatch({ type: "addMeal", currMeal })
       .then(() => this.$router.push(`/meal`));
-      // this.currMeal = {};
+      this.currMeal = {};
     }
   }
 
