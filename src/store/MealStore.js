@@ -56,6 +56,8 @@ export default ({
             filteredMeals = filteredMeals.filter(meal =>
                 (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
             );
+
+
             // filteredToys = filteredToys.filter(toy =>
             // filteredMeals = filteredMeals.filter(meal => {
             //     return !filterBy.mealType.includes(meal.tags);

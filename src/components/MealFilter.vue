@@ -1,13 +1,14 @@
 <template>
   <form @submit.prevent="searchMeals" class="filter-container align-center flex">
     <div class="searchMeals">
-      <input
+      <el-input  @input="searchMeals" placeholder="Please input"  v-model="filterBy.searchStr"></el-input>
+      <!-- <input
         @input="searchMeals"
         type="text"
         class="searchInput"
         placeholder="🔎 Search"
         v-model="filterBy.searchStr"
-      />
+      /> -->
     </div>
     <el-select @change="searchMeals" v-model="filterBy.mealType" multiple placeholder="Select">
       <el-option  v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
@@ -29,7 +30,7 @@ export default {
       },
       options: [
         {
-          value: "asian",
+          value: "Asian",
           label: "Asian"
         },
         {
