@@ -3,6 +3,7 @@
      <router-link class="routerToDetails" :to="'/details/' + meal.id">
     <img class="img-card" v-if="meal.imgUrl" :src="(meal.imgUrl[0])">
     <h4>{{meal.title}}</h4>
+    <p>{{meal.price}}$</p>
 </router-link>
      <button @click="removeMeal(meal.id)">DELETE</button>
       <router-link :to="editURL">

@@ -42,4 +42,5 @@ function getById(id) {
 function edit(mealToEdit) {
     console.log('meal service edit meal: ',mealToEdit)
     return axios.put(`${BASE_URL}/${mealToEdit.id}`, mealToEdit)
+        .then(res => res.data)
 }
