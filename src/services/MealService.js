@@ -1,6 +1,6 @@
-// import axios from 'axios'
-// axios.defaults.withCredentials=true
-const axios = require('axios')
+import axios from 'axios'
+axios.defaults.withCredentials=true
+// const axios = require('axios')
 
 export default {
     query,
@@ -12,7 +12,7 @@ export default {
 
 const BASE_URL = (process.env.NODE_ENV !== 'development') ?
     '/api/meal' :
-    '//localhost:3000/meals';
+    '//localhost:3000/api/meal';
 
 
 function query() {
@@ -25,15 +25,16 @@ function add(meal) {
     console.log(meal);
     // meal.id = 'bananawd'
     return axios.post(BASE_URL, meal)
-         .then(res => res.data)
+         .then(res => {
+              return res.data})
 }
 
 function remove(mealId) {
     return axios.delete(`${BASE_URL}/${mealId}`)
 }
 
-function getById(id) {
-    return axios.get(`${BASE_URL}/${id}`)
+function getById(_id) {
+    return axios.get(`${BASE_URL}/${_id}`)
         .then(meals => {
             return meals.data
         })
@@ -41,5 +42,9 @@ function getById(id) {
 
 function edit(mealToEdit) {
     console.log('meal service edit meal: ',mealToEdit)
-    return axios.put(`${BASE_URL}/${mealToEdit.id}`, mealToEdit)
+    return axios.put(`${BASE_URL}/${mealToEdit._id}`, mealToEdit)
+        .then(res=>{
+            console.log(res.data);
+            
+            return res.data})
 }

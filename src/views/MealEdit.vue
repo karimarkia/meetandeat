@@ -1,7 +1,7 @@
 <template>
     <section >
         <div class="edit-container" v-if="currMeal">
-          <h1>{{(currMeal.id)? 'Meal Edit' : 'Meal Add'}}</h1>
+          <h1>{{(currMeal._id)? 'Meal Edit' : 'Meal Add'}}</h1>
             <form type="submit">
             <div class="inputs-container">
                 <span>Title</span> <el-input type="text" v-model="currMeal.title" ></el-input>
@@ -40,7 +40,7 @@
                 <span>second Dessert</span> <el-input v-model="currMeal.dishes.dessert[1].name" type="text"></el-input>
                 <span>Drinks</span> <el-input type="text"></el-input> 
             </div>
-        <button v-if="currMeal.id" @click="save">save</button>
+        <button v-if="currMeal._id" @click="save">save</button>
         <button v-else @click="add">add</button>
       </form>
     </div>
@@ -73,9 +73,9 @@ export default {
     }
   },
   created() {
-    let routeParamsId = this.$route.params.id;
+    let routeParamsId = this.$route.params._id;
     if (!routeParamsId) return;
-    this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
+     this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
       this.currMeal = meal;
     });
   },
@@ -83,8 +83,8 @@ export default {
     save() {
       // if (this.currMeal.id) {
         let currMeal = this.currMeal;
-        this.$store
-          .dispatch({ type: "editMeal", currMeal })
+        console.log(currMeal)
+       this.$store.dispatch({ type: "editMeal", currMeal })
           .then(() => this.$router.push(`/meal`));
       // } else {
       //   console.log(1);
@@ -96,12 +96,11 @@ export default {
     },
     add() {
       let currMeal = this.currMeal;
-      
+      // console.log(currMeal);   
       this.currMeal.imgUrl="https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
-      // this.newToy.createdAt = Date.now();
       this.$store.dispatch({ type: "addMeal", currMeal })
       .then(() => this.$router.push(`/meal`));
-      this.currMeal = {};
+      // this.currMeal = {};
     }
   }
 

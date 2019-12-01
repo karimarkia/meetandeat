@@ -1,17 +1,8 @@
 <template>
   <section>
-    <div class="main-img">
-      <h1>Meet&Eat</h1>
-      <img src="../img/hero.jpg" />
-      <div class="container">
-        <input type="text" placeholder="Search..." />
-        <div class="search"></div>
-        <router-link to="/meal">Search</router-link>
-      </div>
-    </div>
-
+    <AppHeader></AppHeader>
     <div class="third-main">
-      <h1>third section</h1>
+      <h1>sec section</h1>
     </div>
 
     <div class="section-testimonials">
@@ -47,8 +38,9 @@
 </template>
 
 <script>
+import AppHeader from "@/views/AppHeader";
 export default {
   name: "home",
-  components: {}
+  components: { AppHeader }
 };
 </script>

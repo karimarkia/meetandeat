@@ -19,25 +19,27 @@ export default ({
             state.meals = meals;
         },
         setCurrMeal(state, mealId) {
-            let meal = state.meals.find(meal => meal.id === mealId);
+            let meal = state.meals.find(meal => meal._id === mealId);
             state.currMeal = meal;
         },
         removeMeal(state, { mealId }) {
             // todoService.remove(todoId);
-            const idx = state.meals.findIndex(meal => meal.id === mealId)
+            const idx = state.meals.findIndex(meal => meal._id === mealId)
             state.meals.splice(idx, 1)
 
         },
         addMeal(state, { meal }) {
             // state.toys.id=1
-            // const addedMeal = await MealService.add(meal)
-            // debugger
+            // const addedMeal =  MealService.add(meal)
             state.meals.push(meal)
 
         },
         editMeal(state, { updatedMeal }) {
-            const idx = state.meals.findIndex(currMeal => currMeal.id === updatedMeal.id);
-            state.meals.splice(idx, 1, updatedMeal.data);
+         
+           console.log('update ',updatedMeal);
+           
+            const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
+            state.meals.splice(idx, 1, updatedMeal);
         },
         setMealsFilter(state, filterBy) {
             state.filterBy = filterBy;
@@ -53,9 +55,11 @@ export default ({
             console.log(filterBy.mealType);
 
             let filteredMeals = [...state.meals];
-            filteredMeals = filteredMeals.filter(meal =>
-                (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-            );
+            // filteredMeals = filteredMeals.filter(meal =>
+            //     (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
+            // );
+
+
             // filteredToys = filteredToys.filter(toy =>
             // filteredMeals = filteredMeals.filter(meal => {
             //     return !filterBy.mealType.includes(meal.tags);
@@ -110,10 +114,12 @@ export default ({
                 })
         },
 
-        editMeal(context, { currMeal }) {
-            MealService.edit(currMeal)
-                .then((updatedMeal) => {
+       editMeal(context, { currMeal }) {  
+        //    debugger         
+          MealService.edit(currMeal)
+                   .then((updatedMeal) => {
                     context.commit({ type: 'editMeal', updatedMeal })
+                 
                 })
         },
         addMeal(context, { currMeal }) {

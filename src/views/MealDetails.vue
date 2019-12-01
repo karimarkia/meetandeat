@@ -81,7 +81,7 @@ export default {
   },
   created() {
     this.$store.dispatch("loadMeals");
-    const mealId = this.$route.params.id;
+    const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
   },

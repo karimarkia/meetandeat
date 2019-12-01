@@ -16,6 +16,10 @@ Vue.use(ElementUI, {locale});
 
 Vue.config.productionTip = false
 
+var SocialSharing = require('vue-social-sharing');
+
+Vue.use(SocialSharing);
+
 import * as VueGoogleMaps from 'vue2-google-maps'
 Vue.use(VueGoogleMaps, {
     load: {

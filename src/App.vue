@@ -1,17 +1,17 @@
 <template>
   <section>
-    <AppHeader></AppHeader>
+    <!-- <NavHeader></NavHeader> -->
     <router-view class="page-body"/>
     <Footer></Footer>
   </section>
 </template>
 
 <script>
-import AppHeader from '@/views/AppHeader'
+  import NavHeader from '@/views/NavHeader.vue'
 import Footer from '@/components/Footer'
 export default {
   components:{
-    AppHeader,
+  NavHeader,
     Footer
   },
     created() {

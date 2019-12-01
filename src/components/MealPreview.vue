@@ -1,11 +1,15 @@
 <template>
   <section class="meal-card" v-if="meal">
-     <router-link class="routerToDetails" :to="'/details/' + meal.id">
+     <router-link class="routerToDetails" :to="'/details/' + meal._id">
     <img class="img-card" v-if="meal.imgUrl" :src="(meal.imgUrl[0])">
+    <!-- <h4>{{meal.location.city}}</h4> -->
+    <div class="test">
     <h4>{{meal.title}}</h4>
-    <p>{{meal.price}}$</p>
+    <h4>{{meal.rate}}<span><i class="fa fa-star"></i></span></h4>
+    </div>
+    <p><span>{{meal.price}}$</span> Meal</p>
 </router-link>
-     <button @click="removeMeal(meal.id)">DELETE</button>
+     <button @click="removeMeal(meal._id)">DELETE</button>
       <router-link :to="editURL">
       <button class="cards-btns">EDIT</button>
     </router-link>
@@ -22,9 +26,10 @@ export default {
   },
   computed:{
      editURL() {
-      return `/edit/${this.meal.id}`;
+      return `/edit/${this.meal._id}`;
     }
   },
+ 
 
 };
 </script>

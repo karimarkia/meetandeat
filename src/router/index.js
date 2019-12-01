@@ -22,18 +22,17 @@ const routes = [{
         component: MealApp
     },
     {
-        path: '/details/:id?',
+        path: '/details/:_id?',
         name: 'mealdetails',
         component: MealDetails
     },
     {
-        path: '/edit/:id?',
+        path: '/edit/:_id?',
         name: 'meal-edit',
         component: MealEdit
     },
     {
         path: '/add',
-        name: 'meal-edit',
         component: MealEdit
     },
 ]

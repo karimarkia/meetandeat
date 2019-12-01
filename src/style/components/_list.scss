@@ -1,14 +1,15 @@
 .cards-container {
     padding-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    // grid-template-rows: repeat(auto-fill, minmax(100px, 5fr));
     gap: 10px;
+    margin: 0 30px;
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
+    width: 300px;
     margin: auto;
     text-align: center;
     font-family: arial;
@@ -17,8 +18,8 @@
         border: none;
         outline: 0;
         padding: 12px;
-        color: white;
-        background-color: #000;
+        color: rgb(44, 44, 44);
+        background-color: rgb(0, 0, 0);
         text-align: center;
         cursor: pointer;
         width: 100%;

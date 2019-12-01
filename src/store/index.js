@@ -14,12 +14,6 @@ export default new Vuex.Store({
       return state.meals
     },
   },
-  mutations: {
-    setToys(state, {toys}) {
-      state.toys = toys;
-      console.log('this :',state.toys);
-  },
-  },
   actions: {
   },
   modules: {
