@@ -17,10 +17,10 @@
           <router-link to="/">logIn</router-link>
         </li>
         <li>
-          <router-link to="/">signup</router-link>
+          <!-- <router-link  @click="toggleRegister" :class="{ active: isActive}" >signup</router-link> -->
         </li>
         <li>
-                    <router-link :to="'/user/' + user._id">my account</router-link>
+          <router-link :to="'/user/' + user._id">my account</router-link>
           </li>
       </ul>
     </div>
@@ -28,7 +28,36 @@
   </nav>
 </template>
 
+<script>
+import RegisterModule from "../components/RegisterModule.vue";
+  // import NavHeader from './NavHeader.vue'
+export default {
+  components:{
+    RegisterModule
+    // NavHeader
+  },
+  computed: {
+     data(){
+    return{
+      isActive: true
+    }
+  },
+    methods: {
+    toggleRegister() {
+      this.isActive = !this.isActive;
+    }
+  },
+    user(){
+      return this.$store.getters.loggedinUser
+    } 
+  },
+}
+</script>
+
 <style>
+.active {
+  display: block;
+}
 .sec-nav{
   width: 100% !important;
   background-color: #e6e6e657;

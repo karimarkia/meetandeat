@@ -1,50 +1,71 @@
 <template>
   <header>
-   <nav>
-    <div class="row">
-      <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo" />
-      <ul class="main-nav">
-        <li>
-          <router-link to="/">Home</router-link>
-        </li>
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
-        <li>
-          <router-link to="/add">Become a host</router-link>
-        </li>
-        <li>
-          <router-link to="/">logIn</router-link>
-        </li>
-        <li>
-          <router-link to="/">signup</router-link>
-        </li>
-           <li>
-          <router-link :to="'/user/' + user._id">my account</router-link>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav>
+      <div class="row">
+        <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo" />
+        <ul class="main-nav">
+          <li>
+            <router-link to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/about">About</router-link>
+          </li>
+          <li>
+            <router-link to="/add">Become a host</router-link>
+          </li>
+          <li v-if="!user" @click="logIn">
+            <a>LogIn</a>
+          </li>
+          <li v-else @click="doLogout">
+            <a>LogOut</a>
+          </li>
+          <li v-if="!user" @click="SignUp"> <a>SignUp</a></li>
+          <li v-else>
+            <router-link :to="'/user/' + user._id">my account</router-link>
+          </li>
+
+          <li class="userTest">{{user}}</li>
+        </ul>
+      </div>
+    </nav>
   </header>
 </template>
 
 <script>
-  // import NavHeader from './NavHeader.vue'
+import RegisterModule from "../components/RegisterModule.vue";
+// import NavHeader from './NavHeader.vue'
 export default {
-  components:{
+  components: {
+    RegisterModule
     // NavHeader
   },
-  computed: {
-    user(){
-      return this.$store.getters.loggedinUser
-    } 
+  methods: {
+    SignUp() {
+      this.$emit("toggleRegister");
+    },
+    logIn() {
+      this.$emit("toggleLogIn");
+    },
+   doLogout() {
+      this.$store.dispatch({type: 'logout'})
+    },
+    
   },
-}
+  computed: {
+    user() {
+      return this.$store.getters.loggedinUser;
+    }
+  }
+};
 </script>
 
 <style>
 header {
-  background-image: linear-gradient(to right,rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.1)
+    ),
     url(../img/img2.jpg);
   background-size: cover;
   background-position: center;
@@ -72,8 +93,9 @@ header {
   margin-top: 20px;
 }
 
-
-
+.userTest{
+  color: white;
+}
 /* Main navi */
 .main-nav {
   float: right;
@@ -89,7 +111,7 @@ header {
   margin-left: 40px;
 }
 
-.main-nav li a:link,
+.main-nav li a,
 .main-nav li a:visited {
   padding: 8px 0;
   color: #fff;
@@ -105,7 +127,6 @@ header {
 .main-nav li a:active {
   border-bottom: 2px solid #e67e22;
 }
-
 
 /* Mobile navi */
 .mobile-nav-icon {

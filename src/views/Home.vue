@@ -1,11 +1,12 @@
 <template>
   <section>
-    <AppHeader></AppHeader>
+    <AppHeader @toggleRegister="toggleRegister" @toggleLogIn="toggleLogIn"></AppHeader>
     <div class="main-img">
-      <h1 @click="toggleRegister">Meet&Eat</h1>
+      <h1 >Meet&Eat</h1>
       <Main-filter></Main-filter>
     </div>
     <Register-module @toggleRegister="toggleRegister" :class="{ active: isActive}"></Register-module>
+        <LogIn @toggleLogIn="toggleLogIn" :class="{ active: isLogIn}"></LogIn>
     <!-- <div v-for="(meal,idx) in meals" :key="meal._id">
       <h1>{{meal.title}}</h1>
     </div>-->
@@ -51,6 +52,7 @@
 <script>
 import AppHeader from "@/views/AppHeader";
 import RegisterModule from "../components/RegisterModule.vue";
+import LogIn from "../components/LogIn.vue";
 import MainFilter from "../components/MainFilter.vue";
 import MealPreview from "../components/MealPreview.vue";
 export default {
@@ -58,13 +60,18 @@ export default {
 
   data(){
     return{
-      isActive: true
+      isActive: false,
+      isLogIn: false,
+      isLogOut: true
     }
   },
   methods: {
     toggleRegister() {
-      this.isActive = !this.isActive;
-    }
+      this.isActive =!this.isActive;
+    },
+    toggleLogIn(){
+       this.isLogIn = !this.isLogIn;
+    },
   },
 
   computed: {
@@ -77,7 +84,8 @@ export default {
     RegisterModule,
     MainFilter,
     AppHeader,
-    MealPreview
+    MealPreview,
+    LogIn
   }
 };
 </script>
