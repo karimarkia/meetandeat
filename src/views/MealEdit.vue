@@ -51,17 +51,28 @@ export default {
   data: () => ({
     currMeal: {},
     options: [{
-          value: 'Italian',
-          label: 'Italian'
-        }, {
-          value: 'BBQ',
-          label: 'BBQ'
-        }, {
-          value: 'Asian',
-          label: 'Asian'
-        }, {
-          value: 'Vegitarian',
-          label: 'Vegitarian'
+          value: "Asian",
+          label: "Asian"
+        },
+        {
+          value: "Italian",
+          label: "Italian"
+        },
+        {
+          value: "BBQ",
+          label: "BBQ"
+        },
+        {
+          value: "Vegitarian",
+          label: "Vegitarian"
+        },
+         {
+          value: "American",
+          label: "American"
+        },
+        {
+          value: "Other",
+          label: "Other"
         }
       ],
       
