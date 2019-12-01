@@ -41,10 +41,10 @@ function getById(_id) {
 }
 
 function edit(mealToEdit) {
-    console.log('meal service edit meal: ',mealToEdit)
+    console.log('banana 2: ',mealToEdit)
     return axios.put(`${BASE_URL}/${mealToEdit._id}`, mealToEdit)
         .then(res=>{
-            console.log(res.data);
+            console.log('banana5 :',res.data);
             
             return res.data})
 }

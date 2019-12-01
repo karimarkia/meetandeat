@@ -1,6 +1,6 @@
 <template>
   <header>
-   <NavHeader></NavHeader>
+   <!-- <NavHeader></NavHeader> -->
     <div class="hero-text-box">
       <h1>Meet&Eat</h1>
       <router-link to="/meal">Search</router-link>

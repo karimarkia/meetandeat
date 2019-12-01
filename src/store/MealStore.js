@@ -37,8 +37,7 @@ export default ({
         },
         editMeal(state, { updatedMeal }) {
          
-           console.log('update ',updatedMeal);
-           
+           console.log('banana 7 ',updatedMeal);
             const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
             state.meals.splice(idx, 1, updatedMeal);
         },
@@ -56,9 +55,9 @@ export default ({
             console.log(filterBy.mealType);
 
             let filteredMeals = [...state.meals];
-            filteredMeals = filteredMeals.filter(meal =>
-                (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-            );
+            //filteredMeals = filteredMeals.filter(meal =>
+                //(meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
+            //);
 
             filteredMeals = filteredMeals.filter(meal =>
                 (meal.price > filterBy.priceRange[0] && meal.price < filterBy.priceRange[1])
@@ -102,9 +101,11 @@ export default ({
         },
 
         editMeal(context, { currMeal }) {
+            console.log('banana 1:', currMeal)
             return MealService.edit(currMeal)
                 .then((updatedMeal) => {
-                    return context.commit({ type: 'editMeal', updatedMeal })
+                    console.log('banana 6 :', updatedMeal)
+                    context.commit({ type: 'editMeal', updatedMeal })
                 })
         },
         addMeal(context, { currMeal }) {
@@ -117,5 +118,4 @@ export default ({
                 })
         },
     },
-
-})
+})  
