@@ -11,7 +11,8 @@ export default ({
         currMeal: null,
         filterBy: {
             searchStr: '',
-            mealType: []
+            mealType: [],
+            priceRange: [0, 100]
         },
     },
     mutations: {
@@ -57,29 +58,15 @@ export default ({
                 (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
             );
 
+            filteredMeals = filteredMeals.filter(meal =>
+                (meal.price > filterBy.priceRange[0] && meal.price < filterBy.priceRange[1])
+            );
 
-            // filteredToys = filteredToys.filter(toy =>
-            // filteredMeals = filteredMeals.filter(meal => {
-            //     return !filterBy.mealType.includes(meal.tags);
-            // })
-            // filteredMeals = filteredMeals.filter(
-            //     function(e) {
-            //         return this.indexOf(e) <= 0;
-            //     }, filterBy.mealType
-            // );
-            // console.log(filterBy.mealType);
-            // array1 = array1.filter(function(item) {
-            //         return !array2.includes(item);
-            //     })
-            //     filterBy.category === 'All' ||
-            //     (filterBy.category === 'Educational' && toy.type === 'Educational') ||
-            //     (filterBy.category === 'Funny' && toy.type === 'Funny') ||
-            //     (filterBy.category === 'Adult' && toy.type === 'Adult'));
-            // mealType
-            // filteredToys = filteredToys.filter(toy =>
-            //     !filterBy.inStock ||
-            //     filterBy.inStock && toy.inStock
-            // )
+            if (filterBy.mealType.length === 0) return filteredMeals
+            filteredMeals = filteredMeals.filter(meal => {
+                return filterBy.mealType.includes(meal.tags[0]);
+            })
+
             return filteredMeals;
         },
         currMeal(state) {

@@ -36,3 +36,36 @@
         text-overflow: ellipsis;
         min-width: 320px;
     }
+    
+    .modal {
+        border: 1px solid rgb(221, 221, 221);
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        right: 0;
+        width: 380px;
+        height: 130px;
+        z-index: 10;
+    }
+    
+    .bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(221, 218, 218, 0.5);
+        display: initial;
+    }
+    
+    .displayNon {
+        display: none;
+    }
+    
+    .pricerange {
+        width: 100px;
+        max-width: 200px !important;
+        margin: 0 auto;
+    }
