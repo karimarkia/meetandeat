@@ -1,5 +1,8 @@
 <template>
-  <section v-if="meal" class="detailsPage flex">
+  <section v-if="meal" >
+    <NavHeader class="spec"></NavHeader>
+    <div class="detailsPage flex">
+
     <div :class="{ bg:isShowModal}"></div>
     <section class="mealDetails flex">
       <h1>{{meal.title}}</h1>
@@ -117,10 +120,12 @@
       <h5>The full address will be provided once the booking is confirmed</h5>
     </div>
     <Map class="locationMap" :location="location" />
+    </div>
   </section>
 </template>
 
 <script>
+import NavHeader from '@/views/NavHeader.vue'
 import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
@@ -128,6 +133,7 @@ import MealGuest from "@/components/MealGuest.vue";
 export default {
   name: "mealdetails",
   components: {
+    NavHeader,
     Map,
     Menu,
     Reviews,
@@ -180,5 +186,6 @@ export default {
 .fa {
   color: #ff5a5f;
 }
+
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-   <nav>
+   <nav class="sec-nav">
     <div class="row-sec">
       <!-- <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo-sec" /> -->
       <img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" />
@@ -29,6 +29,11 @@
 </template>
 
 <style>
+.sec-nav{
+  width: 100% !important;
+  background-color: #e6e6e657;
+  margin-bottom: 50px;
+}
 .row-sec {
   display: flex;
    justify-content: space-between;
@@ -70,7 +75,7 @@
   color: rgb(0, 0, 0);
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 90%;
+  font-size: 1.1rem;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.2s;
   transition: border-bottom 0.2s;
