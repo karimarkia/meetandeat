@@ -19,7 +19,7 @@
 .main-filter-home {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   position: absolute;
-  top: 550px;
+  top: 70%;
   left: 0;
   right: 0;
   margin: auto;

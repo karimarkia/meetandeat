@@ -150,7 +150,7 @@ export default {
 }
 
 .section-steps h2 {
-  /* text-align: center !important; */
+  text-align: center;
   font-size: 28px;
   padding: 60px 0;
   word-spacing: 2px;
@@ -213,7 +213,7 @@ export default {
   text-align: center;
   margin-right: 25px;
   float: left;
-  padding: 5px;
+  padding: 10px;
 }
 
 .btn-app:link,

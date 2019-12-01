@@ -27,7 +27,6 @@
       v-model="filterBy.mealType"
       multiple
       collapse-tags
-      style="margin-left: 20px;"
       placeholder="Select"
     >
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>

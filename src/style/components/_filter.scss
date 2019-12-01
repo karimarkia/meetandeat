@@ -1,6 +1,10 @@
     .filter-container {
         display: flex;
         justify-content: space-around;
+        margin: 0 15%;
+        border: 1px solid #b3b3b3;
+        padding: 20px;
+        border-radius: 20px;
     }
     
     .sortPrice {
