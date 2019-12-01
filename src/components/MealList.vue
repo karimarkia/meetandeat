@@ -12,8 +12,6 @@ export default {
    props:['meals'],
   components:{
     MealPreview,
-    
-    
   }
 }
 </script>

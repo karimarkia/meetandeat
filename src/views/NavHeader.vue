@@ -4,28 +4,66 @@
       <!-- <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo-sec" /> -->
       <img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" />
       <ul class="main-nav-sec">
-        <li>
-          <router-link to="/">Home</router-link>
-        </li>
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
-        <li>
-          <router-link to="/add">Become a host</router-link>
-        </li>
-        <li>
-          <router-link to="/">logIn</router-link>
-        </li>
-        <li>
-          <router-link to="/">signup</router-link>
-        </li>
+            <li>
+            <router-link to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/about">About</router-link>
+          </li>
+          <li>
+            <router-link to="/add">Become a host</router-link>
+          </li>
+          <li v-if="!user" @click="logIn">
+            <a>LogIn</a>
+          </li>
+          <li v-else @click="doLogout">
+            <a>LogOut</a>
+          </li>
+          <li v-if="!user" @click="SignUp"> <a>SignUp</a></li>
+          <li v-else>
+            <router-link :to="'/user/' + user._id">my account</router-link>
+          </li>
+
+          <li class="userTest">{{user}}</li>
       </ul>
     </div>
   <hr>
   </nav>
 </template>
 
+<script>
+import RegisterModule from "../components/RegisterModule.vue";
+// import NavHeader from './NavHeader.vue'
+export default {
+  components: {
+    RegisterModule
+    // NavHeader
+  },
+  methods: {
+    SignUp() {
+      this.$emit("toggleRegister");
+    },
+    logIn() {
+      this.$emit("toggleLogIn");
+    },
+   doLogout() {
+      this.$store.dispatch({type: 'logout'})
+    },
+    
+  },
+  computed: {
+    user() {
+      return this.$store.getters.loggedinUser;
+    }
+  }
+};
+</script>
+
+
 <style>
+.active {
+  display: block;
+}
 .sec-nav{
   width: 100% !important;
   background-color: #e6e6e657;

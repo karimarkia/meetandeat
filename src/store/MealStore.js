@@ -36,8 +36,9 @@ export default ({
 
         },
         editMeal(state, { updatedMeal }) {
-         
-           console.log('banana 7 ',updatedMeal);
+
+            console.log('update ', updatedMeal);
+
             const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
             state.meals.splice(idx, 1, updatedMeal);
         },
@@ -73,8 +74,12 @@ export default ({
         currMeal(state) {
             return state.currMeal;
         },
+        userMeals(state, userId) {
+            let meals = state.meals.find(meal => meal.ownerId._id === userId);
+            return meals
+        },
 
-    }, 
+    },
     actions: {
         loadMeals({ commit }) {
             return MealService.query()
