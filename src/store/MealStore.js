@@ -84,7 +84,7 @@ export default ({
             return state.currMeal;
         },
 
-    },
+    }, 
     actions: {
         loadMeals({ commit }) {
             return MealService.query()
