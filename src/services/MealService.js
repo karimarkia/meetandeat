@@ -23,7 +23,6 @@ function query() {
 
 function add(meal) {
     console.log(meal);
-    // meal.id = 'bananawd'
     return axios.post(BASE_URL, meal)
          .then(res => {
               return res.data})
@@ -45,6 +44,5 @@ function edit(mealToEdit) {
     return axios.put(`${BASE_URL}/${mealToEdit._id}`, mealToEdit)
         .then(res=>{
             console.log('banana5 :',res.data);
-            
             return res.data})
 }

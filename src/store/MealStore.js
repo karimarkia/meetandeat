@@ -101,10 +101,8 @@ export default ({
         },
 
         editMeal(context, { currMeal }) {
-            console.log('banana 1:', currMeal)
             return MealService.edit(currMeal)
                 .then((updatedMeal) => {
-                    console.log('banana 6 :', updatedMeal)
                     context.commit({ type: 'editMeal', updatedMeal })
                 })
         },
