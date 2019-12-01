@@ -38,7 +38,7 @@ export default ({
         },
         editMeal(state, { updatedMeal }) {
             const idx = state.meals.findIndex(currMeal => currMeal.id === updatedMeal.id);
-            state.meals.splice(idx, 1, updatedMeal.data);
+            state.meals.splice(idx, 1, updatedMeal);
         },
         setMealsFilter(state, filterBy) {
             state.filterBy = filterBy;
@@ -73,7 +73,7 @@ export default ({
             return state.currMeal;
         },
 
-    },
+    }, 
     actions: {
         loadMeals({ commit }) {
             return MealService.query()
@@ -100,9 +100,9 @@ export default ({
         },
 
         editMeal(context, { currMeal }) {
-            MealService.edit(currMeal)
+            return MealService.edit(currMeal)
                 .then((updatedMeal) => {
-                    context.commit({ type: 'editMeal', updatedMeal })
+                    return context.commit({ type: 'editMeal', updatedMeal })
                 })
         },
         addMeal(context, { currMeal }) {

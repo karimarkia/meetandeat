@@ -1,15 +1,17 @@
-<template>
+<template> 
   <section>
     <div class="main-img">
-      <h1>Meet&Eat</h1>
+      <h1 @click="toggleRegister">Meet&Eat</h1>
       <img src="../img/hero.jpg" />
       <div class="container">
         <input type="text" placeholder="Search..." />
         <div class="search"></div>
         <router-link to="/meal">Search</router-link>
+        
       </div>
+      <Main-filter></Main-filter>
     </div>
-
+    <Register-module  @toggleRegister="toggleRegister" :class="{ active: isActive}" ></Register-module>
     <div class="third-main">
       <h1>third section</h1>
     </div>
@@ -43,12 +45,39 @@
         </div>
       </div>
     </div>
+
+
+
+
   </section>
 </template>
 
 <script>
+import RegisterModule from '../components/RegisterModule.vue' 
+import MainFilter from '../components/MainFilter.vue'
 export default {
   name: "home",
-  components: {}
+  data(){
+    return{
+      isActive: false
+    }
+  },
+  methods:{
+    toggleRegister(){
+      this.isActive = !this.isActive
+    }
+  },
+
+  components: {
+    RegisterModule,
+    MainFilter
+  }
 };
 </script>
+
+<style  scoped>
+  .active{
+    display: block;
+  }
+
+</style>
