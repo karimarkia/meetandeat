@@ -1,8 +1,11 @@
 <template>
   <div>
-    <NavHeader></NavHeader>
+    <NavHeader  @toggleRegister="toggleRegister" @toggleLogIn="toggleLogIn"></NavHeader>
        <MealFilter class="filer-companenet" />
        <hr>
+        <Register-module @toggleRegister="toggleRegister" :class="{ active: isActive}"></Register-module>
+        <LogIn @toggleLogIn="toggleLogIn" :class="{ active: isLogIn}"></LogIn>
+
       <MealList :meals="meals"></MealList>
   </div>
 </template>
