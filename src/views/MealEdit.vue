@@ -4,6 +4,7 @@
           <h1>{{(currMeal._id)? 'Meal Edit' : 'Meal Add'}}</h1>
             <form type="submit">
             <div class="inputs-container">
+              <h1> </h1><h1>{{(currMeal.id)? 'Meal Edit' : 'Meal Add'}}</h1>
                 <span>Title</span> <el-input type="text" v-model="currMeal.title" ></el-input>
                 <span>Country</span> <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.country"></el-input>
                 <span>City</span> <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.city"></el-input>
@@ -11,17 +12,15 @@
             </div>
             <h3>Time</h3>
             <div class="inputs-container">
-                <span>Date</span> <el-date-picker type="date" placeholder="Pick a day"></el-date-picker>
-
-                <span>Time</span> <el-time-select :picker-options="{start: '08:00',
-                                                  step: '00:15',
-                                                  end: '22:00'
-                                                  }" 
-                                                  placeholder="Select time">
-                                  </el-time-select>
+                <span>Time</span> <el-date-picker
+                                    value-format="timestamp"
+                                    v-model="currMeal.atDate"
+                                    type="datetime"
+                                    placeholder="Select date and time">
+                                  </el-date-picker> 
             </div>
 
-            <h2>Hosting</h2>
+            <h3>Hosting</h3>
             <div class="inputs-container">
                 <span>Tags</span>   <el-select v-model="currMeal.tags" v-if="currMeal.tags"  multiple placeholder="Select">
                                       <el-option  v-for="tag in options" :key="tag.value" :label="tag.label" :value="tag.value">   
@@ -30,7 +29,7 @@
                                     </el-select>
                 <span>Limit Guests</span> <el-input v-model="currMeal.maxUsers" type="number" ></el-input>
             </div>
-            <h2>Dishes</h2>
+            <h3>Dishes</h3>
             <div class="inputs-container" v-if="currMeal.dishes">
                 <span>first Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[0].name" type="text"></el-input>
                 <span>second Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[1].name" type="text"></el-input>
@@ -100,7 +99,10 @@ export default {
       this.currMeal.imgUrl="https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
       this.$store.dispatch({ type: "addMeal", currMeal })
       .then(() => this.$router.push(`/meal`));
-      // this.currMeal = {};
+      this.currMeal = {};
+    },
+    uploadImg() {
+      
     }
   }
 
@@ -127,9 +129,24 @@ span{
   align-items: center;
 }
 
-input,
-select {
+input, select {
   border: 0;
   border-bottom: 1px solid;
+}
+
+.save-btn{
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 100px;
+  border: 0.5px solid grey;
+  width: 120px;
+  background-color: transparent; 
+}
+.save-btn-container{
+  width: 60%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+
 }
 </style>

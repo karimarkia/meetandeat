@@ -88,7 +88,7 @@ export default ({
             return state.currMeal;
         },
 
-    },
+    }, 
     actions: {
         loadMeals({ commit }) {
             return MealService.query()
@@ -114,12 +114,10 @@ export default ({
                 })
         },
 
-       editMeal(context, { currMeal }) {  
-        //    debugger         
-          MealService.edit(currMeal)
-                   .then((updatedMeal) => {
-                    context.commit({ type: 'editMeal', updatedMeal })
-                 
+        editMeal(context, { currMeal }) {
+            return MealService.edit(currMeal)
+                .then((updatedMeal) => {
+                    return context.commit({ type: 'editMeal', updatedMeal })
                 })
         },
         addMeal(context, { currMeal }) {

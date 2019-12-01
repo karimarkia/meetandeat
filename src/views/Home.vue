@@ -1,6 +1,18 @@
-<template>
+<template> 
   <section>
     <AppHeader></AppHeader>
+    <div class="main-img">
+      <h1 @click="toggleRegister">Meet&Eat</h1>
+      <img src="../img/hero.jpg" />
+      <div class="container">
+        <input type="text" placeholder="Search..." />
+        <div class="search"></div>
+        <router-link to="/meal">Search</router-link>
+        
+      </div>
+      <Main-filter></Main-filter>
+    </div>
+    <Register-module  @toggleRegister="toggleRegister" :class="{ active: isActive}" ></Register-module>
     <div class="third-main">
       <h1>sec section</h1>
     </div>
@@ -34,13 +46,42 @@
         </div>
       </div>
     </div>
+
+
+
+
   </section>
 </template>
 
 <script>
 import AppHeader from "@/views/AppHeader";
+  import RegisterModule from '../components/RegisterModule.vue' 
+  import MainFilter from '../components/MainFilter.vue'
 export default {
   name: "home",
-  components: { AppHeader }
+  components: { AppHeader },
+
+  data(){
+    return{
+      isActive: false
+    }
+  },
+  methods:{
+    toggleRegister(){
+      this.isActive = !this.isActive
+    }
+  },
+
+  components: {
+    RegisterModule,
+    MainFilter
+  }
 };
 </script>
+
+<style  scoped>
+  .active{
+    display: block;
+  }
+
+</style>
