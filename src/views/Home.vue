@@ -3,13 +3,6 @@
     <AppHeader></AppHeader>
     <div class="main-img">
       <h1 @click="toggleRegister">Meet&Eat</h1>
-      <img src="../img/hero.jpg" />
-      <div class="container">
-        <input type="text" placeholder="Search..." />
-        <div class="search"></div>
-        <router-link to="/meal">Search</router-link>
-        
-      </div>
       <Main-filter></Main-filter>
     </div>
     <Register-module  @toggleRegister="toggleRegister" :class="{ active: isActive}" ></Register-module>
@@ -59,11 +52,10 @@ import AppHeader from "@/views/AppHeader";
   import MainFilter from '../components/MainFilter.vue'
 export default {
   name: "home",
-  components: { AppHeader },
 
   data(){
     return{
-      isActive: false
+      isActive: true
     }
   },
   methods:{
@@ -74,7 +66,8 @@ export default {
 
   components: {
     RegisterModule,
-    MainFilter
+    MainFilter,
+    AppHeader
   }
 };
 </script>

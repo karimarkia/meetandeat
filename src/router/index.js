@@ -37,7 +37,7 @@ const routes = [{
         component: MealEdit
     },
     {
-        path: '/user/:id',
+        path: '/user/:_id?',
         name: 'user-details',
         component: UserDetails
     }

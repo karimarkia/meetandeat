@@ -36,9 +36,9 @@ export default ({
 
         },
         editMeal(state, { updatedMeal }) {
-         
-           console.log('update ',updatedMeal);
-           
+
+            console.log('update ', updatedMeal);
+
             const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
             state.meals.splice(idx, 1, updatedMeal);
         },
@@ -56,9 +56,9 @@ export default ({
             console.log(filterBy.mealType);
 
             let filteredMeals = [...state.meals];
-            filteredMeals = filteredMeals.filter(meal =>
-                (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-            );
+            // filteredMeals = filteredMeals.filter(meal =>
+            //     (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
+            // );
 
             filteredMeals = filteredMeals.filter(meal =>
                 (meal.price > filterBy.priceRange[0] && meal.price < filterBy.priceRange[1])
@@ -74,8 +74,12 @@ export default ({
         currMeal(state) {
             return state.currMeal;
         },
+        userMeals(state, userId) {
+            let meals = state.meals.find(meal => meal.ownerId._id === userId);
+            return meals
+        },
 
-    }, 
+    },
     actions: {
         loadMeals({ commit }) {
             return MealService.query()

@@ -8,7 +8,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en'
 
 
-// library.add(faUserSecret)
 import '@/style/global.scss'
 
 Vue.use(ElementUI, { locale });
