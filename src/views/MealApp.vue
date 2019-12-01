@@ -8,15 +8,17 @@
 </template>
 
 <script>
-import NavHeader from '@/views/NavHeader.vue'
+
 import MealList from '@/components/MealList';
 import MealFilter from "@/components/MealFilter.vue";
+import NavHeader from '@/views/NavHeader.vue'
 
 export default {
   components: {
     MealList,
     MealFilter,
-     NavHeader
+    NavHeader
+     
   },
   computed: {
     meals() {
