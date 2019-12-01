@@ -1,6 +1,6 @@
 <template>
   <section class="map">
-    <GmapMap class="map" :center="center" :zoom="13" map-type-id="terrain" style="width:100%; height: 300px;">
+    <GmapMap class="map" :center="center" :zoom="13" map-type-id="terrain" style="width:100%;margin-bottom: 25px; height: 400px;">
       <GmapMarker
         :key="index"
         v-for="(m, index) in markers"

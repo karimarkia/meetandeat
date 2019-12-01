@@ -1,67 +1,349 @@
 .detailsPage {
-    max-width: 90%;
+    width: 90%;
+    max-width: 1300px;
     margin: 0 auto;
     align-items: center;
     flex-direction: column;
-  }
+    color: rgb(113, 113, 113)
+}
 
-  .imgs-gallery {
+.imgs-gallery {
     max-width: 100%;
     display: grid;
-    height: 50vh;
-    gap: 10px;
+    height: 60vh;
+    // gap: 10px;
     grid-template-rows: 50% 50%;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-areas:
-      "a a b c"
-      "a a d e";
-    margin: 10px;
-    margin-top: 20px;
+    grid-template-areas: "a a b c" "a a d e";
+    margin-top: 2%;
     border: 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid gray;
-    img{
-        width: 100%;
-        height: 100%;
+    border-bottom: 0.5px solid #d4d3d3;
+    cursor: pointer;
+    img {
+        width: 96%;
+        height: 95%;
+        margin: 0 auto;
+        object-fit: cover;
     }
-  }
+}
 
-  [data-i="0"] {
+.mealDetails {
+    width: 100%;
+    float: left !important;
+    padding: 10px;
+    padding-top: 30px;
+    align-items: flex-end;
+    align-content: flex-end;
+    padding-left: 0.5%;
+    h1 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    h3 {
+        margin: 0;
+        font-size: 1rem;
+        float: left !important;
+    }
+}
+
+.moreMealDetails {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px;
+    padding-top: 0;
+    h4 {
+        margin: 0;
+        margin-right: 3%;
+        font-size: 1rem;
+    }
+}
+
+.mainDetails {
+    padding-bottom: 30px;
+    min-height: 400px;
+}
+
+[data-i="0"] {
     grid-area: a;
-  }
-  [data-i="1"] {
-    grid-area: b;
-  }
-  [data-i="2"] {
-    grid-area: c;
-  }
-  [data-i="3"] {
-    grid-area: d;
-  }
-  [data-i="4"] {
-    grid-area: e;
-  }
+    height: 97.5% !important;
+    width: 98% !important;
+}
 
-  .locationMap {
+[data-i="1"] {
+    grid-area: b;
+}
+
+[data-i="2"] {
+    grid-area: c;
+}
+
+[data-i="3"] {
+    grid-area: d;
+}
+
+[data-i="4"] {
+    grid-area: e;
+}
+
+.locationMap {
     width: 100%;
     margin-bottom: 20px;
-  }
-  .reviewArea {
+}
+
+.reviewArea {
     width: 100%;
-    border: 1px solid black;
-  }
-  .priceDetails {
-    width: 35%;
-  }
-  .description {
-    width: 65%;
-  }
-  
-  .dish {
+    border-top: 0.5px solid #d4d3d3;
+}
+
+.priceDetails {
+    width: 30%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+    min-height: 300px;
+    border: 0.5px solid #DDDDDD;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    h1 {
+        font-size: 1.5rem;
+        color: rgb(37, 37, 37);
+        margin: 0;
+    }
+    .totalAmount {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5px;
+    }
+    .total {
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 0.5px solid #d4d3d3;
+        padding-bottom: 5px;
+    }
+    .totalPrice {
+        color: rgb(37, 37, 37);
+        font-size: 1.2rem;
+    }
+    h3 {
+        margin: 0;
+    }
+    span {
+        font-size: 1rem;
+        color: rgb(113, 113, 113)
+    }
+    button.joinToMeal {
+        width: 100%;
+        max-width: 250px;
+        background-color: #FF385C;
+        border: #FF385C;
+        margin: 0 auto;
+        ;
+        span {
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    }
+    .numGust {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    .datetime {
+        margin: 0 auto;
+    }
+    div {
+        width: 100%;
+    }
+}
+
+.description {
+    max-width: 70%;
+    margin-right: 5%;
+    h3 {
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        float: left;
+        margin-top: 30px;
+    }
+    h5 {
+        padding-left: 10px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    p {
+        padding-right: 20px;
+    }
+}
+
+.mealMenu {
+    border-top: 0.5px solid #d4d3d3;
+    width: 100%;
+}
+
+.dish {
+    .border {
+        width: 50%;
+        border-bottom: 1px solid #FF385C;
+        ;
+    }
+    h2 {
+        display: flex;
+        max-width: 30%;
+        align-items: flex-start;
+    }
+    .menu {
+        width: 70%;
+        flex-direction: column;
+        align-content: center;
+        align-items: flex-start;
+    }
+    h4 {
+        margin: 0;
+    }
+    h3,
+    h5 {
+        display: flex;
+        align-items: flex-start;
+        margin: 20px 0;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: flex-start;
+    }
+    .drinks {
+        margin: 22px;
+        flex-direction: row;
+        align-items: flex-start;
+        align-content: center;
+    }
+}
+
+.dish {
     display: flex;
     justify-content: space-around;
-  }
-  
-  h3, h2{
+}
+
+h3,
+h2 {
     text-align: center;
-  }
+}
+
+.fa-star {
+    color: #FF385C;
+}
+
+.el-dropdown {
+    vertical-align: top;
+}
+
+.el-dropdown+.el-dropdown {
+    margin-left: 15px;
+}
+
+.el-icon-arrow-down {
+    font-size: 12px;
+}
+
+p {
+    padding: 10px;
+}
+
+.locationMap {
+    margin-bottom: 20px;
+}
+
+.mapdetails {
+    border: 0;
+    border-top: 0.5px solid #d4d3d3;
+    margin: 5px;
+    float: left;
+    width: 100%;
+}
+
+.imgtest {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    // max-width: 500px;
+    // max-height: 500px;
+    // height: 100%;
+}
+
+.reviewArea {
+    padding-top: 20px;
+    h2 {
+        float: left;
+    }
+}
+
+.hostReview {
+    width: 100%;
+    float: left;
+    padding-left: 5px;
+}
+
+.modalImage {
+    padding: 0;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 90vw;
+    height: 550px;
+    z-index: 10;
+}
+
+.modalOrder {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(221, 218, 218, 0.7);
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+}
+
+.whoIsGoing {
+    width: 100%;
+    border-top: 0.5px solid #d4d3d3;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        display: flex;
+        margin: 0;
+        padding: 20px 0;
+        justify-content: flex-start;
+    }
+}
