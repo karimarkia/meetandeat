@@ -1,13 +1,19 @@
-<template> 
+<template>
   <section>
     <AppHeader></AppHeader>
     <div class="main-img">
       <h1 @click="toggleRegister">Meet&Eat</h1>
       <Main-filter></Main-filter>
     </div>
-    <Register-module  @toggleRegister="toggleRegister" :class="{ active: isActive}" ></Register-module>
-    <div class="third-main">
-      <h1>sec section</h1>
+    <Register-module @toggleRegister="toggleRegister" :class="{ active: isActive}"></Register-module>
+    <!-- <div v-for="(meal,idx) in meals" :key="meal._id">
+      <h1>{{meal.title}}</h1>
+    </div>-->
+    <div class="sec-section">
+      <h1>Places to eat&meet people around the world</h1>
+      <div class="cards-container-sec">
+        <MealPreview v-for="(meal,idx) in meals" v-if="idx <= 3" :key="meal._id" :meal="meal"></MealPreview>
+      </div>
     </div>
 
     <div class="section-testimonials">
@@ -39,42 +45,78 @@
         </div>
       </div>
     </div>
-
-
-
-
   </section>
 </template>
 
 <script>
 import AppHeader from "@/views/AppHeader";
-  import RegisterModule from '../components/RegisterModule.vue' 
-  import MainFilter from '../components/MainFilter.vue'
+import RegisterModule from "../components/RegisterModule.vue";
+import MainFilter from "../components/MainFilter.vue";
+import MealPreview from "../components/MealPreview.vue";
 export default {
   name: "home",
-
-  data(){
-    return{
+  data() {
+    return {
       isActive: false
-    }
+    };
   },
-  methods:{
-    toggleRegister(){
-      this.isActive = !this.isActive
+  methods: {
+    toggleRegister() {
+      this.isActive = !this.isActive;
     }
   },
 
+  computed: {
+    meals() {
+      // console.log(this.$store.getters.mealsToShow);
+      return this.$store.getters.mealsToShow;
+    }
+  },
   components: {
     RegisterModule,
     MainFilter,
-    AppHeader
+    AppHeader,
+    MealPreview
   }
 };
 </script>
 
 <style  scoped>
-  .active{
-    display: block;
-  }
+.active {
+  display: block;
+}
+
+
+.sec-section h1 {
+  text-align: center;
+  font-size: 28px;
+  padding: 30px 0;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+}
+.sec-section h1:after {
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.cards-container-sec{
+  padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 10px;
+    margin: 0 30px;
+}
+
+.img-card2{
+  height: 500px;
+}
 
 </style>

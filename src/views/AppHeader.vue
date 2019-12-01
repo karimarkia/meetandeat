@@ -55,7 +55,7 @@ header {
 .row {
   display: flex;
   justify-content: space-between;
-  margin: 0 40px;
+  margin: 0 50px;
 }
 .logo {
   height: 60px;
@@ -72,7 +72,8 @@ header {
   list-style: none;
   margin-top: 55px;
   font-family: "Lato", "Arial", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .main-nav li {
