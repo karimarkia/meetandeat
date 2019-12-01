@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import MealApp from '@/views/MealApp.vue'
 import MealDetails from '@/views/MealDetails.vue'
 import MealEdit from '@/views/MealEdit.vue'
+import UserDetails from '@/views/UserDetails.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,11 @@ const routes = [{
         path: '/add',
         component: MealEdit
     },
+    {
+        path: '/user/:id',
+        name: 'user-details',
+        component: UserDetails
+    }
 ]
 
 const router = new VueRouter({
