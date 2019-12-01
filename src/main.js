@@ -6,10 +6,8 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUserSecret)
+
 import '@/style/global.scss'
 
 Vue.use(ElementUI, { locale });

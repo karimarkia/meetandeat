@@ -1,28 +1,42 @@
 <template>
   <header>
-   <!-- <NavHeader></NavHeader> -->
-    <div class="hero-text-box">
-      <h1>Meet&Eat</h1>
-      <router-link to="/meal">Search</router-link>
+   <nav>
+    <div class="row">
+      <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo" />
+      <ul class="main-nav">
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+        <li>
+          <router-link to="/add">Become a host</router-link>
+        </li>
+        <li>
+          <router-link to="/">logIn</router-link>
+        </li>
+        <li>
+          <router-link to="/">signup</router-link>
+        </li>
+      </ul>
     </div>
+  </nav>
   </header>
 </template>
 
-
-
-
 <script>
-  import NavHeader from './NavHeader.vue'
+  // import NavHeader from './NavHeader.vue'
 export default {
   components:{
-    NavHeader
+    // NavHeader
   }
 }
 </script>
 
 <style>
 header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+  background-image: linear-gradient(to right,rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url(../img/img2.jpg);
   background-size: cover;
   background-position: center;
@@ -38,7 +52,51 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px;
+}
+.logo {
+  height: 60px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
 
+
+
+/* Main navi */
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 55px;
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.2s;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid #e67e22;
+}
 
 
 /* Mobile navi */

@@ -1,38 +1,31 @@
 <template>
-    <section class="flex align-center space-between">
-        <div>
-            <h3>What are you looking for?</h3>
-            <el-input type="text" placeholder="City"></el-input>
-
-        </div>
-        <div>
-            <h3>When are you available?</h3>
-            <el-date-picker value-format="timestamp" type="date"></el-date-picker>
-        </div>
-        <div>
-            <h3>How many guests are going?</h3>
-            <el-input aria-placeholder="number" type="number"></el-input>
-        </div>
-        <div>
-            <h3>click to eat</h3>
-            <el-button type="success" round >Search</el-button>
-        </div>
-    </section>
+  <section class="main-filter-home flex align-center space-between">
+    <div>
+      <el-input type="text" placeholder="Choose a city..."></el-input>
+    </div>
+    <div>
+      <el-date-picker value-format="timestamp" type="date" placeholder="Choose a date..."></el-date-picker>
+    </div>
+    <div>
+      <router-link to="/meal">
+        <el-button type="success" round>Search</el-button>
+      </router-link>
+    </div>
+  </section>
 </template>
 
 
 <style scoped>
-section{
-    background-color: white;
-    position: absolute;
-    top: 500px;
-    left: 1%;
-    right: 1%;
-    margin: auto;
-    max-width: 1000px;
-    padding: 15px;
-    border-radius: 10px;
-    z-index: 10;
+.main-filter-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  position: absolute;
+  top: 550px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 760px;
+  padding: 15px;
+  border-radius: 10px;
+  /* z-index: 10; */
 }
-
 </style>

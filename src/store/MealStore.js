@@ -55,9 +55,9 @@ export default ({
             console.log(filterBy.mealType);
 
             let filteredMeals = [...state.meals];
-            //filteredMeals = filteredMeals.filter(meal =>
-                //(meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-            //);
+            // filteredMeals = filteredMeals.filter(meal =>
+            //     (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
+            // );
 
             filteredMeals = filteredMeals.filter(meal =>
                 (meal.price > filterBy.priceRange[0] && meal.price < filterBy.priceRange[1])
