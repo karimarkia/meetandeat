@@ -116,8 +116,9 @@ export default {
     margin: 0 30px;
 }
 
-.img-card2{
+.cards-container-sec{
   height: 500px;
+  width: 100%
 }
 
 </style>
