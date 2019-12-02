@@ -1,32 +1,33 @@
 <template>
-   <nav class="sec-nav">
+  <nav class="sec-nav">
     <div class="row-sec">
       <!-- <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo-sec" /> -->
       <img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" />
       <ul class="main-nav-sec">
-            <li>
-            <router-link to="/">Home</router-link>
-          </li>
-          <li>
-            <router-link to="/about">About</router-link>
-          </li>
-          <li>
-            <router-link to="/add">Become a host</router-link>
-          </li>
-          <li v-if="!user" @click="logIn">
-            <a>LogIn</a>
-          </li>
-          <li v-else @click="doLogout">
-            <a>LogOut</a>
-          </li>
-          <li v-if="!user" @click="SignUp"> <a>SignUp</a></li>
-          <li v-else>
-            <router-link :to="'/user/' + user._id">my account</router-link>
-          </li>
-
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+        <li>
+          <router-link to="/add">Become a host</router-link>
+        </li>
+        <li class="pointer" v-if="!user" @click="logIn">
+          <a>LogIn</a>
+        </li>
+        <li class="pointer" v-else @click="doLogout">
+          <a>LogOut</a>
+        </li>
+        <li class="pointer" v-if="!user" @click="SignUp">
+          <a>SignUp</a>
+        </li>
+        <li v-else>
+          <router-link :to="'/user/' + user._id">my account</router-link>
+        </li>
       </ul>
     </div>
-  <hr>
+    <hr />
   </nav>
 </template>
 
@@ -45,10 +46,9 @@ export default {
     logIn() {
       this.$emit("toggleLogIn");
     },
-   doLogout() {
-      this.$store.dispatch({type: 'logout'})
-    },
-    
+    doLogout() {
+      this.$store.dispatch({ type: "logout" });
+    }
   },
   computed: {
     user() {
@@ -63,14 +63,14 @@ export default {
 .active {
   display: block;
 }
-.sec-nav{
+.sec-nav {
   width: 100% !important;
   background-color: #e6e6e657;
   margin-bottom: 50px;
 }
 .row-sec {
   display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   margin: 0 40px;
 }
 /* .logo-sec {
@@ -85,7 +85,6 @@ export default {
   width: auto;
   float: left;
   margin-top: 20px;
- 
 }
 
 /* Main navi */
@@ -119,7 +118,6 @@ export default {
 .main-nav-sec li a:active {
   border-bottom: 2px solid #e67e22;
 }
-
 
 /* Mobile navi */
 .mobile-nav-icon {

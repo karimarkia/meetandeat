@@ -33,10 +33,12 @@
 
 <script>
 import RegisterModule from "../components/RegisterModule.vue";
+import LogIn from "../components/LogIn.vue";
 // import NavHeader from './NavHeader.vue'
 export default {
   components: {
-    RegisterModule
+    RegisterModule,
+    LogIn
     // NavHeader
   },
   methods: {
