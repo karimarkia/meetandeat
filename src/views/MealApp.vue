@@ -19,7 +19,7 @@ export default {
     MealFilter
   },
   computed: {
-    meals() {
+     meals() {
       return this.$store.getters.mealsToShow;
     }
   }

@@ -13,7 +13,7 @@
     <el-input class="mainUserDetails" v-model="user.gender"></el-input>
     <span>BirthDay:</span>
     <el-input class="mainUserDetails" v-model="user.birthDay"></el-input>
-
+  {{meals}}
     <h2>My Meals</h2>
     <div class="myMeal" v-for="(meal, idx) in meals" :key="idx">
       <img class="img-card img-card2" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
@@ -59,6 +59,8 @@ export default {
   computed: {
     meals() {
       this.$store.commit("userMeals", { userId: this.user._id });
+      console.log(this.$store.getters.userMeals);
+      
       return this.$store.getters.userMeals;
     },
     editURL() {

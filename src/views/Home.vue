@@ -10,7 +10,7 @@
         <MealPreview
           class="sec"
           v-for="(meal,idx) in meals"
-          v-if="idx <= 2"
+          v-if="idx <= 3"
           :key="meal._id"
           :meal="meal"
         ></MealPreview>
@@ -84,8 +84,8 @@ import MealPreview from "../components/MealPreview.vue";
 export default {
   name: "home",
   computed: {
-    async meals() {
-      return await this.$store.getters.mealsToShow;
+     meals() {
+      return this.$store.getters.mealsToShow;
     }
   },
   components: {

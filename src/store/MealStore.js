@@ -40,7 +40,12 @@ export default ({
             state.meals.sort((a, b) => (a.price > b.price ? 1 : -1));
         },
         userMeals(state, userId) {
+            console.log(userId);
+            
             const meals = state.meals.filter(meal => {
+
+                console.log(meal);
+                
                 return meal.ownerId.id === userId.userId
             });
             state.userMeals = meals;
@@ -77,47 +82,37 @@ export default ({
     },
     actions: {
         async loadMeals({ commit }) {
-            // const meal= await MealService.query()
-            // commit({ type: 'setMeals', meal })
-            // return meal
             let meals =await MealService.query()
             commit({type: 'setMeals', meals})
             return meals
-            // return MealService.query()
-            //     .then(meals =>
-            //         commit({ type: 'setMeals', meals })
-            //     )
+          
         },
         async setCurrMeal(context, { mealId }) {
-            MealService.query().then(() =>
-                context.commit('setCurrMeal', mealId))
+           const meals=await MealService.query()
+                context.commit('setCurrMeal', mealId)
+                return meals
         },
         async removeMeal(context, payload) {
-            return MealService.remove(payload.mealId)
-                .then(() => {
-                    context.commit({ type: 'removeMeal', mealId: payload.mealId })
-                })
+            await MealService.remove(payload.mealId)
+            context.commit({ type: 'removeMeal', mealId: payload.mealId })
         },
-        async  getById(context, mealId) {
-            return MealService.getById(mealId.routeParamsId)
-                .then(meal => {
-                    context.commit({ type: 'setCurrMeal', meal })
-                    return meal
-                })
+        async getById(context, mealId) {
+            const meals= await MealService.getById(mealId.routeParamsId)
+             context.commit({ type: 'setCurrMeal', meals })
+            return meals
+              
         },
 
         async editMeal(context, { currMeal }) {
-            return MealService.edit(currMeal)
-                .then((updatedMeal) => {
-                    context.commit({ type: 'editMeal', updatedMeal })
-                })
+            const meals = await MealService.edit(currMeal)
+                    context.commit({ type: 'editMeal', meals })
+                    return meals
         },
-       async addMeal(context, { currMeal }) {
-            return MealService.add(currMeal)
-                .then((addedItem) => {
-                    context.commit({ type: 'addMeal', meal: addedItem })
-                    return addedItem
-                })
+        async addMeal(context, { currMeal }) {
+           const meals = await MealService.add(currMeal)
+            context.commit({ type: 'addMeal', meal: meals })
+             return meals
+               
         },
 
     },

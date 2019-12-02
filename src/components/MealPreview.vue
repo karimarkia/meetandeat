@@ -9,10 +9,10 @@
     </div>
     <p><span>{{meal.price}}$</span> Meal</p>
 </router-link>
-     <!-- <button @click="removeMeal(meal._id)">DELETE</button>
+     <button @click="removeMeal(meal._id)">DELETE</button>
       <router-link :to="editURL">
       <button class="cards-btns">EDIT</button>
-    </router-link> -->
+    </router-link>
 </section>
 </template>
 
