@@ -29,6 +29,11 @@
                                     </el-select>
                 <span>Limit Guests</span> <el-input v-model="currMeal.maxUsers" type="number" ></el-input>
             </div>
+            <h3>Images</h3>
+            <div class="inputs-container">
+
+                <span>imgs</span> <el-input type="file" ></el-input>
+            </div>
             <h3>Dishes</h3>
             <div class="inputs-container" v-if="currMeal.dishes">
                 <span>first Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[0].name" type="text"></el-input>
@@ -49,7 +54,86 @@
 <script>
 export default {
   data: () => ({
-    currMeal: {},
+    currMeal: {
+          
+    "title": "",
+    "location": {
+        "country": "",
+        "city": "",
+        "lat": 41.902782,
+        "lng": 12.496366
+    },
+    "price": 0,
+    "atDate": "",
+    "duration": 0,
+    "tags": [
+        ""
+    ],
+    "ownerId": {
+        "id": "",
+        "name": "",
+        "about": " better with wine!"
+    },
+    "rate": 4.7,
+    "maxUsers": 7,
+    "guests": [
+        "userId1",
+        "userId2",
+        "userId3",
+        "userId4"
+    ],
+    "imgUrl": [
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1575047876/finel%20proj/u5u5xs0c0nsv2pdatank.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1575047874/finel%20proj/jak3sncfccczgeew34zq.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1575048902/finel%20proj/mr0hssqnmfki9qsdo0bo.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1575048599/finel%20proj/etrjd1gveu7yqz7vhuj8.jpg",
+        "https://res.cloudinary.com/artyompogosov/image/upload/v1575047449/finel%20proj/kjfgkl2gk3ia1n5i2fzu.jpg"
+    ],
+    "description": "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
+    "dishes": {
+        "appetizers": [
+            {
+                "name": "",
+                "description": "",
+                "count": 2
+            },
+            {
+                "name": "",
+                "description": "",
+                "count": 1
+            }
+        ],
+        "mains": [
+            {
+                "name": "",
+                "description": "",
+                "count": 2
+            },
+            {
+                "name": "",
+                "description": "",
+                "count": 1
+            }
+        ],
+        "dessert": [
+            {
+                "name": "",
+                "description": "",
+                "count": 2
+            },
+            {
+                "name": "",
+                "description": "",
+                "count": 1
+            }
+        ],
+        "drinks": [
+            "Red Wine",
+            "White Wine",
+            "Beer"
+        ]
+    }
+    },
     options: [{
           value: "Asian",
           label: "Asian"
