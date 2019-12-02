@@ -40,16 +40,10 @@ export default ({
             state.meals.sort((a, b) => (a.price > b.price ? 1 : -1));
         },
         userMeals(state, userId) {
-            console.log(userId);
             const meals = state.meals.filter(meal => {
-                console.log(meal.ownerId.id);
-                console.log(userId.userId);
-                
                 return meal.ownerId.id === userId.userId
             });
             state.userMeals = meals;
-            // console.log(meals);
-            
             return meals
         },
     },
