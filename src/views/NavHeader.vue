@@ -24,7 +24,6 @@
             <router-link :to="'/user/' + user._id">my account</router-link>
           </li>
 
-          <li class="userTest">{{user}}</li>
       </ul>
     </div>
   <hr>

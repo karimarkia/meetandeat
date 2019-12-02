@@ -1,7 +1,7 @@
 'use strict';
 
 import MealService from '../services/MealService.js'
-
+import { stat } from 'fs';
 
 
 export default ({
@@ -9,6 +9,7 @@ export default ({
     state: {
         meals: [],
         currMeal: null,
+        userMeals: null,
         filterBy: {
             searchStr: '',
             mealType: [],
@@ -33,7 +34,6 @@ export default ({
             // state.toys.id=1
             // const addedMeal =  MealService.add(meal)
             state.meals.push(meal)
-
         },
         editMeal(state, { updatedMeal }) {
 
@@ -47,7 +47,16 @@ export default ({
         },
         sortMeals(state, sortBy) {
             state.meals.sort((a, b) => (a.price > b.price ? 1 : -1));
-        }
+        },
+        userMeals(state, userId) {
+            const meals = state.meals.filter(meal => {
+
+                return meal.ownerId.id === userId.userId
+            });
+
+            state.userMeals = meals;
+            return meals
+        },
     },
 
     getters: {
@@ -56,9 +65,13 @@ export default ({
             console.log(filterBy.mealType);
 
             let filteredMeals = [...state.meals];
-            // filteredMeals = filteredMeals.filter(meal =>
-            //     (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-            // );
+
+            if (filterBy.searchStr.length > 0) {
+                filteredMeals = filteredMeals.filter(meal =>
+                    (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
+                    // (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
+                );
+            }
 
             filteredMeals = filteredMeals.filter(meal =>
                 (meal.price > filterBy.priceRange[0] && meal.price < filterBy.priceRange[1])
@@ -74,11 +87,9 @@ export default ({
         currMeal(state) {
             return state.currMeal;
         },
-        userMeals(state, userId) {
-            let meals = state.meals.find(meal => meal.ownerId._id === userId);
-            return meals
-        },
-
+        userMeals(state) {
+            return state.userMeals;
+        }
     },
     actions: {
         loadMeals({ commit }) {
@@ -120,5 +131,6 @@ export default ({
                     return addedItem
                 })
         },
+
     },
-})  
+})
