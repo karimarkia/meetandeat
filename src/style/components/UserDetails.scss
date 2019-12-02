@@ -14,9 +14,19 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-top: 10px;
 }
 
 .myMeal {
-    width: 400px;
-    /* height: 400px; */
+    max-width: 400px;
+    h4 {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.modalBtn {
+    flex-direction: column;
 }

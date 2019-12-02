@@ -14,21 +14,22 @@
     <span>BirthDay:</span>
     <el-input class="mainUserDetails" v-model="user.birthDay"></el-input>
 
-    <h2>My Meals</h2>
+    <h2 v-if="meals.length > 0">My Meals</h2>
+    <section v-if="meals.length > 0" class="flex">
     <div class="myMeal" v-for="(meal, idx) in meals" :key="idx">
       <img class="img-card img-card2" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
       <div class="test">
         <h4>{{meal.title}}</h4>
-        <h4>
+        <!-- <h4>
           {{meal.rate}}
           <span>
             <i class="fa fa-star"></i>
           </span>
-        </h4>
+        </h4> -->
       </div>
-      <p>
+      <!-- <p>
         <span>{{meal.price}}$</span>
-      </p>
+      </p> -->
       <div class="controlBtn">
         <router-link :to="'/details/' + meal._id">
           <el-button type="danger">DETAILS</el-button>
@@ -39,6 +40,7 @@
         <el-button @click="removeMeal(meal._id)" type="danger">DELETE</el-button>
       </div>
     </div>
+    </section>
   </section>
 </template>
 

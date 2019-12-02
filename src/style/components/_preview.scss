@@ -1,27 +1,26 @@
 .meal-card {
     padding: 10px;
     // height: 100%;
-    
     // margin-bottom: 10px;
-    p,h4{
+    p,
+    h4 {
         margin: 0;
         line-height: 2;
     }
-    p{
-        span{
+    p {
+        span {
             font-weight: 600;
         }
     }
-    .test{
+    .test {
         color: #222222;
         display: flex;
         justify-content: space-between;
-        span{
+        span {
             color: red;
             padding-left: 3px;
         }
     }
-
 }
 
 .img-card {
@@ -37,4 +36,9 @@
 
 .img-card {
     border-radius: 5px;
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: space-between;
 }

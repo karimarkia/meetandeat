@@ -7,13 +7,14 @@
         <h3>{{meal.location.city}}, {{meal.location.country}}</h3>
       </section>
       <section class="hostReview flex">
-        <el-rate
+        <i class="fa fa-star"></i><span>{{meal.rate}}/5</span>
+        <!-- <el-rate
           v-model="meal.rate"
           disabled
           show-score
           text-color="#FF385C"
           score-template="{value} points"
-        ></el-rate>
+        ></el-rate> -->
       </section>
       <div class="imgs-gallery" @click="getImgGallery">
         <img
@@ -59,7 +60,11 @@
           </div>
           <div :class="{ modalOrder:isShowModal, displayNon:!isShowModal}">
             <div class="modalBtn flex">
-              <button class="pricerange sortPrice" @click="orderDetails">Close</button>
+              <section>
+                <h2>Thank you!!!</h2>
+                </section>
+              <button class="pricerange sortPrice" @click="closeOrder">Close</button>
+      
               <!-- <button class="pricerange sortPrice" @click="sortMeals">Save</button> -->
             </div>
           </div>
@@ -151,6 +156,7 @@ export default {
     this.$store.dispatch({ type: "setCurrMeal", mealId });
   },
   computed: {
+
     meal() {
       return this.$store.getters.currMeal;
     },
@@ -170,10 +176,17 @@ export default {
   methods: {
     orderDetails() {
       this.isShowModal = !this.isShowModal;
+        let user = this.$store.getters.loggedinUser;
+        if(user) return
+        
+        
     },
     getImgGallery() {
       this.isShowGallery = !this.isShowGallery;
-    }
+    },
+        closeOrder(){
+ this.isShowModal = !this.isShowModal;
+    },
   }
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
