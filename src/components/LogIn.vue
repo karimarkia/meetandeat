@@ -2,12 +2,13 @@
 <template>
   <section class="register-container">
     <form class="secondery-reg-container">
-      <button @click="toggleLogIn" class="exit-btn">X</button>
+        
+      <button @click="toggleLogIn" class="exitLogIn-btn">X</button>
       <span>User Name*</span>
       <el-input v-model="loginUser.username" type="text"></el-input>
       <span>Password*</span>
       <el-input v-model="loginUser.password" placeholder="Please input password" show-password></el-input>
-      <button @click="doLogin">LogIn</button>
+      <el-button  class="loginBtn" @click="doLogin" type="success">LogIn</el-button>
     </form>
   </section>
 </template>
@@ -29,10 +30,12 @@ export default {
       this.$emit("toggleLogIn");
     },
     async doLogin() {
+        
       const cred = this.loginUser;
       if (!cred.username || !cred.password)
         return (this.msg = "Please enter user/password");
       await this.$store.dispatch({ type: "login", userCred: cred });
+      this.toggleLogIn();
       this.loginUser = {};
     }
   }
@@ -41,7 +44,7 @@ export default {
 
 <style scoped>
 .register-container {
-  max-width: 530px;
+  max-width: 500px;
   background-color: white;
   border: 1px solid grey;
   border-radius: 10px;
@@ -53,6 +56,7 @@ export default {
   margin: auto;
   z-index: 100;
   display: none;
+  position: fixed;
 }
 .secondery-reg-container {
   display: flex;
@@ -64,14 +68,23 @@ export default {
 .mini-container > *:not(:last-child) {
   margin-right: 7px;
 }
-.exit-btn {
+.exitLogIn-btn {
   background-color: transparent;
   border: 0;
   font-size: 1.2rem;
-  margin: 10px 10px 10px 0;
+  margin: 10px 10px 0 0;
+  outline: none;
+display: flex;
+justify-content: flex-end;
+
 }
-.exit-btn:hover {
-  transform: scale(1.1);
+.loginBtn{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
 }
+/* .exitLogIn-btn:hover {
+font-size: 1.4rem;
+} */
 </style>
 
