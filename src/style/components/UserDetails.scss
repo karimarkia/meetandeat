@@ -1,0 +1,20 @@
+.userDetails {
+    max-width: 90vw;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-bottom: 100px;
+  }
+  .mainUserDetails {
+    max-width: 400px;
+    margin: 10px 0;
+  }
+  
+  .controlBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .myMeal {
+    width: 400px;
+    /* height: 400px; */
+  }

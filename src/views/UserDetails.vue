@@ -74,29 +74,6 @@ export default {
     const id = this.$route.params._id;
     const user = await UserService.getById(id);
     this.user = user;
-    console.log(this.user);
   }
 };
 </script>
-<style scoped>
-.userDetails {
-  max-width: 90vw;
-  margin: 0 auto;
-  flex-direction: column;
-  margin-bottom: 100px;
-}
-.mainUserDetails {
-  max-width: 400px;
-  margin: 10px 0;
-}
-
-.controlBtn {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-.myMeal {
-  width: 400px;
-  /* height: 400px; */
-}
-</style>

@@ -200,48 +200,5 @@ export default {
       
     }
   }
-
 } 
 </script>
-
-
-<style scoped>
-.edit-container {
-  margin: 50px 0;
-}
-.inputs-container {
-  width: 60%;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 25px;
-}
-h2, h3 {
-  text-align: center;
-}
-span{
-  display: flex;
-  align-items: center;
-}
-
-input, select {
-  border: 0;
-  border-bottom: 1px solid;
-}
-
-.save-btn{
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 100px;
-  border: 0.5px solid grey;
-  width: 120px;
-  background-color: transparent; 
-}
-.save-btn-container{
-  width: 60%;
-  margin: 30px auto;
-  display: flex;
-  align-items: center;
-
-}
-</style>
