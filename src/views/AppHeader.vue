@@ -13,18 +13,18 @@
           <li>
             <router-link to="/add">Become a host</router-link>
           </li>
-          <li v-if="!user" @click="logIn">
+          <li class="pointer" v-if="!user" @click="logIn">
             <a>LogIn</a>
           </li>
-          <li v-else @click="doLogout">
+          <li class="pointer" v-else @click="doLogout">
             <a>LogOut</a>
           </li>
-          <li v-if="!user" @click="SignUp"> <a>SignUp</a></li>
+          <li class="pointer" v-if="!user" @click="SignUp"> <a>SignUp</a></li>
           <li v-else>
             <router-link :to="'/user/' + user._id">my account</router-link>
           </li>
 
-          <li class="userTest">{{user}}</li>
+          <li v-if="user" class="userTest">Hello {{user.username}}!</li>
         </ul>
       </div>
     </nav>
@@ -33,10 +33,12 @@
 
 <script>
 import RegisterModule from "../components/RegisterModule.vue";
+import LogIn from "../components/LogIn.vue";
 // import NavHeader from './NavHeader.vue'
 export default {
   components: {
-    RegisterModule
+    RegisterModule,
+    LogIn
     // NavHeader
   },
   methods: {

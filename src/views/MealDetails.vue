@@ -1,6 +1,6 @@
 <template>
   <section v-if="meal" >
-    <NavHeader class="spec"></NavHeader>
+    <!-- <NavHeader class="spec"></NavHeader> -->
     <div class="detailsPage flex">
 
     <div :class="{ bg:isShowModal}"></div>

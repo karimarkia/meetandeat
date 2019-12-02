@@ -23,6 +23,8 @@ function update(user) {
 }
 
 async function login(userCred) {
+    console.log(userCred);
+
     const user = await HttpService.post('auth/login', userCred)
     return _handleLogin(user)
 }
@@ -41,5 +43,7 @@ function getUsers() {
 
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
+    console.log(user);
+
     return user;
 }

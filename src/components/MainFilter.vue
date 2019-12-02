@@ -1,7 +1,7 @@
 <template>
   <section class="main-filter-home flex align-center space-between">
     <div>
-      <el-input type="text" placeholder="Choose a city..."></el-input>
+      <el-input type="text" placeholder="Choose a city..." v-model="city"></el-input>
     </div>
     <div>
       <el-date-picker value-format="timestamp" type="date" placeholder="Choose a date..."></el-date-picker>
@@ -13,6 +13,22 @@
     </div>
   </section>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      city:null
+    }
+  },
+}
+</script>
+
+
+
+
+
 
 
 <style scoped>

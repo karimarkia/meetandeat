@@ -14,7 +14,8 @@ export default {
         },
         loggedinUser(state) {
             return state.loggedinUser
-        }
+        },
+
     },
     mutations: {
         setUser(state, { user }) {

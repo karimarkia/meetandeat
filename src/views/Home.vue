@@ -1,22 +1,13 @@
 <template>
   <section>
-    <AppHeader @toggleRegister="toggleRegister" @toggleLogIn="toggleLogIn"></AppHeader>
-    <div class="main-img">
-      <h1 >Meet&Eat</h1>
-      <Main-filter></Main-filter>
-    </div>
-    <Register-module @toggleRegister="toggleRegister" :class="{ active: isActive}"></Register-module>
-        <LogIn @toggleLogIn="toggleLogIn" :class="{ active: isLogIn}"></LogIn>
-    <!-- <div v-for="(meal,idx) in meals" :key="meal._id">
-      <h1>{{meal.title}}</h1>
-    </div>-->
+    <Main-filter></Main-filter>
     <div class="sec-section">
       <h1>Places to eat&meet people around the world</h1>
       <div class="cards-container-sec">
         <MealPreview
           class="sec"
           v-for="(meal,idx) in meals"
-          v-if="idx <= 3"
+          v-if="idx <= 2"
           :key="meal._id"
           :meal="meal"
         ></MealPreview>
@@ -85,50 +76,26 @@
 </template>
 
 <script>
-import AppHeader from "@/views/AppHeader";
-import RegisterModule from "../components/RegisterModule.vue";
-import LogIn from "../components/LogIn.vue";
 import MainFilter from "../components/MainFilter.vue";
 import MealPreview from "../components/MealPreview.vue";
 export default {
   name: "home",
-
-  data(){
-    return{
-      isActive: false,
-      isLogIn: false,
-      isLogOut: true
-    }
-  },
-  methods: {
-    toggleRegister() {
-      this.isActive =!this.isActive;
-    },
-    toggleLogIn(){
-       this.isLogIn = !this.isLogIn;
-    },
-  },
-
   computed: {
     meals() {
-      // console.log(this.$store.getters.mealsToShow);
       return this.$store.getters.mealsToShow;
     }
   },
   components: {
-    RegisterModule,
     MainFilter,
-    AppHeader,
     MealPreview,
-    LogIn
   }
 };
 </script>
 
 <style  scoped>
-.active {
-  display: block;
-}
+
+
+
 
 .sec-section h1 {
   text-align: center;
@@ -235,5 +202,4 @@ export default {
   width: auto;
   margin-right: 10px;
 }
-
 </style>

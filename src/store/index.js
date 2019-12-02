@@ -11,7 +11,6 @@ export default new Vuex.Store({
     },
     getters: {
         meals(state) {
-
             return state.meals
         },
     },
