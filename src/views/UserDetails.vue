@@ -61,6 +61,8 @@ export default {
   computed: {
     meals() {
       this.$store.commit("userMeals", { userId: this.user._id });
+      console.log(this.$store.getters.userMeals);
+      
       return this.$store.getters.userMeals;
     },
     editURL() {
