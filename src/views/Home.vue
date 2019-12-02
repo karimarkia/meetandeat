@@ -1,15 +1,11 @@
 <template>
   <section>
-    <AppHeader @toggleRegister="toggleRegister" @toggleLogIn="toggleLogIn"></AppHeader>
-    <div class="main-img">
-      <h1 >Meet&Eat</h1>
-      <Main-filter></Main-filter>
-    </div>
+    <!-- <AppHeader @toggleRegister="toggleRegister" @toggleLogIn="toggleLogIn"></AppHeader> -->
+    <!-- <h1>Meet&Eat</h1> -->
+    <Main-filter></Main-filter>
     <Register-module @toggleRegister="toggleRegister" :class="{ active: isActive}"></Register-module>
-        <LogIn @toggleLogIn="toggleLogIn" :class="{ active: isLogIn}"></LogIn>
-    <!-- <div v-for="(meal,idx) in meals" :key="meal._id">
-      <h1>{{meal.title}}</h1>
-    </div>-->
+    <LogIn @toggleLogIn="toggleLogIn" :class="{ active: isLogIn}"></LogIn>
+
     <div class="sec-section">
       <h1>Places to eat&meet people around the world</h1>
       <div class="cards-container-sec">
@@ -93,20 +89,20 @@ import MealPreview from "../components/MealPreview.vue";
 export default {
   name: "home",
 
-  data(){
-    return{
+  data() {
+    return {
       isActive: false,
       isLogIn: false,
       isLogOut: true
-    }
+    };
   },
   methods: {
     toggleRegister() {
-      this.isActive =!this.isActive;
+      this.isActive = !this.isActive;
     },
-    toggleLogIn(){
-       this.isLogIn = !this.isLogIn;
-    },
+    toggleLogIn() {
+      this.isLogIn = !this.isLogIn;
+    }
   },
 
   computed: {
@@ -126,6 +122,20 @@ export default {
 </script>
 
 <style  scoped>
+/* .main-img{
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url(../img/img2.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 95vh;
+  background-attachment: fixed;
+
+} */
+
 .active {
   display: block;
 }
@@ -235,5 +245,4 @@ export default {
   width: auto;
   margin-right: 10px;
 }
-
 </style>

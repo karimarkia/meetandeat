@@ -1,7 +1,6 @@
 <template>
   <div>
-    <NavHeader></NavHeader>
-    <MealFilter />
+    <MealFilter/>
     <div class="sescrt">
       <h2>Find unique food experiences with hand-selected hosts</h2>
       <p>Book now before they sell out!</p>
@@ -13,18 +12,14 @@
 <script>
 import MealList from "@/components/MealList";
 import MealFilter from "@/components/MealFilter.vue";
-import NavHeader from "@/views/NavHeader.vue";
 
 export default {
   components: {
     MealList,
-    MealFilter,
-    NavHeader
+    MealFilter
   },
   computed: {
     meals() {
-      // console.log(this.$store.getters.mealsToShow);
-
       return this.$store.getters.mealsToShow;
     }
   }

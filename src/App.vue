@@ -1,6 +1,7 @@
 <template>
   <section>
-    <!-- <NavHeader></NavHeader> -->
+    <AppHeader v-if="header==='/'"></AppHeader>
+    <NavHeader v-else ></NavHeader>
     <router-view class="page-body"/>
     <Footer></Footer>
   </section>
@@ -8,16 +9,26 @@
 
 <script>
   import NavHeader from '@/views/NavHeader.vue'
+  import AppHeader from '@/views/AppHeader.vue'
 import Footer from '@/components/Footer'
 export default {
   components:{
-  NavHeader,
-    Footer
+
+    Footer,
+    NavHeader,
+    AppHeader
   },
     created() {
     this.$store.dispatch("loadMeals");
-   
-  }
+    console.log(this.$route);
+  },
+
+  computed: {
+    header(){
+      return this.$route.path
+    }
+  },
+ 
 }
 </script>
 
