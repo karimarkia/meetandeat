@@ -19,10 +19,13 @@
 export default {
   data() {
     return {
-      city:null
-    }
+        city: ""
+    };
   },
-}
+  create(){
+    console.log(this.city);
+  }
+};
 </script>
 
 
