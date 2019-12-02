@@ -7,14 +7,15 @@
         <h3>{{meal.location.city}}, {{meal.location.country}}</h3>
       </section>
       <section class="hostReview flex">
-        <i class="fa fa-star"></i><span>{{meal.rate}}/5</span>
+        <i class="fa fa-star"></i>
+        <span>{{meal.rate}}/5</span>
         <!-- <el-rate
           v-model="meal.rate"
           disabled
           show-score
           text-color="#FF385C"
           score-template="{value} points"
-        ></el-rate> -->
+        ></el-rate>-->
       </section>
       <div class="imgs-gallery" @click="getImgGallery">
         <img
@@ -62,9 +63,9 @@
             <div class="modalBtn flex">
               <section>
                 <h2>Thank you!!!</h2>
-                </section>
+              </section>
               <button class="pricerange sortPrice" @click="closeOrder">Close</button>
-      
+
               <!-- <button class="pricerange sortPrice" @click="sortMeals">Save</button> -->
             </div>
           </div>
@@ -133,6 +134,7 @@ import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
+import { log } from 'util';
 export default {
   name: "mealdetails",
   components: {
@@ -156,9 +158,8 @@ export default {
     this.$store.dispatch({ type: "setCurrMeal", mealId });
   },
   computed: {
-
     meal() {
-      return this.$store.getters.currMeal;
+      return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
     },
     location() {
       return this.$store.getters.currMeal.location;
@@ -176,17 +177,30 @@ export default {
   methods: {
     orderDetails() {
       this.isShowModal = !this.isShowModal;
-        let user = this.$store.getters.loggedinUser;
-        if(user) return
-        
-        
+      let user = JSON.parse(JSON.stringify(this.$store.getters.currUser));
+      this.meal.guests.unshift(user._id);
+      console.log(this.user);
+      
+     if(this.user.meals) this.user.meals.unshift(meal._id);
+     else  this.user.meals = [meal._id]
+     this.updateUser(user)
+      this.updateMeal(this.meal);
+      if (user) return;
+    },
+    async updateMeal(meal) {updateUser
+      let currMeal = this.meal;
+      await this.$store.dispatch({ type: "editMeal", currMeal });
+    },
+     async updateUser(user) {
+      let currUser = this.user;
+      await this.$store.dispatch({ type: "updateUser", currUser });
     },
     getImgGallery() {
       this.isShowGallery = !this.isShowGallery;
     },
-        closeOrder(){
- this.isShowModal = !this.isShowModal;
-    },
+    closeOrder() {
+      this.isShowModal = !this.isShowModal;
+    }
   }
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w

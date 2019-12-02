@@ -40,6 +40,9 @@
         <el-button @click="removeMeal(meal._id)" type="danger">DELETE</el-button>
       </div>
     </div>
+    <div>
+        
+        </div>
     </section>
   </section>
 </template>

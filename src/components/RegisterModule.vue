@@ -77,9 +77,9 @@
 } */
 .errorMsg {
   height: 15px;
- display: flex;
- justify-content: center;
- margin: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
   color: brown;
 }
 </style>

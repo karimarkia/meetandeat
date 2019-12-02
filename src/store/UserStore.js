@@ -12,7 +12,7 @@ export default {
         users(state) {
             return state.users;
         },
-        loggedinUser(state) {
+        currUser(state) {
             return state.loggedinUser
         },
 
