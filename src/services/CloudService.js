@@ -1,4 +1,5 @@
 function uploadImg(ev) {
+    console.log('ffgtefh', ev)
     const CLOUD_NAME = 'artyompogosov'
     const PRESET_NAME = 'xqvurmk0'
     const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
@@ -15,4 +16,8 @@ function uploadImg(ev) {
             return res
         })
         .catch(err => console.error(err))
+} 
+
+export default {
+    uploadImg
 }

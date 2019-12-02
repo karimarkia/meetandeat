@@ -97,15 +97,3 @@ export default {
   props: ["meal"]
 };
 </script>
-
-<style>
-.fa-thumbs-up {
-  padding: 0 5px 0 20px;
-  color: #FF385C;
-  cursor: pointer;
-}
-.count {
-  font-size: 15px;
-  padding-top: 2px;
-}
-</style>

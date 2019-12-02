@@ -1,4 +1,3 @@
-
 <template>
   <section class="register-container">
     <button @click="toggleRegister" class="exit-btn">X</button>
@@ -88,7 +87,6 @@
 
 <script >
 export default {
-  // props:['isActive'],
   data: () => ({
     msg: null,
     signupCred: {

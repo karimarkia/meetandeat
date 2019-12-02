@@ -29,11 +29,7 @@
                                     </el-select>
                 <span>Limit Guests</span> <el-input v-model="currMeal.maxUsers" type="number" ></el-input>
             </div>
-            <h3>Images</h3>
-            <div class="inputs-container">
-
-                <span>imgs</span> <el-input type="file" ></el-input>
-            </div>
+  
             <h3>Dishes</h3>
             <div class="inputs-container" v-if="currMeal.dishes">
                 <span>first Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[0].name" type="text"></el-input>
@@ -44,6 +40,14 @@
                 <span>second Dessert</span> <el-input v-model="currMeal.dishes.dessert[1].name" type="text"></el-input>
                 <span>Drinks</span> <el-input type="text"></el-input> 
             </div>
+            <h3>Images</h3>
+            <div class="inputs-container">
+                <!-- <span>imgs</span> <el-input @change="uploadImg" type="file" ></el-input> -->
+               <span>add img</span> <input @change="uploadImg" type="file" />
+            </div>
+            <div class="cards-container" >
+              <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
+            </div>
         <button v-if="currMeal._id" @click="save">save</button>
         <button v-else @click="add">add</button>
       </form>
@@ -52,6 +56,8 @@
 </template>
  
 <script>
+import CloudService from '../services/CloudService.js'
+import ImgPreview from '../components/ImgPreview.vue'
 export default {
   data: () => ({
     currMeal: {
@@ -161,6 +167,9 @@ export default {
       ],
       
   }),
+  components:{
+    ImgPreview
+  },
   computed: {
     mealToEdit() {
       return JSON.parse(JSON.stringify(this.currMeal));
@@ -175,73 +184,35 @@ export default {
   },
   methods: {
     save() {
-      // if (this.currMeal.id) {
         let currMeal = this.currMeal;
         console.log(currMeal)
        this.$store.dispatch({ type: "editMeal", currMeal })
           .then(() => this.$router.push(`/meal`));
-      // } else {
-      //   console.log(1);
-      //   let currMeal = JSON.parse(JSON.stringify(this.currMeal));
-      //   this.$store
-      //     .dispatch({ type: "addMeal", currMeal })
-      //     .then(() => this.$router.push(`/meal`));
-      // }
     },
     add() {
-      let currMeal = this.currMeal;
-      // console.log(currMeal);   
+      let currMeal = this.currMeal; 
       this.currMeal.imgUrl="https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
       this.$store.dispatch({ type: "addMeal", currMeal })
       .then(() => this.$router.push(`/meal`));
       this.currMeal = {};
     },
     uploadImg() {
-      
+      CloudService.uploadImg(event)
+      .then(res => {
+        if(this.currMeal.imgUrl < 7){
+          (this.currMeal.imgUrl.push(res.secure_url))
+        }
+        
+      }); 
+    },
+    removeImg(currUrl){
+      //this.$store.dispatch({type: "removeImg", url, currMeal})
+      let idx = this.currMeal.imgUrl.findIndex(url => {
+         return url == currUrl
+        })
+      console.log(idx)
+      this.currMeal.imgUrl.splice(idx,1)
     }
   }
-
 } 
 </script>
-
-
-<style scoped>
-.edit-container {
-  margin: 50px 0;
-}
-.inputs-container {
-  width: 60%;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 25px;
-}
-h2, h3 {
-  text-align: center;
-}
-span{
-  display: flex;
-  align-items: center;
-}
-
-input, select {
-  border: 0;
-  border-bottom: 1px solid;
-}
-
-.save-btn{
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 100px;
-  border: 0.5px solid grey;
-  width: 120px;
-  background-color: transparent; 
-}
-.save-btn-container{
-  width: 60%;
-  margin: 30px auto;
-  display: flex;
-  align-items: center;
-
-}
-</style>

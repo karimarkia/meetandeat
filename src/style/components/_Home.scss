@@ -1,143 +1,6 @@
-// .main-img{
-//     width: 100vw;
-// }
 
-.container {
-  position: absolute;
-  margin: auto;
-  top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 300px;
-  height: 100px;
-
-  .search {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 80px;
-    background: rgb(20, 83, 220);
-    border-radius: 50%;
-    transition: all 1s;
-    z-index: 4;
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-
-    // box-shadow: 0 0 25px 0 crimson;
-    &:hover {
-      cursor: pointer;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      margin: auto;
-      top: 22px;
-      right: 0;
-      bottom: 0;
-      left: 22px;
-      width: 12px;
-      height: 2px;
-      background: white;
-      transform: rotate(45deg);
-      transition: all .5s;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      margin: auto;
-      top: -5px;
-      right: 0;
-      bottom: 0;
-      left: -5px;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      border: 2px solid white;
-      transition: all .5s;
-    }
-  }
-
-  input {
-    font-family: 'Inconsolata', monospace;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    outline: none;
-    border: none;
-    // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    background: crimson;
-    color: white;
-    text-shadow: 0 0 10px crimson;
-    padding: 0 80px 0 20px;
-    border-radius: 30px;
-    box-shadow: 0 0 25px 0 crimson,
-      0 20px 25px 0 rgba(0, 0, 0, 0.2);
-    // box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
-    transition: all 1s;
-    opacity: 0;
-    z-index: 5;
-    font-weight: bolder;
-    letter-spacing: 0.1em;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:focus {
-      width: 300px;
-      opacity: 1;
-      cursor: text;
-    }
-
-    &:focus~.search {
-      right: -250px;
-      background: #151515;
-      z-index: 6;
-
-      &::before {
-        top: 0;
-        left: 0;
-        width: 25px;
-      }
-
-      &::after {
-        top: 0;
-        left: 0;
-        width: 25px;
-        height: 2px;
-        border: none;
-        background: white;
-        border-radius: 0%;
-        transform: rotate(-45deg);
-      }
-    }
-
-    &::placeholder {
-      color: white;
-      opacity: 0.5;
-      font-weight: bolder;
-    }
-  }
-}
 
 .main-img {
-
-  // img {
-  //   filter: brightness(50%);
-  //   width: 100%;
-  //   height: 85vh;
-  // }
 
   h1 {
     position: absolute;
@@ -203,4 +66,111 @@
     margin-right: 10px;
     vertical-align: middle;
   }
+}
+
+
+.sec-section h1 {
+  text-align: center;
+  font-size: 28px;
+  padding: 30px 0;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+}
+.sec-section h1:after {
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.cards-container-sec {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 10px;
+  margin: 0 30px;
+}
+
+.section-steps h2 {
+  text-align: center;
+  font-size: 28px;
+  padding: 60px 0;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+  margin: 0;
+}
+.section-steps h2:after {
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.section-steps {
+  background-color: #f4f4f4;
+}
+
+.steps-box {
+  margin-top: 30px;
+}
+
+.steps-box:first-child {
+  text-align: right;
+  padding-right: 3%;
+}
+
+.steps-box:last-child {
+  text-align: left;
+  padding-left: 3%;
+  margin-top: 70px;
+}
+
+.app-screen {
+  width: 40%;
+}
+
+.works-step {
+  margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+
+.works-step div {
+  color: #e67e22;
+  font-size: 150%;
+  height: 54px;
+  width: 54px;
+  border: 2px solid #e67e22;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  margin-right: 25px;
+  float: left;
+  padding: 10px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+  border: 0;
+}
+
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
 }

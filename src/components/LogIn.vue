@@ -1,4 +1,3 @@
-
 <template>
   <section class="register-container">
     <form class="secondery-reg-container">
@@ -16,12 +15,11 @@
 
 <script >
 export default {
-  // props:['isActive'],
   data() {
     return {
       loginUser: {
-          username: null,
-          password: null
+        username: null,
+        password: null
       }
     };
   },
