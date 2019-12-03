@@ -25,8 +25,8 @@ Vue.use(VueGoogleMaps, {
         libraries: 'places',
     },
 })
-
-SocketService.emit('test event', 'this is a testing string');
+ 
+//SocketService.emit('test event', 'this is a testing string');
 new Vue({
     router,
     store,
