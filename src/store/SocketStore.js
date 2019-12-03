@@ -1,5 +1,5 @@
 import socket from '../services/SocketService.js'
-socket.emit('test event', 'this is a testing string')
+// socket.emit('test event', 'this is a testing string')
 socket.on('saying to all', (data) =>{
     console.log(data)
 })
