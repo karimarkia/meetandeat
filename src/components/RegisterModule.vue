@@ -1,7 +1,7 @@
-
 <template>
   <section class="register-container">
     <button @click="toggleRegister" class="exit-btn">X</button>
+    <h5 class="errorMsg">{{msg}}</h5>
     <form class="secondery-reg-container">
       <span>Full Name*</span>
       <el-input v-model="signupCred.fullname" type="text"></el-input>
@@ -30,7 +30,7 @@
       <el-input v-model="signupCred.password" placeholder="Please input password" show-password></el-input>
       <span>Reapet Password*</span>
       <el-input v-model="password" placeholder="Please input password" show-password></el-input>
-      <button @click="doSignup">signup</button>
+      <el-button class="loginBtn" @click="doSignup" type="success">SingUp</el-button>
     </form>
   </section>
 </template>
@@ -66,17 +66,29 @@
   border: 0;
   font-size: 1.2rem;
   margin: 10px 10px 10px 0;
+  outline: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* float: right; */
 }
-.exit-btn:hover {
+/* .exit-btn:hover {
   transform: scale(1.1);
+} */
+.errorMsg {
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  color: brown;
 }
 </style>
 
 
 <script >
 export default {
-  // props:['isActive'],
   data: () => ({
+    msg: null,
     signupCred: {
       location: {
         country: null,
@@ -99,15 +111,29 @@ export default {
   methods: {
     toggleRegister() {
       this.$emit("toggleRegister");
+      this.msg = null;
+      this.signupCred = {
+        location: {
+          country: null,
+          city: null
+        }
+      };
     },
     doSignup() {
-        console.log(this.signupCred);
       const cred = this.signupCred;
       if (!cred.email || !cred.password || !cred.username)
-      return (this.msg = "Please fill up the form");
-      this.$store.dispatch({ type: "signup", userCred: cred })
-      .then(()=> console.log('user added')
-      )
+        return (this.msg = "Please fill up the form");
+      this.$store
+        .dispatch({ type: "signup", userCred: cred })
+        .then(() => console.log("user added"));
+      this.toggleRegister();
+      this.msg = null;
+      this.signupCred = {
+        location: {
+          country: null,
+          city: null
+        }
+      };
     }
   }
 };

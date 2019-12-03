@@ -89,11 +89,6 @@ export default {
         "userId4"
     ],
     "imgUrl": [
-        "https://res.cloudinary.com/artyompogosov/image/upload/v1575047876/finel%20proj/u5u5xs0c0nsv2pdatank.jpg",
-        "https://res.cloudinary.com/artyompogosov/image/upload/v1575047874/finel%20proj/jak3sncfccczgeew34zq.jpg",
-        "https://res.cloudinary.com/artyompogosov/image/upload/v1575048902/finel%20proj/mr0hssqnmfki9qsdo0bo.jpg",
-        "https://res.cloudinary.com/artyompogosov/image/upload/v1575048599/finel%20proj/etrjd1gveu7yqz7vhuj8.jpg",
-        "https://res.cloudinary.com/artyompogosov/image/upload/v1575047449/finel%20proj/kjfgkl2gk3ia1n5i2fzu.jpg"
     ],
     "description": "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
     "dishes": {
@@ -175,25 +170,23 @@ export default {
       return JSON.parse(JSON.stringify(this.currMeal));
     }
   },
-  created() {
+ async created() {
     let routeParamsId = this.$route.params._id;
     if (!routeParamsId) return;
-     this.$store.dispatch({ type: "getById", routeParamsId }).then(meal => {
-      this.currMeal = meal;
-    });
+    const meal= await this.$store.dispatch({ type: "getById", routeParamsId })
+    this.currMeal=meal
   },
   methods: {
-    save() {
+   async save() {
         let currMeal = this.currMeal;
-        console.log(currMeal)
-       this.$store.dispatch({ type: "editMeal", currMeal })
-          .then(() => this.$router.push(`/meal`));
+      await this.$store.dispatch({ type: "editMeal", currMeal })
+         this.$router.push(`/meal`) 
     },
-    add() {
+   async add() {
       let currMeal = this.currMeal; 
       this.currMeal.imgUrl="https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
-      this.$store.dispatch({ type: "addMeal", currMeal })
-      .then(() => this.$router.push(`/meal`));
+      await this.$store.dispatch({ type: "addMeal", currMeal })
+      this.$router.push(`/meal`)
       this.currMeal = {};
     },
     uploadImg() {
@@ -214,48 +207,5 @@ export default {
       this.currMeal.imgUrl.splice(idx,1)
     }
   }
-
 } 
 </script>
-
-
-<style scoped>
-.edit-container {
-  margin: 50px 0;
-}
-.inputs-container {
-  width: 60%;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 25px;
-}
-h2, h3 {
-  text-align: center;
-}
-span{
-  display: flex;
-  align-items: center;
-}
-
-input, select {
-  border: 0;
-  border-bottom: 1px solid;
-}
-
-.save-btn{
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 100px;
-  border: 0.5px solid grey;
-  width: 120px;
-  background-color: transparent; 
-}
-.save-btn-container{
-  width: 60%;
-  margin: 30px auto;
-  display: flex;
-  align-items: center;
-
-}
-</style>

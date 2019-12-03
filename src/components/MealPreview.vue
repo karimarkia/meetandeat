@@ -2,17 +2,16 @@
   <section class="meal-card" v-if="meal">
      <router-link class="routerToDetails" :to="'/details/' + meal._id">
     <img class="img-card img-card2" v-if="meal.imgUrl" :src="(meal.imgUrl[0])">
-    <!-- <h4>{{meal.location.city}}</h4> -->
+    <div class="cardTitle">
+    <h4>{{meal.location.city}}</h4>
+     <h4><i class="fa fa-star"></i> {{meal.rate}}</h4>
+      </div>
     <div class="test">
     <h4>{{meal.title}}</h4>
-    <h4>{{meal.rate}}<span><i class="fa fa-star"></i></span></h4>
+   
     </div>
-    <p><span>{{meal.price}}$</span> Meal</p>
+   <span>{{meal.price}}$</span>
 </router-link>
-     <!-- <button @click="removeMeal(meal._id)">DELETE</button>
-      <router-link :to="editURL">
-      <button class="cards-btns">EDIT</button>
-    </router-link> -->
 </section>
 </template>
 

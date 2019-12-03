@@ -1,0 +1,32 @@
+.userDetails {
+    max-width: 90vw;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.mainUserDetails {
+    max-width: 400px;
+    margin: 10px 0;
+}
+
+.controlBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.myMeal {
+    max-width: 400px;
+    h4 {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.modalBtn {
+    flex-direction: column;
+}

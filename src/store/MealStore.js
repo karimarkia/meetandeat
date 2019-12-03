@@ -1,8 +1,6 @@
 'use strict';
-
 import MealService from '../services/MealService.js'
-import { stat } from 'fs';
-
+// import { stat } from 'fs';
 
 export default ({
     strict: true,
@@ -25,19 +23,14 @@ export default ({
             state.currMeal = meal;
         },
         removeMeal(state, { mealId }) {
-            // todoService.remove(todoId);
             const idx = state.meals.findIndex(meal => meal._id === mealId)
             state.meals.splice(idx, 1)
-
         },
         addMeal(state, { meal }) {
-            // state.toys.id=1
-            // const addedMeal =  MealService.add(meal)
             state.meals.push(meal)
         },
         editMeal(state, { updatedMeal }) {
-
-            console.log('update ', updatedMeal);
+            console.log(updatedMeal);
 
             const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
             state.meals.splice(idx, 1, updatedMeal);
@@ -50,22 +43,17 @@ export default ({
         },
         userMeals(state, userId) {
             const meals = state.meals.filter(meal => {
-
                 return meal.ownerId.id === userId.userId
             });
-
             state.userMeals = meals;
             return meals
         },
     },
-
     getters: {
         mealsToShow(state) {
             var filterBy = state.filterBy;
-            console.log(filterBy.mealType);
 
             let filteredMeals = [...state.meals];
-
             if (filterBy.searchStr.length > 0) {
                 filteredMeals = filteredMeals.filter(meal =>
                     (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
@@ -76,12 +64,10 @@ export default ({
             filteredMeals = filteredMeals.filter(meal =>
                 (meal.price > filterBy.priceRange[0] && meal.price < filterBy.priceRange[1])
             );
-
             if (filterBy.mealType.length === 0) return filteredMeals
             filteredMeals = filteredMeals.filter(meal => {
                 return filterBy.mealType.includes(meal.tags[0]);
             })
-
             return filteredMeals;
         },
         currMeal(state) {
@@ -92,44 +78,39 @@ export default ({
         }
     },
     actions: {
-        loadMeals({ commit }) {
-            return MealService.query()
-                .then(meals =>
-                    commit({ type: 'setMeals', meals })
-                )
+        async loadMeals({ commit }) {
+            let meals = await MealService.query()
+            commit({ type: 'setMeals', meals })
+                // console.log(meals);
+            return meals
+
         },
-        setCurrMeal(context, { mealId }) {
-            MealService.query().then(() =>
-                context.commit('setCurrMeal', mealId))
+        async setCurrMeal(context, { mealId }) {
+            const meals = await MealService.query()
+            context.commit('setCurrMeal', mealId)
+            return meals
         },
-        removeMeal(context, payload) {
-            return MealService.remove(payload.mealId)
-                .then(() => {
-                    context.commit({ type: 'removeMeal', mealId: payload.mealId })
-                })
+        async removeMeal(context, payload) {
+            await MealService.remove(payload.mealId)
+            context.commit({ type: 'removeMeal', mealId: payload.mealId })
         },
-        getById(context, mealId) {
-            return MealService.getById(mealId.routeParamsId)
-                .then(meal => {
-                    context.commit({ type: 'setCurrMeal', meal })
-                    return meal
-                })
+        async getById(context, mealId) {
+            const meals = await MealService.getById(mealId.routeParamsId)
+            context.commit({ type: 'setCurrMeal', meals })
+            return meals
+
         },
 
-        editMeal(context, { currMeal }) {
-            return MealService.edit(currMeal)
-                .then((updatedMeal) => {
-                    context.commit({ type: 'editMeal', updatedMeal })
-                })
+        async editMeal(context, { currMeal }) {
+            const meals = await MealService.edit(currMeal)
+            context.commit({ type: 'editMeal', updatedMeal: meals })
+            return meals
         },
-        addMeal(context, { currMeal }) {
-            // console.log(currMeal);
-            return MealService.add(currMeal)
-                .then((addedItem) => {
-                    context.commit({ type: 'addMeal', meal: addedItem })
-                        // console.log(addedItem);
-                    return addedItem
-                })
+        async addMeal(context, { currMeal }) {
+            const meals = await MealService.add(currMeal)
+            context.commit({ type: 'addMeal', meal: meals })
+            return meals
+
         },
 
     },
