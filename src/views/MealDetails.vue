@@ -101,7 +101,7 @@
               <span class="totalPrice">{{numOfGust * meal.price}}$</span>
             </h3>
           </div>
-          <el-button class="joinToMeal" @click="orderDetails" type="primary" round>Join To Meal</el-button>
+          <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Join To Meal</el-button>
         </div>
       </section>
 
@@ -175,25 +175,21 @@ export default {
     }
   },
   methods: {
-    orderDetails() {
+    getBookMael() {
+      let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+      if(!user) return
       this.isShowModal = !this.isShowModal;
-      let user = JSON.parse(JSON.stringify(this.$store.getters.currUser));
       this.meal.guests.unshift(user._id);
-      console.log(this.user);
-      
-     if(this.user.meals) this.user.meals.unshift(meal._id);
-     else  this.user.meals = [meal._id]
-     this.updateUser(user)
+     if(user.meals) user.meals.unshift({id: this.meal._id, name:this.meal.title, img: this.meal.imgUrl[0]});
+     else  user.meals = [{id: this.meal._id, name:this.meal.title, img: this.meal.imgUrl[0]}]
+      this.updateUser(user)
       this.updateMeal(this.meal);
-      if (user) return;
     },
-    async updateMeal(meal) {updateUser
-      let currMeal = this.meal;
-      await this.$store.dispatch({ type: "editMeal", currMeal });
+    async updateMeal(meal) {
+      await this.$store.dispatch({ type: "editMeal", currMeal:meal });
     },
      async updateUser(user) {
-      let currUser = this.user;
-      await this.$store.dispatch({ type: "updateUser", currUser });
+      await this.$store.dispatch({ type: "updateUser", user });
     },
     getImgGallery() {
       this.isShowGallery = !this.isShowGallery;

@@ -12,7 +12,7 @@ export default {
         users(state) {
             return state.users;
         },
-        currUser(state) {
+        loggedinUser(state) {
             return state.loggedinUser
         },
 
@@ -53,6 +53,7 @@ export default {
             context.commit({ type: 'removeUser', userId })
         },
         async updateUser(context, { user }) {
+            console.log(user);
             user = await UserService.update(user);
             context.commit({ type: 'setUser', user })
         }

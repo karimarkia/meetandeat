@@ -30,6 +30,8 @@ export default ({
             state.meals.push(meal)
         },
         editMeal(state, { updatedMeal }) {
+            console.log(updatedMeal);
+
             const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
             state.meals.splice(idx, 1, updatedMeal);
         },
@@ -77,39 +79,38 @@ export default ({
     },
     actions: {
         async loadMeals({ commit }) {
-            let meals =await MealService.query()
-            commit({type: 'setMeals', meals})
-            // console.log(meals);
-            
+            let meals = await MealService.query()
+            commit({ type: 'setMeals', meals })
+                // console.log(meals);
             return meals
-          
+
         },
         async setCurrMeal(context, { mealId }) {
-           const meals=await MealService.query()
-                context.commit('setCurrMeal', mealId)
-                return meals
+            const meals = await MealService.query()
+            context.commit('setCurrMeal', mealId)
+            return meals
         },
         async removeMeal(context, payload) {
             await MealService.remove(payload.mealId)
             context.commit({ type: 'removeMeal', mealId: payload.mealId })
         },
         async getById(context, mealId) {
-            const meals= await MealService.getById(mealId.routeParamsId)
-             context.commit({ type: 'setCurrMeal', meals })
+            const meals = await MealService.getById(mealId.routeParamsId)
+            context.commit({ type: 'setCurrMeal', meals })
             return meals
-              
+
         },
 
         async editMeal(context, { currMeal }) {
             const meals = await MealService.edit(currMeal)
-                    context.commit({ type: 'editMeal', meals })
-                    return meals
+            context.commit({ type: 'editMeal', updatedMeal: meals })
+            return meals
         },
         async addMeal(context, { currMeal }) {
-           const meals = await MealService.add(currMeal)
+            const meals = await MealService.add(currMeal)
             context.commit({ type: 'addMeal', meal: meals })
-             return meals
-               
+            return meals
+
         },
 
     },
