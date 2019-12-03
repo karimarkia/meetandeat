@@ -6,7 +6,7 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en'
-
+import SocketService from './services/SocketService'
 
 import '@/style/global.scss'
 
@@ -26,6 +26,7 @@ Vue.use(VueGoogleMaps, {
     },
 })
 
+SocketService.emit('test event', 'this is a testing string');
 new Vue({
     router,
     store,
