@@ -139,6 +139,7 @@ import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
 // import ChatRoom from '../components/ChatRoom.vue';
 import { log } from 'util';
+import socketService from '../services/SocketService.js'
 export default {
   name: "mealdetails",
   components: {
@@ -161,6 +162,7 @@ export default {
     const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
+    socketService.emit('test event', 'this is a testing string num 2')
   },
   computed: {
     meal() {

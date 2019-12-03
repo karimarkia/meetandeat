@@ -1,168 +1,244 @@
 <template>
-    <section >
-        <div class="edit-container" v-if="currMeal">
-          <h1>{{(currMeal._id)? 'Meal Edit' : 'Meal Add'}}</h1>
-            <form type="submit">
-            <div class="inputs-container">
-              <h1> </h1><h1>{{(currMeal.id)? 'Meal Edit' : 'Meal Add'}}</h1>
-                <span>Title</span> <el-input type="text" v-model="currMeal.title" ></el-input>
-                <span>Country</span> <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.country"></el-input>
-                <span>City</span> <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.city"></el-input>
-                <span>Price</span> <el-input type="number" v-model="currMeal.price"></el-input>
-            </div>
-            <h3>Time</h3>
-            <div class="inputs-container">
-                <span>Time</span> <el-date-picker
-                                    value-format="timestamp"
-                                    v-model="currMeal.atDate"
-                                    type="datetime"
-                                    placeholder="Select date and time">
-                                  </el-date-picker> 
-            </div>
+  <section>
+    <div class="edit-container" v-if="currMeal">
+      <form type="submit">
+        <div class="inputs-container">
+          <span>Title</span>
+          <el-input type="text" v-model="currMeal.title"></el-input>
+          <span>Country</span>
+          <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.country"></el-input>
+          <span>City</span>
+          <el-input type="text" v-if="currMeal.location" v-model="currMeal.location.city"></el-input>
+          <span>Address</span>
+          <el-input type="text" v-model="address"></el-input>
+          <span>Price</span>
+          <el-input type="number" v-model="currMeal.duration"></el-input>
+        </div>
+        <h3>Time</h3>
+        <div class="inputs-container">
+          <span>Time</span>
+          <el-date-picker
+            value-format="timestamp"
+            v-model="currMeal.atDate"
+            type="datetime"
+            placeholder="Select date and time"
+          ></el-date-picker>
+          <span>Duration of the event</span>
+          <el-input type="number" v-model="currMeal.price"></el-input>
+        </div>
 
-            <h3>Hosting</h3>
-            <div class="inputs-container">
-                <span>Tags</span>   <el-select v-model="currMeal.tags" v-if="currMeal.tags"  multiple placeholder="Select">
-                                      <el-option  v-for="tag in options" :key="tag.value" :label="tag.label" :value="tag.value">   
-                                      </el-option>
+        <h3>Hosting</h3>
+        <div class="inputs-container">
+          <span>Tags</span>
+          <el-select v-model="currMeal.tags" v-if="currMeal.tags" multiple placeholder="Select">
+            <el-option
+              v-for="tag in options"
+              :key="tag.value"
+              :label="tag.label"
+              :value="tag.value"
+            ></el-option>
+          </el-select>
+          <span>Limit Guests</span>
+          <el-input v-model="currMeal.maxUsers" type="number"></el-input>
+        </div>
 
-                                    </el-select>
-                <span>Limit Guests</span> <el-input v-model="currMeal.maxUsers" type="number" ></el-input>
-            </div>
-  
-            <h3>Dishes</h3>
-            <div class="inputs-container" v-if="currMeal.dishes">
-                <span>first Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[0].name" type="text"></el-input>
-                <span>second Appetizer</span> <el-input v-model="currMeal.dishes.appetizers[1].name" type="text"></el-input>
-                <span>first Main Dishe</span> <el-input v-model="currMeal.dishes.mains[0].name" type="text"></el-input>
-                <span>second Main Dishe</span> <el-input v-model="currMeal.dishes.mains[1].name" type="text"></el-input>
-                <span>first Dessert</span> <el-input v-model="currMeal.dishes.dessert[0].name" type="text"></el-input>
-                <span>second Dessert</span> <el-input v-model="currMeal.dishes.dessert[1].name" type="text"></el-input>
-                <span>Drinks</span> <el-input type="text"></el-input> 
-            </div>
-            <h3>Images</h3>
-            <div class="inputs-container">
-                <!-- <span>imgs</span> <el-input @change="uploadImg" type="file" ></el-input> -->
-               <span>add img</span> <input @change="uploadImg" type="file" />
-            </div>
-            <div class="cards-container" >
-              <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
-            </div>
-        <button v-if="currMeal._id" @click="save">save</button>
-        <button v-else @click="add">add</button>
+        <h3>Appetizers</h3>
+        <div class="inputs-container" v-if="currMeal.dishes">
+          <span>first Appetizer</span>
+          <el-input v-model="currMeal.dishes.appetizers[0].name" type="text"></el-input>
+          <span>Description</span>
+          <el-input v-model="currMeal.dishes.appetizers[0].description" type="text"></el-input>
+          <span>second Appetizer</span>
+          <el-input v-model="currMeal.dishes.appetizers[1].name" type="text"></el-input>
+          <span>Description</span>
+          <el-input v-model="currMeal.dishes.appetizers[1].description" type="text"></el-input>
+        </div>
+        <h3>Mains</h3>
+        <div class="inputs-container" v-if="currMeal.dishes">
+          <span>first main</span>
+          <el-input v-model="currMeal.dishes.mains[0].name" type="text"></el-input>
+          <span>Description</span>
+          <el-input v-model="currMeal.dishes.mains[0].description" type="text"></el-input>
+          <span>second main</span>
+          <el-input v-model="currMeal.dishes.mains[1].name" type="text"></el-input>
+          <span>Description</span>
+          <el-input v-model="currMeal.dishes.mains[1].description" type="text"></el-input>
+        </div>
+        <h3>Desserts</h3>
+        <div class="inputs-container" v-if="currMeal.dishes">
+          <span>first Dessert</span>
+          <el-input v-model="currMeal.dishes.dessert[0].name" type="text"></el-input>
+          <span>Description</span>
+          <el-input v-model="currMeal.dishes.dessert[0].description" type="text"></el-input>
+          <span>second Dessert</span>
+          <el-input v-model="currMeal.dishes.dessert[1].name" type="text"></el-input>
+          <span>Description</span>
+          <el-input v-model="currMeal.dishes.dessert[1].description" type="text"></el-input>
+        </div>
+        <h3>Drinks</h3>
+        <div class="inputs-container" v-if="currMeal.dishes">
+          <span>Tags</span>
+          <el-select
+            v-model="currMeal.dishes.drinks"
+            v-if="currMeal.tags"
+            multiple
+            placeholder="Select"
+          >
+            <el-option
+              v-for="drink in drinks"
+              :key="drink.value"
+              :label="drink.label"
+              :value="drink.value"
+            ></el-option>
+          </el-select>
+        </div>
+        <h3>Images</h3>
+        <div class="inputs-container">
+          <span>add img</span>
+          <input class="edit-img-input" @change="uploadImg" type="file" />
+        </div>
+        <div class="cards-container">
+          <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
+        </div>
+        <div class="inputs-container" v-if="currMeal.dishes">
+          <span>Discribe you'r meal</span>
+          <el-input :rows="3" v-model="currMeal.description" type="textarea"></el-input>
+        </div>
+        <div class="inputs-container" v-if="currMeal.ownerId">
+          <span>Tell about yourself</span>
+          <el-input :rows="3" v-model="currMeal.ownerId.about" type="textarea"></el-input>
+        </div>
+        <div class="edit-btn-container">
+          <el-button type="info" round v-if="currMeal._id" @click="save">save</el-button>
+          <el-button type="info" round v-else @click="add">add</el-button>
+        </div>
       </form>
     </div>
   </section>
 </template>
+
  
 <script>
-import CloudService from '../services/CloudService.js'
-import ImgPreview from '../components/ImgPreview.vue'
+import CloudService from "../services/CloudService.js";
+import ImgPreview from "../components/ImgPreview.vue";
+import HTTPService from "../services/HttpService.js";
+import HttpService from '../services/HttpService.js';
+// import Axios from 'axios'
+// var axios = Axios.create({
+//     withCredentials: true
+// });
 export default {
   data: () => ({
+    address: "",
     currMeal: {
-          
-    "title": "",
-    "location": {
-        "country": "",
-        "city": "",
-        "lat": 41.902782,
-        "lng": 12.496366
-    },
-    "price": 0,
-    "atDate": "",
-    "duration": 0,
-    "tags": [
-        ""
-    ],
-    "ownerId": {
-        "id": "",
-        "name": "",
-        "about": " better with wine!"
-    },
-    "rate": 4.7,
-    "maxUsers": 7,
-    "guests": [
-        "userId1",
-        "userId2",
-        "userId3",
-        "userId4"
-    ],
-    "imgUrl": [
-    ],
-    "description": "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
-    "dishes": {
-        "appetizers": [
-            {
-                "name": "",
-                "description": "",
-                "count": 2
-            },
-            {
-                "name": "",
-                "description": "",
-                "count": 1
-            }
+      title: "",
+      location: {
+        country: "",
+        city: "",
+        lat: 41.902782,
+        lng: 12.496366
+      },
+      price: 0,
+      atDate: "",
+      duration: 0,
+      tags: [""],
+      ownerId: {
+        id: "",
+        name: "",
+        about: " better with wine!"
+      },
+      rate: 4.7,
+      maxUsers: 7,
+      guests: ["userId1", "userId2", "userId3", "userId4"],
+      imgUrl: [],
+      description:
+        "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
+      dishes: {
+        appetizers: [
+          {
+            name: "",
+            description: "",
+            count: 2
+          },
+          {
+            name: "",
+            description: "",
+            count: 1
+          }
         ],
-        "mains": [
-            {
-                "name": "",
-                "description": "",
-                "count": 2
-            },
-            {
-                "name": "",
-                "description": "",
-                "count": 1
-            }
+        mains: [
+          {
+            name: "",
+            description: "",
+            count: 2
+          },
+          {
+            name: "",
+            description: "",
+            count: 1
+          }
         ],
-        "dessert": [
-            {
-                "name": "",
-                "description": "",
-                "count": 2
-            },
-            {
-                "name": "",
-                "description": "",
-                "count": 1
-            }
+        dessert: [
+          {
+            name: "",
+            description: "",
+            count: 2
+          },
+          {
+            name: "",
+            description: "",
+            count: 1
+          }
         ],
-        "drinks": [
-            "Red Wine",
-            "White Wine",
-            "Beer"
-        ]
-    }
+        drinks: ["Red Wine", "White Wine", "Beer"]
+      }
     },
-    options: [{
-          value: "Asian",
-          label: "Asian"
-        },
-        {
-          value: "Italian",
-          label: "Italian"
-        },
-        {
-          value: "BBQ",
-          label: "BBQ"
-        },
-        {
-          value: "Vegitarian",
-          label: "Vegitarian"
-        },
-         {
-          value: "American",
-          label: "American"
-        },
-        {
-          value: "Other",
-          label: "Other"
-        }
-      ],
-      
+    options: [
+      {
+        value: "Asian",
+        label: "Asian"
+      },
+      {
+        value: "Italian",
+        label: "Italian"
+      },
+      {
+        value: "BBQ",
+        label: "BBQ"
+      },
+      {
+        value: "Vegitarian",
+        label: "Vegitarian"
+      },
+      {
+        value: "American",
+        label: "American"
+      },
+      {
+        value: "Other",
+        label: "Other"
+      }
+    ],
+    drinks: [
+      {
+        value: "wine",
+        label: "Wine"
+      },
+      {
+        value: "beer",
+        label: "Beer"
+      },
+      {
+        value: "cocktails",
+        label: "Cocktails"
+      },
+      {
+        value: "soft drinks",
+        label: "Soft Drinks"
+      }
+    ]
   }),
-  components:{
+  components: {
     ImgPreview
   },
   computed: {
@@ -170,42 +246,53 @@ export default {
       return JSON.parse(JSON.stringify(this.currMeal));
     }
   },
- async created() {
+  async created() {
     let routeParamsId = this.$route.params._id;
     if (!routeParamsId) return;
-    const meal= await this.$store.dispatch({ type: "getById", routeParamsId })
-    this.currMeal=meal
+    const meal = await this.$store.dispatch({ type: "getById", routeParamsId });
+    this.currMeal = meal;
   },
   methods: {
-   async save() {
-        let currMeal = this.currMeal;
-      await this.$store.dispatch({ type: "editMeal", currMeal })
-         this.$router.push(`/meal`) 
+    async save() {
+      this.address =
+        this.currMeal.location.country +
+        " " +
+        this.currMeal.location.city +
+        " " +
+        this.address;
+      console.log(this.address);
+      let res = await HttpService.axiosNoCredentials(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
+      );
+      this.currMeal.location.lat = res.data.results[0].geometry.location.lat
+      this.currMeal.location.lng = res.data.results[0].geometry.location.lng
+      let currMeal = this.currMeal;
+      await this.$store.dispatch({ type: "editMeal", currMeal });
+      this.$router.push(`/meal`);
     },
-   async add() {
-      let currMeal = this.currMeal; 
-      this.currMeal.imgUrl="https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
-      await this.$store.dispatch({ type: "addMeal", currMeal })
-      this.$router.push(`/meal`)
+    async add() {
+      let currMeal = this.currMeal;
+      this.currMeal.imgUrl =
+        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
+      await this.$store.dispatch({ type: "addMeal", currMeal });
+      this.$router.push(`/meal`);
       this.currMeal = {};
     },
     uploadImg() {
-      CloudService.uploadImg(event)
-      .then(res => {
-        if(this.currMeal.imgUrl < 7){
-          (this.currMeal.imgUrl.push(res.secure_url))
+      CloudService.uploadImg(event).then(res => {
+        if (this.currMeal.imgUrl < 7) {
+          this.currMeal.imgUrl.push(res.secure_url);
         }
-        
-      }); 
+      });
     },
-    removeImg(currUrl){
+    removeImg(currUrl) {
       //this.$store.dispatch({type: "removeImg", url, currMeal})
       let idx = this.currMeal.imgUrl.findIndex(url => {
-         return url == currUrl
-        })
-      console.log(idx)
-      this.currMeal.imgUrl.splice(idx,1)
+        return url == currUrl;
+      });
+      console.log(idx);
+      this.currMeal.imgUrl.splice(idx, 1);
     }
   }
-} 
+};
 </script>
