@@ -22,7 +22,8 @@
         max-width: 200px;
     }
     .img-prev{
-        max-width: 150px;
+        width: 150px;
+        
     }
 
 </style>

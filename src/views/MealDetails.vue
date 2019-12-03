@@ -125,6 +125,8 @@
       </div>
       <Map class="locationMap" :location="location" />
     </div>
+    
+    <Chat-room></Chat-room>
   </section>
 </template>
 
@@ -134,6 +136,7 @@ import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
+import ChatRoom from '../components/ChatRoom.vue';
 import { log } from 'util';
 export default {
   name: "mealdetails",
@@ -142,7 +145,8 @@ export default {
     Map,
     Menu,
     Reviews,
-    MealGuest
+    MealGuest,
+    ChatRoom
   },
   data() {
     return {
