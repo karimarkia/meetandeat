@@ -16,5 +16,3 @@ function on(eventName, cb) {
 function emit(eventName, data) {
     socket.emit(eventName, data)
 }
-
-
