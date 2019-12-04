@@ -123,76 +123,13 @@
 import CloudService from "../services/CloudService.js";
 import ImgPreview from "../components/ImgPreview.vue";
 import HttpService from "../services/HttpService.js";
-// import Axios from 'axios'
-// var axios = Axios.create({
-//     withCredentials: true
-// });
+import MealService from "../services/MealService.js";
+import UserStore from "../store/UserStore.js";
+
 export default {
   data: () => ({
     address: "",
-    currMeal: {
-      title: "",
-      location: {
-        country: "",
-        city: "",
-        lat: 41.902782,
-        lng: 12.496366
-      },
-      price: 0,
-      atDate: "",
-      duration: 0,
-      tags: [""],
-      ownerId: {
-        id: "",
-        name: "",
-        about: " better with wine!"
-      },
-      rate: 4.7,
-      maxUsers: 7,
-      guests: ["userId1", "userId2", "userId3", "userId4"],
-      imgUrl: [],
-      description:
-        "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
-      dishes: {
-        appetizers: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        mains: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        dessert: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        drinks: ["Red Wine", "White Wine", "Beer"]
-      }
-    },
+    currMeal: MealService.getDefaultMeal,
     options: [
       {
         value: "Asian",
@@ -244,9 +181,13 @@ export default {
   computed: {
     mealToEdit() {
       return JSON.parse(JSON.stringify(this.currMeal));
+    },
+    currUser(){
+      return this.$store.getters.loggedinUser
     }
   },
   async created() {
+    console.log(this.currUser)
     let routeParamsId = this.$route.params._id;
     if (!routeParamsId) return;
     const meal = await this.$store.dispatch({ type: "getById", routeParamsId });
@@ -254,32 +195,25 @@ export default {
   },
   methods: {
     async save() {
-      this.address =
-        this.currMeal.location.country +
-        " " +
-        this.currMeal.location.city +
-        " " +
-        this.address;
-      console.log(this.address);
+      this.address =  this.currMeal.location.country + " " + this.currMeal.location.city + " " + this.address
       let res = await HttpService.axiosNoCredentials(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
       );
       this.currMeal.location.lat = res.data.results[0].geometry.location.lat;
       this.currMeal.location.lng = res.data.results[0].geometry.location.lng;
+      this.currMeal.ownerId.id = this.currUser._id
       let currMeal = this.currMeal;
       await this.$store.dispatch({ type: "editMeal", currMeal });
       this.$router.push(`/meal`);
     },
     async add() {
-        this.address =
-        this.currMeal.location.country +
-        " " +
-        this.currMeal.location.city +
-        " " +
-        this.address;
+      this.address = this.currMeal.location.country + " " + this.currMeal.location.city + " " + this.address;
       let res = await HttpService.axiosNoCredentials(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
       );
+      this.currMeal.location.lat = res.data.results[0].geometry.location.lat;
+      this.currMeal.location.lng = res.data.results[0].geometry.location.lng;
+      this.currMeal.ownerId.id = this.currUser._id
       let currMeal = this.currMeal;
       await this.$store.dispatch({ type: "addMeal", currMeal });
       this.$router.push(`/meal`);
@@ -297,7 +231,6 @@ export default {
       let idx = this.currMeal.imgUrl.findIndex(url => {
         return url == currUrl;
       });
-      console.log(idx);
       this.currMeal.imgUrl.splice(idx, 1);
     }
   }

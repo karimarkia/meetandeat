@@ -27,6 +27,9 @@
     }
 }
 
+
+
+
 .mealDetails {
     width: 100%;
     float: left !important;
@@ -346,4 +349,37 @@ p {
     //     padding: 20px 0;
     //     justify-content: flex-start;
     // }
+}
+
+
+@media(max-width: 840px) {
+    .detailsPage {
+        width: 95%;
+
+    }
+
+    .imgs-gallery{
+        width: 100%;
+        height: 80vh;
+        grid-template-rows: 60% 40%;
+        grid-template-columns: 50% 50% ;
+        grid-template-areas: "a a" "b c";
+    }
+    .mealDetails{
+        flex-direction: column;
+        align-items: flex-start;
+
+        h1, h3{
+            margin-bottom: 10px;
+        }
+    }
+
+    .hostReview{
+        float: right;
+    }
+
+
+    .mainDetails{
+        flex-direction: column;
+    }
 }
