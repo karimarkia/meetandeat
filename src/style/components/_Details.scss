@@ -353,11 +353,11 @@ p {
 
 
 @media(max-width: 840px) {
+
     .detailsPage {
         width: 95%;
 
-    }
-
+    } 
     .imgs-gallery{
         width: 100%;
         height: 80vh;
@@ -371,15 +371,52 @@ p {
 
         h1, h3{
             margin-bottom: 10px;
+            text-align: left;
         }
     }
 
-    .hostReview{
-        float: right;
+    .moreMealDetails{
+        justify-content: space-between;
+    }
+
+    .description{
+        width: 60%;
+        p{
+            text-align: left !important; 
+            padding: 0;
+        }
+
+    }
+    .priceDetails{
+        width: 40%;
     }
 
 
+
+    // .mainDetails{
+    //     flex-direction: column;
+    // }
+}
+
+@media(max-width: 650px){
     .mainDetails{
         flex-direction: column;
     }
+    .description{
+        max-width: 95%;
+        width: 95% ;
+        margin: auto;
+        text-align: left;
+    }
+    .priceDetails{
+        width: 60%;
+        margin: auto;
+    }
+}
+
+@media(max-width: 500px){
+    .priceDetails{
+        width: 80%;
+
+    }  
 }

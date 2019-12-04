@@ -46,10 +46,10 @@ export default {
 <style>
 .places{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     margin: 0 auto;
     margin-bottom: 40px;
-    width: 90%;
+    width: 90vw;
     gap: 15px;
 }
 
