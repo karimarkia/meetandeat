@@ -1,11 +1,11 @@
-<template>
+<template> 
   <section class="mealMenu">
-    <h2>Menu</h2>
+    <h1>Menu</h1>
 
     <div class="dish">
       <h2>Appetizers</h2>
       <div class="appetizers flex menu">
-        <div>
+        <div class="dish-details-con">
           <h3>
             {{meal.dishes.appetizers[0].name }}
             <i
@@ -18,8 +18,8 @@
             v-if="meal.dishes.appetizers[0].description.length > 0"
           >{{meal.dishes.appetizers[0].description}}</h5>
         </div>
-        <h4>Or</h4>
-        <div>
+        <h3 class="or">Or</h3>
+        <div class="dish-details-con">
           <h3>
             {{meal.dishes.appetizers[1].name}}
             <i
@@ -32,13 +32,14 @@
             v-if="meal.dishes.appetizers[1].description.length > 0"
           >{{meal.dishes.appetizers[1].description}}</h5>
         </div>
-        <div class="border"></div>
+        
       </div>
+      <div class="border"></div>
     </div>
     <div class="dish">
       <h2>Mains</h2>
       <div class="Mains flex menu">
-        <div>
+        <div class="dish-details-con">
           <h3>
             {{meal.dishes.mains[0].name}}
             <i class="fa fa-thumbs-up" @click="incCounter('mains',0)"></i>
@@ -48,8 +49,8 @@
             v-if="meal.dishes.mains[0].description.length > 0"
           >{{meal.dishes.mains[0].description}}</h5>
         </div>
-        <h4>Or</h4>
-        <div>
+        <h3 class="or">Or</h3>
+        <div class="dish-details-con">
           <h3>
             {{meal.dishes.mains[1].name}}
             <i class="fa fa-thumbs-up" @click="incCounter('mains',1)"></i>
@@ -59,13 +60,13 @@
             v-if="meal.dishes.mains[1].description.length > 0"
           >{{meal.dishes.mains[1].description}}</h5>
         </div>
-        <div class="border"></div>
       </div>
+      <div class="border"></div>
     </div>
     <div class="dish">
       <h2>Dessert</h2>
       <div class="Dessert flex menu">
-        <div>
+        <div class="dish-details-con">
           <h3>
             {{meal.dishes.dessert[0].name}}
             <i
@@ -78,8 +79,8 @@
             v-if="meal.dishes.dessert[0].description.length > 0"
           >{{meal.dishes.dessert[0].description}}</h5>
         </div>
-        <h4>Or</h4>
-        <div>
+        <h3 class="or">Or</h3>
+        <div class="dish-details-con">
           <h3>
             {{meal.dishes.dessert[1].name}}
             <i
@@ -92,14 +93,14 @@
             v-if="meal.dishes.dessert[1].description.length > 0"
           >{{meal.dishes.dessert[1].description}}</h5>
         </div>
-        <div class="border"></div>
       </div>
+      <div class="border"></div>
     </div>
     <div class="dish">
       <h2>Drinks</h2>
-      <div class="drinks flex menu">
-        <span v-for="(drink, idx) in meal.dishes.drinks" :key="idx">{{drink }} ,</span>
-        <span>Guests can bring alcohol</span>
+      <div class="drinks flex">
+        <h4 v-for="(drink, idx) in meal.dishes.drinks" :key="idx">{{drink }} ,</h4>
+        
       </div>
     </div>
   </section>
