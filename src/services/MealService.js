@@ -7,7 +7,9 @@ export default {
     add,
     remove,
     getById,
-    edit
+    edit,
+    getDefaultMeal
+
 }
 
 const BASE_URL = (process.env.NODE_ENV !== 'development') ?
@@ -43,4 +45,70 @@ function edit(mealToEdit) {
     return axios.put(`${BASE_URL}/${mealToEdit._id}`, mealToEdit)
         .then(res=>{
             return res.data})
+}
+
+function getDefaultMeal(){
+    return{
+        title: "",
+        location: {
+          country: "",
+          city: "",
+          lat: 41.902782,
+          lng: 12.496366
+        },
+        price: 0,
+        atDate: "",
+        duration: 0,
+        tags: [""],
+        ownerId: {
+          id: "",
+          name: "",
+          about: " better with wine!"
+        },
+        rate: 4.7,
+        maxUsers: 7,
+        guests: ["userId1", "userId2", "userId3", "userId4"],
+        imgUrl: [],
+        description:
+          "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
+        dishes: {
+          appetizers: [
+            {
+              name: "",
+              description: "",
+              count: 2
+            },
+            {
+              name: "",
+              description: "",
+              count: 1
+            }
+          ],
+          mains: [
+            {
+              name: "",
+              description: "",
+              count: 2
+            },
+            {
+              name: "",
+              description: "",
+              count: 1
+            }
+          ],
+          dessert: [
+            {
+              name: "",
+              description: "",
+              count: 2
+            },
+            {
+              name: "",
+              description: "",
+              count: 1
+            }
+          ],
+          drinks: ["Red Wine", "White Wine", "Beer"]
+        }
+      }
 }

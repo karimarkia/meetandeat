@@ -81,7 +81,7 @@
             <span>Price per guest</span>
           </h1>
           <div>
-            <span>Date</span>
+            <span>Date</span> 
             <div class="block datetime">
               <el-date-picker class="datetime" type="datetime" placeholder="Select date and time"></el-date-picker>
             </div>
