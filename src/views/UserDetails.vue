@@ -25,7 +25,7 @@
       </section>
     </section>
 <section class="userMeals">
-      <h2 v-if="meals.length > 0">My Meals</h2>
+      <h2 v-if="meals">My Meals</h2>
     <section v-if="meals.length > 0" class="flex">
       <div class="myMeal" v-for="(meal, idx) in meals" :key="idx">
         <img class="img-card img-card2" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
@@ -93,7 +93,7 @@ export default {
   async created() {
     const id = this.$route.params._id;
     const user = await UserService.getById(id);
-    this.user = user;
+    this.user = user;    
   }
 };
 </script>

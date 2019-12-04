@@ -46,7 +46,6 @@ export default ({
                 return meal.ownerId.id === userId.userId
             });
             state.userMeals = meals;
-            return meals
         },
     },
     getters: {
@@ -103,7 +102,7 @@ export default ({
 
         async editMeal(context, { currMeal }) {
             // console.log(currMeal);
-            
+
             const meals = await MealService.edit(currMeal)
             context.commit({ type: 'editMeal', updatedMeal: meals })
             return meals

@@ -3,30 +3,38 @@
     <div class="row-sec">
       <!-- <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo-sec" /> -->
       <router-link to="/"><img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" /></router-link>
+              <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
+        <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>
+
       <ul class="main-nav-sec">
-        <li>
-          <router-link to="/">Home</router-link>
-        </li>
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
-        <li>
-          <router-link to="/add">Become a host</router-link>
-        </li>
-        <li class="pointer" v-if="!user" @click="logIn">
-          <a>LogIn</a>
-        </li>
-        <li class="pointer" v-else @click="doLogout">
-          <a>LogOut</a>
-        </li>
-        <li class="pointer" v-if="!user" @click="SignUp">
-          <a>SignUp</a>
-        </li>
-        <li v-else>
-          <router-link :to="'/user/' + user._id">my account</router-link>
-        </li>
-      </ul>
-    </div>
+          <li>
+            <router-link class="route-nav" to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link class="route-nav" to="/about">About</router-link>
+          </li>
+          <li>
+            <router-link class="route-nav" to="/add">Become a host</router-link>
+          </li>
+          <li class="pointer" v-if="!user" @click="logIn">
+            <a>LogIn</a>
+          </li>
+          <li class="pointer" v-else @click="doLogout">
+            <a>LogOut</a>
+          </li>
+          <li class="pointer" v-if="!user" @click="SignUp">
+            <a>SignUp</a>
+          </li>
+          <li v-else>
+            <router-link :to="'/user/' + user._id">
+              <a>My account</a>
+            </router-link>
+          </li>
+
+          <li v-if="user" class="userTest">Hello {{user.username}}!</li>
+        </ul>
+      </div>
+ 
     <hr />
   </nav>
 </template>
@@ -37,7 +45,11 @@ import RegisterModule from "../components/RegisterModule.vue";
 export default {
   components: {
     RegisterModule
-    // NavHeader
+  },
+    data() {
+    return {
+      openMenu: false
+    };
   },
   methods: {
     SignUp() {
@@ -48,6 +60,9 @@ export default {
     },
     doLogout() {
       this.$store.dispatch({ type: "logout" });
+    },
+        getOpenMenu() {
+      this.openMenu = !this.openMenu;
     }
   },
   computed: {
