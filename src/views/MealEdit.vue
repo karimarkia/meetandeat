@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="edit-container" v-if="currMeal">
-      <form type="submit">
+      <form type="submit" class="edit-form">
         <div class="inputs-container">
           <span>Title</span>
           <el-input type="text" v-model="currMeal.title"></el-input>
@@ -92,14 +92,7 @@
             ></el-option>
           </el-select>
         </div>
-        <h3>Images</h3>
-        <div class="inputs-container">
-          <span>add img</span>
-          <input class="edit-img-input" @change="uploadImg" type="file" />
-        </div>
-        <div class="cards-container">
-          <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
-        </div>
+
         <div class="inputs-container" v-if="currMeal.dishes">
           <span>Discribe you'r meal</span>
           <el-input :rows="3" v-model="currMeal.description" type="textarea"></el-input>
@@ -107,6 +100,14 @@
         <div class="inputs-container" v-if="currMeal.ownerId">
           <span>Tell about yourself</span>
           <el-input :rows="3" v-model="currMeal.ownerId.about" type="textarea"></el-input>
+        </div>
+        <h3>Images</h3>
+        <div class="inputs-container">
+          <span>add img</span>
+          <input class="edit-img-input" @change="uploadImg" type="file" />
+        </div>
+        <div class="cards-container">
+          <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
         </div>
         <div class="edit-btn-container">
           <el-button type="info" round v-if="currMeal._id" @click="save">save</el-button>
@@ -121,8 +122,7 @@
 <script>
 import CloudService from "../services/CloudService.js";
 import ImgPreview from "../components/ImgPreview.vue";
-import HTTPService from "../services/HttpService.js";
-import HttpService from '../services/HttpService.js';
+import HttpService from "../services/HttpService.js";
 // import Axios from 'axios'
 // var axios = Axios.create({
 //     withCredentials: true
@@ -264,16 +264,23 @@ export default {
       let res = await HttpService.axiosNoCredentials(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
       );
-      this.currMeal.location.lat = res.data.results[0].geometry.location.lat
-      this.currMeal.location.lng = res.data.results[0].geometry.location.lng
+      this.currMeal.location.lat = res.data.results[0].geometry.location.lat;
+      this.currMeal.location.lng = res.data.results[0].geometry.location.lng;
       let currMeal = this.currMeal;
       await this.$store.dispatch({ type: "editMeal", currMeal });
       this.$router.push(`/meal`);
     },
     async add() {
+        this.address =
+        this.currMeal.location.country +
+        " " +
+        this.currMeal.location.city +
+        " " +
+        this.address;
+      let res = await HttpService.axiosNoCredentials(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
+      );
       let currMeal = this.currMeal;
-      this.currMeal.imgUrl =
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
       await this.$store.dispatch({ type: "addMeal", currMeal });
       this.$router.push(`/meal`);
       this.currMeal = {};

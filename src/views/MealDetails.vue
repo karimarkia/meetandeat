@@ -126,7 +126,7 @@
       <Map class="locationMap" :location="location" />
     </div>
     
-    <Chat-room></Chat-room>
+    <!-- <Chat-room></Chat-room> -->
   </section>
 </template>
 

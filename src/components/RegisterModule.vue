@@ -22,7 +22,7 @@
           ></el-option>
         </el-select>
         <span>Birthday*</span>
-        <el-date-picker v-model="signupCred.birthDay" value-format="timestamp" type="date"></el-date-picker>
+        <el-date-picker v-model="signupCred.birthDay" value-format="timestamp" type="datetime"></el-date-picker>
       </div>
       <span>User Name*</span>
       <el-input v-model="signupCred.username" type="text"></el-input>
