@@ -43,8 +43,11 @@ export default ({
         },
         userMeals(state, userId) {
             const meals = state.meals.filter(meal => {
+                console.log(meal.ownerId.id);
+                console.log(userId.userId);
                 return meal.ownerId.id === userId.userId
             });
+            console.log(meals);
             state.userMeals = meals;
             return meals
         },
@@ -103,7 +106,7 @@ export default ({
 
         async editMeal(context, { currMeal }) {
             // console.log(currMeal);
-            
+
             const meals = await MealService.edit(currMeal)
             context.commit({ type: 'editMeal', updatedMeal: meals })
             return meals

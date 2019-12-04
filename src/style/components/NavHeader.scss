@@ -31,14 +31,13 @@
 
 /* Main navi */
 
-.main-nav-sec {
-    float: right;
-    list-style: none;
-    margin-top: 45px;
-    font-family: "Lato", "Arial", sans-serif;
-    font-weight: 300;
-}
-
+// .main-nav-sec {
+//     float: right;
+//     list-style: none;
+//     margin-top: 45px;
+//     font-family: "Lato", "Arial", sans-serif;
+//     font-weight: 300;
+// }
 .main-nav-sec li {
     display: inline-block;
     margin-left: 40px;
@@ -107,4 +106,77 @@
 
 .sticky .logo-black {
     display: block;
+}
+
+@media (max-width: 830px) {
+    .main-nav-sec {
+        flex-direction: column;
+        height: 100vh;
+        max-width: 400px;
+        width: 50%;
+        padding: 0;
+        padding-top: 50px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.8);
+        border-left: 1px solid rgba(153, 153, 153, 0.5);
+        transform: translate(100%, 0);
+        transition: transform .6s;
+        z-index: 100;
+        margin: 0;
+    }
+    .openMenu+.main-nav-sec {
+        transform: translate(0, 0);
+    }
+    .main-nav-sec li {
+        margin-left: 0;
+    }
+    .main-nav-sec {
+        color: black;
+        .route-nav {
+            display: block;
+            text-align: center;
+            padding: 8px 0;
+            color: black !important;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            display: block;
+            text-align: center;
+            padding: 0 !important;
+            color: black !important;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        li {
+            border-bottom: 1px solid rgba(153, 153, 153, 0.5);
+            width: 100%;
+            margin: 0;
+            color: black;
+        }
+    }
+    .main-nav-sec.route-nav:hover {
+        background-color: rgba(204, 204, 204, 0.4);
+    }
+    .menu-btn {
+        display: block;
+    }
+    .fa-bars {
+        color: black;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        cursor: pointer;
+    }
+    .openMenu+.screen {
+        visibility: visible;
+        opacity: 0.5;
+    }
 }

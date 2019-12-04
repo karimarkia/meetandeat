@@ -72,3 +72,13 @@
         max-width: 200px !important;
         margin: 0 auto;
     }
+    
+    @media (max-width: 780px) {
+        .filter-container {
+            flex-wrap: wrap-reverse;
+            justify-content: space-around;
+            // margin: 0 15%;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dfe2e7;
+        }
+    }

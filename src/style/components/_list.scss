@@ -30,3 +30,9 @@
     color: grey;
     font-size: 22px;
 }
+
+@media (max-width: 780px) {
+    .cards-container {
+        margin: 0 auto;
+    }
+}
