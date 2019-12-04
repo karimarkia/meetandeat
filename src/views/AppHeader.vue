@@ -10,7 +10,7 @@
         <ul class="main-nav">
           <li>
             <router-link class="route-nav" to="/">Home</router-link>
-          </li>
+           </li>
           <li>
             <router-link class="route-nav" to="/about">About</router-link>
           </li>
@@ -73,10 +73,4 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>
-
-
-
 
