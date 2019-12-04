@@ -187,24 +187,40 @@
 .mealMenu {
     border-top: 0.5px solid #d4d3d3;
     width: 100%;
+    h1{
+        font-family: 'Sacramento', cursive;
+        font-size: 2.3rem;
+        text-align: center;
+    }
+    h2{
+        text-align: center; 
+    }
+    
+
 }
 
 .dish {
     .border {
         width: 50%;
         border-bottom: 1px solid #FF385C;
-        ;
+        margin: 30px auto;
+        
+    }
+    .dish-details-con{
+        width: 40%;
     }
     h2 {
         display: flex;
         max-width: 30%;
         align-items: flex-start;
+        margin: 20px auto !important;
     }
     .menu {
-        width: 70%;
-        flex-direction: column;
-        align-content: center;
-        align-items: flex-start;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
     }
     h4 {
         margin: 0;
@@ -215,6 +231,9 @@
         align-items: flex-start;
         margin: 20px 0;
     }
+    .or{
+        font-family: cursive;
+    }
     div {
         display: flex;
         flex-direction: column;
@@ -222,16 +241,19 @@
         align-items: flex-start;
     }
     .drinks {
-        margin: 22px;
+        margin-bottom: 55px;
         flex-direction: row;
         align-items: flex-start;
         align-content: center;
+        justify-content: center;
     }
 }
 
 .dish {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 // h3,
@@ -411,6 +433,24 @@ p {
     .priceDetails{
         width: 60%;
         margin: auto;
+    }
+
+    .dish {
+        .border {
+            width: 30%;
+            margin: 30px auto;
+            
+        }
+        .dish-details-con{
+            width: 80%;
+        }
+
+        .menu {
+
+            flex-direction: column;
+   
+            text-align: -webkit-center;
+        }
     }
 }
 
