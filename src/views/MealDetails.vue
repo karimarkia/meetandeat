@@ -126,18 +126,20 @@
       <Map class="locationMap" :location="location" />
     </div>
     
-    <Chat-room></Chat-room>
+    <!-- <Chat-room></Chat-room> -->
   </section>
 </template>
 
 <script>
+import SocketService from '@/services/SocketService';
 import NavHeader from "@/views/NavHeader.vue";
 import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
-import ChatRoom from '../components/ChatRoom.vue';
+// import ChatRoom from '../components/ChatRoom.vue';
 import { log } from 'util';
+import socketService from '../services/SocketService.js'
 export default {
   name: "mealdetails",
   components: {
@@ -146,7 +148,7 @@ export default {
     Menu,
     Reviews,
     MealGuest,
-    ChatRoom
+    // ChatRoom
   },
   data() {
     return {
@@ -160,6 +162,7 @@ export default {
     const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
+    socketService.emit('test event', 'this is a testing string num 2')
   },
   computed: {
     meal() {
@@ -201,7 +204,11 @@ export default {
     closeOrder() {
       this.isShowModal = !this.isShowModal;
     }
-  }
+  },
+  // created() {
+  //   SocketService.on('inc counter',Meal)
+  // },
+  
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
 // mongodb+srv://artyomP1:Art13579@cluster0-hkrir.mongodb.net/test?retryWrites=true&w=majority

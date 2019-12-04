@@ -5,6 +5,7 @@ import MealApp from '@/views/MealApp.vue'
 import MealDetails from '@/views/MealDetails.vue'
 import MealEdit from '@/views/MealEdit.vue'
 import UserDetails from '@/views/UserDetails.vue'
+import about from '@/views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,7 @@ const routes = [{
     {
         path: '/about',
         name: 'about',
+        component: about
     },
     {
         path: '/meal',
