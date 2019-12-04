@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col span-1-of-3">
           <blockquote>
-            Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+            Alexandra was an excellent host. We were lucky in that it was only my husband and I on our hike so she catered the walk based on our preferences. The location was secluded and just perfect for a great view of the sunset over Old Town.
             <cite>
               <img src="../img/customer-1.jpg" alt="Customer 1 photo" />Alberto Duncan
             </cite>
@@ -30,7 +30,7 @@
         </div>
         <div class="col span-1-of-3">
           <blockquote>
-            Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+            We spent a couple of weeks bouncing around Italy and, by far, our dinner with Debora and Fiamma was the highlight! The dinner party was like nothing we'd experienced, Debora and Fiamma provided a fantastic meal and an atmosphere of openness and community that encouraged discussion amongst the travelers gathered.
             <cite>
               <img src="../img/customer-2.jpg" alt="Customer 2 photo" />Joana Silva
             </cite>
@@ -38,7 +38,7 @@
         </div>
         <div class="col span-1-of-3">
           <blockquote>
-            I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+            Can’t say enough about how amazing our experience at Laura’s was!!! The food, the atmosphere, the view, the drinks and most importantly, the people! Laura and her friends made our time in Barcelona a million times better and we HIGHLY recommend her to everyone.
             <cite>
               <img src="../img/customer-3.jpg" alt="Customer 3 photo" />Milton Chapman
             </cite>
@@ -47,33 +47,9 @@
       </div>
     </div>
 
-    <div class="section-steps">
-      <h2>How it works &mdash; Simple as 1, 2, 3</h2>
-      <div class="row">
-        <div class="col span-1-of-2 steps-box">
-          <img src="@/img/app-iPhone.png" alt="Omnifood app on iPhone" class="app-screen js--wp-2" />
-        </div>
-        <div class="col span-1-of-2 steps-box">
-          <div class="works-step clearfix">
-            <div>1</div>
-            <p>Choose the subscription plan that best fits your needs and sign up today.</p>
-          </div>
-          <div class="works-step clearfix">
-            <div>2</div>
-            <p>Order your delicious meal using our mobile app or website. Or you can even call us!</p>
-          </div>
-          <div class="works-step clearfix">
-            <div>3</div>
-            <p>Enjoy your meal after less than 20 minutes. See you the next time!</p>
-          </div>
-          <a href="#" class="btn-app">
-            <img src="@/img/download-app.svg" alt="App Store Button" />
-          </a>
-          <a href="#" class="btn-app">
-            <img src="@/img/download-app-android.png" alt="Play Store Button" />
-          </a>
-        </div>
-      </div>
+    <div class="places-to-show">
+      <h2>City Highlights</h2>
+      <PlacesCmp></PlacesCmp>
     </div>
   </section>
 </template>
@@ -81,16 +57,45 @@
 <script>
 import MainFilter from "../components/MainFilter.vue";
 import MealPreview from "../components/MealPreview.vue";
+import PlacesCmp from "@/views/PlacesCmp.vue";
 export default {
   name: "home",
   computed: {
-     meals() {
+    meals() {
       return this.$store.getters.mealsToShow;
     }
   },
   components: {
     MainFilter,
     MealPreview,
+    PlacesCmp
   }
 };
 </script>
+
+<style>
+
+
+.places-to-show h2 {
+    text-align: center;
+    font-size: 28px;
+    padding: 60px 0;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #555;
+    font-family: "Lato", "Arial", sans-serif;
+    margin: 0;
+}
+
+.places-to-show h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+</style>
