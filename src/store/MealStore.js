@@ -43,13 +43,9 @@ export default ({
         },
         userMeals(state, userId) {
             const meals = state.meals.filter(meal => {
-                console.log(meal.ownerId.id);
-                console.log(userId.userId);
                 return meal.ownerId.id === userId.userId
             });
-            console.log(meals);
             state.userMeals = meals;
-            return meals
         },
     },
     getters: {
