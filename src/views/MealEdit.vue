@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="edit-container" v-if="currMeal">
-      <form type="submit">
+      <form type="submit" class="edit-form">
         <div class="inputs-container">
           <span>Title</span>
           <el-input type="text" v-model="currMeal.title"></el-input>
@@ -92,14 +92,7 @@
             ></el-option>
           </el-select>
         </div>
-        <h3>Images</h3>
-        <div class="inputs-container">
-          <span>add img</span>
-          <input class="edit-img-input" @change="uploadImg" type="file" />
-        </div>
-        <div class="cards-container">
-          <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
-        </div>
+
         <div class="inputs-container" v-if="currMeal.dishes">
           <span>Discribe you'r meal</span>
           <el-input :rows="3" v-model="currMeal.description" type="textarea"></el-input>
@@ -107,6 +100,14 @@
         <div class="inputs-container" v-if="currMeal.ownerId">
           <span>Tell about yourself</span>
           <el-input :rows="3" v-model="currMeal.ownerId.about" type="textarea"></el-input>
+        </div>
+        <h3>Images</h3>
+        <div class="inputs-container">
+          <span>add img</span>
+          <input class="edit-img-input" @change="uploadImg" type="file" />
+        </div>
+        <div class="cards-container">
+          <img-preview v-for="url in currMeal.imgUrl" :key="url" :url="url" @removeImg="removeImg"></img-preview>
         </div>
         <div class="edit-btn-container">
           <el-button type="info" round v-if="currMeal._id" @click="save">save</el-button>
@@ -121,78 +122,14 @@
 <script>
 import CloudService from "../services/CloudService.js";
 import ImgPreview from "../components/ImgPreview.vue";
-import HTTPService from "../services/HttpService.js";
-import HttpService from '../services/HttpService.js';
-// import Axios from 'axios'
-// var axios = Axios.create({
-//     withCredentials: true
-// });
+import HttpService from "../services/HttpService.js";
+import MealService from "../services/MealService.js";
+import UserStore from "../store/UserStore.js";
+
 export default {
   data: () => ({
     address: "",
-    currMeal: {
-      title: "",
-      location: {
-        country: "",
-        city: "",
-        lat: 41.902782,
-        lng: 12.496366
-      },
-      price: 0,
-      atDate: "",
-      duration: 0,
-      tags: [""],
-      ownerId: {
-        id: "",
-        name: "",
-        about: " better with wine!"
-      },
-      rate: 4.7,
-      maxUsers: 7,
-      guests: ["userId1", "userId2", "userId3", "userId4"],
-      imgUrl: [],
-      description:
-        "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
-      dishes: {
-        appetizers: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        mains: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        dessert: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        drinks: ["Red Wine", "White Wine", "Beer"]
-      }
-    },
+    currMeal: MealService.getDefaultMeal,
     options: [
       {
         value: "Asian",
@@ -244,9 +181,13 @@ export default {
   computed: {
     mealToEdit() {
       return JSON.parse(JSON.stringify(this.currMeal));
+    },
+    currUser(){
+      return this.$store.getters.loggedinUser
     }
   },
   async created() {
+    console.log(this.currUser)
     let routeParamsId = this.$route.params._id;
     if (!routeParamsId) return;
     const meal = await this.$store.dispatch({ type: "getById", routeParamsId });
@@ -254,26 +195,26 @@ export default {
   },
   methods: {
     async save() {
-      this.address =
-        this.currMeal.location.country +
-        " " +
-        this.currMeal.location.city +
-        " " +
-        this.address;
-      console.log(this.address);
+      this.address =  this.currMeal.location.country + " " + this.currMeal.location.city + " " + this.address
       let res = await HttpService.axiosNoCredentials(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
       );
-      this.currMeal.location.lat = res.data.results[0].geometry.location.lat
-      this.currMeal.location.lng = res.data.results[0].geometry.location.lng
+      this.currMeal.location.lat = res.data.results[0].geometry.location.lat;
+      this.currMeal.location.lng = res.data.results[0].geometry.location.lng;
+      this.currMeal.ownerId.id = this.currUser._id
       let currMeal = this.currMeal;
       await this.$store.dispatch({ type: "editMeal", currMeal });
       this.$router.push(`/meal`);
     },
     async add() {
+      this.address = this.currMeal.location.country + " " + this.currMeal.location.city + " " + this.address;
+      let res = await HttpService.axiosNoCredentials(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${this.address}&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w`
+      );
+      this.currMeal.location.lat = res.data.results[0].geometry.location.lat;
+      this.currMeal.location.lng = res.data.results[0].geometry.location.lng;
+      this.currMeal.ownerId.id = this.currUser._id
       let currMeal = this.currMeal;
-      this.currMeal.imgUrl =
-        "https://res.cloudinary.com/dluh6gkat/image/upload/v1574862270/new%20york/z41io7uvewy11_fwrvbj.jpg";
       await this.$store.dispatch({ type: "addMeal", currMeal });
       this.$router.push(`/meal`);
       this.currMeal = {};
@@ -290,7 +231,6 @@ export default {
       let idx = this.currMeal.imgUrl.findIndex(url => {
         return url == currUrl;
       });
-      console.log(idx);
       this.currMeal.imgUrl.splice(idx, 1);
     }
   }
