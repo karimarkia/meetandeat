@@ -160,7 +160,8 @@ export default {
       isShowModal: false,
       isLogOut:false,
       isShowGallery: false,
-      numOfGust: 1
+      numOfGust: 1,
+      banana:false
     };
   },
   created() {
@@ -168,14 +169,16 @@ export default {
     const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
-    //   SocketService.on('inc counter',data=>{
-    //   // this.updateMeal(data);
-    // //  return this.$store.dispatch({ type: "editMeal", currMeal:data });
-    // })
+      SocketService.on('inc counter',data=>{
+      // this.updateMeal(data);
+      this.banana = data
+    //  return this.$store.dispatch({ type: "editMeal", currMeal:data });
+    })
   },
   computed: {
     meal() {
-      return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
+      return this.$store.getters.currMeal
+      // return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
     },
     location() {
       return this.$store.getters.currMeal.location;
