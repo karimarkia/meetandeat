@@ -30,7 +30,7 @@ export default ({
             state.meals.push(meal)
         },
         editMeal(state, { updatedMeal }) {
-            console.log(updatedMeal);
+            // console.log(updatedMeal);
 
             const idx = state.meals.findIndex(currMeal => currMeal._id === updatedMeal._id);
             state.meals.splice(idx, 1, updatedMeal);
@@ -102,7 +102,7 @@ export default ({
         },
 
         async editMeal(context, { currMeal }) {
-            console.log(currMeal);
+            // console.log(currMeal);
             
             const meals = await MealService.edit(currMeal)
             context.commit({ type: 'editMeal', updatedMeal: meals })
