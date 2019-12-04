@@ -2,6 +2,8 @@
   <header>
     <nav>
       <div class="row">
+          <!-- <li v-if="user" class="userTest">Hello {{user.username}}!</li> -->
+         
         <router-link to="/">
           <img src="@/img/logo.png" alt="Omnifood logo" class="logo" />
         </router-link>
@@ -28,11 +30,12 @@
           </li>
           <li v-else>
             <router-link :to="'/user/' + user._id">
-              <a>My account</a>
+              <!-- <a>My account</a> -->
+               <el-avatar :size="40" :src="user.imgUrl"></el-avatar>
             </router-link>
           </li>
 
-          <li v-if="user" class="userTest">Hello {{user.username}}!</li>
+        
         </ul>
       </div>
     </nav>
