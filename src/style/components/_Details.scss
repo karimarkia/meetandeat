@@ -337,15 +337,15 @@ p {
     text-align: center;
     position: fixed;
     background-color: white;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     margin: auto;
     bottom: 0;
     top: 0;
     right: 0;
     left: 0;
-    width: 400px;
-    height: 400px;
+    width: 320px;
+    height: 250px;
     z-index: 10;
 }
 

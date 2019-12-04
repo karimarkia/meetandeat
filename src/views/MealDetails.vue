@@ -60,13 +60,18 @@
             </div>
           </div>
           <div :class="{ modalOrder:isShowModal, displayNon:!isShowModal}">
-            <div class="modalBtn flex">
-              <section>
-                <h2>Thank you!!!</h2>
-              </section>
+            <div class="join-modal"> 
+              <h2>Thank you for joining!!!</h2>
+              <h2>Your order number: 143562</h2>
               <button class="pricerange sortPrice" @click="closeOrder">Close</button>
-
               <!-- <button class="pricerange sortPrice" @click="sortMeals">Save</button> -->
+            </div>
+
+          </div>
+          <div :class="{ modalOrder:isLogOut, displayNon:!isLogOut}">
+            <div class="err-modal">
+              <h2>Sorry Please Login to join the meal!!!</h2>
+              <button class="pricerange sortPrice" @click="closeError">Close</button>
             </div>
           </div>
           <h3>A word about the experience</h3>
@@ -153,6 +158,7 @@ export default {
   data() {
     return {
       isShowModal: false,
+      isLogOut:false,
       isShowGallery: false,
       numOfGust: 1
     };
@@ -187,7 +193,11 @@ export default {
   methods: {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
-      if(!user) return
+      if(!user) {
+        this.isLogOut = true;
+        return
+      } 
+      this.isLogOut = false;
       this.isShowModal = !this.isShowModal;
       this.meal.guests.unshift(user._id);
      if(user.meals) user.meals.unshift({id: this.meal._id, name:this.meal.title, img: this.meal.imgUrl[0]});
@@ -206,6 +216,9 @@ export default {
     },
     closeOrder() {
       this.isShowModal = !this.isShowModal;
+    },
+    closeError(){
+      this.isLogOut = !this.isLogOut;
     }
   },
   // created() {

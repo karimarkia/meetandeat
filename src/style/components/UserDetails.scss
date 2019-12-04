@@ -40,6 +40,26 @@
     // flex-direction: column;
 }
 
+.join-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    h2{
+        margin: 0;
+    }
+}
+
+.err-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .pricerange{
+        margin: 30px auto;
+    }
+}
+
 .userProfile {
     flex-direction: column;
     width: 30%;
