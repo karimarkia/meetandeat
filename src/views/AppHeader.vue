@@ -3,7 +3,7 @@
     <nav>
       <div class="row">
         <router-link to="/">
-          <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo" />
+          <img src="@/img/logo.png" alt="Omnifood logo" class="logo" />
         </router-link>
         <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
         <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>

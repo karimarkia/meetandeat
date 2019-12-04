@@ -8,7 +8,10 @@
         <div>
           <h3>
             {{meal.dishes.appetizers[0].name }}
-            <i class="fa fa-thumbs-up" @click="incCounter('appetizers',0)"></i>
+            <i
+              class="fa fa-thumbs-up"
+              @click="incCounter('appetizers',0)"
+            ></i>
             <span class="count">{{this.vote.appetizers.opt1}}</span>
           </h3>
           <h5
@@ -19,7 +22,10 @@
         <div>
           <h3>
             {{meal.dishes.appetizers[1].name}}
-            <i class="fa fa-thumbs-up" @click="incCounter('appetizers',1)"></i>
+            <i
+              class="fa fa-thumbs-up"
+              @click="incCounter('appetizers',1)"
+            ></i>
             <span class="count">{{this.vote.appetizers.opt2}}</span>
           </h3>
           <h5
@@ -62,7 +68,10 @@
         <div>
           <h3>
             {{meal.dishes.dessert[0].name}}
-            <i class="fa fa-thumbs-up" @click="incCounter('dessert',0)"></i>
+            <i
+              class="fa fa-thumbs-up"
+              @click="incCounter('dessert',0)"
+            ></i>
             <span class="count">{{this.vote.dessert.opt1}}</span>
           </h3>
           <h5
@@ -73,7 +82,10 @@
         <div>
           <h3>
             {{meal.dishes.dessert[1].name}}
-            <i class="fa fa-thumbs-up" @click="incCounter('dessert',1)"></i>
+            <i
+              class="fa fa-thumbs-up"
+              @click="incCounter('dessert',1)"
+            ></i>
             <span class="count">{{this.vote.dessert.opt2}}</span>
           </h3>
           <h5
@@ -93,69 +105,70 @@
   </section>
 </template>
 <script>
-  import SocketService from '@/services/SocketService';
+import SocketService from "@/services/SocketService";
 export default {
   props: ["meal"],
   data() {
     return {
       // count: this.meal.dishes.appetizers[0].count,
-      currVote:null,
-      vote:{
-          appetizers:{
-            opt1:this.meal.dishes.appetizers[0].count,
-            opt2:this.meal.dishes.appetizers[1].count
-          },
-          mains:{
-            opt1:this.meal.dishes.mains[0].count,
-            opt2:this.meal.dishes.mains[1].count
-          },
-          dessert:{
-            opt1:this.meal.dishes.dessert[0].count,
-            opt2:this.meal.dishes.dessert[1].count
-          }
+
+      vote: {
+        appetizers: {
+          opt1: this.meal.dishes.appetizers[0].count,
+          opt2: this.meal.dishes.appetizers[1].count
+        },
+        mains: {
+          opt1: this.meal.dishes.mains[0].count,
+          opt2: this.meal.dishes.mains[1].count
+        },
+        dessert: {
+          opt1: this.meal.dishes.dessert[0].count,
+          opt2: this.meal.dishes.dessert[1].count
+        }
       }
-    }
+    };
   },
   methods: {
-    async incCounter(typeOfMeal, idx){
+    async incCounter(typeOfMeal, idx) {
       let Meal = JSON.parse(JSON.stringify(this.meal));
 
       switch (typeOfMeal) {
-        case 'appetizers':{
-          Meal.dishes.appetizers[idx].count++;
-        }
-        break;
-        case 'mains':{
-            Meal.dishes.mains[idx].count++;
-        }
+        case "appetizers":
+          {
+            Meal.dishes.appetizers[idx].count++;
+          }
           break;
-            case 'dessert':{
-            Meal.dishes.dessert[idx].count++;
+        case "mains":
+          {
+            Meal.dishes.mains[idx].count++;
+          }
+          break;
+        case "dessert": {
+          Meal.dishes.dessert[idx].count++;
         }
         default:
           break;
       }
-        
-      SocketService.emit('created',Meal)
-        // await this.$store.dispatch({ type: "editMeal", currMeal:Meal });
-      //  console.log(Meal);
-    },
-   
-  },
-  created() {
-    SocketService.on('inc counter',data=>{
-      console.log(data)
-      this.$store.dispatch({ type: "editMeal", currMeal:data });
-    })
-  },
-  watch: {
-    meme(){
 
-      SocketService.on('inc counter',data=>{
-        console.log(data)
-      this.$store.dispatch({ type: "editMeal", currMeal:data });
-    })
+      SocketService.emit("created", Meal);
+      // return SocketService.on("inc counter", data => {
+       
+      // });
     }
   },
+  // created() {
+  //   SocketService.on('inc counter',data=>{
+  //     this.vote.push(data)
+  //   })
+  // },
+  // watch: {
+  //   meme(){
+
+  //     SocketService.on('inc counter',data=>{
+  //       console.log(data)
+  //     this.$store.dispatch({ type: "editMeal", currMeal:data });
+  //   })
+  //   }
+  // },
 };
 </script>
