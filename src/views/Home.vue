@@ -1,7 +1,6 @@
 <template>
   <section>
     <div class="main-img">
-      <!-- <h1>Meet & Eat</h1> -->
     </div>
     <Main-filter></Main-filter>
     <div class="sec-section">
@@ -63,7 +62,8 @@ export default {
   computed: {
     meals() {
       return this.$store.getters.mealsToShow;
-    }
+    },
+
   },
   components: {
     MainFilter,
@@ -74,28 +74,26 @@ export default {
 </script>
 
 <style>
-
-
 .places-to-show h2 {
-    text-align: center;
-    font-size: 28px;
-    padding: 60px 0;
-    word-spacing: 2px;
-    letter-spacing: 1px;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: #555;
-    font-family: "Lato", "Arial", sans-serif;
-    margin: 0;
+  text-align: center;
+  font-size: 28px;
+  padding: 60px 0;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+  margin: 0;
 }
 
 .places-to-show h2:after {
-    display: block;
-    height: 2px;
-    background-color: #e67e22;
-    content: " ";
-    width: 100px;
-    margin: 0 auto;
-    margin-top: 30px;
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 </style>

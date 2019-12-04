@@ -8,6 +8,7 @@ export default ({
         meals: [],
         currMeal: null,
         userMeals: null,
+        mainFilter: '',
         filterBy: {
             searchStr: '',
             mealType: [],
@@ -38,6 +39,9 @@ export default ({
         setMealsFilter(state, filterBy) {
             state.filterBy = filterBy;
         },
+        setMainFilter(state, filterBy) {
+            state.mainFilter = filterBy;
+        },
         sortMeals(state, sortBy) {
             state.meals.sort((a, b) => (a.price > b.price ? 1 : -1));
         },
@@ -50,9 +54,17 @@ export default ({
     },
     getters: {
         mealsToShow(state) {
-            var filterBy = state.filterBy;
-
+            let filterBy = state.filterBy;
+            let mainFilter = state.mainFilter;
             let filteredMeals = [...state.meals];
+
+            if (mainFilter.length !== 0) {
+                filteredMeals = filteredMeals.filter(meal => {
+                    console.log(meal.location.city);
+                    console.log(mainFilter);
+                    return (meal.location.city.toLowerCase() === mainFilter.toLowerCase() || meal.location.country.toLowerCase() === mainFilter.toLowerCase())
+                });
+            }
             if (filterBy.searchStr.length > 0) {
                 filteredMeals = filteredMeals.filter(meal =>
                     (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))

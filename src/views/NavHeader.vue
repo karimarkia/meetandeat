@@ -7,13 +7,13 @@
         <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>
 
       <ul class="main-nav-sec">
-          <li>
+          <li @click="getOpenMenu">
             <router-link class="route-nav" to="/">Home</router-link>
           </li>
-          <li>
+          <li @click="getOpenMenu">
             <router-link class="route-nav" to="/about">About</router-link>
           </li>
-          <li>
+          <li @click="getOpenMenu">
             <router-link class="route-nav" to="/add">Become a host</router-link>
           </li>
           <li class="pointer" v-if="!user" @click="logIn">
@@ -27,15 +27,16 @@
           </li>
           <li v-else>
             <router-link :to="'/user/' + user._id">
-              <a>My account</a>
+             <el-avatar title="My Account" :size="40" :src="user.imgUrl"></el-avatar>
+              <!-- <a>My account</a> -->
             </router-link>
           </li>
-
-          <li v-if="user" class="userTest">Hello {{user.username}}!</li>
+<!-- 
+          <li v-if="user" class="userTest">Hello {{user.username}}!</li> -->
         </ul>
       </div>
  
-    <hr />
+   
   </nav>
 </template>
 
@@ -53,12 +54,15 @@ export default {
   },
   methods: {
     SignUp() {
+        this.openMenu = !this.openMenu;
       this.$emit("toggleRegister");
     },
     logIn() {
+        this.openMenu = !this.openMenu;
       this.$emit("toggleLogIn");
     },
     doLogout() {
+        this.openMenu = !this.openMenu;
       this.$store.dispatch({ type: "logout" });
     },
         getOpenMenu() {

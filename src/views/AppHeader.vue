@@ -10,13 +10,13 @@
         <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
         <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>
         <ul class="main-nav">
-          <li>
+          <li  @click="getOpenMenu">
             <router-link class="route-nav" to="/">Home</router-link>
            </li>
-          <li>
+          <li  @click="getOpenMenu">
             <router-link class="route-nav" to="/about">About</router-link>
           </li>
-          <li>
+          <li  @click="getOpenMenu">
             <router-link class="route-nav" to="/add">Become a host</router-link>
           </li>
           <li class="pointer" v-if="!user" @click="logIn">
@@ -57,12 +57,15 @@ export default {
   },
   methods: {
     SignUp() {
+      this.openMenu = !this.openMenu;
       this.$emit("toggleRegister");
     },
     logIn() {
+      this.openMenu = !this.openMenu;
       this.$emit("toggleLogIn");
     },
     doLogout() {
+      this.openMenu = !this.openMenu;
       this.$store.dispatch({ type: "logout" });
     },
     getOpenMenu() {

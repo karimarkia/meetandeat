@@ -96,7 +96,6 @@ this.isShowModal = !this.isShowModal;
     },
     searchMeals() {
       this.$store.commit("setMealsFilter", { ...this.filterBy });
-      console.log(this.filterBy);
     },
     getFiltredByPrice(sortBy) {
       this.isShowModal = !this.isShowModal;

@@ -2,14 +2,14 @@
   <section class="main-filter-home flex align-center space-between">
     <h1>Book unforgettable culinary experiences</h1>
     <div>
-      <el-input type="text" placeholder="Choose a city..." v-model="city"></el-input>
+      <el-input type="text" placeholder="Choose a city..." v-model="filterBy"></el-input>
     </div>
     <div>
       <el-date-picker value-format="timestamp" type="date" placeholder="Choose a date..."></el-date-picker>
     </div>
     <div>
       <router-link to="/meal">
-        <el-button type="success" round>Search</el-button>
+        <el-button type="success" @click="getFilter">  Search</el-button>
       </router-link>
     </div>
   </section>
@@ -20,12 +20,18 @@
 export default {
   data() {
     return {
-        city: ""
+        filterBy: ""
     };
   },
-  create(){
-    console.log(this.city);
-  }
+     methods: {
+        getFilter() {          
+        console.log("Parent got filter:", this.filterBy);
+        // this.filterBy = filterBy;
+        this.$store.commit("setMainFilter",  this.filterBy );
+      
+    
+        }
+    }
 };
 </script>
 

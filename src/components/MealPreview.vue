@@ -11,6 +11,7 @@
    
     </div>
    <span class="price">{{meal.price}}$</span>
+   <span>{{mealDate}}</span>
 </router-link>
 </section>
 </template>
@@ -26,6 +27,14 @@ export default {
   computed:{
      editURL() {
       return `/edit/${this.meal._id}`;
+    },
+        mealDate() {
+      let date = new Date(+this.meal.atDate);
+      date=date.toLocaleDateString()
+      //  date = date.toGMTString();
+      // let age = today - birthDate;
+      // age = age / (60000 * 60 * 24 * 365);
+      return date
     }
   },
  

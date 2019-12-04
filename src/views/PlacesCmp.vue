@@ -1,6 +1,6 @@
 <template>
   <section class="places">
-      <div class="places-render" v-for="place in places" :key="place">
+      <div class="places-render" v-for="(place, idx) in places" :key="idx">
           <img :src="place.imgUrl">
           <h1>{{place.title}}</h1>
           <h4>{{place.desc}}</h4>
@@ -70,5 +70,19 @@ export default {
 .places-render h4 {
     padding: 0;
     font-weight: 300;
+}
+
+
+@media(max-width: 840px) {
+.places{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40vw, 1fr));
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 90vw;
+    gap: 15px;
+}
+
+
 }
 </style>

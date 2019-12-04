@@ -1,10 +1,9 @@
 <template>
   <div>
-          <h2>Find unique food experiences with hand-selected hosts</h2>
-      <p>Book now before they sell out!</p>
-    <MealFilter/>
-    <div class="sescrt">
-    </div>
+    <h2>Find unique food experiences with hand-selected hosts</h2>
+    <p>Book now before they sell out!</p>
+    <MealFilter />
+    <div class="sescrt"></div>
     <MealList :meals="meals"></MealList>
   </div>
 </template>
@@ -18,8 +17,11 @@ export default {
     MealList,
     MealFilter
   },
+  created(){
+    this.$store.dispatch("loadMeals");
+  },
   computed: {
-     meals() {
+    meals() {
       return this.$store.getters.mealsToShow;
     }
   }
