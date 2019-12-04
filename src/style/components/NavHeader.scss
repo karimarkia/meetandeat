@@ -185,4 +185,12 @@
         visibility: visible;
         opacity: 0.5;
     }
+    .row2{
+        flex-direction: column;
+    }
+    .section-testimonials{
+        h2{
+            padding: 0 10px;
+        }
+    }
 }

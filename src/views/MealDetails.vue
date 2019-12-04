@@ -60,13 +60,18 @@
             </div>
           </div>
           <div :class="{ modalOrder:isShowModal, displayNon:!isShowModal}">
-            <div class="modalBtn flex">
-              <section>
-                <h2>Thank you!!!</h2>
-              </section>
+            <div class="join-modal"> 
+              <h2>Thank you for joining!!!</h2>
+              <h2>Your order number: 143562</h2>
               <button class="pricerange sortPrice" @click="closeOrder">Close</button>
-
               <!-- <button class="pricerange sortPrice" @click="sortMeals">Save</button> -->
+            </div>
+
+          </div>
+          <div :class="{ modalOrder:isLogOut, displayNon:!isLogOut}">
+            <div class="err-modal">
+              <h2>Sorry Please Login to join the meal!!!</h2>
+              <button class="pricerange sortPrice" @click="closeError">Close</button>
             </div>
           </div>
           <h3>A word about the experience</h3>
@@ -153,8 +158,10 @@ export default {
   data() {
     return {
       isShowModal: false,
+      isLogOut:false,
       isShowGallery: false,
-      numOfGust: 1
+      numOfGust: 1,
+      banana:false
     };
   },
   created() {
@@ -162,14 +169,16 @@ export default {
     const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
-    //   SocketService.on('inc counter',data=>{
-    //   // this.updateMeal(data);
-    // //  return this.$store.dispatch({ type: "editMeal", currMeal:data });
-    // })
+      SocketService.on('inc counter',data=>{
+      // this.updateMeal(data);
+      this.banana = data
+    //  return this.$store.dispatch({ type: "editMeal", currMeal:data });
+    })
   },
   computed: {
     meal() {
-      return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
+      return this.$store.getters.currMeal
+      // return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
     },
     location() {
       return this.$store.getters.currMeal.location;
@@ -187,7 +196,11 @@ export default {
   methods: {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
-      if(!user) return
+      if(!user) {
+        this.isLogOut = true;
+        return
+      } 
+      this.isLogOut = false;
       this.isShowModal = !this.isShowModal;
       this.meal.guests.unshift(user._id);
      if(user.meals) user.meals.unshift({id: this.meal._id, name:this.meal.title, img: this.meal.imgUrl[0]});
@@ -206,6 +219,9 @@ export default {
     },
     closeOrder() {
       this.isShowModal = !this.isShowModal;
+    },
+    closeError(){
+      this.isLogOut = !this.isLogOut;
     }
   },
   // created() {
