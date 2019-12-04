@@ -19,7 +19,7 @@
 
     <div class="section-testimonials">
       <h2>Our customers can't live without us</h2>
-      <div class="row">
+      <div class="row row2">
         <div class="col span-1-of-3">
           <blockquote>
             Alexandra was an excellent host. We were lucky in that it was only my husband and I on our hike so she catered the walk based on our preferences. The location was secluded and just perfect for a great view of the sunset over Old Town.

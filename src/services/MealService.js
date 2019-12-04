@@ -24,7 +24,6 @@ function query() {
 }
 
 function add(meal) {
-    console.log(meal);
     return axios.post(BASE_URL, meal)
          .then(res => {
               return res.data})

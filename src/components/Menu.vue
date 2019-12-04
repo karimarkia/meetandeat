@@ -108,11 +108,29 @@
 import SocketService from "@/services/SocketService";
 export default {
   props: ["meal"],
-  data() {
-    return {
-      // count: this.meal.dishes.appetizers[0].count,
-
-      vote: {
+  // data() {
+  //   return {
+  //     // count: this.meal.dishes.appetizers[0].count,
+  //     // meall: this.meal,
+  //     vote: {
+  //       appetizers: {
+  //         opt1: this.meal.dishes.appetizers[0].count,
+  //         opt2: this.meal.dishes.appetizers[1].count
+  //       },
+  //       mains: {
+  //         opt1: this.meal.dishes.mains[0].count,
+  //         opt2: this.meal.dishes.mains[1].count
+  //       },
+  //       dessert: {
+  //         opt1: this.meal.dishes.dessert[0].count,
+  //         opt2: this.meal.dishes.dessert[1].count
+  //       }
+  //     }
+  //   };
+  // },
+  computed: {
+    vote() {
+      return {
         appetizers: {
           opt1: this.meal.dishes.appetizers[0].count,
           opt2: this.meal.dishes.appetizers[1].count
@@ -126,12 +144,11 @@ export default {
           opt2: this.meal.dishes.dessert[1].count
         }
       }
-    };
+    }
   },
   methods: {
     async incCounter(typeOfMeal, idx) {
       let Meal = JSON.parse(JSON.stringify(this.meal));
-
       switch (typeOfMeal) {
         case "appetizers":
           {
@@ -149,26 +166,12 @@ export default {
         default:
           break;
       }
-
       SocketService.emit("created", Meal);
-      // return SocketService.on("inc counter", data => {
-       
-      // });
+      await this.$store.dispatch({ type: "editMeal", currMeal: Meal });   
     }
   },
-  // created() {
-  //   SocketService.on('inc counter',data=>{
-  //     this.vote.push(data)
-  //   })
-  // },
-  // watch: {
-  //   meme(){
 
-  //     SocketService.on('inc counter',data=>{
-  //       console.log(data)
-  //     this.$store.dispatch({ type: "editMeal", currMeal:data });
-  //   })
-  //   }
-  // },
+ 
+
 };
 </script>
