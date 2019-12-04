@@ -23,7 +23,7 @@ header {
 }
 
 .logo {
-    height: 80px;
+    height: 60px;
     width: auto;
     float: left;
     margin-top: 20px;
@@ -40,10 +40,16 @@ header {
 
 /* Main navi */
 
+nav {
+    height: 80px;
+}
+
 .main-nav {
+    display: flex;
+    align-items: center;
     float: right;
     list-style: none;
-    margin-top: 45px;
+    margin-top: 30px;
     font-family: "Lato", "Arial", sans-serif;
     font-weight: 800;
     font-size: 1.2rem;
@@ -51,7 +57,7 @@ header {
 
 .main-nav li {
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 30px;
 }
 
 .main-nav li a,
