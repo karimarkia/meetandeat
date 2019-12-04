@@ -108,7 +108,7 @@
       <Menu :meal="meal" />
       <section class="whoIsGoing">
         <h2>Who's going?</h2>
-        <MealGuest />
+        <MealGuest :meal="meal"/>
       </section>
 
       <section class="reviewArea">

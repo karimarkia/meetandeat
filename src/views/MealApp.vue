@@ -1,9 +1,9 @@
 <template>
   <div>
+          <h2>Find unique food experiences with hand-selected hosts</h2>
+      <p>Book now before they sell out!</p>
     <MealFilter/>
     <div class="sescrt">
-      <h2>Find unique food experiences with hand-selected hosts</h2>
-      <p>Book now before they sell out!</p>
     </div>
     <MealList :meals="meals"></MealList>
   </div>

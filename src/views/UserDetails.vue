@@ -1,57 +1,37 @@
 <template>
-  <section class="userDetails flex" v-if="user">
-     <section class="flex">
-    <section class="userDetails flex">
+  <section class="userAccount flex" v-if="user">
+    <section class="userProfile flex">
       <h1>Hi, {{user.fullname}}</h1>
-      <span>Name:</span>
-      <el-input class="mainUserDetails" v-model="user.fullname"></el-input>
-      <span>Email:</span>
-      <el-input class="mainUserDetails" v-model="user.email"></el-input>
-      <span>Country:</span>
-      <el-input
-        v-if="user.location.country"
-        class="mainUserDetails"
-        v-model="user.location.country"
-      ></el-input>
-      <span>City:</span>
-      <el-input v-if="user.location.city" class="mainUserDetails" v-model="user.location.city"></el-input>
-      <span>Gender:</span>
-      <el-input class="mainUserDetails" v-model="user.gender"></el-input>
-      <span>BirthDay:</span>
-      <el-input class="mainUserDetails" v-model="user.birthDay"></el-input>
-    </section>
-   
-      <div class="block">
+      <div class="imgUser" >
         <el-avatar :size="200" :src="user.imgUrl"></el-avatar>
       </div>
+      <section class="userDetails flex">
+        <span>Name:</span>
+        <el-input class="mainUserDetails" v-model="user.fullname"></el-input>
+        <span>Email:</span>
+        <el-input class="mainUserDetails" v-model="user.email"></el-input>
+        <span>Country:</span>
+        <el-input
+          v-if="user.location.country"
+          class="mainUserDetails"
+          v-model="user.location.country"
+        ></el-input>
+        <span>City:</span>
+        <el-input v-if="user.location.city" class="mainUserDetails" v-model="user.location.city"></el-input>
+        <span>Gender:</span>
+        <el-input class="mainUserDetails" v-model="user.gender"></el-input>
+        <span>BirthDay:</span>
+        <el-input class="mainUserDetails" v-model="user.birthDay"></el-input>
+      </section>
     </section>
-
-    <h2 v-if="user.meals">My Booking Meals</h2>
-    <section v-if="user.meals" class="flex">
-      <div class="myMeal" v-for="(userMeal, idx) in userMeals" :key="idx">
-        <router-link class="routerToDetails" :to="'/details/' + userMeal.id">
-          <img class="img-card img-card2" v-if="userMeal.img" :src="(userMeal.img)" />
-          <h4>{{userMeal.name}}</h4>
-        </router-link>
-      </div>
-    </section>
-
-    <h2 v-if="meals.length > 0">My Meals</h2>
+<section class="userMeals">
+      <h2 v-if="meals.length > 0">My Meals</h2>
     <section v-if="meals.length > 0" class="flex">
       <div class="myMeal" v-for="(meal, idx) in meals" :key="idx">
         <img class="img-card img-card2" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
         <div class="test">
           <h4>{{meal.title}}</h4>
-          <!-- <h4>
-          {{meal.rate}}
-          <span>
-            <i class="fa fa-star"></i>
-          </span>
-          </h4>-->
         </div>
-        <!-- <p>
-        <span>{{meal.price}}$</span>
-        </p>-->
         <div class="controlBtn">
           <router-link :to="'/details/' + meal._id">
             <el-button type="danger">DETAILS</el-button>
@@ -63,6 +43,18 @@
         </div>
       </div>
     </section>
+    <h2 v-if="user.meals">My Booking Meals</h2>
+
+      <div class=" bookedMeals" v-for="(userMeal, idx) in userMeals" :key="idx">
+        <router-link class="routerToDetails " :to="'/details/' + userMeal.id">
+          <img class="img-card img-card2 " v-if="userMeal.img" :src="(userMeal.img)" />
+          <h4>{{userMeal.name}}</h4>
+        </router-link>
+      </div>
+
+
+
+  </section>
   </section>
 </template>
 

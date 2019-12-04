@@ -2,7 +2,7 @@
   <nav class="sec-nav">
     <div class="row-sec">
       <!-- <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo-sec" /> -->
-      <img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" />
+      <router-link to="/"><img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" /></router-link>
       <ul class="main-nav-sec">
         <li>
           <router-link to="/">Home</router-link>

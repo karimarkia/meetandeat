@@ -2,16 +2,20 @@
   <header>
     <nav>
       <div class="row">
-        <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo" />
+        <router-link to="/">
+          <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo" />
+        </router-link>
+        <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
+        <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>
         <ul class="main-nav">
           <li>
-            <router-link to="/">Home</router-link>
+            <router-link class="route-nav" to="/">Home</router-link>
           </li>
           <li>
-            <router-link to="/about">About</router-link>
+            <router-link class="route-nav" to="/about">About</router-link>
           </li>
           <li>
-            <router-link to="/add">Become a host</router-link>
+            <router-link class="route-nav" to="/add">Become a host</router-link>
           </li>
           <li class="pointer" v-if="!user" @click="logIn">
             <a>LogIn</a>
@@ -19,9 +23,13 @@
           <li class="pointer" v-else @click="doLogout">
             <a>LogOut</a>
           </li>
-          <li class="pointer" v-if="!user" @click="SignUp"> <a>SignUp</a></li>
+          <li class="pointer" v-if="!user" @click="SignUp">
+            <a>SignUp</a>
+          </li>
           <li v-else>
-            <router-link :to="'/user/' + user._id">my account</router-link>
+            <router-link :to="'/user/' + user._id">
+              <a>My account</a>
+            </router-link>
           </li>
 
           <li v-if="user" class="userTest">Hello {{user.username}}!</li>
@@ -39,6 +47,11 @@ export default {
     RegisterModule,
     LogIn
   },
+  data() {
+    return {
+      openMenu: false
+    };
+  },
   methods: {
     SignUp() {
       this.$emit("toggleRegister");
@@ -46,10 +59,12 @@ export default {
     logIn() {
       this.$emit("toggleLogIn");
     },
-   doLogout() {
-      this.$store.dispatch({type: 'logout'})
+    doLogout() {
+      this.$store.dispatch({ type: "logout" });
     },
-    
+    getOpenMenu() {
+      this.openMenu = !this.openMenu;
+    }
   },
   computed: {
     user() {
@@ -60,7 +75,6 @@ export default {
 </script>
 
 <style>
-
 </style>
 
 

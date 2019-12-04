@@ -1,0 +1,22 @@
+.main-filter-home {
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); */
+    background: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 25%;
+    /* left: 0; */
+    right: 50px;
+    margin: auto;
+    max-width: 300px;
+    padding: 15px;
+    height: 60vh;
+    border-radius: 10px;
+    /* z-index: 10; */
+    h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+}

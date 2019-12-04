@@ -1,10 +1,19 @@
 .page-body {
     min-height: 85vh;
-  }
-  /* .active {
+    p {
+        text-align: center;
+        margin: 0;
+    }
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+
+/* .active {
     display: block;
   } */
-  
-  .active.register-container {
+
+.active.register-container {
     display: block;
-  }
+}
