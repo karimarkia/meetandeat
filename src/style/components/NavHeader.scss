@@ -1,47 +1,52 @@
 .active {
     display: block;
-  }
-  .sec-nav {
+}
+
+.sec-nav {
     width: 100% !important;
     background-color: #e6e6e657;
-    margin-bottom: 50px;
-  }
-  .row-sec {
+}
+
+.row-sec {
     display: flex;
     justify-content: space-between;
     margin: 0 40px;
-  }
-  /* .logo-sec {
+}
+
+
+/* .logo-sec {
     height: 100px;
     width: auto;
     float: left;
     margin-top: 20px;
   } */
-  
-  .logo-black-sec {
+
+.logo-black-sec {
     height: 60px;
     width: auto;
     float: left;
     margin-top: 20px;
-  }
-  
-  /* Main navi */
-  .main-nav-sec {
+}
+
+
+/* Main navi */
+
+.main-nav-sec {
     float: right;
     list-style: none;
     margin-top: 45px;
     font-family: "Lato", "Arial", sans-serif;
     font-weight: 300;
-  }
-  
-  .main-nav-sec li {
+}
+
+.main-nav-sec li {
     display: inline-block;
     margin-left: 40px;
     color: black;
-  }
-  
-  .main-nav-sec li a:link,
-  .main-nav-sec li a:visited {
+}
+
+.main-nav-sec li a:link,
+.main-nav-sec li a:visited {
     padding: 8px 0;
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -50,28 +55,32 @@
     border-bottom: 2px solid transparent;
     -webkit-transition: border-bottom 0.2s;
     transition: border-bottom 0.2s;
-  }
-  
-  .main-nav-sec li a:hover,
-  .main-nav-sec li a:active {
+}
+
+.main-nav-sec li a:hover,
+.main-nav-sec li a:active {
     border-bottom: 2px solid #e67e22;
-  }
-  
-  /* Mobile navi */
-  .mobile-nav-icon {
+}
+
+
+/* Mobile navi */
+
+.mobile-nav-icon {
     float: right;
     margin-top: 30px;
     cursor: pointer;
     display: none;
-  }
-  
-  .mobile-nav-icon i {
+}
+
+.mobile-nav-icon i {
     font-size: 200%;
     color: rgb(5, 5, 5);
-  }
-  
-  /* Sticky navi */
-  .sticky {
+}
+
+
+/* Sticky navi */
+
+.sticky {
     position: fixed;
     top: 0;
     left: 0;
@@ -80,21 +89,22 @@
     -webkit-box-shadow: 0 2px 2px #efefef;
     box-shadow: 0 2px 2px #efefef;
     z-index: 9999;
-  }
-  
-  .sticky .main-nav {
+}
+
+.sticky .main-nav {
     margin-top: 18px;
-  }
-  
-  .sticky .main-nav li a:link,
-  .sticky .main-nav li a:visited {
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
     padding: 16px 0;
     color: #555;
-  }
-  
-  .sticky .logo {
+}
+
+.sticky .logo {
     display: none;
-  }
-  .sticky .logo-black {
+}
+
+.sticky .logo-black {
     display: block;
-  }
+}

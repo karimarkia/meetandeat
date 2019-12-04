@@ -108,7 +108,7 @@
       <Menu :meal="meal" />
       <section class="whoIsGoing">
         <h2>Who's going?</h2>
-        <MealGuest />
+        <MealGuest :meal="meal"/>
       </section>
 
       <section class="reviewArea">
@@ -131,12 +131,13 @@
 </template>
 
 <script>
+import SocketService from '@/services/SocketService';
 import NavHeader from "@/views/NavHeader.vue";
 import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
-import ChatRoom from '../components/ChatRoom.vue';
+// import ChatRoom from '../components/ChatRoom.vue';
 import { log } from 'util';
 import socketService from '../services/SocketService.js'
 export default {
@@ -147,7 +148,7 @@ export default {
     Menu,
     Reviews,
     MealGuest,
-    ChatRoom
+    // ChatRoom
   },
   data() {
     return {
@@ -203,7 +204,11 @@ export default {
     closeOrder() {
       this.isShowModal = !this.isShowModal;
     }
-  }
+  },
+  // created() {
+  //   SocketService.on('inc counter',Meal)
+  // },
+  
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
 // mongodb+srv://artyomP1:Art13579@cluster0-hkrir.mongodb.net/test?retryWrites=true&w=majority

@@ -1,5 +1,6 @@
 <template>
   <section class="main-filter-home flex align-center space-between">
+    <h1>Book unforgettable culinary experiences</h1>
     <div>
       <el-input type="text" placeholder="Choose a city..." v-model="city"></el-input>
     </div>
@@ -34,17 +35,3 @@ export default {
 
 
 
-<style scoped>
-.main-filter-home {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-  position: absolute;
-  top: 70%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  max-width: 760px;
-  padding: 15px;
-  border-radius: 10px;
-  /* z-index: 10; */
-}
-</style>

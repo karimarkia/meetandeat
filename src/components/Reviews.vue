@@ -5,7 +5,7 @@
               <el-avatar class="revieimg" :size="50" :src="review.imgUrl"></el-avatar>
         <div class="reviewBy">
           <h4>{{review.name}} <span>{{reviewDate}}</span></h4>
-          <h5> {{review.rate}}/5   <i class="fa fa-star"></i> </h5>
+          <h5> {{review.rate}}/5    <i class="fa fa-star"></i> </h5>
         </div>
       </div>
       <div>{{review.review}}</div>

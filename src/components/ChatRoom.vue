@@ -23,7 +23,7 @@
     .chat-room{
         width: 400px;
         height: 600px;
-        position: fixed;
+        /* position: fixed; */
         top: 300px;
         right: 50px;
         font: 13px Helvetica, Arial;

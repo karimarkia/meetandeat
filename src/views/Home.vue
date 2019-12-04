@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="main-img">
-      <h1>Meet & Eat</h1>
+      <!-- <h1>Meet & Eat</h1> -->
     </div>
     <Main-filter></Main-filter>
     <div class="sec-section">

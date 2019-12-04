@@ -1,10 +1,16 @@
 .whoGoing {
     justify-content: space-around;
-    padding-bottom: 30px;
+    // padding-bottom: 30px;
 }
 
 .guest {
     h4 {
         margin: 0;
     }
+}
+
+.guest-container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }

@@ -5,9 +5,18 @@
     margin-bottom: 100px;
 }
 
+.userAccount {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
 .mainUserDetails {
     max-width: 400px;
     margin: 10px 0;
+}
+
+.imgUser {
+    margin: 0 auto;
 }
 
 .controlBtn {
@@ -18,7 +27,7 @@
 }
 
 .myMeal {
-    max-width: 400px;
+    max-width: 380px;
     h4 {
         margin: 0;
     }
@@ -29,4 +38,28 @@
 
 .modalBtn {
     flex-direction: column;
+}
+
+.userProfile {
+    flex-direction: column;
+    width: 30%;
+    border-right: 0.5px solid #d4d3d3;
+    h1 {
+        margin: 15px auto;
+        font-size: 2rem;
+    }
+}
+
+.userMeals {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.bookedMeals {
+    margin: 20px;
+    max-width: 380px;
+}
+
+.img-card {
+    width: 100%;
 }
