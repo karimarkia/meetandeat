@@ -21,7 +21,7 @@
         <span>Gender:</span>
         <el-input class="mainUserDetails" v-model="user.gender"></el-input>
         <span>BirthDay:</span>
-        <el-input class="mainUserDetails" v-model="user.birthDay"></el-input>
+        <el-input class="mainUserDetails" v-model="birthDaya"></el-input>
         <div class="flex">
           <el-button type="info" @click="OnYourEvent">your events</el-button>
           <el-button type="info" @click="OnGoingEvent" plain>Bookd events</el-button>
@@ -74,6 +74,7 @@ import UserService from "../services/UserService";
 export default {
   data() {
     return {
+      birthDaya: '20/06/1990',
       createdEvent: true,
       goingEvents: false,
       user: {
@@ -95,6 +96,15 @@ export default {
     },
     userMeals() {
       return this.user.meals;
+    },
+            birthDay() {
+      let date = new Date(+this.meal.atDate)+'';
+         date = date.substring(3, 10)
+      // date=date.toLocaleDateString()
+      //  date = date.toGMTString();
+      // let age = today - birthDate;
+      // age = age / (60000 * 60 * 24 * 365);
+      return date
     }
   },
   methods: {
@@ -108,8 +118,10 @@ export default {
     OnGoingEvent() {
       this.createdEvent = false;
       this.goingEvents = true;
-    }
+    },
+   
   },
+
   async created() {
     const id = this.$route.params._id;
     const user = await UserService.getById(id);

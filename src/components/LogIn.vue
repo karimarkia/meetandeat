@@ -26,9 +26,11 @@ export default {
   methods: {
     toggleLogIn() {
       this.$emit("toggleLogIn");
+ 
+      
     },
     async doLogin() {
-        
+             console.log('amit', this.loginUser.username);
       const cred = this.loginUser;
       if (!cred.username || !cred.password)
         return (this.msg = "Please enter user/password");
