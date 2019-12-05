@@ -59,8 +59,6 @@ export default ({
 
             if (mainFilter.length !== 0) {
                 filteredMeals = filteredMeals.filter(meal => {
-                    console.log(meal.location.city);
-                    console.log(mainFilter);
                     return (meal.location.city.toLowerCase() === mainFilter.toLowerCase() || meal.location.country.toLowerCase() === mainFilter.toLowerCase())
                 });
             }

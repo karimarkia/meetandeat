@@ -81,6 +81,8 @@ export default {
     margin-bottom: 40px;
     width: 90vw;
     gap: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 
