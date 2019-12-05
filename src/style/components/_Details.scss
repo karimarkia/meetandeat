@@ -200,11 +200,14 @@
 .dish {
     .border {
         width: 50%;
-        border-bottom: 1px solid #FF385C;
+        border-bottom: 1px solid rgb(235, 189, 197);
         margin: 30px auto;
     }
     .dish-details-con {
         width: 40%;
+        h3 {
+            text-align: left;
+        }
     }
     h2 {
         display: flex;
