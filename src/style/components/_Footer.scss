@@ -2,13 +2,15 @@
     height: 200px;
     background-color: #333;
     color: #888;
-    font-size: 0.9rem;
+    font-size: 1rem;
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
+    // justify-content: space-around;
+    // flex-direction: column;
+    // align-items: center;
     font-family: 'Lato', 'Arial', sans-serif;
     font-weight: 300;
+    justify-content: space-around;
+    align-items: center;
     p {
         margin: 0;
     }

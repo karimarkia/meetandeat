@@ -47,7 +47,7 @@
     </div>
 
     <div class="places-to-show">
-      <h2>city Highlights</h2>
+      <h2>our most popular city</h2>
       <PlacesCmp></PlacesCmp>
     </div>
   </section>
