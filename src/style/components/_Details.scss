@@ -200,17 +200,20 @@
 .dish {
     .border {
         width: 50%;
-        border-bottom: 1px solid #FF385C;
+        border-bottom: 1px solid rgb(235, 189, 197);
         margin: 30px auto;
     }
     .dish-details-con {
         width: 40%;
+        h3 {
+            text-align: left;
+        }
     }
     h2 {
         display: flex;
         max-width: 30%;
         align-items: flex-start;
-        margin: 20px auto !important;
+        margin: 5px auto !important;
     }
     .menu {
         width: 100%;
@@ -226,7 +229,7 @@
     h5 {
         display: flex;
         align-items: flex-start;
-        margin: 20px 0;
+        margin: 5px 0;
     }
     .or {
         font-family: cursive;

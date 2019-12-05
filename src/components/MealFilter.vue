@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="searchMeals" class="filter-container align-center flex">
+  <form @submit.prevent="searchMeals" class="filter-container">
     <div class="searchMeals">
       <el-input @input="searchMeals" placeholder="Search" v-model="filterBy.searchStr"></el-input>
   
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <!-- <div>
         <el-date-picker
           v-model="value1"
           type="date"
@@ -21,7 +21,7 @@
           format="yyyy/MM/dd"
           value-format="timestamp"
         ></el-date-picker>
-      </div>
+      </div> -->
     <el-select
       @change="searchMeals"
       v-model="filterBy.mealType"

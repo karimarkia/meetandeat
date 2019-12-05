@@ -17,7 +17,7 @@
     </div>
 
     <div class="section-testimonials">
-      <h2>Our customers can't live without us</h2>
+      <h2>Why they loved it</h2>
       <div class="row row2">
         <div class="col span-1-of-3">
           <blockquote>
@@ -46,10 +46,12 @@
       </div>
     </div>
 
+  
     <div class="places-to-show">
-      <h2>city Highlights</h2>
+      <h2>our most popular cities</h2>
       <PlacesCmp></PlacesCmp>
     </div>
+   
   </section>
 </template>
 

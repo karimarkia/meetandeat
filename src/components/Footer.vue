@@ -29,9 +29,7 @@
 
 <style>
 .footer img{
-     height: 60px;
-    width: auto;
-    float: left;
-    /* margin-top: 20px; */
+     height: 80px;
+
 }
 </style>

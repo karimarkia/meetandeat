@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>Find unique food experiences with hand-selected hosts</h2>
+  <div class="meal-app">
+    <h2 >Find unique food experiences with hand-selected hosts</h2>
     <p>Book now before they sell out!</p>
     <MealFilter />
     <div class="sescrt"></div>
