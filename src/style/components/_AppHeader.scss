@@ -72,6 +72,7 @@ nav {
     -webkit-transition: border-bottom 0.2s;
     transition: border-bottom 0.2s;
     font-weight: 500;
+    color: #555;
 }
 
 .main-nav li a:hover,
@@ -121,7 +122,6 @@ nav {
 // .sticky .logo {
 //     display: none;
 // }
-
 .sticky .logo-black {
     display: block;
 }
@@ -129,7 +129,6 @@ nav {
 // .menu-btn {
 //     display: none;
 // }
-
 .screen {
     position: fixed;
     left: 0;

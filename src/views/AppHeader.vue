@@ -19,13 +19,13 @@
             <router-link class="route-nav" to="/add">Become a host</router-link>
           </li>
           <li class="pointer" v-if="!user" @click="logIn">
-            <a>LogIn</a>
+            <a>LOGIN</a>
           </li>
           <li class="pointer" v-else @click="doLogout">
-            <a>LogOut</a>
+            <a>LOGOUT</a>
           </li>
           <li class="pointer" v-if="!user" @click="SignUp">
-            <a>SignUp</a>
+            <a>SIGNUP</a>
           </li>
           <li v-else>
             <router-link :to="'/user/' + user._id">
