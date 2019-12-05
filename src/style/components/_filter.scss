@@ -1,9 +1,13 @@
     .filter-container {
         display: flex;
-        justify-content: space-around;
+        align-items: center;
+        justify-content: center;
         // margin: 0 15%;
         padding-bottom: 20px;
         border-bottom: 1px solid #dfe2e7;
+        div {
+            margin: 0 30px;
+        }
     }
     
     .sortPrice {
