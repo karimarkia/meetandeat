@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
     <p>Copyright © 2019 by IDK. All rights reserved.</p>
+    <img src="../img/logo-white.png">
     <social-sharing class="social-icons"
       url="https://vuejs.org/"
       title="The Progressive JavaScript Framework"
@@ -24,3 +25,13 @@
     </social-sharing>
   </div>
 </template>
+
+
+<style>
+.footer img{
+     height: 60px;
+    width: auto;
+    float: left;
+    /* margin-top: 20px; */
+}
+</style>
