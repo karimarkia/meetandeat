@@ -38,7 +38,7 @@
     align-items: center;
     float: right;
     list-style: none;
-    margin-top: 30px;
+    // margin-top: 30px;
     font-family: "Lato", "Arial", sans-serif;
     font-weight: 800;
     font-size: 1.2rem;
@@ -52,7 +52,7 @@
 
 .main-nav-sec li a:link,
 .main-nav-sec li a:visited {
-    padding: 8px 0;
+    // padding: 8px 0;
     color: #767676;
     text-decoration: none;
     text-transform: uppercase;
@@ -185,11 +185,11 @@
         visibility: visible;
         opacity: 0.5;
     }
-    .row2{
+    .row2 {
         flex-direction: column;
     }
-    .section-testimonials{
-        h2{
+    .section-testimonials {
+        h2 {
             padding: 0 10px;
         }
     }

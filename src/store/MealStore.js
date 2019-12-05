@@ -56,19 +56,25 @@ export default ({
             let filterBy = state.filterBy;
             let mainFilter = state.mainFilter;
             let filteredMeals = [...state.meals];
+            console.log(mainFilter);
 
+            let regex = new RegExp(mainFilter, 'i');
             if (mainFilter.length !== 0) {
                 filteredMeals = filteredMeals.filter(meal => {
                     console.log(meal.location.city);
-                    console.log(mainFilter);
-                    return (meal.location.city.toLowerCase() === mainFilter.toLowerCase() || meal.location.country.toLowerCase() === mainFilter.toLowerCase())
-                });
+                    if (!meal.location) return
+                    return regex.test(meal.location.city) || regex.test(meal.location.country)
+                })
             }
+            regex = new RegExp(filterBy.searchStr, 'i');
+
+
+
             if (filterBy.searchStr.length > 0) {
-                filteredMeals = filteredMeals.filter(meal =>
-                    (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-                    // (meal.title.toLowerCase().includes(filterBy.searchStr.toLowerCase()))
-                );
+                filteredMeals = filteredMeals.filter(meal => {
+                    return regex.test(meal.title)
+
+                })
             }
 
             filteredMeals = filteredMeals.filter(meal =>

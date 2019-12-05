@@ -9,13 +9,6 @@
       <section class="hostReview flex">
         <i class="fa fa-star"></i>
         <span>{{meal.rate}}/5</span>
-        <!-- <el-rate
-          v-model="meal.rate"
-          disabled
-          show-score
-          text-color="#FF385C"
-          score-template="{value} points"
-        ></el-rate>-->
       </section>
       <div class="imgs-gallery" @click="getImgGallery">
         <img
@@ -78,7 +71,7 @@
           <p>{{meal.description}}</p>
           <p>{{meal.ownerId.about}}</p>
 
-          <h5>{{meal.ownerId.name}}</h5>
+          <h5 class="ownerName">{{meal.ownerId.name}}</h5>
         </div>
         <div class="priceDetails flex">
           <h1>

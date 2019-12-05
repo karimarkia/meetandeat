@@ -1,6 +1,6 @@
 .main-filter-home {
     /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); */
-    background: white;
+    background: #ffffffa8;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -11,17 +11,23 @@
     max-width: 300px;
     padding: 15px;
     height: 45vh;
+    color: #484848;
     border-radius: 10px;
     /* z-index: 10; */
     h1 {
         margin: 0;
         font-size: 1.5rem;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
     }
-    h4{
-        color:#bdb2b2;
+    h4 {
+        color: #bdb2b2;
         font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    .where {
+        color: #484848;
+        font-size: 14px;
         margin-bottom: 10px;
     }
 }

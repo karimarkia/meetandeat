@@ -2,7 +2,8 @@
   <section class="main-filter-home flex align-center space-around">
     <h1>Book unforgettable culinary experiences</h1>
     <div>
-      <el-input type="text" placeholder="Choose a city..." v-model="filterBy"></el-input>
+      <label class="where">WHERE</label>
+      <el-input type="text" placeholder="Anywhere" v-model="filterBy"></el-input>
     </div>
 
     <div>
@@ -18,16 +19,13 @@
 export default {
   data() {
     return {
-        filterBy: ""
+        filterBy: ''
     };
   },
      methods: {
         getFilter() {          
         console.log("Parent got filter:", this.filterBy);
-        // this.filterBy = filterBy;
-        this.$store.commit("setMainFilter",  this.filterBy );
-      
-    
+        this.$store.commit("setMainFilter",  this.filterBy);
         }
     }
 };
