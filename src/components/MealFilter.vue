@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="searchMeals" class="filter-container align-center flex">
     <div class="searchMeals">
-      <el-input @input="searchMeals" placeholder="Please input" v-model="filterBy.searchStr"></el-input>
+      <el-input @input="searchMeals" placeholder="Search" v-model="filterBy.searchStr"></el-input>
   
       <div :class="{ modal:isShowModal, displayNon:!isShowModal}">
         <div class="block">

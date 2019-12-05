@@ -27,9 +27,6 @@
     }
 }
 
-
-
-
 .mealDetails {
     width: 100%;
     float: left !important;
@@ -40,7 +37,7 @@
     padding-left: 0.5%;
     h1 {
         font-size: 1.5rem;
-        margin: 10px 0;
+        margin: 30px 0;
         margin-right: 20px;
         margin-bottom: 0;
     }
@@ -167,6 +164,9 @@
 .description {
     max-width: 70%;
     margin-right: 5%;
+    p {
+        text-align: left !important;
+    }
     h3 {
         margin: 0;
         padding: 10px;
@@ -187,16 +187,14 @@
 .mealMenu {
     border-top: 0.5px solid #d4d3d3;
     width: 100%;
-    h1{
-        font-family: 'Sacramento', cursive;
+    h1 {
+        font-family: 'Petit Formal Script', cursive;
         font-size: 2.3rem;
         text-align: center;
     }
-    h2{
-        text-align: center; 
+    h2 {
+        text-align: center;
     }
-    
-
 }
 
 .dish {
@@ -204,9 +202,8 @@
         width: 50%;
         border-bottom: 1px solid #FF385C;
         margin: 30px auto;
-        
     }
-    .dish-details-con{
+    .dish-details-con {
         width: 40%;
     }
     h2 {
@@ -231,7 +228,7 @@
         align-items: flex-start;
         margin: 20px 0;
     }
-    .or{
+    .or {
         font-family: cursive;
     }
     div {
@@ -312,6 +309,11 @@ p {
     width: 100%;
     float: left;
     padding-left: 5px;
+    display: flex;
+    align-items: center;
+    span {
+        margin-left: 5px;
+    }
 }
 
 .modalImage {
@@ -350,13 +352,14 @@ p {
 }
 
 .bg {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(221, 218, 218, 0.7);
     display: block;
     position: fixed;
     top: 0;
     z-index: 9;
+    left: 0;
 }
 
 .whoIsGoing {
@@ -373,90 +376,80 @@ p {
     // }
 }
 
+.ownerName {
+    font-family: 'Caveat'!important;
+    font-size: 1.2rem;
+}
 
 @media(max-width: 840px) {
-
     .detailsPage {
         width: 95%;
-
-    } 
-    .imgs-gallery{
+    }
+    .imgs-gallery {
         width: 100%;
         height: 80vh;
         grid-template-rows: 60% 40%;
-        grid-template-columns: 50% 50% ;
+        grid-template-columns: 50% 50%;
         grid-template-areas: "a a" "b c";
     }
-    .mealDetails{
+    .mealDetails {
         flex-direction: column;
         align-items: flex-start;
-
-        h1, h3{
+        h1,
+        h3 {
             margin-bottom: 10px;
             text-align: left;
         }
     }
-
-    .moreMealDetails{
+    .moreMealDetails {
         justify-content: space-between;
     }
-
-    .description{
+    .description {
         width: 60%;
-        p{
-            text-align: left !important; 
+        p {
+            text-align: left !important;
             padding: 0;
         }
-
     }
-    .priceDetails{
+    .priceDetails {
         width: 40%;
     }
-
-
-
     // .mainDetails{
     //     flex-direction: column;
     // }
 }
 
-@media(max-width: 650px){
-    .mainDetails{
+@media(max-width: 650px) {
+    .mainDetails {
         flex-direction: column;
     }
-    .description{
+    .description {
         max-width: 95%;
-        width: 95% ;
+        width: 95%;
         margin: auto;
         text-align: left;
     }
-    .priceDetails{
+    .priceDetails {
         width: 60%;
         margin: auto;
     }
-
     .dish {
         .border {
             width: 30%;
             margin: 30px auto;
-            
         }
-        .dish-details-con{
+        .dish-details-con {
             width: 80%;
         }
-
         .menu {
-
             flex-direction: column;
-   
             text-align: -webkit-center;
         }
     }
 }
 
-@media(max-width: 500px){
-    .priceDetails{
+@media(max-width: 500px) {
+    .priceDetails {
         width: 80%;
-
-    }  
+    }
 }
