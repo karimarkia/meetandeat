@@ -14,7 +14,7 @@
             <router-link class="route-nav" to="/about">About</router-link>
           </li>
           <li @click="getOpenMenu">
-            <router-link class="route-nav" to="/add">Become a host</router-link>
+            <router-link class="route-nav" to="/add">HOST A MEAL</router-link>
           </li>
           <li class="pointer" v-if="!user" @click="logIn">
             <a>LOGIN</a>

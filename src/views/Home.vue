@@ -16,6 +16,7 @@
       </div>
     </div>
 
+<div class="see-all-meals"><router-link to="/meal">Show all meals <i class="fa fa-chevron-right"></i> </router-link></div>
     <div class="section-testimonials">
       <h2>Why they loved it</h2>
       <div class="row row2">

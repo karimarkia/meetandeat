@@ -10,7 +10,7 @@
     <h4>{{meal.title}}</h4>
    
     </div>
-   <span class="price">{{meal.price}}$<span>/Per guest</span></span>
+   <span class="price">{{meal.price}}$<span>Per guest</span></span>
   
 </router-link>
 </section>

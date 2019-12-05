@@ -9,7 +9,7 @@
 
     <div>
       <router-link to="/meal">
-        <el-button  type="success">Search</el-button>
+        <el-button class="main-search" type="success">Search</el-button>
       </router-link>
     
     </div>
