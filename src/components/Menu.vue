@@ -99,7 +99,7 @@
     <div class="dish">
       <h2>Drinks</h2>
       <div class="drinks flex">
-        <h4 v-for="(drink, idx) in meal.dishes.drinks" :key="idx">{{drink }} ,</h4>
+        <h4 v-for="(drink, idx) in meal.dishes.drinks" :key="idx">{{drink}} <span v-if="idx < meal.dishes.drinks.length-1"> ,</span></h4>
         
       </div>
     </div>
