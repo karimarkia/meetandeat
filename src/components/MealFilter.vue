@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="searchMeals" class="filter-container">
-    <div class="searchMeals">
+    <div class="searchMeals filter-secodery">
       <el-input @input="searchMeals" placeholder="Search" v-model="filterBy.searchStr"></el-input>
   
       <div :class="{ modal:isShowModal, displayNon:!isShowModal}">
@@ -31,7 +31,7 @@
     >
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
-    <div>
+    <div class="filter-secodery">
       <button class="sortPrice" @click="priceRange">Price</button>
     </div>
   </form>
