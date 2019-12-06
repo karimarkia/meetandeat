@@ -121,6 +121,12 @@
         margin: 0 auto;
     }
 
+    .img-profile-list2{
+        width: 80px;
+        min-height: 80px;
+        max-height: 80px;
+    }
+
     .myMeal{
         flex-direction: column;
         margin: 20px auto;
@@ -130,6 +136,8 @@
             width: 100%;
             margin-bottom: 10px;
         }
+
+
         .controlBtn {
             justify-content: space-between;
         }
