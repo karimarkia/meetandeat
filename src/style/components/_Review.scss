@@ -1,3 +1,11 @@
+.main-review-container {
+    flex-direction: column;
+    .write-new-review {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+}
+
 .reviewsSection {
     display: grid;
     gap: 10px;
@@ -41,4 +49,23 @@
 
 .reviews {
     max-width: 90%;
+}
+
+.new-guest-review {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .new-review {
+        width: 60%;
+    }
+    .new-rate {
+        width: 20%;
+    }
+    .add-review {
+        width: 15%;
+    }
+}
+
+.guestReview {
+    display: none;
 }

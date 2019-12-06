@@ -1,13 +1,12 @@
 <template>
   <section class="register-container">
     <form class="secondery-reg-container">
-        
       <button @click="toggleLogIn" class="exitLogIn-btn">X</button>
       <span>User Name*</span>
       <el-input v-model="loginUser.username" type="text"></el-input>
       <span>Password*</span>
       <el-input v-model="loginUser.password" placeholder="Please input password" show-password></el-input>
-      <el-button  class="loginBtn" @click="doLogin" type="success">LogIn</el-button>
+      <el-button class="loginBtn" @click="doLogin" type="success">LogIn</el-button>
     </form>
   </section>
 </template>
@@ -26,11 +25,9 @@ export default {
   methods: {
     toggleLogIn() {
       this.$emit("toggleLogIn");
- 
-      
     },
     async doLogin() {
-             console.log('amit', this.loginUser.username);
+      console.log("amit", this.loginUser.username);
       const cred = this.loginUser;
       if (!cred.username || !cred.password)
         return (this.msg = "Please enter user/password");
@@ -74,14 +71,13 @@ export default {
   font-size: 1.2rem;
   margin: 10px 10px 0 0;
   outline: none;
-display: flex;
-justify-content: flex-end;
-
+  display: flex;
+  justify-content: flex-end;
 }
-.loginBtn{
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 20px;
+.loginBtn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 /* .exitLogIn-btn:hover {
 font-size: 1.4rem;
