@@ -13,10 +13,12 @@
     align-items: center;
     p {
         margin: 0;
+        width: 340px;
     }
     .social-icons {
         display: flex;
-        width: 150px;
+        // width: 150px;
+        width: 340px;
         justify-content: space-around;
         font-size: 2rem;
         cursor: pointer;
@@ -42,5 +44,11 @@
                 color: #25d366;
             }
         }
+    }
+}
+
+@media(max-width: 800px){
+    .footer{
+        flex-direction: column;
     }
 }

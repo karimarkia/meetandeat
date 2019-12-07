@@ -143,13 +143,22 @@
         <MealGuest :meal="meal" />
 
         <!-- //chat room -->
+
         <button class="toggle-chat" @click="toggleChat" v-if="user">Chat Room</button>
         <div class="chat" :class="{'display': display}">
+          <button class="close-chat" @click="toggleChat">X</button>
           <ul>
             <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}}</li>
           </ul>
+          <div v-if="isType">{{user.username}} is {{this.typing}}</div>
           <form @submit.prevent="sendMsg">
-            <input placeholder="start typing..." class="chat-input" type="text" v-model="msg.txt" />
+            <input
+              placeholder="start typing..."
+              class="chat-input"
+              type="text"
+              v-model="msg.txt"
+              @keypress="key"
+            />
             <button class="chat-btn">Send</button>
           </form>
         </div>
@@ -169,8 +178,6 @@
       </div>
       <Map class="locationMap" :location="location" />
     </div>
-
-    <!-- <Chat-room></Chat-room> -->
   </section>
 </template>
 
@@ -181,8 +188,8 @@ import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
-// import ChatRoom from '../components/ChatRoom.vue';
 import { log } from "util";
+import { setTimeout } from "timers";
 export default {
   name: "mealdetails",
   components: {
@@ -191,11 +198,12 @@ export default {
     Menu,
     Reviews,
     MealGuest,
-    // ChatRoom
     SocketService
   },
   data() {
     return {
+      isType: false,
+      typing: "typing...",
       display: false,
       isShowModal: false,
       isLogOut: false,
@@ -219,7 +227,15 @@ export default {
     SocketService.on("chat addMsg", msg => {
       this.msgs.push(msg);
     });
-    // this.mealDate();
+    SocketService.on("print", msg => {
+      console.log(msg);
+    });
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
   },
   computed: {
      meal() {
@@ -290,16 +306,22 @@ export default {
     sendMsg() {
       let user = this.$store.getters.loggedinUser;
       this.msg.from = user.username;
-      console.log("Sending", this.msg);
+      // console.log("Sending", this.msg);
       SocketService.emit("chat newMsg", this.msg);
       this.msg = {};
+      this.isType = false;
     },
     toggleChat() {
       if (!this.display) this.display = true;
       else this.display = false;
-
-      // this.display=true
+    },
+    key() {
+      this.isType = true;
+      SocketService.emit("is typing", this.typing);
     }
+    // close(){
+    //   this.x=false
+    // }
   }
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
@@ -326,6 +348,7 @@ export default {
   position: fixed;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: auto;
 }
 .chat ul {
   padding: 0 0 0 5px;
@@ -391,6 +414,14 @@ export default {
   border-radius: 4px;
   background-color: #f56c6c;
   color: white;
+}
+.close-chat {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  background: none;
+  border: 0;
+  font-size: 20px;
 }
 </style>
 
