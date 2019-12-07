@@ -249,7 +249,6 @@ export default {
     }
   },
   async created() {
-    console.log(this.currUser)
     let routeParamsId = this.$route.params._id;
     if (!routeParamsId) return;
     const meal = await this.$store.dispatch({ type: "getById", routeParamsId });

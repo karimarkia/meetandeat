@@ -38,7 +38,7 @@
       </li>
     </ul>
 
-    </section>-->
+    </section>--> 
 
     <el-button class="write-new-review" @click="openToAddReview" type="danger">Write a review</el-button>
     <section :class="{guestReview: isCloseAddReview}">
