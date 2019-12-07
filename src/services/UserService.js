@@ -19,13 +19,10 @@ function remove(userId) {
 }
 
 function update(user) {
-    console.log(user);
     return HttpService.put(`user/${user._id}`, user)
 }
 
 async function login(userCred) {
-    console.log(userCred);
-
     const user = await HttpService.post('auth/login', userCred)
     return _handleLogin(user)
 }
