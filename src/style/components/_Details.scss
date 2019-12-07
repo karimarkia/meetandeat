@@ -456,7 +456,7 @@ p {
         text-align: left;
     }
     .priceDetails {
-        width: 100%;
+        width: 80%;
         margin: 0 auto;
     }
     .dish {
@@ -507,6 +507,38 @@ p {
 @media(max-width: 500px) {
     .priceArea {
         width: 100%;
+    }
+    .mealMenu2 {
+        width: 90%;
+        div {
+            .drinks {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+    .whoIsGoing {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .toggle-chat {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        div.review {
+            width: 100%;
+        }
+    }
+    .reviewsSection {
+        grid-template-columns: 100% !important;
+    }
+}
+
+@media(max-width: 700px) {
+    .mealMenu2 {
+        width: 90% !important;
+        margin: 0 auto;
     }
 }
 
