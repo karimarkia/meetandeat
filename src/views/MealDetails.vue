@@ -108,16 +108,16 @@
         <MealGuest :meal="meal" />
 
         <!-- //chat room -->
-        <form @submit.prevent="sendMsg" v-if="user" >
-          <input type="text" v-model="msg.txt"/>
-          <button>Send</button>
-        </form>
-        <ul>
-          <li v-for="(msg, idx) in msgs" :key="idx">
-           {{msg.from}} : {{msg.txt}}
-          </li>
-        </ul>
-        
+        <button class="toggle-chat" @click="toggleChat" v-if="user">Chat Room</button>
+        <div class="chat" :class="{'display': display}">
+          <ul>
+            <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}}</li>
+          </ul>
+          <form @submit.prevent="sendMsg">
+            <input placeholder="start typing..." class="chat-input" type="text" v-model="msg.txt" />
+            <button class="chat-btn">Send</button>
+          </form>
+        </div>
       </section>
 
       <section class="reviewArea">
@@ -161,6 +161,7 @@ export default {
   },
   data() {
     return {
+      display: false,
       isShowModal: false,
       isLogOut: false,
       isShowGallery: false,
@@ -242,17 +243,19 @@ export default {
       this.isLogOut = !this.isLogOut;
     },
     sendMsg() {
-
       let user = this.$store.getters.loggedinUser;
       this.msg.from = user.username;
       console.log("Sending", this.msg);
       SocketService.emit("chat newMsg", this.msg);
-
       this.msg = {};
     },
-   
-  }
+    toggleChat() {
+      if (!this.display) this.display = true;
+      else this.display = false;
 
+      // this.display=true
+    }
+  }
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
 // mongodb+srv://artyomP1:Art13579@cluster0-hkrir.mongodb.net/test?retryWrites=true&w=majority
@@ -260,6 +263,89 @@ export default {
 <style>
 .fa {
   color: #ff5a5f;
+}
+.chat {
+  max-width: 500px;
+  height: 500px;
+  background-color: rgb(247, 247, 247);
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 15px;
+  position: absolute;
+  top: 50px;
+  right: 10%;
+  left: 10%;
+  margin: auto;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.chat ul {
+  padding: 0 0 0 5px;
+  list-style: none;
+}
+.chat ul li {
+  margin: 5px 0;
+}
+
+.chat ul li:nth-child(odd) {
+  background: rgb(221, 221, 221);
+  color: black;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+.chat ul li:nth-child(even) {
+  background: rgb(189, 189, 189);
+  color: black;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+.display {
+  display: flex;
+}
+.chat-input {
+  border: 1px solid red;
+  width: 80%;
+  height: 115%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+.chat-btn {
+  background-color: #f56c6c;
+  color: white;
+  border: 0;
+  font-size: 14px;
+  margin-left: 20px;
+  height: 30px;
+  width: 65px;
+  border-radius: 5px;
+  outline: none;
+}
+.toggle-chat {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0;
+  margin: 20px 0;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #f56c6c;
+  color: white;
 }
 </style>
 
