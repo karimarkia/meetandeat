@@ -48,6 +48,13 @@
     }
 }
 
+.meal-date {
+    display: flex;
+    padding-top: 5px;
+    max-width: 250px;
+    font-size: 18px;
+}
+
 .moreMealDetails {
     justify-content: flex-start;
     width: 100%;
@@ -98,7 +105,7 @@
 }
 
 .priceDetails {
-    width: 30%;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -149,8 +156,15 @@
         }
     }
     .numGust {
+        padding-bottom: 5px;
+    }
+    .guest-input {
+        // padding-top: 5px;
         max-width: 250px;
         margin: 0 auto;
+        .el-input__inner {
+            font-size: 18px;
+        }
     }
     .datetime {
         margin: 0 auto;
@@ -159,6 +173,10 @@
     div {
         width: 100%;
     }
+}
+
+.orderBy {
+    font-weight: bold;
 }
 
 .description {
@@ -417,7 +435,7 @@ p {
             padding: 0;
         }
     }
-    .priceDetails {
+    .priceArea {
         width: 40%;
     }
     // .mainDetails{
@@ -436,7 +454,7 @@ p {
         text-align: left;
     }
     .priceDetails {
-        width: 60%;
+        width: 100%;
         margin: auto;
     }
     .dish {
@@ -454,8 +472,26 @@ p {
     }
 }
 
+.order-details {
+    div {
+        padding: 5px;
+        color: rgb(37, 37, 37);
+    }
+}
+
+.back-to-meals {
+    padding: 20px;
+}
+
+.orderNum {
+    div {
+        padding: 5px;
+        color: rgb(37, 37, 37);
+    }
+}
+
 @media(max-width: 500px) {
-    .priceDetails {
+    .priceArea {
         width: 80%;
     }
 }

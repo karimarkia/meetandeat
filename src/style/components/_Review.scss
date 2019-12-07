@@ -55,6 +55,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .new-review {
         width: 60%;
     }
@@ -68,4 +69,18 @@
 
 .guestReview {
     display: none;
+}
+
+input[type=textarea]:focus {
+    border: 1px solid rgb(128, 118, 120);
+}
+
+.more-reviews {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #f56c6c;
+    font-weight: bold;
 }

@@ -15,8 +15,6 @@ export default {
   },
   computed: {
     guests() {
-      console.log(this.meal.guests);
-      
       return this.meal.guests;
     },
   }

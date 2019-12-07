@@ -15,6 +15,5 @@ function remove(reviewId) {
 }
 
 function add(review) {
-    review.date = Date.now()
     return HttpService.post(`review`, review)
 }

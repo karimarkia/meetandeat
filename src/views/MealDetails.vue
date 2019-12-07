@@ -72,33 +72,68 @@
 
           <h5 class="ownerName">{{meal.ownerId.name}}</h5>
         </div>
-        <div class="priceDetails flex">
-          <h1>
-            {{meal.price}}$
-            <span>Price per guest</span>
-          </h1>
-          <div>
-            <span>Date</span>
-            <div class="block datetime">
-              <el-date-picker class="datetime" type="datetime" placeholder="Select date and time"></el-date-picker>
+        <div class="priceArea flex">
+          <div v-if="!orderCompleted" class="priceDetails flex">
+            <h1>
+              {{meal.price}}$
+              <span>Price per guest</span>
+            </h1>
+            <div>
+              <span>Date</span>
+              <el-input class="meal-date" v-model="mealDate"></el-input>
             </div>
+            <div>
+              <div class="numGust">Number of guests</div>
+              <el-input-number
+                class="guest-input"
+                v-model="numOfGust"
+                size="medium"
+                :min="1"
+                :step="1"
+              ></el-input-number>
+            </div>
+            <div class="payment">
+              <h3 class="total">Total</h3>
+              <h3 class="totalAmount" v-if="numOfGust > 1">
+                <span>{{numOfGust}} guests x {{meal.price}}$</span>
+                <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+              </h3>
+              <h3 class="totalAmount" v-else>
+                <span>{{numOfGust}} guest x {{meal.price}}$</span>
+                <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+              </h3>
+            </div>
+            <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Join To Meal</el-button>
           </div>
-          <div>
-            <span>Number of guests</span>
-            <el-input-number class="numGust" v-model="numOfGust" size="medium" :min="1" :step="1"></el-input-number>
-          </div>
-          <div class="payment">
-            <h3 class="total">Total</h3>
-            <h3 class="totalAmount" v-if="numOfGust > 1">
-              <span>{{numOfGust}} guests x {{meal.price}}$</span>
-              <span class="totalPrice">{{numOfGust * meal.price}}$</span>
-            </h3>
-            <h3 class="totalAmount" v-else>
-              <span>{{numOfGust}} guest x {{meal.price}}$</span>
-              <span class="totalPrice">{{numOfGust * meal.price}}$</span>
-            </h3>
-          </div>
-          <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Join To Meal</el-button>
+          <transition name="flip" mode="out-in">
+            <div v-if="orderCompleted" class="priceDetails flex">
+              <div class="orderNum">
+                <div class="orderBy">Dear {{user.username}} ,</div>
+                <div>Thank you for your order!</div>
+                <div>Order number is: #1472584963</div>
+              </div>
+              <div class="order-details">
+                <div>Your order details:</div>
+                <div>{{meal.title}}</div>
+                <div>At: {{dinnerTime}} , {{mealDate}}</div>
+                <div class="payment">
+                  <h3 class="total">Total</h3>
+                  <h3 v-if="numOfGust > 1" class="totalAmount">
+                    <span>{{numOfGust}} guests x {{meal.price}}$</span>
+                    <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+                  </h3>
+                  <h3 v-else class="totalAmount">
+                    <span>{{numOfGust}} guest x {{meal.price}}$</span>
+                    <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+                  </h3>
+                </div>
+              </div>
+              <router-link class="back-to-meals" to="/meal">
+                <el-button class="joinToMeal" type="primary" round>Find your next meal</el-button>
+              </router-link>
+              <div></div>
+            </div>
+          </transition>
         </div>
       </section>
 
@@ -166,7 +201,9 @@ export default {
       isLogOut: false,
       isShowGallery: false,
       numOfGust: 1,
+      orderCompleted: false,
       msgs: [],
+      dateMeal: null,
       msg: {
         from: "",
         txt: ""
@@ -182,10 +219,11 @@ export default {
     SocketService.on("chat addMsg", msg => {
       this.msgs.push(msg);
     });
+    // this.mealDate();
   },
   computed: {
-    meal() {
-      return this.$store.getters.currMeal;
+     meal() {
+      return  this.$store.getters.currMeal;
       // return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
     },
     user() {
@@ -202,6 +240,12 @@ export default {
       endTime = endTime.substring(16, 21);
       let time = startTime + " - " + endTime;
       return time;
+    },
+    mealDate() {
+      let mealDate = this.meal.atDate;
+      mealDate = new Date(+mealDate);
+      mealDate = mealDate.toLocaleDateString();
+      return mealDate;
     }
   },
   methods: {
@@ -211,8 +255,9 @@ export default {
         this.isLogOut = true;
         return;
       }
+      this.orderCompleted = !this.orderCompleted;
       this.isLogOut = false;
-      this.isShowModal = !this.isShowModal;
+      // this.isShowModal = !this.isShowModal;
       this.meal.guests.unshift(user._id);
       if (user.meals)
         user.meals.unshift({

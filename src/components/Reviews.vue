@@ -1,44 +1,27 @@
 <template>
   <section v-if="reviews" class="main-review-container flex">
     <section class="reviewsSection">
-      <div class="reviews" v-for="(review , idx) in reviews" :key="idx">
+      <div v-if="commentIndex < reviews.length" class="reviews"  v-for="commentIndex in commentsToShow" :key="commentIndex">
         <div class="review">
-          <el-avatar class="revieimg" :size="50" :src="review.byUser.imgUrl"></el-avatar>
+          <el-avatar class="revieimg" :size="50" :src="reviews[commentIndex].byUser.imgUrl"></el-avatar>
           <div class="reviewBy">
             <h4>
-              {{review.byUser.username}}
+              {{reviews[commentIndex].byUser.username}}
               <span>{{reviewDate}}</span>
             </h4>
             <h5>
-              {{review.rate}}/5
+              {{reviews[commentIndex].rate}}/5
               <i class="fa fa-star"></i>
             </h5>
           </div>
         </div>
-        <div>{{review.review}}</div>
+        <div>{{reviews[commentIndex].review}}</div>
       </div>
+      <!-- <button @click="commentsToShow += 2">show more reviews</button> -->
     </section>
-    <!-- <section class="reviewsSection">
-    <ul class="reviews"  > 
-      <li v-for="review in reviews" :key="review._id">
-        <div class="review">
-          <el-avatar class="revieimg" :size="50" :src="review.byUser.imgUrl"></el-avatar>
-          <div class="reviewBy">
-            <h4>
-              {{review.name}}
-              <span>{{reviewDate}}</span>
-            </h4>
-            <h5>
-              {{review.rate}}/5
-              <i class="fa fa-star"></i>
-            </h5>
-          </div>
-        </div>
-        <div>{{review.review}}</div>
-      </li>
-    </ul>
+          <div v-if="commentsToShow < reviews.length" @click="commentsToShow += 2" class="more-reviews pointer">Show more reviews</div>
+          <div v-else @click="commentsToShow -= 2" class="more-reviews pointer">Show less reviews</div>
 
-    </section>-->
 
     <el-button class="write-new-review" @click="openToAddReview" type="danger">Write a review</el-button>
     <section :class="{guestReview: isCloseAddReview}">
@@ -69,6 +52,8 @@ export default {
   // props: ["meal"],
   data() {
     return {
+      commentsToShow: 4,
+      commentIndex: 0,
       // user: null,
       reviewToEdit: {
         rate: null,
@@ -108,14 +93,14 @@ export default {
   methods: {
     openToAddReview() {
       this.isCloseAddReview = !this.isCloseAddReview;
-      console.log(this.user);
     },
-    addReview() {
+    async addReview() {
       this.reviewToEdit.aboutMealId = this.meal._id;
-      this.$store.dispatch({ type: "addReview", review: this.reviewToEdit });
+      await this.$store.dispatch({ type: "addReview", review: this.reviewToEdit });
       this.reviewToEdit = { review: "", rate: null };
       this.$store.dispatch({ type: "loadReviews" });
       this.reviews
+       this.isCloseAddReview= true
     }
   }
 };
