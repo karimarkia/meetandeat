@@ -53,13 +53,12 @@
             </div>
           </div>
           <div :class="{ modalOrder:isShowModal, displayNon:!isShowModal}">
-            <div class="join-modal"> 
+            <div class="join-modal">
               <h2>Thank you for joining!!!</h2>
               <h2>Your order number: 143562</h2>
               <button class="pricerange sortPrice" @click="closeOrder">Close</button>
               <!-- <button class="pricerange sortPrice" @click="sortMeals">Save</button> -->
             </div>
-
           </div>
           <div :class="{ modalOrder:isLogOut, displayNon:!isLogOut}">
             <div class="err-modal">
@@ -79,7 +78,7 @@
             <span>Price per guest</span>
           </h1>
           <div>
-            <span>Date</span> 
+            <span>Date</span>
             <div class="block datetime">
               <el-date-picker class="datetime" type="datetime" placeholder="Select date and time"></el-date-picker>
             </div>
@@ -106,7 +105,19 @@
       <Menu :meal="meal" />
       <section class="whoIsGoing">
         <h2>Who's going?</h2>
-        <MealGuest :meal="meal"/>
+        <MealGuest :meal="meal" />
+
+        <!-- //chat room -->
+        <form @submit.prevent="sendMsg" v-if="user" >
+          <input type="text" v-model="msg.txt"/>
+          <button>Send</button>
+        </form>
+        <ul>
+          <li v-for="(msg, idx) in msgs" :key="idx">
+           {{msg.from}} : {{msg.txt}}
+          </li>
+        </ul>
+        
       </section>
 
       <section class="reviewArea">
@@ -123,20 +134,20 @@
       </div>
       <Map class="locationMap" :location="location" />
     </div>
-    
+
     <!-- <Chat-room></Chat-room> -->
   </section>
 </template>
 
 <script>
-import SocketService from '@/services/SocketService.js';
+import SocketService from "@/services/SocketService.js";
 import NavHeader from "@/views/NavHeader.vue";
 import Map from "@/components/map.vue";
 import Menu from "@/components/Menu.vue";
 import Reviews from "@/components/Reviews.vue";
 import MealGuest from "@/components/MealGuest.vue";
 // import ChatRoom from '../components/ChatRoom.vue';
-import { log } from 'util';
+import { log } from "util";
 export default {
   name: "mealdetails",
   components: {
@@ -151,10 +162,14 @@ export default {
   data() {
     return {
       isShowModal: false,
-      isLogOut:false,
+      isLogOut: false,
       isShowGallery: false,
       numOfGust: 1,
-      banana:false
+      msgs: [],
+      msg: {
+        from: "",
+        txt: ""
+      }
     };
   },
   created() {
@@ -162,16 +177,18 @@ export default {
     const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
-      SocketService.on('inc counter',data=>{
-      // this.updateMeal(data);
-      this.banana = data
-    //  return this.$store.dispatch({ type: "editMeal", currMeal:data });
-    })
+
+    SocketService.on("chat addMsg", msg => {
+      this.msgs.push(msg);
+    });
   },
   computed: {
     meal() {
-      return this.$store.getters.currMeal
+      return this.$store.getters.currMeal;
       // return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
+    },
+    user() {
+      return JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
     },
     location() {
       return this.$store.getters.currMeal.location;
@@ -189,22 +206,30 @@ export default {
   methods: {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
-      if(!user) {
+      if (!user) {
         this.isLogOut = true;
-        return
-      } 
+        return;
+      }
       this.isLogOut = false;
       this.isShowModal = !this.isShowModal;
       this.meal.guests.unshift(user._id);
-     if(user.meals) user.meals.unshift({id: this.meal._id, name:this.meal.title, img: this.meal.imgUrl[0]});
-     else  user.meals = [{id: this.meal._id, name:this.meal.title, img: this.meal.imgUrl[0]}]
-      this.updateUser(user)
+      if (user.meals)
+        user.meals.unshift({
+          id: this.meal._id,
+          name: this.meal.title,
+          img: this.meal.imgUrl[0]
+        });
+      else
+        user.meals = [
+          { id: this.meal._id, name: this.meal.title, img: this.meal.imgUrl[0] }
+        ];
+      this.updateUser(user);
       this.updateMeal(this.meal);
     },
     async updateMeal(meal) {
-      await this.$store.dispatch({ type: "editMeal", currMeal:meal });
+      await this.$store.dispatch({ type: "editMeal", currMeal: meal });
     },
-     async updateUser(user) {
+    async updateUser(user) {
       await this.$store.dispatch({ type: "updateUser", user });
     },
     getImgGallery() {
@@ -213,15 +238,21 @@ export default {
     closeOrder() {
       this.isShowModal = !this.isShowModal;
     },
-    closeError(){
+    closeError() {
       this.isLogOut = !this.isLogOut;
-    }
-  },
-  // created() {
-  //   SocketService.on('inc counter',data)
-  //   console.log(data)
-  // },
-  
+    },
+    sendMsg() {
+
+      let user = this.$store.getters.loggedinUser;
+      this.msg.from = user.username;
+      console.log("Sending", this.msg);
+      SocketService.emit("chat newMsg", this.msg);
+
+      this.msg = {};
+    },
+   
+  }
+
 };
 // https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
 // mongodb+srv://artyomP1:Art13579@cluster0-hkrir.mongodb.net/test?retryWrites=true&w=majority
