@@ -31,7 +31,8 @@
     <section class="userMeals">
       <section v-if="meals.length > 0 && createdEvent">
         <h2 v-if="meals">My Events</h2>
-        <div class="myMeal flex" v-for="(meal, idx) in meals" :key="idx">
+        <div  v-for="(meal, idx) in meals" :key="idx">
+          <div class="myMeal flex">
           <img class="img-profile-list" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
           <div class="flex column justify-center">
             <div class="test">
@@ -51,18 +52,23 @@
               >DELETE</el-button>
             </div>
           </div>
+          </div>
+          <hr/>
         </div>
       </section>
 
       <div v-if="goingEvents">
         <h2 v-if="user.meals">My Booking Meals</h2>
-        <div class="bookedMeals" v-for="(userMeal, idx) in userMeals" :key="idx">
+        <div  v-for="(userMeal, idx) in userMeals" :key="idx">
+          <div class="bookedMeals">
           <router-link class="routerToDetails" :to="'/details/' + userMeal.id">
             <img class="img-profile-list2" v-if="userMeal.img" :src="(userMeal.img)" />
           </router-link>
           <h4>{{userMeal.name}}</h4>
+          </div>
+           <hr/>
         </div>
-        
+      
       </div>
     </section>
   </section>

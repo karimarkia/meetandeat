@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import MealStore from './MealStore.js'
 import UserStore from './UserStore.js'
+import ReviewStore from './ReviewStore.js'
 import SocketStore from './SocketStore.js'
 Vue.use(Vuex)
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     modules: {
         MealStore,
         UserStore,
-        SocketStore
+        SocketStore,
+        ReviewStore
     }
 })
