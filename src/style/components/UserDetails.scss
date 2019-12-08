@@ -3,6 +3,9 @@
     margin: 30px auto 100px;
     flex-direction: column;
     width: 90%;
+    span {
+        padding-bottom: 10px;
+    }
 }
 
 .userAccount {
@@ -64,7 +67,7 @@
 
 .userProfile {
     flex-direction: column;
-    width: 35%;
+    width: 30%;
     border-right: 0.5px solid #d4d3d3;
     h1 {
         margin: 20px auto;
@@ -73,7 +76,7 @@
 }
 
 .userMeals {
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -131,5 +134,18 @@
         .controlBtn {
             justify-content: space-between;
         }
+    }
+}
+
+.hrUser {
+    border: 0.5px solid #8c8b8b;
+}
+
+.myguest {
+    width: 90%;
+    align-items: center;
+    .review {
+        display: flex;
+        justify-content: center;
     }
 }

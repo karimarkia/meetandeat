@@ -8,16 +8,17 @@
 import previewGuest from "@/components/previewGuest";
 
 export default {
+    props: ["meal"],
   name: "meal",
-
   components: {
     previewGuest
   },
-
   computed: {
-    meal() {
-      return this.$store.getters.currMeal;
-    },
+    // meal() {
+    //   console.log(this.$store.getters.currMeal);
+      
+    //   return this.$store.getters.currMeal;
+    // },
     guests() {
       return this.meal.guests;
     }

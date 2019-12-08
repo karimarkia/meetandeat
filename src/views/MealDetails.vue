@@ -142,13 +142,15 @@
         <MealGuest :meal="meal" />
         <!-- //chat room -->
         <button class="toggle-chat" @click="toggleChat" v-if="user">Chat Room</button>
+
         <div class="chat" :class="{'display': display}">
           <button class="close-chat" @click="toggleChat">X</button>
           <ul>
             <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}}</li>
           </ul>
           <div v-if="isType">{{user.username}} is {{this.typing}}</div>
-          <form @submit.prevent="sendMsg">
+          <form @submit.prevent="sendMsg" class="form-chat">
+            <button class="chat-btn">Send</button>
             <input
               placeholder="start typing..."
               class="chat-input"
@@ -156,7 +158,6 @@
               v-model="msg.txt"
               @keypress="key"
             />
-            <button class="chat-btn">Send</button>
           </form>
         </div>
       </section>
@@ -235,6 +236,7 @@ export default {
   computed: {
     meal() {
       return this.$store.getters.currMeal;
+      // return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
     },
     user() {
       return JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
@@ -260,7 +262,7 @@ export default {
   },
   methods: {
     getBookMael() {
-      // let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+      let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
       let user = this.user;
       if (!user) {
         this.isLogOut = true;
@@ -325,4 +327,10 @@ export default {
 };
 </script>
 
+<style>
+.form-chat {
+  display: flex;
+  flex-direction: row-reverse;
+}
+</style>
 
