@@ -357,3 +357,16 @@ export default {
   }
 };
 </script>
+
+
+<style>
+.mealMenu2 h1:after{
+  display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+</style>

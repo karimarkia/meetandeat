@@ -3,7 +3,7 @@
     <div class="main-img"></div>
     <Main-filter></Main-filter>
     <div class="sec-section">
-      <h1>Places to Eat&Meet people around the world</h1>
+      <h1>top rated places around the world</h1>
       <div class="cards-container-sec">
         <MealPreview
           class="sec"
