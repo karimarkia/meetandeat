@@ -1,7 +1,7 @@
 <template>
   <section class="mealMenu2">
-    <h2 class="choose">choose your dish</h2>
-    <h1>menu</h1>
+    <h2 class="choose"> Choose your dish</h2>
+    <h1>Menu</h1>
     <div class="dish2">
       <h2>Appetizers</h2>
       <div class="appetizers flex menu2">
