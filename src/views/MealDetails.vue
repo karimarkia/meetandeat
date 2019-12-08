@@ -222,7 +222,7 @@ export default {
     this.$store.dispatch("loadMeals");
     const mealId = this.$route.params._id;
     if (!mealId) return;
-    this.$store.dispatch({ type: "setCurrMeal", mealId });
+     this.$store.dispatch({ type: "setCurrMeal", mealId });
 
     SocketService.on("chat addMsg", msg => {
       this.msgs.push(msg);
@@ -267,7 +267,11 @@ export default {
   methods: {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+      console.log(user);
+      
       if (!user) {
+        console.log('a');
+        
         this.isLogOut = true;
         return;
       }
@@ -290,6 +294,7 @@ export default {
     },
     async updateMeal(meal) {
       await this.$store.dispatch({ type: "editMeal", currMeal: meal });
+      this.meal
     },
     async updateUser(user) {
       await this.$store.dispatch({ type: "updateUser", user });

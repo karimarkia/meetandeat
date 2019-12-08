@@ -1,36 +1,7 @@
 <template>
-  <!-- <section v-if="reviews" class="main-review-container flex">
-    <section class="reviewsSection">
-      <div
-        v-if="commentIndex < reviews.length"
-        class="reviews"
-        v-for="commentIndex in commentsToShow"
-        :key="commentIndex"
-      >
-        <div class="review">
-          <el-avatar class="revieimg" :size="50" :src="reviews[commentIndex].byUser.imgUrl"></el-avatar>
-          <div class="reviewBy">
-            <h4>
-              {{reviews[commentIndex].byUser.username}}
-              <span>{{reviewDate}}</span>
-            </h4>
-            <h5>
-              {{reviews[commentIndex].rate}}/5
-              <i class="fa fa-star"></i>
-            </h5>
-          </div>
-        </div>
-        <div>{{reviews[commentIndex].review}}</div>
-      </div>
-    </section> -->
   <section v-if="reviews" class="main-review-container flex">
     <section class="reviewsSection">
-      <div
-
-        class="reviews"
-        v-for="(review , idx) in reviews"
-        :key="idx"
-      >
+      <div class="reviews" v-for="(review , idx) in reviews" :key="idx">
         <div class="review">
           <el-avatar class="revieimg" :size="50" :src="review.byUser.imgUrl"></el-avatar>
           <div class="reviewBy">
@@ -83,12 +54,11 @@
 </template>
 <script>
 export default {
-  // props: ["meal"],
   data() {
     return {
       commentsToShow: 4,
       commentIndex: 0,
-reviewIdx:0,
+      reviewIdx: 0,
       reviewToEdit: {
         rate: 0,
         review: ""
@@ -107,8 +77,11 @@ reviewIdx:0,
       return this.$store.getters.currMeal;
     },
     reviewDate() {
-      let date = (new Date(this.reviews[this.reviewIdx].date) + "").substring(4, 15);
-      this.reviewIdx++
+      let date = (new Date(this.reviews[this.reviewIdx].date) + "").substring(
+        4,
+        15
+      );
+      this.reviewIdx++;
       date = date.substring(4, 15);
       return date;
     }
@@ -122,12 +95,10 @@ reviewIdx:0,
       this.reviewToEdit = { review: "", rate: 0 };
     },
     async addReview() {
-    this.reviewToEdit.date = Date.now()
+      this.reviewToEdit.date = Date.now();
       this.reviewToEdit.aboutMealId = this.meal._id;
       this.$store.dispatch({ type: "addReview", review: this.reviewToEdit });
       this.reviewToEdit = { review: "", rate: 0 };
-      //  await this.$store.dispatch({ type: "loadReviews" });
-      // this.reviews
       this.isCloseAddReview = true;
     }
   }
