@@ -113,7 +113,6 @@
       </div>
     </div>
   </section>
- 
 </template>
 <script>
 import SocketService from "@/services/SocketService";
@@ -153,7 +152,9 @@ export default {
         case "appetizers":
           {
             if (this.IsFirstClick) {
+              console.log(Meal.dishes.appetizers[idx].count);
               Meal.dishes.appetizers[idx].count++;
+              console.log(Meal.dishes.appetizers[idx].count);
               this.IsFirstClick = false;
               if (idx === 0) {
                 this.isZeroIdxClick = true;
@@ -165,6 +166,7 @@ export default {
                 (idx === 0 && this.isZeroIdxClick) ||
                 (idx === 1 && this.isOneIdxClick)
               ) {
+                console.log(idx, this.isZeroIdxClick, this.IsFirstClick);
               } else {
                 if (idx === 0) {
                   this.isZeroIdxClick = true;
