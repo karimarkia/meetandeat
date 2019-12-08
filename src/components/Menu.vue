@@ -1,13 +1,14 @@
 <template>
   <section class="mealMenu2">
-    <h1>Menu</h1>
+    <h2 class="choose">choose your dish</h2>
+    <h1>choose your dish</h1>
     <div class="dish2">
       <h2>Appetizers</h2>
       <div class="appetizers flex menu2">
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" @click="incCounter('appetizers',0,1)"></i>
+              <i class="fa fa-thumbs-up" :class="{sigend: appetizerChose === 0}"  @click="incCounter('appetizers',0,1)"></i>
               <span class="count">{{this.vote.appetizers.opt1}}</span>
             </h3>
           </div>
@@ -21,7 +22,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" @click="incCounter('appetizers',1,0)"></i>
+              <i class="fa fa-thumbs-up" :class="{sigend: appetizerChose === 1}" @click="incCounter('appetizers',1,0)"></i>
               <span class="count">{{this.vote.appetizers.opt2}}</span>
             </h3>
           </div>
@@ -41,7 +42,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" @click="incCounter('mains',0,1)"></i>
+              <i class="fa fa-thumbs-up" :class="{sigend: mainsChose === 0}" @click="incCounter('mains',0,1)"></i>
               <span class="count">{{this.vote.mains.opt1}}</span>
             </h3>
           </div>
@@ -55,7 +56,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" @click="incCounter('mains',1,0)"></i>
+              <i class="fa fa-thumbs-up" :class="{sigend: mainsChose === 1}" @click="incCounter('mains',1,0)"></i>
               <span class="count">{{this.vote.mains.opt2}}</span>
             </h3>
           </div>
@@ -75,7 +76,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" @click="incCounter('dessert',0,1)"></i>
+              <i class="fa fa-thumbs-up" :class="{sigend: dessertChose === 0}" @click="incCounter('dessert',0,1)"></i>
               <span class="count">{{this.vote.dessert.opt1}}</span>
             </h3>
           </div>
@@ -89,7 +90,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" @click="incCounter('dessert',1,0)"></i>
+              <i class="fa fa-thumbs-up" :class="{sigend: dessertChose === 1}" @click="incCounter('dessert',1,0)"></i>
               <span class="count">{{this.vote.dessert.opt2}}</span>
             </h3>
           </div>
@@ -124,7 +125,10 @@ export default {
       IsFirstMainsClick: true,
       IsFirstDessertClick: true,
       isZeroIdxClick: false,
-      isOneIdxClick: false
+      isOneIdxClick: false,
+      appetizerChose: 2,
+      mainsChose: 2,
+      dessertChose: 2
     };
   },
   computed: {
@@ -159,8 +163,10 @@ export default {
               console.log(Meal.dishes.appetizers[idx].count);
               this.IsFirstClick = false;
               if (idx === 0) {
+                this.appetizerChose = 0;
                 this.isZeroIdxClick = true;
               } else {
+                this.appetizerChose = 1;
                 this.isOneIdxClick = true;
               }
             } else {
@@ -173,9 +179,11 @@ export default {
                 if (idx === 0) {
                   this.isZeroIdxClick = true;
                   this.isOneIdxClick = false;
+                  this.appetizerChose = 0;
                 } else {
                   this.isOneIdxClick = true;
                   this.isZeroIdxClick = false;
+                  this.appetizerChose = 1;
                 }
                 Meal.dishes.appetizers[idx].count++;
                 Meal.dishes.appetizers[idx2].count--;
@@ -193,8 +201,10 @@ export default {
               console.log(Meal.dishes.mains[idx].count);
               this.IsFirstMainsClick = false;
               if (idx === 0) {
+                this.mainsChose = 0;
                 this.isZeroIdxClick = true;
               } else {
+                this.mainsChose = 1;
                 this.isOneIdxClick = true;
               }
             } else {
@@ -205,9 +215,11 @@ export default {
                 console.log(idx, this.isZeroIdxClick, this.IsFirstMainsClick);
               } else {
                 if (idx === 0) {
+                  this.mainsChose = 0;
                   this.isZeroIdxClick = true;
                   this.isOneIdxClick = false;
                 } else {
+                  this.mainsChose = 1;
                   this.isOneIdxClick = true;
                   this.isZeroIdxClick = false;
                 }
@@ -227,8 +239,10 @@ export default {
             this.IsFirstDessertClick = false;
             if (idx === 0) {
               this.isZeroIdxClick = true;
+              this.dessertChose = 0;
             } else {
               this.isOneIdxClick = true;
+              this.dessertChose = 1;
             }
           } else {
             if (
@@ -238,9 +252,11 @@ export default {
               console.log(idx, this.isZeroIdxClick, this.IsFirstDessertClick);
             } else {
               if (idx === 0) {
+                this.dessertChose = 0;
                 this.isZeroIdxClick = true;
                 this.isOneIdxClick = false;
               } else {
+                this.dessertChose = 1;
                 this.isOneIdxClick = true;
                 this.isZeroIdxClick = false;
               }
@@ -258,3 +274,13 @@ export default {
   }
 };
 </script>
+
+
+<style  scoped>
+  .sigend{
+    color: #FF385C
+  } 
+  .choose{
+    text-align: left
+  }
+</style>
