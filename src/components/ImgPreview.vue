@@ -17,26 +17,4 @@
     }
 </script>
  
-<style scoped>
-    .img-prev-card{
-        position: relative;
-        height: 250px;
-    }
-    .img-hight{
-        height: 100%;
-    }
-
-    .del-btn{
-        padding: 5px;
-        background-color: white;
-        border-radius: 4px;
-        border: 0;
-        font-size: 1rem;
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-
-    }
-
-</style>
 

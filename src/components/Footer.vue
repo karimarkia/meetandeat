@@ -1,8 +1,9 @@
 <template>
   <div class="footer">
     <p>Copyright © 2019 by IDK. All rights reserved.</p>
-    <img src="../img/logo-white.png">
-    <social-sharing class="social-icons"
+    <img src="../img/logo-white.png" />
+    <social-sharing
+      class="social-icons"
       url="https://vuejs.org/"
       title="The Progressive JavaScript Framework"
       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
@@ -28,8 +29,7 @@
 
 
 <style>
-.footer img{
-     height: 80px;
-
+.footer img {
+  height: 80px;
 }
 </style>

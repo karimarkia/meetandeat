@@ -1,6 +1,12 @@
 <template>
   <section class="map">
-    <GmapMap class="map" :center="center" :zoom="13" map-type-id="terrain" style="width:100%;margin-bottom: 25px; height: 400px;">
+    <GmapMap
+      class="map"
+      :center="center"
+      :zoom="13"
+      map-type-id="terrain"
+      style="width:100%;margin-bottom: 25px; height: 400px;"
+    >
       <GmapMarker
         :key="index"
         v-for="(m, index) in markers"
@@ -15,29 +21,24 @@
 
 <script>
 export default {
-    props: {
+  props: {
     location: Object
   },
   data() {
     return {
-      markers: 
-        [{ position: { lat: this.location.lat, lng: this.location.lng } }]
-     ,
-      center: {  lat: this.location.lat, lng: this.location.lng }
+      markers: [
+        { position: { lat: this.location.lat, lng: this.location.lng } }
+      ],
+      center: { lat: this.location.lat, lng: this.location.lng }
     };
   },
-  created(){
-console.log(this.location);
-
-  },
-  methods: {
-
-  }
+ 
+  methods: {}
 };
 </script>
 <style scoped>
-.map{
-    margin: 0;
-    width: 100%;
+.map {
+  margin: 0;
+  width: 100%;
 }
 </style>

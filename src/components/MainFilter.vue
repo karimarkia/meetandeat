@@ -1,19 +1,17 @@
 <template>
-  <section >
-   <form class="main-filter-home flex align-center space-around" @submit.prevent="getFilter">
-    <h1>Book unforgettable culinary experiences</h1>
-    <div>
-      <span class="where">WHERE</span>
-      <el-input class="searchCity" type="text" placeholder="Anywhere..." v-model="filterBy"></el-input>
-    </div>
-
-    <div>
-      <router-link to="/meal">
-        <el-button class="main-search" type="success">Search</el-button>
-      </router-link>
-    
-    </div>
-      </form>
+  <section>
+    <form class="main-filter-home flex align-center space-around" @submit.prevent="getFilter">
+      <h1>Book unforgettable culinary experiences</h1>
+      <div>
+        <span class="where">WHERE</span>
+        <el-input class="searchCity" type="text" placeholder="Anywhere..." v-model="filterBy"></el-input>
+      </div>
+      <div>
+        <router-link to="/meal">
+          <el-button class="main-search" type="success">Search</el-button>
+        </router-link>
+      </div>
+    </form>
   </section>
 </template>
 
@@ -22,16 +20,15 @@
 export default {
   data() {
     return {
-        filterBy: ''
+      filterBy: ""
     };
   },
-     methods: {
-        getFilter() {          
-        console.log("Parent got filter:", this.filterBy);
-        this.$store.commit("setMainFilter",  this.filterBy);
-      this.$router.push('/meal')
-        }
+  methods: {
+    getFilter() {
+      this.$store.commit("setMainFilter", this.filterBy);
+      this.$router.push("/meal");
     }
+  }
 };
 </script>
 

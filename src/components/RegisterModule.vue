@@ -30,7 +30,8 @@
       <el-input v-model="signupCred.password" placeholder="Please input password" show-password></el-input>
       <span>Reapet Password*</span>
       <el-input v-model="password" placeholder="Please input password" show-password></el-input>
-       <span>add img</span> <input @change="uploadImg" type="file" />
+      <span>add img</span>
+      <input @change="uploadImg" type="file" />
       <el-button class="loginBtn" @click="doSignup" type="success">SingUp</el-button>
     </form>
   </section>
@@ -87,7 +88,7 @@
 
 
 <script >
-import CloudService from '../services/CloudService.js'
+import CloudService from "../services/CloudService.js";
 export default {
   data: () => ({
     msg: null,
@@ -121,9 +122,10 @@ export default {
         }
       };
     },
-      uploadImg() {
-      CloudService.uploadImg(event)
-      .then(res => this.signupCred.imgUrl = res.url);
+    uploadImg() {
+      CloudService.uploadImg(event).then(
+        res => (this.signupCred.imgUrl = res.url)
+      );
     },
     doSignup() {
       const cred = this.signupCred;

@@ -232,26 +232,6 @@ export default {
       isOneIdxClick: false
     };
   },
-  // data() {
-  //   return {
-  //     // count: this.meal.dishes.appetizers[0].count,
-  //     // meall: this.meal,
-  //     vote: {
-  //       appetizers: {
-  //         opt1: this.meal.dishes.appetizers[0].count,
-  //         opt2: this.meal.dishes.appetizers[1].count
-  //       },
-  //       mains: {
-  //         opt1: this.meal.dishes.mains[0].count,
-  //         opt2: this.meal.dishes.mains[1].count
-  //       },
-  //       dessert: {
-  //         opt1: this.meal.dishes.dessert[0].count,
-  //         opt2: this.meal.dishes.dessert[1].count
-  //       }
-  //     }
-  //   };
-  // },
   computed: {
     vote() {
       return {

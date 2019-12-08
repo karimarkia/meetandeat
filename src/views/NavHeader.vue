@@ -1,7 +1,6 @@
 <template>
   <nav class="sec-nav">
     <div class="row-sec">
-      <!-- <img src="@/img/logo-white.png" alt="Omnifood logo" class="logo-sec" /> -->
       <router-link to="/"><img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" /></router-link>
               <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
         <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>
@@ -28,11 +27,8 @@
           <li v-else>
             <router-link :to="'/user/' + user._id">
              <el-avatar title="My Account" :size="40" :src="user.imgUrl"></el-avatar>
-              <!-- <a>My account</a> -->
             </router-link>
           </li>
-<!-- 
-          <li v-if="user" class="userTest">Hello {{user.username}}!</li> -->
         </ul>
       </div>
  
@@ -42,7 +38,6 @@
 
 <script>
 import RegisterModule from "../components/RegisterModule.vue";
-// import NavHeader from './NavHeader.vue'
 export default {
   components: {
     RegisterModule

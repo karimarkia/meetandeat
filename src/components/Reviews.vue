@@ -49,12 +49,10 @@
 </template>
 <script>
 export default {
-  // props: ["meal"],
   data() {
     return {
       commentsToShow: 4,
       commentIndex: 0,
-      // user: null,
       reviewToEdit: {
         rate: null,
         review: ""
