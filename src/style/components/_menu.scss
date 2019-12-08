@@ -17,7 +17,7 @@
 
 .choose {
     width: 100%;
-    text-align: left;
+    text-align: left !important;
     color: #f56c6c;
     margin: 10px 0;
     margin-left: -119px;
@@ -35,4 +35,8 @@
     font-size: 5rem;
     font-weight: bold;
     letter-spacing: 5px;
+}
+
+.sigend {
+    color: #f56c6c;
 }
