@@ -56,8 +56,6 @@
 export default {
   data() {
     return {
-      commentsToShow: 4,
-      commentIndex: 0,
       reviewIdx: 0,
       reviewToEdit: {
         rate: 0,

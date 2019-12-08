@@ -20,6 +20,8 @@ export default {
     };
   },
   async created() {
+    console.log(this.guest);
+    
     this.user = await UserService.getById(this.guest);
   },
   computed: {

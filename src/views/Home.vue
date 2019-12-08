@@ -3,7 +3,7 @@
     <div class="main-img"></div>
     <Main-filter></Main-filter>
     <div class="sec-section">
-      <h1>top rated places around the world</h1>
+      <h1>Top rated meals</h1>
       <div class="cards-container-sec">
         <MealPreview
           class="sec"
@@ -52,7 +52,7 @@
     </div>
 
     <div class="places-to-show">
-      <h2>our most popular cities</h2>
+      <h2>our popular cities</h2>
       <PlacesCmp></PlacesCmp>
     </div>
   </section>

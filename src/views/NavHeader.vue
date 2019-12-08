@@ -1,38 +1,38 @@
 <template>
   <nav class="sec-nav">
     <div class="row-sec">
-      <router-link to="/"><img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" /></router-link>
-              <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
-        <div :class="{openMenu:openMenu }"  class="screen" @click="getOpenMenu"></div>
+      <router-link to="/">
+        <img src="@/img/logo.png" alt="Omnifood logo" class="logo-black-sec" />
+      </router-link>
+      <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
+      <div :class="{openMenu:openMenu }" class="screen" @click="getOpenMenu"></div>
 
       <ul class="main-nav-sec">
-          <li @click="getOpenMenu">
-            <router-link class="route-nav" to="/">Home</router-link>
-          </li>
-          <li @click="getOpenMenu">
-            <router-link class="route-nav" to="/about">About</router-link>
-          </li>
-          <li @click="getOpenMenu">
-            <router-link class="route-nav" to="/add">HOST A MEAL</router-link>
-          </li>
-          <li class="pointer" v-if="!user" @click="logIn">
-            <a>LOGIN</a>
-          </li>
-          <li class="pointer" v-else @click="doLogout">
-            <a>LOGOUT</a>
-          </li>
-          <li class="pointer" v-if="!user" @click="SignUp">
-            <a>SIGNUP</a>
-          </li>
-          <li v-else>
-            <router-link :to="'/user/' + user._id">
-             <el-avatar title="My Account" :size="40" :src="user.imgUrl"></el-avatar>
-            </router-link>
-          </li>
-        </ul>
-      </div>
- 
-   
+        <li @click="getOpenMenu">
+          <router-link class="route-nav" to="/">Home</router-link>
+        </li>
+        <li @click="getOpenMenu">
+          <router-link class="route-nav" to="/about">About</router-link>
+        </li>
+        <li @click="getOpenMenu">
+          <router-link class="route-nav" to="/add">HOST A MEAL</router-link>
+        </li>
+        <li class="pointer" v-if="!user" @click="logIn">
+          <a>LOGIN</a>
+        </li>
+        <li class="pointer" v-else @click="doLogout">
+          <a>LOGOUT</a>
+        </li>
+        <li class="pointer" v-if="!user" @click="SignUp">
+          <a>SIGNUP</a>
+        </li>
+        <li v-else>
+          <router-link :to="'/user/' + user._id">
+            <el-avatar title="My Account" :size="40" :src="user.imgUrl"></el-avatar>
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </nav>
 </template>
 
@@ -42,25 +42,25 @@ export default {
   components: {
     RegisterModule
   },
-    data() {
+  data() {
     return {
       openMenu: false
     };
   },
   methods: {
     SignUp() {
-        this.openMenu = !this.openMenu;
+      this.openMenu = !this.openMenu;
       this.$emit("toggleRegister");
     },
     logIn() {
-        this.openMenu = !this.openMenu;
+      this.openMenu = !this.openMenu;
       this.$emit("toggleLogIn");
     },
     doLogout() {
-        this.openMenu = !this.openMenu;
+      this.openMenu = !this.openMenu;
       this.$store.dispatch({ type: "logout" });
     },
-        getOpenMenu() {
+    getOpenMenu() {
       this.openMenu = !this.openMenu;
     }
   },

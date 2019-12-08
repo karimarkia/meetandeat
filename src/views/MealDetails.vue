@@ -165,7 +165,7 @@
       <section class="reviewArea">
         <h2>
           <i class="fa fa-star"></i>
-          {{meal.rate}} (248 reviews)
+          {{meal.rate}} (23 reviews)
         </h2>
         <Reviews />
       </section>
@@ -225,9 +225,7 @@ export default {
     SocketService.on("chat addMsg", msg => {
       this.msgs.push(msg);
     });
-    SocketService.on("print", msg => {
-      console.log(msg);
-    });
+    SocketService.on("print", msg => {});
 
     window.scrollTo({
       top: 0,
@@ -265,15 +263,16 @@ export default {
   methods: {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+      let user = this.user;
       if (!user) {
         this.isLogOut = true;
         return;
       }
       this.orderCompleted = !this.orderCompleted;
       this.isLogOut = false;
-      this.meal.guests.unshift(user._id);
+      this.meal.guests.push(user._id);
       if (user.meals)
-        user.meals.unshift({
+        user.meals.push({
           id: this.meal._id,
           name: this.meal.title,
           img: this.meal.imgUrl[0]
@@ -316,10 +315,16 @@ export default {
       this.isType = true;
       SocketService.emit("is typing", this.typing);
     }
+  },
+  watch: {
+    "$route.params.id"() {
+      const mealId = this.$route.params._id;
+      if (!mealId) return;
+      this.$store.dispatch({ type: "setCurrMeal", mealId });
+      this.meal
+    }
   }
 };
-// https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
-// mongodb+srv://artyomP1:Art13579@cluster0-hkrir.mongodb.net/test?retryWrites=true&w=majority
 </script>
 
 <style>
