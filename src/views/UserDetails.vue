@@ -56,7 +56,6 @@
           <hr/>
         </div>
       </section>
-
       <div v-if="goingEvents">
         <h2 v-if="user.meals">My Booking Meals</h2>
         <div  v-for="(userMeal, idx) in userMeals" :key="idx">
@@ -68,7 +67,6 @@
           </div>
            <hr/>
         </div>
-      
       </div>
     </section>
   </section>
@@ -106,10 +104,6 @@ export default {
             birthDay() {
       let date = new Date(+this.meal.atDate)+'';
          date = date.substring(3, 10)
-      // date=date.toLocaleDateString()
-      //  date = date.toGMTString();
-      // let age = today - birthDate;
-      // age = age / (60000 * 60 * 24 * 365);
       return date
     }
   },
@@ -125,9 +119,7 @@ export default {
       this.createdEvent = false;
       this.goingEvents = true;
     },
-   
   },
-
   async created() {
     const id = this.$route.params._id;
     const user = await UserService.getById(id);

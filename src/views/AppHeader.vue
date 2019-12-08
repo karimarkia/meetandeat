@@ -2,7 +2,6 @@
   <header>
     <nav :class="{'sticky': scrolled}" @on="handleScroll">
       <div class="row">
-        <!-- <li v-if="user" class="userTest">Hello {{user.username}}!</li> -->
         <router-link to="/">
           <img src="@/img/logo.png" alt="meetandeat logo" class="logo" />
         </router-link>
@@ -29,7 +28,6 @@
           </li>
           <li v-else>
             <router-link :to="'/user/' + user._id">
-              <!-- <a>My account</a> -->
               <el-avatar :size="40" :src="user.imgUrl"></el-avatar>
             </router-link>
           </li>
@@ -77,15 +75,12 @@ export default {
         this.limitPosition < window.scrollY
       ) {
         this.scrolled = true;
-        // move up!
       }
 
       if (this.lastPosition >= window.scrollY) {
         this.scrolled = false;
-        // move down
       }
 
-      // this.lastPosition = window.scrollY;
       this.scrolled = window.scrollY > 250;
     }
   },
@@ -103,30 +98,5 @@ export default {
 };
 </script>
 
-<style>
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 2px #efefef;
-  z-index: 9999;
-  transition: 0.5s all;
-}
-.sticky .main-nav {
-    margin-top: 18px;
-}
-
-.sticky .main-nav li a:link,
-.sticky .main-nav li a:visited {
-    padding: 16px 0;
-    color: #555;
-}
-
-.sticky a img {
-    display: block;
-}
-</style>
 
 

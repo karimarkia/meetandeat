@@ -2,7 +2,7 @@
   <form @submit.prevent="searchMeals" class="filter-container">
     <div class="searchMeals filter-secodery">
       <el-input @input="searchMeals" placeholder="Search" v-model="filterBy.searchStr"></el-input>
-  
+
       <div :class="{ modal:isShowModal, displayNon:!isShowModal}">
         <div class="block">
           <el-slider v-model="value" range :marks="marks"></el-slider>
@@ -21,7 +21,7 @@
           format="yyyy/MM/dd"
           value-format="timestamp"
         ></el-date-picker>
-      </div> -->
+    </div>-->
     <el-select
       @change="searchMeals"
       v-model="filterBy.mealType"
@@ -44,7 +44,7 @@ export default {
     return {
       value1: "",
       isShowModal: false,
-    value: [0,100],
+      value: [0, 100],
       marks: {
         20: "20$",
         50: "50$",
@@ -55,7 +55,7 @@ export default {
       filterBy: {
         searchStr: "",
         mealType: [],
-           priceRange: [0, 100],
+        priceRange: [0, 100]
       },
       options: [
         {
@@ -74,7 +74,7 @@ export default {
           value: "Vegitarian",
           label: "Vegitarian"
         },
-         {
+        {
           value: "American",
           label: "American"
         },
@@ -90,9 +90,9 @@ export default {
     priceRange() {
       this.isShowModal = !this.isShowModal;
     },
-    ClosePriceRange(){
-this.isShowModal = !this.isShowModal;
- this.value = [0,100]
+    ClosePriceRange() {
+      this.isShowModal = !this.isShowModal;
+      this.value = [0, 100];
     },
     searchMeals() {
       this.$store.commit("setMealsFilter", { ...this.filterBy });
@@ -100,11 +100,7 @@ this.isShowModal = !this.isShowModal;
     getFiltredByPrice(sortBy) {
       this.isShowModal = !this.isShowModal;
       this.filterBy.priceRange = this.value;
-    },
-    //  sortMeals(sortBy) {
-    //   this.isShowModal = !this.isShowModal;
-    //   this.$store.commit("sortMeals", "price");
-    // }
+    }
   }
 };
 </script>
