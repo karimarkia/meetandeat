@@ -13,15 +13,6 @@
         </div>
       </div>
     </div>
-    <!-- <div>
-        <el-date-picker
-          v-model="value1"
-          type="date"
-          placeholder="Pick a Date"
-          format="yyyy/MM/dd"
-          value-format="timestamp"
-        ></el-date-picker>
-    </div>-->
     <el-select
       @change="searchMeals"
       v-model="filterBy.mealType"

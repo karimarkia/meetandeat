@@ -31,41 +31,41 @@
     <section class="userMeals">
       <section v-if="meals.length > 0 && createdEvent">
         <h2 v-if="meals">My Events</h2>
-        <div  v-for="(meal, idx) in meals" :key="idx">
+        <div v-for="(meal, idx) in meals" :key="idx">
           <div class="myMeal flex">
-          <img class="img-profile-list" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
-          <div class="flex column justify-center">
-            <div class="test">
-              <h4>{{meal.title}}</h4>
-            </div>
-            <div class="controlBtn">
-              <router-link :to="'/details/' + meal._id">
-                <el-button class="events-profile-btn" type="danger">DETAILS</el-button>
-              </router-link>
-              <router-link :to="'/edit/'+ meal._id">
-                <el-button class="cards-btns events-profile-btn" type="danger">EDIT</el-button>
-              </router-link>
-              <el-button
-                class="events-profile-btn"
-                @click="removeMeal(meal._id)"
-                type="danger"
-              >DELETE</el-button>
+            <img class="img-profile-list" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
+            <div class="flex column justify-center">
+              <div class="test">
+                <h4>{{meal.title}}</h4>
+              </div>
+              <div class="controlBtn">
+                <router-link :to="'/details/' + meal._id">
+                  <el-button class="events-profile-btn" type="danger">DETAILS</el-button>
+                </router-link>
+                <router-link :to="'/edit/'+ meal._id">
+                  <el-button class="cards-btns events-profile-btn" type="danger">EDIT</el-button>
+                </router-link>
+                <el-button
+                  class="events-profile-btn"
+                  @click="removeMeal(meal._id)"
+                  type="danger"
+                >DELETE</el-button>
+              </div>
             </div>
           </div>
-          </div>
-          <hr/>
+          <hr />
         </div>
       </section>
       <div v-if="goingEvents">
         <h2 v-if="user.meals">My Booking Meals</h2>
-        <div  v-for="(userMeal, idx) in userMeals" :key="idx">
+        <div v-for="(userMeal, idx) in userMeals" :key="idx">
           <div class="bookedMeals">
-          <router-link class="routerToDetails" :to="'/details/' + userMeal.id">
-            <img class="img-profile-list2" v-if="userMeal.img" :src="(userMeal.img)" />
-          </router-link>
-          <h4>{{userMeal.name}}</h4>
+            <router-link class="routerToDetails" :to="'/details/' + userMeal.id">
+              <img class="img-profile-list2" v-if="userMeal.img" :src="(userMeal.img)" />
+            </router-link>
+            <h4>{{userMeal.name}}</h4>
           </div>
-           <hr/>
+          <hr />
         </div>
       </div>
     </section>
@@ -78,7 +78,7 @@ import UserService from "../services/UserService";
 export default {
   data() {
     return {
-      birthDaya: '20/06/1990',
+      birthDaya: "20/06/1990",
       createdEvent: true,
       goingEvents: false,
       user: {
@@ -101,10 +101,10 @@ export default {
     userMeals() {
       return this.user.meals;
     },
-            birthDay() {
-      let date = new Date(+this.meal.atDate)+'';
-         date = date.substring(3, 10)
-      return date
+    birthDay() {
+      let date = new Date(+this.meal.atDate) + "";
+      date = date.substring(3, 10);
+      return date;
     }
   },
   methods: {
@@ -118,7 +118,7 @@ export default {
     OnGoingEvent() {
       this.createdEvent = false;
       this.goingEvents = true;
-    },
+    }
   },
   async created() {
     const id = this.$route.params._id;

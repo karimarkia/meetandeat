@@ -27,7 +27,6 @@ export default {
       this.$emit("toggleLogIn");
     },
     async doLogin() {
-      console.log("amit", this.loginUser.username);
       const cred = this.loginUser;
       if (!cred.username || !cred.password)
         return (this.msg = "Please enter user/password");
@@ -39,48 +38,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.register-container {
-  max-width: 500px;
-  background-color: white;
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding: 15px;
-  position: absolute;
-  top: 50px;
-  right: 10%;
-  left: 10%;
-  margin: auto;
-  z-index: 100;
-  display: none;
-  position: fixed;
-}
-.secondery-reg-container {
-  display: flex;
-  flex-direction: column;
-}
-.secondery-reg-container > * {
-  margin-bottom: 10px;
-}
-.mini-container > *:not(:last-child) {
-  margin-right: 7px;
-}
-.exitLogIn-btn {
-  background-color: transparent;
-  border: 0;
-  font-size: 1.2rem;
-  margin: 10px 10px 0 0;
-  outline: none;
-  display: flex;
-  justify-content: flex-end;
-}
-.loginBtn {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 20px;
-}
-/* .exitLogIn-btn:hover {
-font-size: 1.4rem;
-} */
-</style>
+
 

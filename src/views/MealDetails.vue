@@ -106,7 +106,7 @@
             <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Join To Meal</el-button>
           </div>
           <transition name="flip" mode="out-in">
-            <div v-if="orderCompleted" class="priceDetails  flex">
+            <div v-if="orderCompleted" class="priceDetails flex">
               <div class="orderNum">
                 <div class="orderBy">Dear {{user.username}} ,</div>
                 <div>Thank you for your order!</div>
@@ -219,13 +219,12 @@ export default {
     this.$store.dispatch("loadMeals");
     const mealId = this.$route.params._id;
     if (!mealId) return;
-     this.$store.dispatch({ type: "setCurrMeal", mealId });
+    this.$store.dispatch({ type: "setCurrMeal", mealId });
 
     SocketService.on("chat addMsg", msg => {
       this.msgs.push(msg);
     });
     SocketService.on("print", msg => {
-      console.log(msg);
     });
 
     window.scrollTo({
@@ -235,9 +234,8 @@ export default {
     });
   },
   computed: {
-     meal() {
-      return  this.$store.getters.currMeal;
-      // return JSON.parse(JSON.stringify(this.$store.getters.currMeal));
+    meal() {
+      return this.$store.getters.currMeal;
     },
     user() {
       return JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
@@ -264,11 +262,7 @@ export default {
   methods: {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
-      console.log(user);
-      
       if (!user) {
-        console.log('a');
-        
         this.isLogOut = true;
         return;
       }
@@ -290,7 +284,7 @@ export default {
     },
     async updateMeal(meal) {
       await this.$store.dispatch({ type: "editMeal", currMeal: meal });
-      this.meal
+      this.meal;
     },
     async updateUser(user) {
       await this.$store.dispatch({ type: "updateUser", user });
@@ -319,11 +313,8 @@ export default {
       this.isType = true;
       SocketService.emit("is typing", this.typing);
     }
-   
   }
 };
-// https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+California&key=AIzaSyAIf_SiIrDkiwPumk-JVkjC52m7Htv3m8w
-// mongodb+srv://artyomP1:Art13579@cluster0-hkrir.mongodb.net/test?retryWrites=true&w=majority
 </script>
 
 

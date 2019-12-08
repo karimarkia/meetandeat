@@ -16,7 +16,7 @@ function uploadImg(ev) {
             return res
         })
         .catch(err => console.error(err))
-} 
+}
 
 export default {
     uploadImg

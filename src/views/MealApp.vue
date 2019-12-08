@@ -1,6 +1,6 @@
 <template>
   <div class="meal-app">
-    <h2 >Find unique food experiences with hand-selected hosts</h2>
+    <h2>Find unique food experiences with hand-selected hosts</h2>
     <p>Book now before they sell out!</p>
     <MealFilter />
     <div class="sescrt"></div>
@@ -17,7 +17,7 @@ export default {
     MealList,
     MealFilter
   },
-  created(){
+  created() {
     this.$store.dispatch("loadMeals");
   },
   computed: {

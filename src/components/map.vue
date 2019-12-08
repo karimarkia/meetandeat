@@ -32,7 +32,7 @@ export default {
       center: { lat: this.location.lat, lng: this.location.lng }
     };
   },
- 
+
   methods: {}
 };
 </script>
