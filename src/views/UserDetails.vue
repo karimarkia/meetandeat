@@ -6,22 +6,22 @@
         <el-avatar :size="200" :src="user.imgUrl"></el-avatar>
       </div>
       <section class="userDetails flex">
-        <span>Name:</span>
-        <el-input class="mainUserDetails" v-model="user.fullname"></el-input>
-        <span>Email:</span>
-        <el-input class="mainUserDetails" v-model="user.email"></el-input>
-        <span>Country:</span>
-        <el-input
+        <span>Name: {{ user.fullname}}</span>
+        <!-- <el-input class="mainUserDetails" v-model="user.fullname"></el-input> -->
+        <span>Email: {{user.email}}</span>
+        <!-- <el-input class="mainUserDetails" v-model="user.email"></el-input> -->
+        <span>Country: {{user.location.country}}</span>
+        <!-- <el-input
           v-if="user.location.country"
           class="mainUserDetails"
           v-model="user.location.country"
-        ></el-input>
-        <span>City:</span>
-        <el-input v-if="user.location.city" class="mainUserDetails" v-model="user.location.city"></el-input>
-        <span>Gender:</span>
-        <el-input class="mainUserDetails" v-model="user.gender"></el-input>
-        <span>BirthDay:</span>
-        <el-input class="mainUserDetails" v-model="birthDaya"></el-input>
+        ></el-input>-->
+        <span>City: {{user.location.city}}</span>
+        <!-- <el-input v-if="user.location.city" class="mainUserDetails" v-model="user.location.city"></el-input> -->
+        <span>Gender: {{user.gender}}</span>
+        <!-- <el-input class="mainUserDetails" v-model="user.gender"></el-input> -->
+        <span>BirthDay: {{birthDaya}}</span>
+        <!-- <el-input class="mainUserDetails" v-model="birthDaya"></el-input> -->
         <div class="flex">
           <el-button type="info" @click="OnYourEvent">your events</el-button>
           <el-button type="info" @click="OnGoingEvent" plain>Bookd events</el-button>
@@ -53,8 +53,13 @@
               </div>
             </div>
           </div>
-          <hr />
+          <hr class="hrUser" />
+            <div>
+              <h2>My guests</h2>
+          <MealGuest class="myguest" :meal="meal" />
         </div>
+        </div>
+      
       </section>
       <div v-if="goingEvents">
         <h2 v-if="user.meals">My Booking Meals</h2>
@@ -74,10 +79,14 @@
 
 <script>
 import UserService from "../services/UserService";
-
+import MealGuest from "@/components/MealGuest.vue";
 export default {
+   components: {
+        MealGuest
+      },
   data() {
     return {
+     
       birthDaya: "20/06/1990",
       createdEvent: true,
       goingEvents: false,
@@ -92,7 +101,6 @@ export default {
   computed: {
     meals() {
       this.$store.commit("userMeals", { userId: this.user._id });
-      console.log(this.$store.getters.userMeals);
       return this.$store.getters.userMeals;
     },
     editURL() {
