@@ -1,14 +1,15 @@
 <template>
   <section class="mealMenu2">
+    
     <h2 class="choose">choose your dish</h2>
-    <h1>choose your dish</h1>
+    <h1>menu</h1>
     <div class="dish2">
       <h2>Appetizers</h2>
       <div class="appetizers flex menu2">
         <div class="dish-details-con">
           <div>
-            <h3>
-              <i class="fa fa-thumbs-up" :class="{sigend: appetizerChose === 0}"  @click="incCounter('appetizers',0,1)"></i>
+            <h3> 
+              <i class="fa fa-check-circle" :class="{sigend: appetizerChose === 0}"  @click="incCounter('appetizers',0,1)"></i>
               <span class="count">{{this.vote.appetizers.opt1}}</span>
             </h3>
           </div>
@@ -22,7 +23,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" :class="{sigend: appetizerChose === 1}" @click="incCounter('appetizers',1,0)"></i>
+              <i class="fa fa-check-circle" :class="{sigend: appetizerChose === 1}" @click="incCounter('appetizers',1,0)"></i>
               <span class="count">{{this.vote.appetizers.opt2}}</span>
             </h3>
           </div>
@@ -42,7 +43,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" :class="{sigend: mainsChose === 0}" @click="incCounter('mains',0,1)"></i>
+              <i class="fa fa-check-circle" :class="{sigend: mainsChose === 0}" @click="incCounter('mains',0,1)"></i>
               <span class="count">{{this.vote.mains.opt1}}</span>
             </h3>
           </div>
@@ -56,7 +57,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" :class="{sigend: mainsChose === 1}" @click="incCounter('mains',1,0)"></i>
+              <i class="fa fa-check-circle" :class="{sigend: mainsChose === 1}" @click="incCounter('mains',1,0)"></i>
               <span class="count">{{this.vote.mains.opt2}}</span>
             </h3>
           </div>
@@ -76,7 +77,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" :class="{sigend: dessertChose === 0}" @click="incCounter('dessert',0,1)"></i>
+              <i class="fa fa-check-circle" :class="{sigend: dessertChose === 0}" @click="incCounter('dessert',0,1)"></i>
               <span class="count">{{this.vote.dessert.opt1}}</span>
             </h3>
           </div>
@@ -90,7 +91,7 @@
         <div class="dish-details-con">
           <div>
             <h3>
-              <i class="fa fa-thumbs-up" :class="{sigend: dessertChose === 1}" @click="incCounter('dessert',1,0)"></i>
+              <i class="fa fa-check-circle" :class="{sigend: dessertChose === 1}" @click="incCounter('dessert',1,0)"></i>
               <span class="count">{{this.vote.dessert.opt2}}</span>
             </h3>
           </div>
@@ -278,9 +279,26 @@ export default {
 
 <style  scoped>
   .sigend{
-    color: #FF385C
+   
+    color: #FF385C;
+ 
   } 
   .choose{
-    text-align: left
+     width: 100%;
+    text-align: left;
+     color: #F56C6C;
+     margin: 10px 0;
+            margin-left: -119px;
+     
   }
+
+
+    .mealMenu2 h1{
+    margin: 0;
+    font-family: 'Tangerine', cursive !important;
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    }
+
 </style>
