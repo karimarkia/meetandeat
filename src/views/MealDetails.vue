@@ -103,7 +103,7 @@
                 <span class="totalPrice">{{numOfGust * meal.price}}$</span>
               </h3>
             </div>
-            <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Join To Meal</el-button>
+            <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Reserve My Place</el-button>
           </div>
           <transition name="flip" mode="out-in">
             <div v-if="orderCompleted" class="priceDetails flex">
