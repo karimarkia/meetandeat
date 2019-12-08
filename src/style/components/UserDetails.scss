@@ -42,10 +42,6 @@
     }
 }
 
-.modalBtn {
-    // flex-direction: column;
-}
-
 .join-modal {
     display: flex;
     flex-direction: column;
@@ -120,24 +116,18 @@
         max-width: 90vw;
         margin: 0 auto;
     }
-
-    .img-profile-list2{
+    .img-profile-list2 {
         width: 80px;
         min-height: 80px;
         max-height: 80px;
     }
-
-    .myMeal{
+    .myMeal {
         flex-direction: column;
         margin: 20px auto;
-    
-
-        .img-profile-list{
+        .img-profile-list {
             width: 100%;
             margin-bottom: 10px;
         }
-
-
         .controlBtn {
             justify-content: space-between;
         }

@@ -70,6 +70,8 @@
 .mainDetails {
     padding-bottom: 30px;
     min-height: 400px;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #d4d3d3;
 }
 
 [data-i="0"] {
@@ -145,8 +147,8 @@
     button.joinToMeal {
         width: 100%;
         max-width: 250px;
-        background-color: #FF385C;
-        border: #FF385C;
+        background-color: #F56C6C;
+        border: #F56C6C;
         margin: 0 auto;
         ;
         span {
@@ -180,7 +182,7 @@
 }
 
 .description {
-    max-width: 70%;
+    width: 70%;
     margin-right: 5%;
     p {
         text-align: left !important;
@@ -206,7 +208,7 @@
     border-top: 0.5px solid #d4d3d3;
     width: 100%;
     h1 {
-        font-family: 'Petit Formal Script', cursive;
+        font-family: 'Monoton', cursive !important;
         font-size: 2.3rem;
         text-align: center;
     }
@@ -454,8 +456,8 @@ p {
         text-align: left;
     }
     .priceDetails {
-        width: 100%;
-        margin: auto;
+        width: 80%;
+        margin: 0 auto;
     }
     .dish {
         .border {
@@ -479,8 +481,20 @@ p {
     }
 }
 
+.paymentTotal {
+    padding-top: 30px;
+    h3 {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+}
+
+.order-num {
+    color: rgb(15, 138, 15) !important;
+}
+
 .back-to-meals {
-    padding: 20px;
+    padding: 10px 20px;
 }
 
 .orderNum {
@@ -492,18 +506,47 @@ p {
 
 @media(max-width: 500px) {
     .priceArea {
-        width: 80%;
+        width: 100%;
+    }
+    .mealMenu2 {
+        width: 90%;
+        div {
+            .drinks {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+    .whoIsGoing {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .toggle-chat {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        div.review {
+            width: 100%;
+        }
+    }
+    .reviewsSection {
+        grid-template-columns: 100% !important;
+    }
+}
+
+@media(max-width: 700px) {
+    .mealMenu2 {
+        width: 90% !important;
+        margin: 0 auto;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////@at-root
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-.mealMenu2{
+.mealMenu2 {
     width: 60vw;
     margin: 20px auto;
-    border-top: 0.5px solid #d4d3d3;
     h1 {
         font-family: 'Petit Formal Script', cursive;
         font-size: 2.3rem;
@@ -512,9 +555,7 @@ p {
     h2 {
         text-align: center;
     }
-    
 }
-
 
 .dish2 {
     display: flex;
@@ -547,6 +588,7 @@ p {
     }
     h4 {
         margin: 0;
+        padding-right: 5px;
     }
     h3,
     h5 {
@@ -554,7 +596,6 @@ p {
         align-items: flex-start;
         margin: 15px 0;
     }
-    
     div {
         display: flex;
         flex-direction: column;
@@ -562,22 +603,21 @@ p {
         align-items: flex-start;
     }
     .drinks {
-        margin: 20px auto 50px;
+        margin: 10px auto 50px;
         flex-direction: row;
         align-items: center;
         align-content: center;
-        justify-content: space-around;
+        justify-content: center;
         width: 40%;
     }
-    .xx{
+    .xx {
         justify-items: center;
     }
 }
 
-.dish2 > *{
+.dish2>* {
     margin-bottom: 20px;
 }
-
 
 .menu2 {
     width: 100%;

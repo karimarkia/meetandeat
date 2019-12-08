@@ -106,17 +106,17 @@
             <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Join To Meal</el-button>
           </div>
           <transition name="flip" mode="out-in">
-            <div v-if="orderCompleted" class="priceDetails flex">
+            <div v-if="orderCompleted" class="priceDetails  flex">
               <div class="orderNum">
                 <div class="orderBy">Dear {{user.username}} ,</div>
                 <div>Thank you for your order!</div>
-                <div>Order number is: #1472584963</div>
+                <div class="order-num">Order number is: #1472584963</div>
               </div>
               <div class="order-details">
                 <div>Your order details:</div>
                 <div>{{meal.title}}</div>
                 <div>At: {{dinnerTime}} , {{mealDate}}</div>
-                <div class="payment">
+                <div class="paymentTotal">
                   <h3 class="total">Total</h3>
                   <h3 v-if="numOfGust > 1" class="totalAmount">
                     <span>{{numOfGust}} guests x {{meal.price}}$</span>

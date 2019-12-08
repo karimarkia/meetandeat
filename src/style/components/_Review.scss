@@ -1,15 +1,23 @@
 .main-review-container {
     flex-direction: column;
+    width: 100%;
     .write-new-review {
-        width: 200px;
+        max-width: 110px;
         margin-bottom: 30px;
+        span {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
     }
 }
 
 .reviewsSection {
+    width: 100%;
     display: grid;
     gap: 10px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     float: left !important;
     padding-top: 10px;
     padding-left: 0.5%;
@@ -54,13 +62,17 @@
 .new-guest-review {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 30px;
     .new-review {
         width: 60%;
+        margin-bottom: 20px;
     }
     .new-rate {
         width: 20%;
+        margin-bottom: 20px;
     }
     .add-review {
         width: 15%;
@@ -71,8 +83,13 @@
     display: none;
 }
 
-input[type=textarea]:focus {
+.el-textarea__inner:focus {
     border: 1px solid rgb(128, 118, 120);
+}
+
+.el-textarea__inner {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 70px;
 }
 
 .more-reviews {

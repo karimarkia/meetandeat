@@ -12,10 +12,10 @@ export default {
     },
     mutations: {
         setReviews(state, { reviews }) {
-            state.reviews = reviews;
+            state.reviews = reviews.reverse()
         },
         addReview(state, { review }) {
-            state.reviews.push(review)
+            state.reviews.unshift(review)
         },
         removeReview(state, { reviewId }) {
             state.reviews = state.reviews.filter(review => review._id !== reviewId)
@@ -28,8 +28,11 @@ export default {
             return review;
         },
 
-        async loadReviews(context) {
-            const reviews = await ReviewService.query();
+        async loadReviews(context, { mealId }) {
+            let reviews = await ReviewService.query();
+            reviews = await reviews.filter(review => {
+                return review.aboutMeal._id === mealId;
+            });
             context.commit({ type: 'setReviews', reviews })
         },
         async removeReview(context, { reviewId }) {
