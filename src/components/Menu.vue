@@ -152,6 +152,8 @@ export default {
         case "appetizers":
           {
             if (this.IsFirstClick) {
+              this.isZeroIdxClick = false;
+              this.isOneIdxClick = false;
               console.log(Meal.dishes.appetizers[idx].count);
               Meal.dishes.appetizers[idx].count++;
               console.log(Meal.dishes.appetizers[idx].count);
@@ -184,7 +186,11 @@ export default {
         case "mains":
           {
             if (this.IsFirstMainsClick) {
+              this.isZeroIdxClick = false;
+              this.isOneIdxClick = false;
+              console.log(Meal.dishes.mains[idx].count);
               Meal.dishes.mains[idx].count++;
+              console.log(Meal.dishes.mains[idx].count);
               this.IsFirstMainsClick = false;
               if (idx === 0) {
                 this.isZeroIdxClick = true;
@@ -196,6 +202,7 @@ export default {
                 (idx === 0 && this.isZeroIdxClick) ||
                 (idx === 1 && this.isOneIdxClick)
               ) {
+                console.log(idx, this.isZeroIdxClick, this.IsFirstMainsClick);
               } else {
                 if (idx === 0) {
                   this.isZeroIdxClick = true;
@@ -212,7 +219,11 @@ export default {
           break;
         case "dessert": {
           if (this.IsFirstDessertClick) {
+            this.isZeroIdxClick = false;
+            this.isOneIdxClick = false;
+            console.log(Meal.dishes.dessert[idx].count);
             Meal.dishes.dessert[idx].count++;
+            console.log(Meal.dishes.dessert[idx].count);
             this.IsFirstDessertClick = false;
             if (idx === 0) {
               this.isZeroIdxClick = true;
@@ -224,6 +235,7 @@ export default {
               (idx === 0 && this.isZeroIdxClick) ||
               (idx === 1 && this.isOneIdxClick)
             ) {
+              console.log(idx, this.isZeroIdxClick, this.IsFirstDessertClick);
             } else {
               if (idx === 0) {
                 this.isZeroIdxClick = true;
