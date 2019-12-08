@@ -260,8 +260,8 @@ export default {
   },
   methods: {
     getBookMael() {
-      // let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
-      let user = this.user;
+      let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+      // let user = this.user;
       if (!user) {
         this.isLogOut = true;
         return;

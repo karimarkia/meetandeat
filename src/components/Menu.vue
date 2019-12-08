@@ -1,7 +1,8 @@
 <template>
   <section class="mealMenu2">
+    
     <h2 class="choose">choose your dish</h2>
-    <h1>choose your dish</h1>
+    <h1>menu</h1>
     <div class="dish2">
       <h2>Appetizers</h2>
       <div class="appetizers flex menu2">
@@ -278,9 +279,24 @@ export default {
 
 <style  scoped>
   .sigend{
-    color: #FF385C
+    width: 100%;
+    color: #FF385C;
+        margin-left: -119px;
   } 
   .choose{
-    text-align: left
+    text-align: left;
+     color: #F56C6C;
+     margin: 10px 0;
+     
   }
+
+
+    .mealMenu2 h1{
+    margin: 0;
+    font-family: 'Tangerine', cursive !important;
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    }
+
 </style>
