@@ -294,9 +294,9 @@ export default {
 
 
     .mealMenu2 h1{
-    margin: 0;
+    margin: 0 0 35px 0;
     font-family: 'Tangerine', cursive !important;
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: bold;
     letter-spacing: 5px;
     }
