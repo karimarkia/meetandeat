@@ -11,7 +11,7 @@
       >
         <div class="dish-details-con">
           <div>
-            <h3>
+            <h3 class="dish-name">
               <i
                 class="fa fa-check-circle"
                 :class="{sigend: clickedDish.appetizers === idx}"
@@ -21,7 +21,7 @@
             </h3>
           </div>
           <div>
-            <h3>{{appetizer.name }}</h3>
+            <h3 class="dish-name">{{appetizer.name }}</h3>
             <h5 v-if="appetizer.description.length > 0">{{appetizer.description}}</h5>
           </div>
         </div>
@@ -33,7 +33,7 @@
       <div class="appetizers flex menu2">
         <div v-for="(main, idx) in meal.dishes.mains" :key="idx" class="dish-details-con">
           <div>
-            <h3>
+            <h3 class="dish-name">
               <i
                 class="fa fa-check-circle"
                 :class="{sigend: clickedDish.mains === idx}"
@@ -43,7 +43,7 @@
             </h3>
           </div>
           <div>
-            <h3>{{main.name }}</h3>
+            <h3 class="dish-name">{{main.name }}</h3>
             <h5 v-if="main.description.length > 0">{{main.description}}</h5>
           </div>
         </div>
@@ -55,7 +55,7 @@
       <div class="appetizers flex menu2">
         <div v-for="(Dessert, idx) in meal.dishes.dessert" :key="idx" class="dish-details-con">
           <div>
-            <h3>
+            <h3 class="dish-name">
               <i
                 class="fa fa-check-circle"
                 :class="{sigend: clickedDish.dessert === idx}"
@@ -65,7 +65,7 @@
             </h3>
           </div>
           <div>
-            <h3>{{Dessert.name }}</h3>
+            <h3 class="dish-name">{{Dessert.name }}</h3>
             <h5
               v-if="Dessert.description.length > 0"
             >{{Dessert.description}}</h5>
