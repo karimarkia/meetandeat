@@ -517,11 +517,15 @@ p {
             }
         }
     }
-    .reviewArea .h2 {
-        margin: 0 !important;
+    .reviewArea {
+        h2 {
+            margin-left: 0 !important;
+        }
     }
     .guest-container {
+        width: 100%;
         grid-template-columns: 50% 50% !important;
+        // margin: 10px;
     }
     .whoIsGoing {
         // width: 100%;
@@ -534,12 +538,17 @@ p {
         }
         div.review {
             // width: 100%;
+            margin: 20px;
             flex-direction: column;
+            justify-content: space-around !important;
         }
+    }
+    .write-new-review {
+        // margin-left: 10px;
     }
     .reviewsSection {
         grid-template-columns: 100% !important;
-        margin-left: 10px;
+        padding-left: 20px;
     }
 }
 
@@ -557,6 +566,7 @@ p {
     }
     .toggle-chat {
         width: 110px !important;
+        margin-left: 0 auto !important;
     }
 }
 
