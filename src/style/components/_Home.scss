@@ -93,6 +93,14 @@
     .main-filter-home {
         right: auto !important;
     }
+    .cards-container-sec {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        // gap: 10px;
+        margin: 10px !important;
+    }
+    .meal-card {
+        padding: 0;
+    }
 }
 
 .sec-section h1 {

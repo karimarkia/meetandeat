@@ -19,7 +19,6 @@
     padding-bottom: 20px;
     border-bottom: 0.5px solid #d4d3d3;
     cursor: pointer;
-
     img {
         width: 96%;
         height: 95%;
@@ -36,14 +35,12 @@
     align-items: flex-end;
     align-content: flex-end;
     padding-left: 0.5%;
-
     h1 {
         font-size: 1.5rem;
         margin: 30px 0;
         margin-right: 20px;
         margin-bottom: 0;
     }
-
     h3 {
         margin: 0;
         font-size: 1rem;
@@ -63,7 +60,6 @@
     width: 100%;
     padding: 10px;
     padding-top: 0;
-
     h4 {
         margin: 0;
         margin-right: 3%;
@@ -121,40 +117,33 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
-
     h1 {
         font-size: 1.5rem;
         color: rgb(37, 37, 37);
         margin: 0;
     }
-
     .totalAmount {
         display: flex;
         justify-content: space-between;
         padding-top: 5px;
     }
-
     .total {
         display: flex;
         align-items: flex-start;
         border-bottom: 0.5px solid #d4d3d3;
         padding-bottom: 5px;
     }
-
     .totalPrice {
         color: rgb(37, 37, 37);
         font-size: 1.2rem;
     }
-
     h3 {
         margin: 0;
     }
-
     span {
         font-size: 1rem;
         color: rgb(113, 113, 113)
     }
-
     button.joinToMeal {
         width: 100%;
         max-width: 250px;
@@ -162,33 +151,27 @@
         border: #F56C6C;
         margin: 0 auto;
         ;
-
         span {
             color: white;
             font-weight: bold;
             font-size: 1.1rem;
         }
     }
-
     .numGust {
         padding-bottom: 5px;
     }
-
     .guest-input {
         // padding-top: 5px;
         max-width: 250px;
         margin: 0 auto;
-
         .el-input__inner {
             font-size: 18px;
         }
     }
-
     .datetime {
         margin: 0 auto;
         max-width: 250px;
     }
-
     div {
         width: 100%;
     }
@@ -201,11 +184,9 @@
 .description {
     width: 70%;
     margin-right: 5%;
-
     p {
         text-align: left !important;
     }
-
     h3 {
         margin: 0;
         padding: 10px;
@@ -214,12 +195,10 @@
         float: left;
         margin-top: 30px;
     }
-
     h5 {
         padding-left: 10px;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
-
     p {
         padding-right: 20px;
     }
@@ -228,13 +207,11 @@
 .mealMenu {
     border-top: 0.5px solid #d4d3d3;
     width: 100%;
-
     h1 {
         font-family: 'Monoton', cursive !important;
         font-size: 2.3rem;
         text-align: center;
     }
-
     h2 {
         text-align: center;
     }
@@ -246,22 +223,18 @@
         border-bottom: 1px solid rgb(235, 189, 197);
         margin: 30px auto;
     }
-
     .dish-details-con {
         width: 40%;
-
         h3 {
             text-align: left;
         }
     }
-
     h2 {
         display: flex;
         max-width: 30%;
         align-items: flex-start;
         margin: 5px auto !important;
     }
-
     .menu {
         width: 100%;
         flex-direction: row;
@@ -269,29 +242,24 @@
         align-items: center;
         margin: auto;
     }
-
     h4 {
         margin: 0;
     }
-
     h3,
     h5 {
         display: flex;
         align-items: flex-start;
         margin: 5px 0;
     }
-
     .or {
         font-family: cursive;
     }
-
     div {
         display: flex;
         flex-direction: column;
         align-content: center;
         align-items: flex-start;
     }
-
     .drinks {
         margin-bottom: 55px;
         flex-direction: row;
@@ -358,7 +326,6 @@ p {
     flex-direction: column;
     align-items: flex-start;
     padding-top: 20px;
-
     h2 {
         float: left;
     }
@@ -370,7 +337,6 @@ p {
     padding-left: 5px;
     display: flex;
     align-items: center;
-
     span {
         margin-left: 5px;
     }
@@ -445,7 +411,6 @@ p {
     .detailsPage {
         width: 95%;
     }
-
     .imgs-gallery {
         width: 100%;
         height: 80vh;
@@ -453,35 +418,28 @@ p {
         grid-template-columns: 50% 50%;
         grid-template-areas: "a a""b c";
     }
-
     .mealDetails {
         flex-direction: column;
         align-items: flex-start;
-
         h1,
         h3 {
             margin-bottom: 10px;
             text-align: left;
         }
     }
-
     .moreMealDetails {
         justify-content: space-between;
     }
-
     .description {
         width: 60%;
-
         p {
             text-align: left !important;
             padding: 0;
         }
     }
-
     .priceArea {
         width: 40%;
     }
-
     // .mainDetails{
     //     flex-direction: column;
     // }
@@ -491,29 +449,24 @@ p {
     .mainDetails {
         flex-direction: column;
     }
-
     .description {
         max-width: 95%;
         width: 95%;
         margin: auto;
         text-align: left;
     }
-
     .priceDetails {
         width: 80%;
         margin: 0 auto;
     }
-
     .dish {
         .border {
             width: 30%;
             margin: 30px auto;
         }
-
         .dish-details-con {
             width: 80%;
         }
-
         .menu {
             flex-direction: column;
             text-align: -webkit-center;
@@ -530,7 +483,6 @@ p {
 
 .paymentTotal {
     padding-top: 30px;
-
     h3 {
         font-size: 16px;
         padding-top: 10px;
@@ -556,10 +508,8 @@ p {
     .priceArea {
         width: 100%;
     }
-
     .mealMenu2 {
         width: 90%;
-
         div {
             .drinks {
                 width: 100%;
@@ -567,25 +517,29 @@ p {
             }
         }
     }
-
+    .reviewArea .h2 {
+        margin: 0 !important;
+    }
+    .guest-container {
+        grid-template-columns: 50% 50% !important;
+    }
     .whoIsGoing {
-        width: 100%;
+        // width: 100%;
         display: flex;
         flex-direction: column;
-
         .toggle-chat {
             display: flex;
-            justify-content: center;
-            width: 100%;
+            justify-content: center !important;
+            // width: 100%;
         }
-
         div.review {
-            width: 100%;
+            // width: 100%;
+            flex-direction: column;
         }
     }
-
     .reviewsSection {
         grid-template-columns: 100% !important;
+        margin-left: 10px;
     }
 }
 
@@ -594,6 +548,16 @@ p {
         width: 90% !important;
         margin: 0 auto;
     }
+    h3 {
+        padding-left: 0 !important;
+        margin-top: 20px !important;
+    }
+    h5 {
+        padding-left: 0 !important;
+    }
+    .toggle-chat {
+        width: 110px !important;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////@at-root
@@ -601,13 +565,11 @@ p {
 .mealMenu2 {
     width: 60vw;
     margin: 20px auto;
-
     h1 {
         font-family: 'Petit Formal Script', cursive;
         font-size: 2.3rem;
         text-align: center;
     }
-
     h2 {
         text-align: center;
     }
@@ -616,30 +578,25 @@ p {
 .dish2 {
     display: flex;
     flex-direction: column;
-
     .border {
         width: 50%;
         border-bottom: 1px solid rgb(235, 189, 197);
         margin: 30px auto;
     }
-
     .dish-details-con {
         h3 {
             text-align: left;
         }
-
         display: grid;
         grid-template-columns: 1fr 5fr;
         width: 100%;
     }
-
     h2 {
         display: flex;
         max-width: 30%;
         align-items: flex-start;
         margin: 15px auto !important;
     }
-
     .menu {
         width: 100%;
         flex-direction: row;
@@ -647,26 +604,22 @@ p {
         align-items: center;
         margin: auto;
     }
-
     h4 {
         margin: 0;
         padding-right: 5px;
     }
-
     h3,
     h5 {
         display: flex;
         align-items: flex-start;
         margin: 15px 0;
     }
-
     div {
         display: flex;
         flex-direction: column;
         align-content: center;
         align-items: flex-start;
     }
-
     .drinks {
         margin: 10px auto 50px;
         flex-direction: row;
@@ -675,7 +628,6 @@ p {
         justify-content: center;
         width: 40%;
     }
-
     .xx {
         justify-items: center;
     }
