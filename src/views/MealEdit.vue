@@ -12,7 +12,7 @@
           <span>Address</span>
           <el-input type="text" v-model="address"></el-input>
           <span>Price</span>
-          <el-input type="number" v-model="currMeal.duration"></el-input>
+          <el-input type="number" min=10 v-model="currMeal.duration"></el-input>
         </div>
         <h3>Time</h3>
         <div class="inputs-container">
@@ -30,7 +30,7 @@
         <h3>Hosting</h3>
         <div class="inputs-container">
           <span>Tags</span>
-          <el-select v-model="currMeal.tags" v-if="currMeal.tags" multiple placeholder="Select">
+          <el-select v-model="currMeal.tags"  multiple placeholder="Select">
             <el-option
               v-for="tag in options"
               :key="tag.value"
@@ -39,7 +39,7 @@
             ></el-option>
           </el-select>
           <span>Limit Guests</span>
-          <el-input v-model="currMeal.maxUsers" type="number"></el-input>
+          <el-input v-model="currMeal.maxUsers" min=1 type="number"></el-input>
         </div>
 
         <h3>Appetizers</h3>
@@ -128,30 +128,14 @@ import UserStore from "../store/UserStore.js";
 
 export default {
   data: () => ({
-    address: "",
+    address: null,
     currMeal: {
-      title: "",
       location: {
-        country: "",
-        city: "",
-        lat: 41.902782,
-        lng: 12.496366
+        country: "italy",
+        city: "rome"
+
       },
-      price: 0,
-      atDate: "",
-      duration: 0,
-      tags: [""],
-      ownerId: {
-        id: "",
-        name: "",
-        about: " better with wine!"
-      },
-      rate: 4.7,
-      maxUsers: 7,
-      guests: ["userId1", "userId2", "userId3", "userId4"],
-      imgUrl: [],
-      description:
-        "Experience traditional, organic Roman cuisine with a modern touch in a relaxed, friendly home. Best friends Giovanna and Cristina use family recipes and great wines to make you feel welcome!.",
+      ownerId:{},
       dishes: {
         appetizers: [
           {

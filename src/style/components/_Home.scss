@@ -21,9 +21,9 @@
     color: #555;
     font-family: "Lato", "Arial", sans-serif;
     margin: 0;
-  }
-  
-  .places-to-show h2:after {
+}
+
+.places-to-show h2:after {
     display: block;
     height: 2px;
     background-color: #e67e22;
@@ -31,7 +31,7 @@
     width: 100px;
     margin: 0 auto;
     margin-top: 30px;
-  }
+}
 
 .section-testimonials {
     padding: 40px 0;
@@ -85,6 +85,13 @@
     blockquote {
         margin: 0;
         width: 100%;
+    }
+    .main-filter {
+        display: flex;
+        justify-content: center;
+    }
+    .main-filter-home {
+        right: auto !important;
     }
 }
 

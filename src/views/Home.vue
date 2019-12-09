@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="main-img"></div>
-    <Main-filter></Main-filter>
+    <Main-filter class="main-filter"></Main-filter>
     <div class="sec-section">
       <h1>Top rated meals</h1>
       <div class="cards-container-sec">
