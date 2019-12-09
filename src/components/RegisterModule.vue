@@ -24,14 +24,15 @@
         <span>Birthday*</span>
         <el-date-picker v-model="signupCred.birthDay" value-format="timestamp" type="datetime"></el-date-picker>
       </div>
+      <span>Add profile image</span>
+      <input class="edit-img-input" @change="uploadImg" type="file" />
+
       <span>User Name*</span>
       <el-input v-model="signupCred.username" type="text"></el-input>
       <span>Password*</span>
       <el-input v-model="signupCred.password" placeholder="Please input password" show-password></el-input>
       <span>Reapet Password*</span>
       <el-input v-model="password" placeholder="Please input password" show-password></el-input>
-      <span>add img</span>
-      <input @change="uploadImg" type="file" />
       <el-button class="loginBtn" @click="doSignup" type="success">SingUp</el-button>
     </form>
   </section>

@@ -103,7 +103,7 @@
         </div>
         <h3>Images</h3>
         <div class="inputs-container">
-          <span>add img</span>
+          <span>Add image</span>
           <input class="edit-img-input" @change="uploadImg" type="file" />
         </div>
         <div class="cards-container">
