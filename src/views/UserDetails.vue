@@ -2,9 +2,11 @@
   <section class="userAccount flex" v-if="user">
     <section class="userProfile flex">
       <h1>Hi, {{user.fullname}}</h1>
+      <div class="profile-details-sec">
       <div class="imgUser">
         <el-avatar :size="200" :src="user.imgUrl"></el-avatar>
       </div>
+
       <section class="userDetails flex">
         <span>Name: {{ user.fullname}}</span>
         <!-- <el-input class="mainUserDetails" v-model="user.fullname"></el-input> -->
@@ -23,10 +25,11 @@
         <span>BirthDay: {{birthDaya}}</span>
         <!-- <el-input class="mainUserDetails" v-model="birthDaya"></el-input> -->
         <div class="flex">
-          <el-button type="info" @click="OnYourEvent">your events</el-button>
+          <el-button type="info" @click="OnYourEvent">My events</el-button>
           <el-button type="info" @click="OnGoingEvent" plain>Bookd events</el-button>
         </div>
       </section>
+      </div>
     </section>
     <section class="userMeals">
       <section v-if="meals.length > 0 && createdEvent">
@@ -53,13 +56,12 @@
               </div>
             </div>
           </div>
+          <div class="event-guests">
+            <h2>Event guests</h2>
+            <MealGuest class="myguest" :meal="meal" />
+          </div>
           <hr class="hrUser" />
-            <div>
-              <h2>My guests</h2>
-          <MealGuest class="myguest" :meal="meal" />
         </div>
-        </div>
-      
       </section>
       <div v-if="goingEvents">
         <h2 v-if="user.meals">My Booking Meals</h2>
@@ -81,12 +83,11 @@
 import UserService from "../services/UserService";
 import MealGuest from "@/components/MealGuest.vue";
 export default {
-   components: {
-        MealGuest
-      },
+  components: {
+    MealGuest
+  },
   data() {
     return {
-     
       birthDaya: "20/06/1990",
       createdEvent: true,
       goingEvents: false,
