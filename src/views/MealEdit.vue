@@ -125,57 +125,11 @@ import ImgPreview from "../components/ImgPreview.vue";
 import HttpService from "../services/HttpService.js";
 import MealService from "../services/MealService.js";
 import UserStore from "../store/UserStore.js";
-
+ 
 export default {
   data: () => ({
     address: null,
-    currMeal: {
-      location: {
-        country: "italy",
-        city: "rome"
-
-      },
-      ownerId:{},
-      dishes: {
-        appetizers: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        mains: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        dessert: [
-          {
-            name: "",
-            description: "",
-            count: 2
-          },
-          {
-            name: "",
-            description: "",
-            count: 1
-          }
-        ],
-        drinks: ["Red Wine", "White Wine", "Beer"]
-      }
-    },
+    currMeal: MealService.getDefaultMeal(),
     options: [
       {
         value: "Asian",
@@ -276,7 +230,8 @@ export default {
     },
     uploadImg() {
       CloudService.uploadImg(event).then(res => {
-        if (this.currMeal.imgUrl < 7) {
+        console.log(this.currMeal)
+        if (this.currMeal.imgUrl.length < 7) {
           this.currMeal.imgUrl.push(res.secure_url);
         }
       });
