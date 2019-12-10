@@ -59,6 +59,19 @@ select {
     .inputs-container {
         width: 95%;
     }
+    .edit-form {
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+    }
+    form {
+        .el-textarea__inner {
+            min-width: 200px !important;
+        }
+        .edit-img-input {
+            min-width: 200px !important;
+        }
+    }
 }
 
 h2,
