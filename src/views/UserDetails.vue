@@ -39,7 +39,10 @@
             <img class="img-profile-list" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
             <div class="flex column justify-center">
               <div class="test">
-                <h4>{{meal.title}}</h4>
+                <h4 class="your-meal-title">{{meal.title}}</h4>
+              </div>
+              <div>
+                <h4>{{mealDate(meal._id)}}</h4>
               </div>
               <div class="controlBtn">
                 <router-link :to="'/details/' + meal._id">
@@ -70,7 +73,10 @@
             <router-link class="routerToDetails" :to="'/details/' + userMeal.id">
               <img class="img-profile-list2" v-if="userMeal.img" :src="(userMeal.img)" />
             </router-link>
-            <h4>{{userMeal.name}}</h4>
+            <div class="flex column">
+            <h4 class="name-meal">{{userMeal.name}}</h4>
+            <h4 class="date-meal">{{mealDate(userMeal.id)}} </h4>
+            </div>
           </div>
           <hr />
         </div>
@@ -114,7 +120,10 @@ export default {
       let date = new Date(+this.meal.atDate) + "";
       date = date.substring(3, 10);
       return date;
-    }
+    },
+    allMeals() {
+      return this.$store.getters.mealsToShow;
+    } 
   },
   methods: {
     removeMeal(mealId) {
@@ -127,12 +136,35 @@ export default {
     OnGoingEvent() {
       this.createdEvent = false;
       this.goingEvents = true;
-    }
+    },
+    mealDate(mealId) {
+      let currMeal = this.allMeals.find(meal => meal._id === mealId)
+      let date = new Date(+currMeal.atDate) + "";
+      date = date.substring(3, 10);
+      return date;
+    }  
+
   },
   async created() {
+    this.$store.dispatch("loadMeals");
     const id = this.$route.params._id;
     const user = await UserService.getById(id);
     this.user = user;
+    await console.log(this.allMeals)
   }
 };
 </script>
+
+<style  scoped>  
+  .date-meal{
+    margin: 0;
+  }
+  .your-meal-title{
+    margin-bottom: 10px;
+  }
+  @media(max-width: 600px) {
+    .name-meal {
+        margin-top: 0;
+    }
+}
+</style>
