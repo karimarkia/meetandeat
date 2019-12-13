@@ -2,7 +2,6 @@
   <form @submit.prevent="searchMeals" class="filter-container">
     <div class="searchMeals filter-secodery">
       <el-input @input="searchMeals" placeholder="Search" v-model="filterBy.searchStr"></el-input>
-
       <div :class="{ modal:isShowModal, displayNon:!isShowModal}">
         <div class="block">
           <el-slider v-model="value" range :marks="marks"></el-slider>
