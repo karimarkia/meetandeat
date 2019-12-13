@@ -98,6 +98,11 @@ export default {
         appetizers: null,
         mains: null,
         dessert: null
+      },
+      prevIdx: {
+        appetizers: -1,
+        mains: -1,
+        dessert: -1
       }
     };
   },
@@ -110,11 +115,15 @@ export default {
       if (this.IsFirstClick[typeOfMeal]) {
         Meal.dishes[typeOfMeal][idx].count++;
         this.IsFirstClick[typeOfMeal] = false;
+        this.prevIdx[typeOfMeal] = idx;
       } else {
-        Meal.dishes[typeOfMeal][idx].count += 2;
-        Meal.dishes[typeOfMeal].forEach(element => {
-          element.count--;
-        });
+        Meal.dishes[typeOfMeal][idx].count++;
+        Meal.dishes[typeOfMeal][this.prevIdx[typeOfMeal]].count--;
+        this.prevIdx[typeOfMeal] = idx;
+        // Meal.dishes[typeOfMeal][idx].count += 2;
+        // Meal.dishes[typeOfMeal].forEach(element => {
+        //   element.count--;
+        // });
       }
       SocketService.emit("created", Meal);
       await this.$store.dispatch({ type: "editMeal", currMeal: Meal });
