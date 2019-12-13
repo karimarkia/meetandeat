@@ -17,23 +17,61 @@
 
 .choose {
     width: 100%;
-    text-align: left !important;
-    color: #f56c6c;
-    margin: 10px 0;
-    margin-left: -119px;
+    // text-align: left !important;
+    // color: #f56c6c;
+    // margin: 10px 0;
+    margin-left: 10px;
+    position: absolute;
+    top: 35%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    color: white;
+    // font-size: 20px;
+    width: 130px;
+    // text-align: left;
 }
 
 @media (max-width: 700px) {
     .choose {
-        margin: 0;
-        margin-bottom: 20px;
-        font-size: 30px;
+        margin-left: 50px;
+        // margin-bottom: 20px;
+        // font-size: 30px;
+    }
+    .choose-sticker {
+        margin-left: 40px;
     }
     .count {
         margin-right: 28px;
     }
     div .dish-name {
         margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .choose {
+        margin-left: 50px;
+        position: absolute !important;
+        color: #f56c6c;
+        width: 100%;
+        margin: 0;
+        // margin-bottom: 20px;
+        // font-size: 30px;
+    }
+    .choose-sticker {
+        visibility: hidden;
+        height: 100px;
+        width: 100%;
+    }
+    .choose-your-meal {
+        span {
+            position: absolute;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+        }
+        width: 100%;
+        margin: 0 !important;
     }
 }
 
@@ -47,4 +85,22 @@
 
 .sigend {
     color: #f56c6c;
+}
+
+.choose-your-meal {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    color: white;
+    margin-left: -80px;
+    width: 100%;
+    span {
+        width: 100%;
+        position: absolute;
+        top: 15%;
+    }
+}
+
+.choose-sticker {
+    width: 150px;
 }

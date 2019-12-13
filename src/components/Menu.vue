@@ -1,6 +1,11 @@
 <template>
   <section class="mealMenu2">
-    <h2 class="choose">Choose your dish</h2>
+    <div class="choose-your-meal">
+      <span>
+    <h2 class="choose">    Choose 
+    your dish</h2></span>
+     <img class="choose-sticker"  src="https://res.cloudinary.com/artyompogosov/image/upload/v1576228365/oppra75l3adbpqdayq3u.png" />
+    </div>
     <h1>Menu</h1>
     <div class="dish2">
       <h2>Appetizers</h2>
