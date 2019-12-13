@@ -27,9 +27,3 @@
   </div>
 </template>
 
-
-<style>
-.footer img {
-  height: 80px;
-}
-</style>

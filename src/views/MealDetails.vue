@@ -264,6 +264,7 @@ export default {
     getBookMael() {
       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
       // let user = this.user;
+      if (this.meal.maxUsers <= this.meal.guests.length) return;
       if (!user) {
         this.isLogOut = true;
         return;
@@ -321,7 +322,7 @@ export default {
       const mealId = this.$route.params._id;
       if (!mealId) return;
       this.$store.dispatch({ type: "setCurrMeal", mealId });
-      this.meal
+      this.meal;
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="meal-app">
     <h2>Find unique food experiences with hand-selected hosts</h2>
-    <p>Book now before they sell out!</p>
+    <p>Book now before they sold out!</p>
     <MealFilter />
     <div class="sescrt"></div>
     <MealList :meals="meals"></MealList>

@@ -5,7 +5,7 @@
       :center="center"
       :zoom="13"
       map-type-id="terrain"
-      style="width:100%;margin-bottom: 25px; height: 400px;"
+      style="width:100%;margin-bottom: 25px; height: 400px; margin: 0;  width: 100%;"
     >
       <GmapMarker
         :key="index"
@@ -32,13 +32,5 @@ export default {
       center: { lat: this.location.lat, lng: this.location.lng }
     };
   },
-
-  methods: {}
 };
 </script>
-<style scoped>
-.map {
-  margin: 0;
-  width: 100%;
-}
-</style>
