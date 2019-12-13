@@ -48,6 +48,8 @@ export default ({
         },
         setMainFilter(state, filterBy) {
             state.mainFilter = filterBy;
+            console.log(state.mainFilter);
+
         },
         sortMeals(state, sortBy) {
             state.meals.sort((a, b) => (a.price > b.price ? 1 : -1));
@@ -64,6 +66,7 @@ export default ({
             let filterBy = state.filterBy;
             let mainFilter = state.mainFilter;
             let filteredMeals = [...state.meals];
+            console.log('country', mainFilter);
 
             let regex = new RegExp(mainFilter, 'i');
             if (mainFilter.length !== 0) {
@@ -97,6 +100,9 @@ export default ({
         },
         userMeals(state) {
             return state.userMeals;
+        },
+        mainFilter(state) {
+            return state.mainFilter;
         }
     },
     actions: {

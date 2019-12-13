@@ -9,6 +9,7 @@
     margin: auto;
     max-width: 300px;
     height: 50vh;
+    max-height: 350px;
     color: #484848;
     border-radius: 10px;
     h1 {
@@ -27,6 +28,7 @@
         color: #484848;
         font-size: 12px;
         margin-bottom: 10px;
+        font-family: 'Poppins', sans-serif;
     }
     .searchCity {
         padding-top: 5px;
@@ -39,5 +41,6 @@
         font-size: 17px;
         background-color: #FF385C;
         border-color: #FF385C;
+        font-family: 'Poppins', sans-serif;
     }
 }

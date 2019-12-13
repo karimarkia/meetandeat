@@ -5,11 +5,12 @@
         <router-link to="/">
           <img src="@/img/logo.png" alt="meetandeat logo" class="logo" />
         </router-link>
+        
         <i id="menu-btn" :class="{openMenu:openMenu}" @click="getOpenMenu" class="fa fa-bars"></i>
         <div :class="{openMenu:openMenu }" class="screen" @click="getOpenMenu"></div>
         <ul class="main-nav">
           <li @click="getOpenMenu">
-            <router-link class="route-nav" to="/">Home</router-link>
+            <router-link class="route-nav" to="/meal">All Meals</router-link>
           </li>
           <li @click="getOpenMenu">
             <router-link class="route-nav" to="/about">About</router-link>

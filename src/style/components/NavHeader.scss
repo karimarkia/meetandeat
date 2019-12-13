@@ -7,6 +7,42 @@
     // background-color: #e6e6e657;
 }
 
+.searchCityNav {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    .el-input__inner {
+        position: relative !important;
+        padding-left: 40px !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    input[type=text]::first-letter {
+        text-transform: capitalize !important;
+    }
+}
+
+input[type=text]:focus {
+    border: 1px solid rgb(128, 118, 120);
+}
+
+// .searchCityNav::first-letter {
+//     text-transform: capitalize;
+// }
+.search {
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
+
+.searchIcon {
+    position: absolute !important;
+    text-align: right;
+    z-index: 10;
+    height: 45px !important;
+    margin-left: 10px;
+}
+
 .row-sec {
     display: flex;
     justify-content: space-between;
@@ -28,6 +64,7 @@
     width: auto;
     float: left;
     margin-top: 7px;
+    margin-right: 30px;
 }
 
 
