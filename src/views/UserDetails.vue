@@ -150,7 +150,6 @@ export default {
     const id = this.$route.params._id;
     const user = await UserService.getById(id);
     this.user = user;
-    await console.log(this.allMeals)
   }
 };
 </script>

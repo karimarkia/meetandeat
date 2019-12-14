@@ -1,8 +1,8 @@
 <template>
   <section v-if="meal">
-    <div class="detailsPage flex">
+    <div class="details-page flex">
       <div :class="{ bg:isShowModal}"></div>
-      <section class="mealDetails flex">
+      <section class="meal-details flex">
         <h1>{{meal.title}}</h1>
         <h3>{{meal.location.city}}, {{meal.location.country}}</h3>
       </section>
@@ -26,7 +26,7 @@
       </section>
       <section class="flex mainDetails">
         <div class="description">
-          <section class="moreMealDetails flex">
+          <section class="more-meal-details flex">
             <h4>
               <i class="fa fa-clock-o"></i>
               {{dinnerTime}}
