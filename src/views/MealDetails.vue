@@ -140,13 +140,14 @@
       <section class="whoIsGoing">
         <h2>Who's going?</h2>
         <MealGuest :meal="meal" />
+
         <!-- //chat room -->
         <button class="toggle-chat" @click="toggleChat" v-if="user">Chat Room</button>
 
         <div class="chat" :class="{'display': display}">
-          <button class="close-chat" @click="toggleChat">X</button>
+          <!-- <button class="close-chat" @click="toggleChat">X</button> -->
           <ul>
-            <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}}</li>
+            <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}} <span class="chat-time">{{msg.time}} {{msg.date}}</span></li>
           </ul>
           <div v-if="isType">{{user.username}} is {{this.typing}}</div>
           <form @submit.prevent="sendMsg" class="form-chat">
@@ -212,7 +213,9 @@ export default {
       dateMeal: null,
       msg: {
         from: "",
-        txt: ""
+        txt: "",
+        time: "",
+        date:''
       }
     };
   },
@@ -304,6 +307,8 @@ export default {
     sendMsg() {
       let user = this.$store.getters.loggedinUser;
       this.msg.from = user.username;
+      this.msg.time=Date(Date.now()).substring(16,21)
+      this.msg.date=new Date().toLocaleDateString()
       SocketService.emit("chat newMsg", this.msg);
       this.msg = {};
       this.isType = false;
@@ -332,6 +337,12 @@ export default {
 .form-chat {
   display: flex;
   flex-direction: row-reverse;
+}
+.chat-time{
+ float: right;
+    padding-right: 10px;
+    font-size: 13px;
+    color: #6d6d6d;
 }
 </style>
 
