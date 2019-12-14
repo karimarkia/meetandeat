@@ -76,6 +76,7 @@
             <div class="flex column">
             <h4 class="name-meal">{{userMeal.name}}</h4>
             <h4 class="date-meal">{{mealDate(userMeal.id)}} </h4>
+               <MealGuest class="myguest" :meal="userMeal" />
             </div>
           </div>
           <hr />
