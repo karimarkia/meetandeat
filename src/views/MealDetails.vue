@@ -144,7 +144,7 @@
         <button class="toggle-chat" @click="toggleChat" v-if="user">Chat Room</button>
 
         <div class="chat" :class="{'display': display}">
-          <button class="close-chat" @click="toggleChat">X</button>
+          <!-- <button class="close-chat" @click="toggleChat">X</button> -->
           <ul>
             <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}}</li>
           </ul>
