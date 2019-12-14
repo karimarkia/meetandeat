@@ -7,8 +7,8 @@
           v-if="(meal.maxUsers - meal.guests.length) > 1"
           class="seats-left"
         >{{meal.maxUsers - meal.guests.length}} Seats left</span>
-        <span v-else-if="(meal.maxUsers - meal.guests.length) ===0" class="seats-left">One Seat left</span>
-        <span v-else class="seats-left">Sold out</span>
+        <span v-else-if="(meal.maxUsers - meal.guests.length) === 1" class="seats-left sold-out">One Seat left</span>
+        <span v-else class="seats-left sold-out">Sold out</span>
       </div>
       <div class="card-title">
         <h4>

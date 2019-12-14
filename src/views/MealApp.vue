@@ -19,6 +19,10 @@ export default {
   },
   created() {
     this.$store.dispatch("loadMeals");
+        window.scroll({
+      top: 0,
+      left: 0,
+    });
   },
   computed: {
     meals() {

@@ -18,7 +18,7 @@
     border: 0;
     padding-bottom: 20px;
     border-bottom: 0.5px solid #d4d3d3;
-    cursor: pointer;
+    // cursor: pointer;
     img {
         width: 96%;
         height: 95%;
@@ -59,7 +59,7 @@
     justify-content: flex-start;
     width: 100%;
     padding: 10px;
-    padding-top: 0;
+    padding-top: 10px;
     h4 {
         margin: 0;
         margin-right: 3%;
@@ -193,7 +193,7 @@
         width: 100%;
         display: flex;
         float: left;
-        margin-top: 30px;
+        margin-top: 15px;
     }
     h5 {
         padding-left: 10px;
@@ -407,6 +407,10 @@ p {
     font-size: 1.2rem;
 }
 
+.priceArea {
+    flex-direction: column;
+}
+
 @media(max-width: 840px) {
     .details-page {
         width: 95%;
@@ -475,6 +479,9 @@ p {
         .price-details {
             margin: 0 auto;
             width: 250px !important;
+        }
+        .bell {
+            justify-content: center;
         }
     }
     .dish {
@@ -603,6 +610,16 @@ p {
     .toggle-chat {
         width: 110px !important;
         margin-left: 0 auto !important;
+    }
+}
+
+.bell {
+    padding: 5px;
+    font-size: 14px;
+    align-items: center;
+    color: #F56C6C;
+    .fa {
+        padding-right: 5px;
     }
 }
 

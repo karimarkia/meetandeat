@@ -1,7 +1,7 @@
 <template>
   <section class="places">
     <div class="places-render" v-for="(place, idx) in places" :key="idx">
-      <img :src="place.imgUrl" />
+      <img class="pointer" @click="getMealsByCity(place.title)" :src="place.imgUrl" />
       <h1>{{place.title}}</h1>
       <h4>{{place.desc}}</h4>
     </div>
@@ -39,6 +39,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    getMealsByCity(city) {
+      this.$store.commit("setMainFilter", city);
+      this.$router.push("/meal");
+    }
   }
 };
 </script>
+ 

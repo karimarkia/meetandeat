@@ -39,7 +39,7 @@ input[type=text]:focus {
     position: absolute !important;
     text-align: right;
     z-index: 10;
-    height: 45px !important;
+    height: 40px !important;
     margin-left: 10px;
 }
 
@@ -78,7 +78,7 @@ input[type=text]:focus {
     // margin-top: 30px;
     font-family: "Lato", "Arial", sans-serif;
     font-weight: 300;
-    font-size: 1.2rem;
+    // font-size: 1.2rem;
 }
 
 .main-nav-sec li {
@@ -234,5 +234,14 @@ input[type=text]:focus {
         h2 {
             padding: 0 10px;
         }
+    }
+}
+
+@media (max-width: 970px) {
+    .main-nav-sec {
+        padding-left: 0;
+    }
+    .main-nav-sec li {
+        margin: 10px;
     }
 }

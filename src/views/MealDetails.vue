@@ -1,6 +1,10 @@
 <template>
   <section v-if="meal">
+<<<<<<< HEAD
     <div class="details-page flex">
+=======
+    <div class="detailsPage flex" >
+>>>>>>> ffd28da3dbdbf5871556ecff53259a3c43c4fa6f
       <div :class="{ bg:isShowModal}"></div>
       <section class="meal-details flex">
         <h1>{{meal.title}}</h1>
@@ -10,7 +14,7 @@
         <i class="fa fa-star"></i>
         <span>{{meal.rate}}/5</span>
       </section>
-      <div class="imgs-gallery" @click="getImgGallery">
+      <div class="imgs-gallery" >
         <img
           :data-i="idx"
           class="imgDetails"
@@ -19,12 +23,17 @@
           :src="(img)"
         />
       </div>
+<<<<<<< HEAD
       <section>
         <div>
           <i class="fa fa-user-friends"></i>
         </div>
       </section>
       <section class="flex main-details">
+=======
+ 
+      <section class="flex mainDetails">
+>>>>>>> ffd28da3dbdbf5871556ecff53259a3c43c4fa6f
         <div class="description">
           <section class="more-meal-details flex">
             <h4>
@@ -73,6 +82,11 @@
           <h5 class="owner-name">{{meal.ownerId.name}}</h5>
         </div>
         <div class="price-area flex">
+               <section>
+        <div class="bell flex">
+          <i class="fa fa-bell"></i> 2 people are watching this meal!
+        </div>
+      </section>
           <div v-if="!orderCompleted" class="price-details flex">
             <h1>
               {{meal.price}}$
@@ -140,13 +154,14 @@
       <section class="who-is-going">
         <h2>Who's going?</h2>
         <MealGuest :meal="meal" />
+
         <!-- //chat room -->
         <button class="toggle-chat" @click="toggleChat" v-if="user">Chat Room</button>
 
         <div class="chat" :class="{'display': display}">
-          <button class="close-chat" @click="toggleChat">X</button>
+          <!-- <button class="close-chat" @click="toggleChat">X</button> -->
           <ul>
-            <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}}</li>
+            <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}} <span class="chat-time">{{msg.time}} {{msg.date}}</span></li>
           </ul>
           <div v-if="isType">{{user.username}} is {{this.typing}}</div>
           <form @submit.prevent="sendMsg" class="form-chat">
@@ -177,6 +192,8 @@
       <Map class="location-map" :location="location" />
     </div>
   </section>
+    <div v-else class="lds-dual-ring"></div>
+    <!-- <img src="../img/loading.svg" v-else /> -->
 </template>
 
 <script>
@@ -212,7 +229,9 @@ export default {
       dateMeal: null,
       msg: {
         from: "",
-        txt: ""
+        txt: "",
+        time: "",
+        date:''
       }
     };
   },
@@ -227,11 +246,11 @@ export default {
     });
     SocketService.on("print", msg => {});
 
-    window.scrollTo({
+    window.scroll({
       top: 0,
       left: 0,
-      behavior: "smooth"
     });
+
   },
   computed: {
     meal() {
@@ -304,6 +323,8 @@ export default {
     sendMsg() {
       let user = this.$store.getters.loggedinUser;
       this.msg.from = user.username;
+      this.msg.time=Date(Date.now()).substring(16,21)
+      this.msg.date=new Date().toLocaleDateString()
       SocketService.emit("chat newMsg", this.msg);
       this.msg = {};
       this.isType = false;
@@ -333,5 +354,38 @@ export default {
   display: flex;
   flex-direction: row-reverse;
 }
+.chat-time{
+ float: right;
+    padding-right: 10px;
+    font-size: 13px;
+    color: #6d6d6d;
+}
+.lds-dual-ring {
+  /* display: inline-block; */
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(224, 0, 0);
+  border-color: rgb(238, 5, 5) transparent rgb(202, 20, 20) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 </style>
 
