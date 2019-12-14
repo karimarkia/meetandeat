@@ -125,10 +125,7 @@ export default {
         Meal.dishes[typeOfMeal][idx].count++;
         Meal.dishes[typeOfMeal][this.prevIdx[typeOfMeal]].count--;
         this.prevIdx[typeOfMeal] = idx;
-        // Meal.dishes[typeOfMeal][idx].count += 2;
-        // Meal.dishes[typeOfMeal].forEach(element => {
-        //   element.count--;
-        // });
+
       }
       SocketService.emit("created", Meal);
       await this.$store.dispatch({ type: "editMeal", currMeal: Meal });
