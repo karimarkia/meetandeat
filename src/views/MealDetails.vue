@@ -19,11 +19,7 @@
           :src="(img)"
         />
       </div>
-      <section>
-        <div>
-          <i class="fa fa-user-friends"></i>
-        </div>
-      </section>
+ 
       <section class="flex mainDetails">
         <div class="description">
           <section class="moreMealDetails flex">
@@ -73,6 +69,11 @@
           <h5 class="ownerName">{{meal.ownerId.name}}</h5>
         </div>
         <div class="priceArea flex">
+               <section>
+        <div class="bell flex">
+          <i class="fa fa-bell"></i> 2 people are watching this meal!
+        </div>
+      </section>
           <div v-if="!orderCompleted" class="priceDetails flex">
             <h1>
               {{meal.price}}$

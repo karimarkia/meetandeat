@@ -67,11 +67,15 @@
 }
 
 .seats-left {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
     top: 8px;
     right: 16px;
-    border-radius: 5px;
+    border-radius: 3px;
     font-weight: bold;
-    padding: 2px;
+    padding: 4px;
+}
+
+.sold-out {
+    color: rgb(199, 41, 41);
 }
