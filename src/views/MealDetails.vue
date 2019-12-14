@@ -1,5 +1,5 @@
 <template>
-  <section v-if="meal">
+  <section v-if="isloading && meal">
     <div class="details-page flex">
       <div :class="{ bg:isShowModal}"></div>
       <section class="meal-details flex">
@@ -10,7 +10,7 @@
         <i class="fa fa-star"></i>
         <span>{{meal.rate}}/5</span>
       </section>
-      <div class="imgs-gallery" >
+      <div class="imgs-gallery">
         <img
           :data-i="idx"
           class="imgDetails"
@@ -19,7 +19,7 @@
           :src="(img)"
         />
       </div>
- 
+
       <section class="flex main-details">
         <div class="description">
           <section class="more-meal-details flex">
@@ -69,11 +69,11 @@
           <h5 class="owner-name">{{meal.ownerId.name}}</h5>
         </div>
         <div class="price-area flex">
-               <section>
-        <div class="bell flex">
-          <i class="fa fa-bell"></i> 2 people are watching this meal!
-        </div>
-      </section>
+          <section>
+            <div class="bell flex">
+              <i class="fa fa-bell"></i> 2 people are watching this meal!
+            </div>
+          </section>
           <div v-if="!orderCompleted" class="price-details flex">
             <h1>
               {{meal.price}}$
@@ -104,7 +104,12 @@
                 <span class="total-price">{{numOfGust * meal.price}}$</span>
               </h3>
             </div>
-            <el-button class="join-to-meal" @click="getBookMael" type="primary" round>Reserve My Place</el-button>
+            <el-button
+              class="join-to-meal"
+              @click="getBookMael"
+              type="primary"
+              round
+            >Reserve My Place</el-button>
           </div>
           <transition name="flip" mode="out-in">
             <div v-if="orderCompleted" class="price-details flex">
@@ -148,7 +153,10 @@
         <div class="chat" :class="{'display': display}">
           <!-- <button class="close-chat" @click="toggleChat">X</button> -->
           <ul>
-            <li v-for="(msg, idx) in msgs" :key="idx">{{msg.from}} : {{msg.txt}} <span class="chat-time">{{msg.time}} {{msg.date}}</span></li>
+            <li v-for="(msg, idx) in msgs" :key="idx">
+              {{msg.from}} : {{msg.txt}}
+              <span class="chat-time">{{msg.time}} {{msg.date}}</span>
+            </li>
           </ul>
           <div v-if="isType">{{user.username}} is {{this.typing}}</div>
           <form @submit.prevent="sendMsg" class="form-chat">
@@ -179,8 +187,8 @@
       <Map class="location-map" :location="location" />
     </div>
   </section>
-    <div v-else class="lds-dual-ring"></div>
-    <!-- <img src="../img/loading.svg" v-else /> -->
+  <div v-else class="lds-dual-ring"></div>
+  <!-- <img src="../img/loading.svg" v-else /> -->
 </template>
 
 <script>
@@ -218,11 +226,13 @@ export default {
         from: "",
         txt: "",
         time: "",
-        date:''
-      }
+        date: ""
+      },
+      isloading: false
     };
   },
   created() {
+    setTimeout(() => (this.isloading = !this.isloading), 2000);
     this.$store.dispatch("loadMeals");
     const mealId = this.$route.params._id;
     if (!mealId) return;
@@ -235,9 +245,10 @@ export default {
 
     window.scroll({
       top: 0,
-      left: 0,
+      left: 0
     });
 
+    
   },
   computed: {
     meal() {
@@ -310,8 +321,8 @@ export default {
     sendMsg() {
       let user = this.$store.getters.loggedinUser;
       this.msg.from = user.username;
-      this.msg.time=Date(Date.now()).substring(16,21)
-      this.msg.date=new Date().toLocaleDateString()
+      this.msg.time = Date(Date.now()).substring(16, 21);
+      this.msg.date = new Date().toLocaleDateString();
       SocketService.emit("chat newMsg", this.msg);
       this.msg = {};
       this.isType = false;
@@ -341,24 +352,27 @@ export default {
   display: flex;
   flex-direction: row-reverse;
 }
-.chat-time{
- float: right;
-    padding-right: 10px;
-    font-size: 13px;
-    color: #6d6d6d;
+.chat-time {
+  float: right;
+  padding-right: 10px;
+  font-size: 13px;
+  color: #6d6d6d;
 }
 .lds-dual-ring {
   /* display: inline-block; */
   width: 80px;
   height: 80px;
+
   margin: 0 auto;
+  margin-top: 10%;
 }
 .lds-dual-ring:after {
+margin-top: 20%;
   content: " ";
   display: block;
   width: 150px;
   height: 150px;
-  margin: 8px;
+  /* margin: 8px; */
   border-radius: 50%;
   border: 6px solid rgb(224, 0, 0);
   border-color: rgb(238, 5, 5) transparent rgb(202, 20, 20) transparent;
@@ -372,7 +386,5 @@ export default {
     transform: rotate(360deg);
   }
 }
-
-
 </style>
 

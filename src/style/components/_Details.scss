@@ -455,6 +455,10 @@ p {
     // }
 }
 
+.price-area {
+    flex-direction: column;
+}
+
 // @media(max-width:500px) {
 //     .price-area {
 //         width: 100%;

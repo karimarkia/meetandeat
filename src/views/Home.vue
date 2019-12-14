@@ -8,8 +8,7 @@
         <MealPreview
           class="sec"
           v-for="(meal,idx) in meals"
-          v-if="idx <= 3"
-          :key="meal._id"
+          :key="idx"
           :meal="meal"
         ></MealPreview>
       </div>
@@ -66,7 +65,11 @@ export default {
   name: "home",
   computed: {
     meals() {
-      return this.$store.getters.mealsToShow;
+      let mealsToShow =this.$store.getters.mealsToShow;
+
+      return mealsToShow.filter(meal =>{
+        return meal._id === "5de294c866c3ef0792a5a8c4" || meal._id === "5de294c866c3ef0792a5a8bd" || meal._id === "5de294c866c3ef0792a5a8b4" || meal._id === "5de294c866c3ef0792a5a8b7" 
+      })
     }
   },
   components: {
