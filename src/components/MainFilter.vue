@@ -8,7 +8,7 @@
       </div>
       <div>
         <router-link to="/meal">
-          <el-button class="main-search" type="success">Search</el-button>
+          <el-button class="main-search" @click="getFilter" type="success">Search</el-button>
         </router-link>
       </div>
     </form>
@@ -25,6 +25,8 @@ export default {
   },
   methods: {
     getFilter() {
+      console.log(this.filterBy);
+      
       this.$store.commit("setMainFilter", this.filterBy);
       this.$router.push("/meal");
     }

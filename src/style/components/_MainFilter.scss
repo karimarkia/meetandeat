@@ -4,19 +4,21 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 25%;
+    top: 30%;
     right: 13%;
     margin: auto;
     max-width: 300px;
     height: 50vh;
+    max-height: 300px;
     color: #484848;
     border-radius: 10px;
     h1 {
         margin: 0;
         font-size: 1.5rem;
-        text-align: center;
+        // text-align: center;
         letter-spacing: 0.5px;
         font-family: 'Poppins', sans-serif;
+        padding-left: 25px;
     }
     h4 {
         color: #bdb2b2;
@@ -24,12 +26,17 @@
         margin-bottom: 10px;
     }
     .where {
-        color: #484848;
+        color: #3d3d3d;
         font-size: 12px;
         margin-bottom: 10px;
+        font-family: 'Poppins', sans-serif;
     }
     .searchCity {
         padding-top: 5px;
+         ::placeholder {
+            color: #3d3d3d;
+            font-family: 'Poppins', sans-serif;
+        }
     }
     input[type=text]:focus {
         border: 1px solid rgb(128, 118, 120);
@@ -39,5 +46,6 @@
         font-size: 17px;
         background-color: #FF385C;
         border-color: #FF385C;
+        font-family: 'Poppins', sans-serif;
     }
 }
