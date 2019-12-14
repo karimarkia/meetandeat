@@ -237,7 +237,6 @@ export default {
     const mealId = this.$route.params._id;
     if (!mealId) return;
     this.$store.dispatch({ type: "setCurrMeal", mealId });
-
     SocketService.on("chat addMsg", msg => {
       this.msgs.push(msg);
     });
