@@ -228,11 +228,12 @@ export default {
     });
     SocketService.on("print", msg => {});
 
-    window.scrollTo({
+    window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth"
     });
+
   },
   computed: {
     meal() {
