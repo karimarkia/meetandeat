@@ -4,7 +4,7 @@
       <h1>Book unforgettable culinary experiences</h1>
       <div>
         <span class="where">WHERE</span>
-        <el-input class="searchCity" type="text" placeholder="Anywhere..." v-model="filterBy"></el-input>
+        <el-input class="search-city" type="text" placeholder="Anywhere..." v-model="filterBy"></el-input>
       </div>
       <div>
         <router-link to="/meal">

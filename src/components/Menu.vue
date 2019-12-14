@@ -1,5 +1,5 @@
 <template>
-  <section class="mealMenu2">
+  <section class="meal-menu2">
     <div class="choose-your-meal">
       <span>
     <h2 class="choose">    Choose 

@@ -1,5 +1,5 @@
 <template>
-  <section class="whoGoing" v-if="user">
+  <section class="who-going" v-if="user">
     <div class="review">
       <el-avatar class="revieimg" :size="50" :src="user.imgUrl"></el-avatar>
       <div class="guest">

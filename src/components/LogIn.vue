@@ -6,7 +6,7 @@
       <el-input v-model="loginUser.username" type="text"></el-input>
       <span>Password*</span>
       <el-input v-model="loginUser.password" placeholder="Please input password" show-password></el-input>
-      <el-button class="loginBtn" @click="doLogin" type="success">LogIn</el-button>
+      <el-button class="login-btn" @click="doLogin" type="success">LogIn</el-button>
     </form>
   </section>
 </template>

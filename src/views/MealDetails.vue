@@ -6,7 +6,7 @@
         <h1>{{meal.title}}</h1>
         <h3>{{meal.location.city}}, {{meal.location.country}}</h3>
       </section>
-      <section class="hostReview flex">
+      <section class="host-review flex">
         <i class="fa fa-star"></i>
         <span>{{meal.rate}}/5</span>
       </section>
@@ -24,7 +24,7 @@
           <i class="fa fa-user-friends"></i>
         </div>
       </section>
-      <section class="flex mainDetails">
+      <section class="flex main-details">
         <div class="description">
           <section class="more-meal-details flex">
             <h4>
@@ -44,36 +44,36 @@
             <div class="block">
               <el-carousel :interval="4000" type="card" height="400px">
                 <el-carousel-item v-for="(img , idx) in meal.imgUrl" :key="idx">
-                  <img :data-i="idx" class="imgtest" :src="(img)" />
+                  <img :data-i="idx" class="img-test" :src="(img)" />
                 </el-carousel-item>
               </el-carousel>
             </div>
             <div class="modalBtn flex">
-              <button class="pricerange sortPrice" @click="getImgGallery">Close</button>
+              <button class="pricerange sort-price" @click="getImgGallery">Close</button>
             </div>
           </div>
           <div :class="{ modalOrder:isShowModal, displayNon:!isShowModal}">
             <div class="join-modal">
               <h2>Thank you for joining!!!</h2>
               <h2>Your order number: 143562</h2>
-              <button class="pricerange sortPrice" @click="closeOrder">Close</button>
-              <!-- <button class="pricerange sortPrice" @click="sortMeals">Save</button> -->
+              <button class="pricerange sort-price" @click="closeOrder">Close</button>
+              <!-- <button class="pricerange sort-price" @click="sortMeals">Save</button> -->
             </div>
           </div>
           <div :class="{ modalOrder:isLogOut, displayNon:!isLogOut}">
             <div class="err-modal">
               <h2>Sorry Please Login to join the meal!!!</h2>
-              <button class="pricerange sortPrice" @click="closeError">Close</button>
+              <button class="pricerange sort-price" @click="closeError">Close</button>
             </div>
           </div>
           <h3>A word about the experience</h3>
           <p>{{meal.description}}</p>
           <p>{{meal.ownerId.about}}</p>
 
-          <h5 class="ownerName">{{meal.ownerId.name}}</h5>
+          <h5 class="owner-name">{{meal.ownerId.name}}</h5>
         </div>
-        <div class="priceArea flex">
-          <div v-if="!orderCompleted" class="priceDetails flex">
+        <div class="price-area flex">
+          <div v-if="!orderCompleted" class="price-details flex">
             <h1>
               {{meal.price}}$
               <span>Price per guest</span>
@@ -83,7 +83,7 @@
               <el-input class="meal-date" v-model="mealDate"></el-input>
             </div>
             <div>
-              <div class="numGust">Number of guests</div>
+              <div class="num-gust">Number of guests</div>
               <el-input-number
                 class="guest-input"
                 v-model="numOfGust"
@@ -94,21 +94,21 @@
             </div>
             <div class="payment">
               <h3 class="total">Total</h3>
-              <h3 class="totalAmount" v-if="numOfGust > 1">
+              <h3 class="total-amount" v-if="numOfGust > 1">
                 <span>{{numOfGust}} guests x {{meal.price}}$</span>
-                <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+                <span class="total-price">{{numOfGust * meal.price}}$</span>
               </h3>
-              <h3 class="totalAmount" v-else>
+              <h3 class="total-amount" v-else>
                 <span>{{numOfGust}} guest x {{meal.price}}$</span>
-                <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+                <span class="total-price">{{numOfGust * meal.price}}$</span>
               </h3>
             </div>
-            <el-button class="joinToMeal" @click="getBookMael" type="primary" round>Reserve My Place</el-button>
+            <el-button class="join-to-meal" @click="getBookMael" type="primary" round>Reserve My Place</el-button>
           </div>
           <transition name="flip" mode="out-in">
-            <div v-if="orderCompleted" class="priceDetails flex">
+            <div v-if="orderCompleted" class="price-details flex">
               <div class="orderNum">
-                <div class="orderBy">Dear {{user.username}} ,</div>
+                <div class="order-by">Dear {{user.username}} ,</div>
                 <div>Thank you for your order!</div>
                 <div class="order-num">Order number is: #1472584963</div>
               </div>
@@ -118,18 +118,18 @@
                 <div>At: {{dinnerTime}} , {{mealDate}}</div>
                 <div class="paymentTotal">
                   <h3 class="total">Total</h3>
-                  <h3 v-if="numOfGust > 1" class="totalAmount">
+                  <h3 v-if="numOfGust > 1" class="total-amount">
                     <span>{{numOfGust}} guests x {{meal.price}}$</span>
-                    <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+                    <span class="total-price">{{numOfGust * meal.price}}$</span>
                   </h3>
-                  <h3 v-else class="totalAmount">
+                  <h3 v-else class="total-amount">
                     <span>{{numOfGust}} guest x {{meal.price}}$</span>
-                    <span class="totalPrice">{{numOfGust * meal.price}}$</span>
+                    <span class="total-price">{{numOfGust * meal.price}}$</span>
                   </h3>
                 </div>
               </div>
               <router-link class="back-to-meals" to="/meal">
-                <el-button class="joinToMeal" type="primary" round>Find your next meal</el-button>
+                <el-button class="join-to-meal" type="primary" round>Find your next meal</el-button>
               </router-link>
               <div></div>
             </div>
@@ -137,7 +137,7 @@
         </div>
       </section>
       <Menu :meal="meal" />
-      <section class="whoIsGoing">
+      <section class="who-is-going">
         <h2>Who's going?</h2>
         <MealGuest :meal="meal" />
         <!-- //chat room -->
@@ -162,19 +162,19 @@
         </div>
       </section>
 
-      <section class="reviewArea">
+      <section class="review-area">
         <h2>
           <i class="fa fa-star"></i>
           {{meal.rate}} (23 reviews)
         </h2>
         <Reviews />
       </section>
-      <div class="mapdetails">
+      <div class="map-details">
         <h4>Location</h4>
 
         <h5>The full address will be provided once the booking is confirmed</h5>
       </div>
-      <Map class="locationMap" :location="location" />
+      <Map class="location-map" :location="location" />
     </div>
   </section>
 </template>

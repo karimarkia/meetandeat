@@ -1,10 +1,10 @@
 <template>
   <section v-if="reviews" class="main-review-container flex">
-    <section class="reviewsSection">
+    <section class="reviews-section">
       <div class="reviews" v-for="(review , idx) in reviews" :key="idx">
         <div class="review">
           <el-avatar class="revieimg" :size="50" :src="review.byUser.imgUrl"></el-avatar>
-          <div class="reviewBy">
+          <div class="review-by">
             <h4>
               {{review.byUser.username}}
               <span>{{ (new Date(review.date) + "").substring(4, 15)}}</span>

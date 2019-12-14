@@ -67,7 +67,7 @@
     }
 }
 
-.mainDetails {
+.main-details {
     padding-bottom: 30px;
     min-height: 400px;
     justify-content: space-between;
@@ -96,17 +96,17 @@
     grid-area: e;
 }
 
-.locationMap {
+.location-map {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.reviewArea {
+.review-area {
     width: 100%;
     border-top: 0.5px solid #d4d3d3;
 }
 
-.priceDetails {
+.price-details {
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
@@ -122,7 +122,7 @@
         color: rgb(37, 37, 37);
         margin: 0;
     }
-    .totalAmount {
+    .total-amount {
         display: flex;
         justify-content: space-between;
         padding-top: 5px;
@@ -133,7 +133,7 @@
         border-bottom: 0.5px solid #d4d3d3;
         padding-bottom: 5px;
     }
-    .totalPrice {
+    .total-price {
         color: rgb(37, 37, 37);
         font-size: 1.2rem;
     }
@@ -144,7 +144,7 @@
         font-size: 1rem;
         color: rgb(113, 113, 113)
     }
-    button.joinToMeal {
+    button.join-to-meal {
         width: 100%;
         max-width: 250px;
         background-color: #F56C6C;
@@ -157,7 +157,7 @@
             font-size: 1.1rem;
         }
     }
-    .numGust {
+    .num-gust {
         padding-bottom: 5px;
     }
     .guest-input {
@@ -177,7 +177,7 @@
     }
 }
 
-.orderBy {
+.order-by {
     font-weight: bold;
 }
 
@@ -204,7 +204,7 @@
     }
 }
 
-.mealMenu {
+.meal-menu {
     border-top: 0.5px solid #d4d3d3;
     width: 100%;
     h1 {
@@ -300,11 +300,11 @@ p {
     padding: 10px;
 }
 
-.locationMap {
+.location-map {
     margin-bottom: 20px;
 }
 
-.mapdetails {
+.map-details {
     border: 0;
     border-top: 0.5px solid #d4d3d3;
     margin: 5px;
@@ -312,7 +312,7 @@ p {
     width: 100%;
 }
 
-.imgtest {
+.img-test {
     display: flex;
     width: 100%;
     height: 100%;
@@ -321,7 +321,7 @@ p {
     // height: 100%;
 }
 
-.reviewArea {
+.review-area {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -331,7 +331,7 @@ p {
     }
 }
 
-.hostReview {
+.host-review {
     width: 100%;
     float: left;
     padding-left: 5px;
@@ -388,7 +388,7 @@ p {
     left: 0;
 }
 
-.whoIsGoing {
+.who-is-going {
     width: 100%;
     padding-bottom: 20px;
     border-top: 0.5px solid #d4d3d3;
@@ -402,7 +402,7 @@ p {
     // }
 }
 
-.ownerName {
+.owner-name {
     font-family: 'Caveat' !important;
     font-size: 1.2rem;
 }
@@ -440,28 +440,28 @@ p {
             padding: 0;
         }
     }
-    .priceArea {
+    .price-area {
         width: 40%;
-        .priceDetails {
+        .price-details {
             width: 100%;
         }
     }
-    // .mainDetails{
+    // .main-details{
     //     flex-direction: column;
     // }
 }
 
 // @media(max-width:500px) {
-//     .priceArea {
+//     .price-area {
 //         width: 100%;
-//         .priceDetails {
+//         .price-details {
 //             margin: 0 auto;
 //             width: 250px !important;
 //         }
 //     }
 // }
 @media(max-width: 650px) {
-    .mainDetails {
+    .main-details {
         flex-direction: column;
     }
     .description {
@@ -470,9 +470,9 @@ p {
         margin: auto;
         text-align: left;
     }
-    .priceArea {
+    .price-area {
         width: 100%;
-        .priceDetails {
+        .price-details {
             margin: 0 auto;
             width: 250px !important;
         }
@@ -541,10 +541,10 @@ p {
 }
 
 @media(max-width: 500px) {
-    .priceArea {
+    .price-area {
         width: 100%;
     }
-    .mealMenu2 {
+    .meal-menu2 {
         width: 90%;
         div {
             .drinks {
@@ -553,7 +553,7 @@ p {
             }
         }
     }
-    .reviewArea {
+    .review-area {
         h2 {
             margin-left: 0 !important;
         }
@@ -563,7 +563,7 @@ p {
         grid-template-columns: 50% 50% !important;
         // margin: 10px;
     }
-    .whoIsGoing {
+    .who-is-going {
         // width: 100%;
         display: flex;
         flex-direction: column;
@@ -582,14 +582,14 @@ p {
     .write-new-review {
         // margin-left: 10px;
     }
-    .reviewsSection {
+    .reviews-section {
         grid-template-columns: 100% !important;
         padding-left: 20px;
     }
 }
 
 @media(max-width: 700px) {
-    .mealMenu2 {
+    .meal-menu2 {
         width: 90% !important;
         margin: 7px auto !important;
     }
@@ -608,7 +608,7 @@ p {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////@at-root
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-.mealMenu2 {
+.meal-menu2 {
     width: 60vw;
     margin: 20px auto;
     h1 {

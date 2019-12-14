@@ -7,8 +7,8 @@
           <el-slider v-model="value" range :marks="marks"></el-slider>
         </div>
         <div class="modalBtn flex">
-          <button class="pricerange sortPrice" @click="ClosePriceRange">Close</button>
-          <button class="pricerange sortPrice" @click="getFiltredByPrice">Save</button>
+          <button class="pricerange sort-price" @click="ClosePriceRange">Close</button>
+          <button class="pricerange sort-price" @click="getFiltredByPrice">Save</button>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
     <div class="filter-secodery">
-      <button class="sortPrice" @click="priceRange">Price</button>
+      <button class="sort-price" @click="priceRange">Price</button>
     </div>
   </form>
 </template>

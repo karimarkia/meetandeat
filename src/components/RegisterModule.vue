@@ -33,7 +33,7 @@
       <el-input v-model="signupCred.password" placeholder="Please input password" show-password></el-input>
       <span>Reapet Password*</span>
       <el-input v-model="password" placeholder="Please input password" show-password></el-input>
-      <el-button class="loginBtn" @click="doSignup" type="success">SingUp</el-button>
+      <el-button class="login-btn" @click="doSignup" type="success">SingUp</el-button>
     </form>
   </section>
 </template>

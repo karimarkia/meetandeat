@@ -1,7 +1,7 @@
 <template>
   <section class="meal-card" v-if="meal">
-    <router-link class="routerToDetails" :to="'/details/' + meal._id">
-      <div class="imgContainer">
+    <router-link class="router-to-details" :to="'/details/' + meal._id">
+      <div class="img-container">
         <img class="img-card img-card2 ratio-16-9" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
         <span
           v-if="(meal.maxUsers - meal.guests.length) > 1"
@@ -10,7 +10,7 @@
         <span v-else-if="(meal.maxUsers - meal.guests.length) ===0" class="seats-left">One Seat left</span>
         <span v-else class="seats-left">Sold out</span>
       </div>
-      <div class="cardTitle">
+      <div class="card-title">
         <h4>
           Dinner in {{meal.location.city}}
           <span>{{mealDate}}</span>

@@ -1,29 +1,29 @@
 <template>
-  <section class="userAccount flex" v-if="user">
-    <section class="userProfile flex">
+  <section class="user-account flex" v-if="user">
+    <section class="user-profile flex">
       <h1>Hi, {{user.fullname}}</h1>
       <div class="profile-details-sec">
-      <div class="imgUser">
+      <div class="img-user">
         <el-avatar :size="200" :src="user.imgUrl"></el-avatar>
       </div>
 
-      <section class="userDetails flex">
+      <section class="user-details flex">
         <span>Name: {{ user.fullname}}</span>
-        <!-- <el-input class="mainUserDetails" v-model="user.fullname"></el-input> -->
+        <!-- <el-input class="main-user-details" v-model="user.fullname"></el-input> -->
         <span>Email: {{user.email}}</span>
-        <!-- <el-input class="mainUserDetails" v-model="user.email"></el-input> -->
+        <!-- <el-input class="main-user-details" v-model="user.email"></el-input> -->
         <span>Country: {{user.location.country}}</span>
         <!-- <el-input
           v-if="user.location.country"
-          class="mainUserDetails"
+          class="main-user-details"
           v-model="user.location.country"
         ></el-input>-->
         <span>City: {{user.location.city}}</span>
-        <!-- <el-input v-if="user.location.city" class="mainUserDetails" v-model="user.location.city"></el-input> -->
+        <!-- <el-input v-if="user.location.city" class="main-user-details" v-model="user.location.city"></el-input> -->
         <span>Gender: {{user.gender}}</span>
-        <!-- <el-input class="mainUserDetails" v-model="user.gender"></el-input> -->
+        <!-- <el-input class="main-user-details" v-model="user.gender"></el-input> -->
         <span>BirthDay: {{birthDaya}}</span>
-        <!-- <el-input class="mainUserDetails" v-model="birthDaya"></el-input> -->
+        <!-- <el-input class="main-user-details" v-model="birthDaya"></el-input> -->
         <div class="flex">
           <el-button type="info" @click="OnYourEvent">My events</el-button>
           <el-button type="info" @click="OnGoingEvent" plain>Bookd events</el-button>
@@ -31,11 +31,11 @@
       </section>
       </div>
     </section>
-    <section class="userMeals">
+    <section class="user-meals">
       <section v-if="meals.length > 0 && createdEvent">
         <h2 v-if="meals">My Events</h2>
         <div v-for="(meal, idx) in meals" :key="idx">
-          <div class="myMeal flex">
+          <div class="my-meal flex">
             <img class="img-profile-list" v-if="meal.imgUrl" :src="(meal.imgUrl[0])" />
             <div class="flex column justify-center">
               <div class="test">
@@ -44,7 +44,7 @@
               <div>
                 <h4>{{mealDate(meal._id)}}</h4>
               </div>
-              <div class="controlBtn">
+              <div class="control-btn">
                 <router-link :to="'/details/' + meal._id">
                   <el-button class="events-profile-btn" type="danger">DETAILS</el-button>
                 </router-link>
@@ -63,14 +63,14 @@
             <h2>Event guests</h2>
             <MealGuest class="myguest" :meal="meal" />
           </div>
-          <hr class="hrUser" />
+          <hr class="hr-user" />
         </div>
       </section>
       <div v-if="goingEvents">
         <h2 v-if="user.meals">My Booking Meals</h2>
         <div v-for="(userMeal, idx) in userMeals" :key="idx">
-          <div class="bookedMeals">
-            <router-link class="routerToDetails" :to="'/details/' + userMeal.id">
+          <div class="booked-meals">
+            <router-link class="router-to-details" :to="'/details/' + userMeal.id">
               <img class="img-profile-list2" v-if="userMeal.img" :src="(userMeal.img)" />
             </router-link>
             <div class="flex column">
