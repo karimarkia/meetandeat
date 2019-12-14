@@ -3,7 +3,7 @@
     <GmapMap
       class="map"
       :center="center"
-      :zoom="13"
+      :zoom="14"
       map-type-id="terrain"
       style="width:100%;margin-bottom: 25px; height: 400px; margin: 0;  width: 100%;"
     >

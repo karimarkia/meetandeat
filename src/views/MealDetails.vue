@@ -10,7 +10,7 @@
         <i class="fa fa-star"></i>
         <span>{{meal.rate}}/5</span>
       </section>
-      <div class="imgs-gallery" @click="getImgGallery">
+      <div class="imgs-gallery" >
         <img
           :data-i="idx"
           class="imgDetails"
