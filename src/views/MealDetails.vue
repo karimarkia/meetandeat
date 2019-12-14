@@ -1,10 +1,6 @@
 <template>
   <section v-if="meal">
-<<<<<<< HEAD
     <div class="details-page flex">
-=======
-    <div class="detailsPage flex" >
->>>>>>> ffd28da3dbdbf5871556ecff53259a3c43c4fa6f
       <div :class="{ bg:isShowModal}"></div>
       <section class="meal-details flex">
         <h1>{{meal.title}}</h1>
@@ -23,17 +19,8 @@
           :src="(img)"
         />
       </div>
-<<<<<<< HEAD
-      <section>
-        <div>
-          <i class="fa fa-user-friends"></i>
-        </div>
-      </section>
-      <section class="flex main-details">
-=======
  
-      <section class="flex mainDetails">
->>>>>>> ffd28da3dbdbf5871556ecff53259a3c43c4fa6f
+      <section class="flex main-details">
         <div class="description">
           <section class="more-meal-details flex">
             <h4>
