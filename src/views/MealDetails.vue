@@ -1,6 +1,6 @@
 <template>
   <section v-if="meal">
-    <div class="detailsPage flex">
+    <div class="detailsPage flex" >
       <div :class="{ bg:isShowModal}"></div>
       <section class="mealDetails flex">
         <h1>{{meal.title}}</h1>
@@ -179,6 +179,8 @@
       <Map class="locationMap" :location="location" />
     </div>
   </section>
+    <div v-else class="lds-dual-ring"></div>
+    <!-- <img src="../img/loading.svg" v-else /> -->
 </template>
 
 <script>
@@ -345,5 +347,32 @@ export default {
     font-size: 13px;
     color: #6d6d6d;
 }
+.lds-dual-ring {
+  /* display: inline-block; */
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(224, 0, 0);
+  border-color: rgb(238, 5, 5) transparent rgb(202, 20, 20) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 </style>
 
