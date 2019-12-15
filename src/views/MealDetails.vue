@@ -232,7 +232,7 @@ export default {
     };
   },
   created() {
-    setTimeout(() => (this.isloading = !this.isloading), 2000);
+    setTimeout(() => (this.isloading = !this.isloading), 1250);
     this.$store.dispatch("loadMeals");
     const mealId = this.$route.params._id;
     if (!mealId) return;

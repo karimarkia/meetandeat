@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-        setTimeout(() => (this.isloading = !this.isloading), 2000);
+        setTimeout(() => (this.isloading = !this.isloading), 1250);
     this.$store.dispatch("loadMeals");
         window.scroll({
       top: 0,
