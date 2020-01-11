@@ -14,10 +14,10 @@ export default {
     return {
       places: [
         {
-          title: "London",
+          title: "Tel Aviv",
           imgUrl:
-            "https://res.cloudinary.com/dcugyfvrr/image/upload/v1575452706/samples/55425108_re2m0j.jpg",
-          desc: "Get a taste of the unique culinary scene in London"
+            "https://res.cloudinary.com/artyompogosov/image/upload/v1578690945/ptdaqnuwdw0nraosg7p4.jpg",
+          desc: "Get a taste of the unique culinary scene in Tel Aviv"
         },
         {
           title: "New York",

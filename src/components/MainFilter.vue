@@ -25,8 +25,6 @@ export default {
   },
   methods: {
     getFilter() {
-      console.log(this.filterBy);
-      
       this.$store.commit("setMainFilter", this.filterBy);
       this.$router.push("/meal");
     }

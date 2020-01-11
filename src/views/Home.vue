@@ -5,12 +5,7 @@
     <div class="sec-section">
       <h1>Top rated meals</h1>
       <div class="cards-container-sec">
-        <MealPreview
-          class="sec"
-          v-for="(meal,idx) in meals"
-          :key="idx"
-          :meal="meal"
-        ></MealPreview>
+        <MealPreview class="sec" v-for="(meal,idx) in meals" :key="idx" :meal="meal"></MealPreview>
       </div>
     </div>
 
@@ -63,13 +58,24 @@ import MealPreview from "../components/MealPreview.vue";
 import PlacesCmp from "@/views/PlacesCmp.vue";
 export default {
   name: "home",
+  data() {
+    return {
+      filterBy: ""
+    };
+  },
   computed: {
     meals() {
-      let mealsToShow =this.$store.getters.mealsToShow;
+      this.$store.commit("setMainFilter", this.filterBy);
+      let mealsToShow = this.$store.getters.mealsToShow;
 
-      return mealsToShow.filter(meal =>{
-        return meal._id === "5de294c866c3ef0792a5a8c4" || meal._id === "5de294c866c3ef0792a5a8bd" || meal._id === "5de294c866c3ef0792a5a8b4" || meal._id === "5de294c866c3ef0792a5a8b7" 
-      })
+      return mealsToShow.filter(meal => {
+        return (
+          meal._id === "5de294c866c3ef0792a5a8c4" ||
+          meal._id === "5de294c866c3ef0792a5a8bd" ||
+          meal._id === "5de294c866c3ef0792a5a8b4" ||
+          meal._id === "5de294c866c3ef0792a5a8b7"
+        );
+      });
     }
   },
   components: {
@@ -79,3 +85,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.sec {
+  display: flex;
+}
+</style>

@@ -246,8 +246,6 @@ export default {
       top: 0,
       left: 0
     });
-
-    
   },
   computed: {
     meal() {
@@ -366,7 +364,7 @@ export default {
   margin-top: 10%;
 }
 .lds-dual-ring:after {
-margin-top: 20%;
+  margin-top: 20%;
   content: " ";
   display: block;
   width: 150px;
@@ -383,6 +381,12 @@ margin-top: 20%;
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 500px) {
+  .lds-dual-ring {
+    /* display: inline-block; */
+    width: 160px;
   }
 }
 </style>
